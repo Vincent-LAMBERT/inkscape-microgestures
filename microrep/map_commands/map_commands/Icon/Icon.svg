@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="50mm"
+   height="20mm"
+   viewBox="0 0 50 20"
+   version="1.1"
+   id="svg2910"
+   sodipodi:docname="Icon.svg"
+   inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview2912"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#505050"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="5.6568545"
+     inkscape:cx="56.745317"
+     inkscape:cy="39.686366"
+     inkscape:window-width="1440"
+     inkscape:window-height="890"
+     inkscape:window-x="-6"
+     inkscape:window-y="-6"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer2" />
+  <defs
+     id="defs2907">
+    <rect
+       x="69.5"
+       y="53.5"
+       width="65.25"
+       height="39.25"
+       id="rect3810" />
+    <rect
+       x="69.5"
+       y="53.5"
+       width="86"
+       height="16.125"
+       id="rect3810-3" />
+    <rect
+       x="69.5"
+       y="53.5"
+       width="74.442388"
+       height="23.870428"
+       id="rect3911" />
+    <rect
+       x="69.5"
+       y="53.5"
+       width="74.44239"
+       height="23.870428"
+       id="rect3911-9" />
+    <rect
+       x="69.5"
+       y="53.5"
+       width="65.25"
+       height="39.25"
+       id="rect2783" />
+  </defs>
+  <g
+     inkscape:label="Command"
+     inkscape:groupmode="layer"
+     id="layer1"
+     mgrep-command="template">
+    <g
+       inkscape:groupmode="layer"
+       inkscape:label="Icon"
+       style="display:inline"
+       id="g2828">
+      <circle
+         style="display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-opacity:1"
+         id="circle2826-3"
+         cx="25"
+         cy="9"
+         r="2.9000001"
+         inkscape:label="Design" />
+      <circle
+         style="display:inline;fill:#ffffff;fill-opacity:1;stroke:none;stroke-opacity:1"
+         id="circle2826"
+         cx="25"
+         cy="9"
+         r="2.5"
+         inkscape:label="Command"
+         mgrep-icon="template" />
+    </g>
+    <g
+       inkscape:groupmode="layer"
+       id="layer2"
+       inkscape:label="Text">
+      <text
+         xml:space="preserve"
+         id="text2781"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.52779px;font-family:Arial;-inkscape-font-specification:'Arial Bold';text-align:center;white-space:pre;display:inline;fill:#000000;fill-opacity:1;stroke:#ffffff;stroke-width:0.999999;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+         inkscape:label="Above"
+         mgrep-command="text, above"><tspan
+           id="tspan20881"
+           style="text-align:center;text-anchor:middle">Command</tspan></text>
+      <text
+         xml:space="preserve"
+         id="text3808"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.52779px;font-family:Arial;-inkscape-font-specification:'Arial Bold';text-align:center;white-space:pre;display:inline;fill:#000000;fill-opacity:1;stroke:#ffffff;stroke-width:0.999999;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+         inkscape:label="Below"
+         mgrep-command="text, below"><tspan
+           id="tspan20883"
+           style="text-align:center;text-anchor:middle">Command</tspan></text>
+      <text
+         xml:space="preserve"
+         id="text3909"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.52776px;font-family:Arial;-inkscape-font-specification:'Arial Bold';text-align:start;white-space:pre;display:inline;fill:#000000;fill-opacity:1;stroke:#ffffff;stroke-width:0.999999;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1;paint-order:markers stroke fill"
+         inkscape:label="Right"
+         mgrep-command="text, right"><tspan
+           id="tspan20885"
+           style="text-align:start;text-anchor:start">Command</tspan></text>
+      <text
+         xml:space="preserve"
+         id="text3909-8"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.52779px;font-family:Arial;-inkscape-font-specification:'Arial Bold';text-align:end;white-space:pre;display:inline;fill:#000000;fill-opacity:1;stroke:#ffffff;stroke-width:0.999999;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1;paint-order:markers stroke fill"
+         inkscape:label="Left"
+         mgrep-command="text, left"><tspan
+           id="tspan20887"
+           style="text-align:end;text-anchor:end">Command</tspan></text>
+      <circle
+         style="fill:#2c0fbd;stroke-width:1;stroke-linecap:square"
+         id="circle2777"
+         cx="25"
+         cy="3.8092566"
+         r="0.40925646"
+         inkscape:label="AboveMarker"
+         mgrep-command="marker, above" />
+      <circle
+         style="fill:#2c0fbd;stroke-width:1;stroke-linecap:square"
+         id="path987"
+         cx="25"
+         cy="14.209256"
+         r="0.40925646"
+         inkscape:label="BelowMarker"
+         mgrep-command="marker, below" />
+      <circle
+         style="fill:#2c0fbd;stroke-width:1;stroke-linecap:square"
+         id="path987-9"
+         cx="30.409256"
+         cy="10.205931"
+         r="0.40925646"
+         inkscape:label="RightMarker"
+         mgrep-command="marker, right" />
+      <circle
+         style="fill:#2c0fbd;stroke-width:1;stroke-linecap:square"
+         id="path987-9-6"
+         cx="19.409256"
+         cy="10.182545"
+         r="0.40925646"
+         inkscape:label="LeftMarker"
+         mgrep-command="marker, left" />
+    </g>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer3"
+     inkscape:label="Mappings" />
+</svg>

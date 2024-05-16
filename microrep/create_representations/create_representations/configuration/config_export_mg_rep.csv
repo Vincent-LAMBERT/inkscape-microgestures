@@ -1,0 +1,4 @@
+index+swipe-up,index+swipe-down
+index+tap-tip,index+tap-middle,index+tap-base
+index+swipe-up,index+swipe-down,index+tap-tip,index+tap-middle,index+tap-base
+index+swipe-up,index+swipe-down,middle+swipe-up,middle+swipe-down

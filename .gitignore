@@ -1,0 +1,8 @@
+.vscode/
+__pycache__/
+*.diff
+temp
+*.zip
+dist/
+microrep.egg-info/
+create_extension_zip.py

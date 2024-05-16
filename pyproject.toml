@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools", "logging", "shapely", "inkex", "numpy", "lxml", "svg.path", "cssselect", "scipy"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "microrep"
+version = "1.0.0"
+dependencies = [
+    "requests",
+    'importlib-metadata; python_version<"3.8"',
+]
+authors = [
+  { name="Vincent Lambert", email="vincent.lambert29@gmail.com" },
+]
+description = "An Inkscape project with some useful functions aiming to be used to manipulate microgesture representations."
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+Homepage = "https://github.com/Vincent-LAMBERT/inkscape-microgestures"
+Issues = "https://github.com/Vincent-LAMBERT/inkscape-microgestures/issues"
