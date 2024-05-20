@@ -178,7 +178,9 @@ def get_wrist_orientation_layer_refs(layer_refs, logit=logging.info) :
     wrist_orientation_layer_refs = dict()
     # Figure out the hand pose layers.
     for layer_ref in layer_refs:
-        if not layer_ref.has_valid_wrist_orientation_export_spec():
+        if not layer_ref.has_valid_wrist_orientation_export_spec() :
+            continue
+        elif layer_ref.has_valid_finger_status_export_spec() :
             continue
         else :
             for export in layer_ref.wrist_orientation_export_specs :
@@ -199,14 +201,22 @@ def get_finger_pose_layer_refs(layer_refs, logit=logging.info) :
     for layer_ref in layer_refs :
         if not layer_ref.has_valid_finger_status_export_spec() :
             continue
+        elif layer_ref.has_valid_finger_status_export_spec() and layer_ref.has_valid_wrist_orientation_export_spec() :
+
+            for wrist_export in layer_ref.wrist_orientation_export_specs :
+                if wrist_export.wrist_orientation not in finger_status_layer_refs:
+                    finger_status_layer_refs[wrist_export.wrist_orientation] = dict()
+
+                for finger_export in layer_ref.finger_status_export_specs :
+                    if finger_export.finger not in finger_status_layer_refs[wrist_export.wrist_orientation]:
+                        finger_status_layer_refs[wrist_export.wrist_orientation][finger_export.finger] = dict()
+                    finger_status_layer_refs[wrist_export.wrist_orientation][finger_export.finger][finger_export.status] = layer_ref
+                    counter+=1
         else :
-            for export in layer_ref.finger_status_export_specs :
-                if export.finger not in finger_status_layer_refs:
-                    finger_status_layer_refs[export.finger] = dict()
-                finger_status_layer_refs[export.finger][export.status] = layer_ref
-                counter+=1
+            logit(f"Layer {layer_ref.label} has an invalid combination of wrist orientation and finger status")
 
     logit(f"Found {counter} valid finger status")
+    logit(f"Finger status : {finger_status_layer_refs}")
     return finger_status_layer_refs
 
 def get_markers_pos(marker_layer_refs, logit=logging.info) :

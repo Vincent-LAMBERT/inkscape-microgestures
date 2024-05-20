@@ -72,13 +72,13 @@ class ExportHandPoses(inkex.Effect):
         self.arg_parser.add_argument("--five", type=inkex.Boolean, dest="five", default=False, help='Stop after processing five combination')
         self.arg_parser.add_argument("--dry", type=inkex.Boolean, dest="dry", default=False, help="Don't actually do all of the exports")
     
-    def get_label_from_hand_pose(self, hand_pose):
+    def get_label_from_hand_pose(self, orient, hand_pose):
         # Has as input a hand pose of the form [(finger, status), (finger, status), ...]
         # Returns a string of the form "finger1_status1_finger2_status2_..."
-        label = ""
+        label = u.get_wrist_orientation_nickname(orient)
         for finger, status in hand_pose:
             label = label+"_"+finger.capitalize()+"_"+status.capitalize()
-        return label[1:]
+        return label
 
     def effect(self):
         logit = logging.warning if self.options.debug else logging.info
@@ -99,14 +99,14 @@ class ExportHandPoses(inkex.Effect):
             logit("Wrist orientation : "+wrist_orientation)
             update_show_hide_orient(wrist_orientation_layer_refs, wrist_orientation, logit)
 
-            count = self.export_hand_poses(poses, finger_layer_refs, logit, count)
+            count = self.export_hand_poses(wrist_orientation, poses, finger_layer_refs[wrist_orientation], count, logit)
             if self.options.five and count==5:
                 break
             
-        show_orient_layers(wrist_orientation_layer_refs, logit)
-        show_finger_layers(finger_layer_refs, logit)
+        show_orient_front_layer(wrist_orientation_layer_refs, logit)
+        show_finger_up_layers(finger_layer_refs, logit)
     
-    def export_hand_poses(self, poses, finger_layer_refs, logit, count):
+    def export_hand_poses(self, orient, poses, finger_layer_refs, count, logit):
         for hand_pose in poses:
             update_show_hide_hand_pose(finger_layer_refs, hand_pose, logit)
 
@@ -114,12 +114,13 @@ class ExportHandPoses(inkex.Effect):
                 logit(f"Skipping because --dry was specified")
                 continue
 
-            label = self.get_label_from_hand_pose(hand_pose)
+            label = self.get_label_from_hand_pose(orient, hand_pose)
             ex.export(self.document, f"{label}", self.options, logit)
             # Break on 5 first outputs for debug purposes
             if self.options.five and count==5:
                 return count
             count+=1
+        return count
             
 def update_show_hide_orient(orient_layer_refs, orient, logit) :
     logit(f"Update show hide (orient) : ({orient})")
@@ -131,23 +132,30 @@ def update_show_hide_orient(orient_layer_refs, orient, logit) :
             layer_ref.hide_layer()
     
 def update_show_hide_hand_pose(finger_layer_refs, hand_pose, logit) :
-    logit(f"Update show hide hand_pose : ({hand_pose})")         
+    logit(f"\n\n\nUpdate show hide hand_pose : ({hand_pose})") 
+    
+    logit(f"finger_layer_refs : ({finger_layer_refs})\n")            
         
     for finger, status_layer_refs in finger_layer_refs.items() :
         for status, layer_ref in status_layer_refs.items() :
             if (finger, status) in hand_pose :
-                logit(f"({finger},{status}) in {hand_pose} => show layer {layer_ref.id}")
+                # logit(f"({finger},{status}) in {hand_pose} => show layer {layer_ref.id}")
+                logit(f"SHOW layer {layer_ref.id} with ({finger},{status})")
                 layer_ref.show_layer()
             else :
+                logit(f"HIDE layer {layer_ref.id} with ({finger},{status})")
                 layer_ref.hide_layer()                    
 
-def show_orient_layers(wrist_orientation_layer_refs, logit) :
+def show_orient_front_layer(wrist_orientation_layer_refs, logit) :
     """
     Show the wrist orientation layers
     """
     for wrist_orientation in wrist_orientation_layer_refs :
         layer = wrist_orientation_layer_refs[wrist_orientation]
-        layer.source.attrib['style'] = 'display:inline'
+        if wrist_orientation == "front" :
+            layer.source.attrib['style'] = 'display:inline'
+        else :
+            layer.source.attrib['style'] = 'display:none'
 
 def hide_orient_layers(wrist_orientation_layer_refs, logit) :
     """
@@ -157,23 +165,28 @@ def hide_orient_layers(wrist_orientation_layer_refs, logit) :
         layer = wrist_orientation_layer_refs[wrist_orientation]
         layer.source.attrib['style'] = 'display:none'
 
-def show_finger_layers(finger_status_layer_refs, logit) :
+def show_finger_up_layers(finger_status_layer_refs, logit) :
     """
     Show the finger layers
     """
-    for finger in finger_status_layer_refs :
-        for status in finger_status_layer_refs[finger] :
-            layer = finger_status_layer_refs[finger][status]
-            layer.source.attrib['style'] = 'display:inline'
+    for wrist_orientation in finger_status_layer_refs :
+        for finger in finger_status_layer_refs[wrist_orientation] :
+            for status in finger_status_layer_refs[wrist_orientation][finger] :
+                layer = finger_status_layer_refs[wrist_orientation][finger][status]
+                if status == "up" :
+                    layer.source.attrib['style'] = 'display:inline'
+                else :
+                    layer.source.attrib['style'] = 'display:none'
 
 def hide_finger_layers(finger_status_layer_refs, logit) :
     """
     Hide the finger layers
     """
-    for finger in finger_status_layer_refs :
-        for status in finger_status_layer_refs[finger] :
-            layer = finger_status_layer_refs[finger][status]
-            layer.source.attrib['style'] = 'display:none'
+    for wrist_orientation in finger_status_layer_refs :
+        for finger in finger_status_layer_refs[wrist_orientation] :
+            for status in finger_status_layer_refs[wrist_orientation][finger] :
+                layer = finger_status_layer_refs[wrist_orientation][finger][status]
+                layer.source.attrib['style'] = 'display:none'
 
 ######################################################################################################################
 

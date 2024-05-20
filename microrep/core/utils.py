@@ -69,8 +69,8 @@ MULTI_LINK="multi-link"
 FINGER_STATUSES = [UP, CLOSE, FLEX, ADD_LINK, ABD_LINK, MULTI_LINK]
 ORIENTATION_STATUSES = { LEFT : [UP, CLOSE, FLEX],
                          RIGHT : [UP, CLOSE, FLEX],
-                         BACK : [UP, CLOSE, FLEX, ADD_LINK, ABD_LINK, MULTI_LINK],
-                         FRONT : [UP, CLOSE, FLEX, ADD_LINK, ABD_LINK, MULTI_LINK],
+                         BACK : [UP, CLOSE, ADD_LINK, ABD_LINK, MULTI_LINK],
+                         FRONT : [UP, CLOSE, ADD_LINK, ABD_LINK, MULTI_LINK],
                          BACK_LEFT : [UP, CLOSE, FLEX, ADD_LINK, ABD_LINK, MULTI_LINK],
                          BACK_RIGHT : [UP, CLOSE, FLEX, ADD_LINK, ABD_LINK, MULTI_LINK],
                          FRONT_LEFT : [UP, CLOSE, FLEX, ADD_LINK, ABD_LINK, MULTI_LINK],
