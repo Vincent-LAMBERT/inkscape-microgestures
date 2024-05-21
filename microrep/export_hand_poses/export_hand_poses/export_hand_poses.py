@@ -34,7 +34,7 @@
 
 import sys
 
-from microrep.export_hand_poses.export_hand_poses.configuration_file import compute_default_hand_poses
+from microrep.export_hand_poses.export_hand_poses.configuration_file import compute_default_hand_poses, get_hand_poses
 sys.path.append('/usr/share/inkscape/extensions')
 import inkex
 import os
@@ -59,6 +59,7 @@ class ExportHandPoses(inkex.Effect):
         self.arg_parser.add_argument("--path", type=str, dest="path", default="~/", help="The directory to export into")
         self.arg_parser.add_argument('-f', '--filetype', type=str, dest='filetype', default='jpeg', 
                                      help='Exported file type. One of [png|jpeg]')
+        self.arg_parser.add_argument("--config", type=str, dest="config", default="~/", help="Configuration file used to define the hand poses")
         self.arg_parser.add_argument("--dpi", type=float, dest="dpi", default=90.0, help="DPI of exported image")
         self.arg_parser.add_argument("--ascii", type=inkex.Boolean, dest="ascii", default=False, 
                                      help="If true, removes non-ascii characters from layer names during export")
@@ -72,7 +73,7 @@ class ExportHandPoses(inkex.Effect):
         self.arg_parser.add_argument("--five", type=inkex.Boolean, dest="five", default=False, help='Stop after processing five combination')
         self.arg_parser.add_argument("--dry", type=inkex.Boolean, dest="dry", default=False, help="Don't actually do all of the exports")
     
-    def get_label_from_hand_pose(self, orient, hand_pose):
+    def get_label_from_hand_pose(self, orient, hand_pose, logit):
         # Has as input a hand pose of the form [(finger, status), (finger, status), ...]
         # Returns a string of the form "finger1_status1_finger2_status2_..."
         label = u.get_wrist_orientation_nickname(orient)
@@ -86,7 +87,9 @@ class ExportHandPoses(inkex.Effect):
     
         layer_refs = rf.get_layer_refs(self.document, visible_only=False, logit=logit)
         wrist_orientation_layer_refs = rf.get_wrist_orientation_layer_refs(layer_refs, logit)
-        hand_poses = compute_default_hand_poses(self.options.multi, self.options.simple)
+
+        hand_poses = get_hand_poses(self.options.config, logit)
+
         # Get layer corresponding to finger and status in layers
         finger_layer_refs = rf.get_finger_pose_layer_refs(layer_refs, logit)
 
@@ -94,7 +97,9 @@ class ExportHandPoses(inkex.Effect):
         hide_finger_layers(finger_layer_refs, logit)
         
         count=1  # counter to break on 5 first outputs
-        for wrist_orientation, poses in hand_poses.items() :
+        for wrist_orientation in hand_poses.keys() :
+            poses = hand_poses[wrist_orientation]
+
             # Only shows the layer with the right wrist_orientation
             logit("Wrist orientation : "+wrist_orientation)
             update_show_hide_orient(wrist_orientation_layer_refs, wrist_orientation, logit)
@@ -114,7 +119,7 @@ class ExportHandPoses(inkex.Effect):
                 logit(f"Skipping because --dry was specified")
                 continue
 
-            label = self.get_label_from_hand_pose(orient, hand_pose)
+            label = self.get_label_from_hand_pose(orient, hand_pose, logit)
             ex.export(self.document, f"{label}", self.options, logit)
             # Break on 5 first outputs for debug purposes
             if self.options.five and count==5:
@@ -132,18 +137,13 @@ def update_show_hide_orient(orient_layer_refs, orient, logit) :
             layer_ref.hide_layer()
     
 def update_show_hide_hand_pose(finger_layer_refs, hand_pose, logit) :
-    logit(f"\n\n\nUpdate show hide hand_pose : ({hand_pose})") 
-    
-    logit(f"finger_layer_refs : ({finger_layer_refs})\n")            
+    logit(f"\n\n\nUpdate show hide hand_pose : ({hand_pose})")           
         
     for finger, status_layer_refs in finger_layer_refs.items() :
         for status, layer_ref in status_layer_refs.items() :
             if (finger, status) in hand_pose :
-                # logit(f"({finger},{status}) in {hand_pose} => show layer {layer_ref.id}")
-                logit(f"SHOW layer {layer_ref.id} with ({finger},{status})")
                 layer_ref.show_layer()
             else :
-                logit(f"HIDE layer {layer_ref.id} with ({finger},{status})")
                 layer_ref.hide_layer()                    
 
 def show_orient_front_layer(wrist_orientation_layer_refs, logit) :

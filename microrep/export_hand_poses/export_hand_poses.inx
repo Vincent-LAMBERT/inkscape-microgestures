@@ -11,6 +11,7 @@
        <option value="jpg">JPG</option>
        <option value="pdf">PDF</option>
     </param>
+    <param name="config" type="string" _gui-text="Export Configuration File">~/</param>
     <param name="dpi" type="float" min="0.0" max="1000.0" _gui-text="Export DPI">300</param>
     <param name="ascii" type="boolean" _gui-text="Remove Special Characters in Layer Names">false</param>
     <param name="lower" type="boolean" _gui-text="Lowercase Names">false</param>

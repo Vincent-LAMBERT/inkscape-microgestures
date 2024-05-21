@@ -99,7 +99,6 @@ def compute_accepted_combinations(wrist_orientation, multi_link_combo=True, simp
     # accepted_combinations = at_least_one_up + all_closed
     
     # return accepted_combinations
-        
 
 def get_hand_poses(file_path, logit=logging.info) :
     """
@@ -122,17 +121,20 @@ def get_hand_poses_from_file(file_path, logit=logging.info) :
         reader = csv.reader(csvfile, delimiter='\n')
         for row in reader:
             wrist_orientation = u.get_wrist_orientation_name(row[0].split('_')[0])
-            hand_poses[wrist_orientation] = get_hand_poses_from_row(row)
+            if wrist_orientation not in hand_poses :
+                hand_poses[wrist_orientation] = []
+            hand_poses[wrist_orientation].append(get_hand_poses_from_row(row, logit))
     
     return hand_poses
 
-def get_hand_poses_from_row(row) :
+def get_hand_poses_from_row(row, logit) :
     """
     Return the hand poses corresponding to the given row
     """
     hand_poses = []
     for hand_pose in row :
-        fingers = hand_pose.split('_')[1:]
+        fingers = hand_pose.split('_')[1:][0]
+        logit(fingers)
         for i, finger in enumerate(u.FINGERS_WITH_THUMB) :
             status = u.get_status_name(fingers[i])
             hand_poses.append((finger, status))
@@ -152,16 +154,12 @@ def create_configuration_file(hand_poses, file_path="./configuration/config_expo
         writer = csv.writer(csvfile, delimiter=',')
         for wrist_orientation, poses in hand_poses.items():
             prefix = u.get_wrist_orientation_nickname(wrist_orientation) + "_"
-            row = []
             for pose in poses:
                 hand_pose = ""
                 for finger in u.FINGERS_WITH_THUMB:
                     status = get_status(finger, pose)
                     hand_pose += u.get_status_nickname(status)
-                row.append(prefix + hand_pose)
-                
-            print(row)
-            writer.writerow(row)
+                writer.writerow([prefix + hand_pose])
 
 def get_status(finger, pose) :
     for f, s in pose :
