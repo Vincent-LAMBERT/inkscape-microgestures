@@ -20,7 +20,7 @@ If the downloaded files have `.txt` suffixes added by GitHub, be sure to remove 
 Open the `Layers` and `XML Editor` tabs. In the `XML Editor` select layer objects and add the attribute `export-hand-poses` to them and given them a value of the form `[finger],[status]`. 
 
 * `[finger]` is the name of the finger the layer corresponds to. 
-* `[status]` (one of `up, down, add-link, abd-linkd, multi-link`) controls the visibility of the layer and how combinations are formed with each finger. `add-link` and `abd-link` work in pair to create a link between two joined fingers. `multi-link` is used to create a link between multiple joined fingers.
+* `[status]` (one of `up, down, adduction, abd-linkd, complex`) controls the visibility of the layer and how combinations are formed with each finger. `adduction` and `abduction` work in pair to create a link between two joined fingers. `complex` is used to create a link between multiple joined fingers.
 
 You use the tool by running "**Extensions > Export > Export Hand Poses...**". Once you have configured your settings, you hit `Apply` to generate the combinations.
 
@@ -36,25 +36,25 @@ We aim to export hand poses from a single SVG file with multiple layers having t
  layer2
     layer2A   -  index, up
     layer2B   -  index, down
-    layer2C   -  index, add-link
-    layer2D   -  index, multi-link
+    layer2C   -  index, adduction
+    layer2D   -  index, complex
  layer3
     layer3A   -  middle, up
     layer3B   -  middle, down
-    layer3C   -  middle, add-link
-    layer3D   -  middle, abd-link
-    layer3E   -  middle, multi-link
+    layer3C   -  middle, adduction
+    layer3D   -  middle, abduction
+    layer3E   -  middle, complex
  layer4
     layer4A   -  ring, up
     layer4B   -  ring, down
-    layer4C   -  ring, add-link
-    layer4D   -  ring, abd-link
-    layer4E   -  ring, multi-link
+    layer4C   -  ring, adduction
+    layer4D   -  ring, abduction
+    layer4E   -  ring, complex
  layer5
     layer5A   -  pinky, up
     layer5B   -  pinky, down
-    layer5C   -  pinky, abd-link
-    layer5D   -  pinky, multi-link
+    layer5C   -  pinky, abduction
+    layer5D   -  pinky, complex
 ```
 
 When you run the tool, it will generate various hand poses corresponding to your designs. Please make sure your layers overlap correctly as the final results depends on the order of the layers.

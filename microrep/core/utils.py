@@ -63,21 +63,21 @@ FINGERS_WITH_THUMB = [THUMB, INDEX, MIDDLE, RING, PINKY]
 UP = "up"
 CLOSE = "close"
 FLEX = "flex"
-ADD_LINK="add-link"
-ABD_LINK="abd-link"
-MULTI_LINK="multi-link"
-FINGER_STATUSES = [UP, CLOSE, FLEX, ADD_LINK, ABD_LINK, MULTI_LINK]
+ADDUCTION = "adduction"
+ABDUCTION = "abduction"
+COMPLEX = "complex"
+FINGER_STATUSES = [UP, CLOSE, FLEX, ADDUCTION, ABDUCTION, COMPLEX]
 ORIENTATION_STATUSES = { LEFT : [UP, CLOSE, FLEX],
                          RIGHT : [UP, CLOSE, FLEX],
-                         BACK : [UP, CLOSE, ADD_LINK, ABD_LINK, MULTI_LINK],
-                         FRONT : [UP, CLOSE, ADD_LINK, ABD_LINK, MULTI_LINK],
-                         BACK_LEFT : [UP, CLOSE, FLEX, ADD_LINK, ABD_LINK, MULTI_LINK],
-                         BACK_RIGHT : [UP, CLOSE, FLEX, ADD_LINK, ABD_LINK, MULTI_LINK],
-                         FRONT_LEFT : [UP, CLOSE, FLEX, ADD_LINK, ABD_LINK, MULTI_LINK],
-                         FRONT_RIGHT : [UP, CLOSE, FLEX, ADD_LINK, ABD_LINK, MULTI_LINK]}
+                         BACK : [UP, CLOSE, ADDUCTION, ABDUCTION, COMPLEX],
+                         FRONT : [UP, CLOSE, ADDUCTION, ABDUCTION, COMPLEX],
+                         BACK_LEFT : [UP, CLOSE, FLEX, ADDUCTION, ABDUCTION, COMPLEX],
+                         BACK_RIGHT : [UP, CLOSE, FLEX, ADDUCTION, ABDUCTION, COMPLEX],
+                         FRONT_LEFT : [UP, CLOSE, FLEX, ADDUCTION, ABDUCTION, COMPLEX],
+                         FRONT_RIGHT : [UP, CLOSE, FLEX, ADDUCTION, ABDUCTION, COMPLEX]}
 
 def get_status_nickname(status) :
-    if status in [ADD_LINK, ABD_LINK] :
+    if status in [ADDUCTION, ABDUCTION] :
         return status[1]
     return status[0]
 
@@ -87,10 +87,10 @@ def get_status_name(status_nickname) :
             return status
 
 ACCEPTED_STATUSES = { THUMB : [UP, CLOSE],
-                      INDEX : [UP, CLOSE, FLEX, ADD_LINK, MULTI_LINK],
-                      MIDDLE : [UP, CLOSE, FLEX, ADD_LINK, ABD_LINK, MULTI_LINK],
-                      RING : [UP, CLOSE, FLEX, ADD_LINK, ABD_LINK, MULTI_LINK],
-                      PINKY : [UP, CLOSE, FLEX, ABD_LINK, MULTI_LINK] }
+                      INDEX : [UP, CLOSE, FLEX, ADDUCTION, COMPLEX],
+                      MIDDLE : [UP, CLOSE, FLEX, ADDUCTION, ABDUCTION, COMPLEX],
+                      RING : [UP, CLOSE, FLEX, ADDUCTION, ABDUCTION, COMPLEX],
+                      PINKY : [UP, CLOSE, FLEX, ABDUCTION, COMPLEX] }
 
 PROXIMATE_FINGERS = {   THUMB : [],
                         INDEX : [MIDDLE],
@@ -98,50 +98,50 @@ PROXIMATE_FINGERS = {   THUMB : [],
                         RING : [MIDDLE, PINKY],
                         PINKY : [RING]  }
 
-ACCEPTED_LINKS = [  {ADD_LINK : INDEX, ABD_LINK : MIDDLE},
-                    {ADD_LINK : MIDDLE, ABD_LINK : RING},
-                    {ADD_LINK : RING, ABD_LINK : PINKY} ]
+ACCEPTED_LINKS = [  {ADDUCTION : INDEX, ABDUCTION : MIDDLE},
+                    {ADDUCTION : MIDDLE, ABDUCTION : RING},
+                    {ADDUCTION : RING, ABDUCTION : PINKY} ]
 
 
 def has_multi_joints(combination) :
-    return any([status == MULTI_LINK for finger,status in combination])
+    return any([status == COMPLEX for finger,status in combination])
 
 def has_add_or_abd_joints(combination) :
-    return any([status == ADD_LINK for finger,status in combination]) or any([status == ABD_LINK for finger,status in combination])
+    return any([status == ADDUCTION for finger,status in combination]) or any([status == ABDUCTION for finger,status in combination])
 
 def has_valid_multi_joints(combination) :
-    # If the thumb is a multi-link, return False
-    if any([finger == THUMB and status == MULTI_LINK for finger,status in combination]) :
+    # If the thumb is a complex, return False
+    if any([finger == THUMB and status == COMPLEX for finger,status in combination]) :
         return False
     # If there is less than 3 multi-links, return False
-    if len([status for finger,status in combination if status == MULTI_LINK]) < 3 :
+    if len([status for finger,status in combination if status == COMPLEX]) < 3 :
         return False
     # If both the middle and the ring are multi-links, its true, otherwise return False
-    if any([finger == MIDDLE and status == MULTI_LINK for finger,status in combination]) and any([finger == RING and status == MULTI_LINK for finger,status in combination]) :
+    if any([finger == MIDDLE and status == COMPLEX for finger,status in combination]) and any([finger == RING and status == COMPLEX for finger,status in combination]) :
         return True
     return False
 
 def has_valid_add_and_abd_joints(combination) :
     # Check if there is an equal number of add-links and abd-links
-    if len([status for finger,status in combination if status == ADD_LINK]) != len([status for finger,status in combination if status == ABD_LINK]) :
+    if len([status for finger,status in combination if status == ADDUCTION]) != len([status for finger,status in combination if status == ABDUCTION]) :
         return False
-    # At this state there is a abd-link for each add-link
+    # At this state there is a abduction for each adduction
     # Fetch all add-links and abd-links as a list of couples
-    add_fingers = [finger for finger,status in combination if status == ADD_LINK]
-    abd_fingers = [finger for finger,status in combination if status == ABD_LINK]    
+    add_fingers = [finger for finger,status in combination if status == ADDUCTION]
+    abd_fingers = [finger for finger,status in combination if status == ABDUCTION]    
     
     for add_finger in add_fingers :
-        # Check if one of the proximate fingers of the add_finger has a abd-link
+        # Check if one of the proximate fingers of the add_finger has a abduction
         proximate_fingers_with_abd_link = intersect(PROXIMATE_FINGERS[add_finger], abd_fingers)
         if proximate_fingers_with_abd_link==[] :
             return False
         # If its the case, still check if the link is accepted
-        # Get the adb-link with the add-link being the add_finger in the accepted links
+        # Get the adb-link with the adduction being the add_finger in the accepted links
         i = 0
-        while ACCEPTED_LINKS[i][ADD_LINK] != add_finger :
+        while ACCEPTED_LINKS[i][ADDUCTION] != add_finger :
             i+=1
-        # Check if the abd-link is the one accepted
-        if ACCEPTED_LINKS[i][ABD_LINK] not in proximate_fingers_with_abd_link :
+        # Check if the abduction is the one accepted
+        if ACCEPTED_LINKS[i][ABDUCTION] not in proximate_fingers_with_abd_link :
             return False
     return True
 
@@ -166,10 +166,11 @@ FLEX = "flex"
 TIP = "tip"
 MIDDLE = "middle"
 BASE = "base"
+NAIL = "nail"
 MICROGESTURES = [TAP, HOLD, SWIPE, FLEX]
-TAP_CHARACTERISTICS = [TIP, MIDDLE, BASE]
+TAP_CHARACTERISTICS = [TIP, MIDDLE, BASE, NAIL]
 SWIPE_CHARACTERISTICS = [UP, DOWN]
-HOLD_CHARACTERISTICS = [TIP, MIDDLE, BASE]
+HOLD_CHARACTERISTICS = [TIP, MIDDLE, BASE, NAIL]
 FLEX_CHARACTERISTICS = [UP, DOWN]
 MICROGESTURE_CHARACTERISTICS = { TAP : TAP_CHARACTERISTICS,
                                  SWIPE : SWIPE_CHARACTERISTICS,

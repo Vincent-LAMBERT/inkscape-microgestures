@@ -3,7 +3,7 @@
     <_name>Export Hand Poses</_name>
     <id>com.lambevin.hand.poses</id>
     <dependency type="executable" location="extensions">export_hand_poses/export_hand_poses.py</dependency>
-	<param name="help" type="description">Export various hand poses. The tool looks for the 'export-hand-poses' attribute on your layers and then parses them to do combination exports with them. The format of the value for this attribute is '[finger],[status]', where '[status]' can be one of 'up', 'down', 'add-link', 'abd-link', or 'multi-link'.</param>
+	<param name="help" type="description">Export various hand poses. The tool looks for the 'export-hand-poses' attribute on your layers and then parses them to do combination exports with them. The format of the value for this attribute is '[finger],[status]', where '[status]' can be one of 'up', 'down', 'adduction', 'abduction', or 'complex'.</param>
     <param name="path" type="string" _gui-text="Choose path to export">~/</param>
     <param name="filetype" type="optiongroup" gui-text="Export layers as..." appearance="minimal">
        <option selected="selected" value="svg">SVG</option>

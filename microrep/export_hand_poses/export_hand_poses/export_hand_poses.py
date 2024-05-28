@@ -76,9 +76,12 @@ class ExportHandPoses(inkex.Effect):
     def get_label_from_hand_pose(self, orient, hand_pose, logit):
         # Has as input a hand pose of the form [(finger, status), (finger, status), ...]
         # Returns a string of the form "finger1_status1_finger2_status2_..."
-        label = u.get_wrist_orientation_nickname(orient)
+        label = u.get_wrist_orientation_nickname(orient)+"_"
         for finger, status in hand_pose:
-            label = label+"_"+finger.capitalize()+"_"+status.capitalize()
+            finger_nick = finger[0].capitalize()
+            status_nick = u.get_status_nickname(status).lower()
+            label += finger_nick+status_nick+"-"
+        label = label[:-1]
         return label
 
     def effect(self):
@@ -89,6 +92,7 @@ class ExportHandPoses(inkex.Effect):
         wrist_orientation_layer_refs = rf.get_wrist_orientation_layer_refs(layer_refs, logit)
 
         hand_poses = get_hand_poses(self.options.config, logit)
+        logit(f"Hand poses: {str(hand_poses)}")
 
         # Get layer corresponding to finger and status in layers
         finger_layer_refs = rf.get_finger_pose_layer_refs(layer_refs, logit)

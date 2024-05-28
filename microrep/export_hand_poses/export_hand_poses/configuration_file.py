@@ -65,7 +65,7 @@ def compute_accepted_combinations(wrist_orientation, multi_link_combo=True, simp
     # # Remove unaccepted finger combinations
     finger_accepted_combinations = [combination for combination in finger_accepted_combinations if all([status in u.ACCEPTED_STATUSES[finger] for finger,status in combination])]
     
-    # Handle multi-links combinations if not three side fingers have the same multi-link status
+    # Handle multi-links combinations if not three side fingers have the same complex status
     new_finger_accepted_combinations = []
     for combination in finger_accepted_combinations :
         if u.has_multi_joints(combination) :
@@ -75,8 +75,8 @@ def compute_accepted_combinations(wrist_orientation, multi_link_combo=True, simp
             new_finger_accepted_combinations.append(combination)
     finger_accepted_combinations = new_finger_accepted_combinations
     
-    # Handle add-link and abd-link combinations
-    # If a finger is a add-link, then the last side finger must be a abd-link
+    # Handle adduction and abduction combinations
+    # If a finger is a adduction, then the last side finger must be a abduction
     new_finger_accepted_combinations = []
     for combination in finger_accepted_combinations :
         if u.has_add_or_abd_joints(combination) :
@@ -86,19 +86,9 @@ def compute_accepted_combinations(wrist_orientation, multi_link_combo=True, simp
             new_finger_accepted_combinations.append(combination)
     finger_accepted_combinations = new_finger_accepted_combinations
 
+    print(f"finger_accepted_combinations: {finger_accepted_combinations}")
+
     return finger_accepted_combinations
-    
-    # Combine with the thumb states as one of the fingers
-    # We would combine the thumb with the finger combinations with every thumb hover or touch
-    # context if we needed to with the following line
-    # accepted_combinations = [[x[0], x[1][0],x[1][1],x[1][2],x[1][3]]  for x in itertools.product(*[thumb_accepted_combinations, finger_accepted_combinations])]
-    # However, we only want the thumb to be in the opened state except for the case where every finger is down
-    # That is why we compure the following lines
-    # at_least_one_up = [[x[0], x[1][0],x[1][1],x[1][2],x[1][3]]  for x in itertools.product(*[[(u.THUMB, u.UP)], finger_accepted_combinations]) if not all([status == u.DOWN for finger,status in x[1]])]
-    # all_closed = [[x[0], x[1][0],x[1][1],x[1][2],x[1][3]]  for x in itertools.product(*[[(u.THUMB, u.DOWN)], finger_accepted_combinations]) if all([status == u.DOWN for finger,status in x[1]])]
-    # accepted_combinations = at_least_one_up + all_closed
-    
-    # return accepted_combinations
 
 def get_hand_poses(file_path, logit=logging.info) :
     """
@@ -120,7 +110,7 @@ def get_hand_poses_from_file(file_path, logit=logging.info) :
     with open(file_path, 'r') as csvfile:
         reader = csv.reader(csvfile, delimiter='\n')
         for row in reader:
-            wrist_orientation = u.get_wrist_orientation_name(row[0].split('_')[0])
+            wrist_orientation = row[0].split('_')[0]
             if wrist_orientation not in hand_poses :
                 hand_poses[wrist_orientation] = []
             hand_poses[wrist_orientation].append(get_hand_poses_from_row(row, logit))
@@ -134,9 +124,9 @@ def get_hand_poses_from_row(row, logit) :
     hand_poses = []
     for hand_pose in row :
         fingers = hand_pose.split('_')[1:][0]
-        logit(fingers)
+        splitted_fingers = fingers.split('-')
         for i, finger in enumerate(u.FINGERS_WITH_THUMB) :
-            status = u.get_status_name(fingers[i])
+            status = splitted_fingers[i]
             hand_poses.append((finger, status))
     return hand_poses
 
@@ -153,12 +143,13 @@ def create_configuration_file(hand_poses, file_path="./configuration/config_expo
     with open(file_path, 'w', newline='') as csvfile:
         writer = csv.writer(csvfile, delimiter=',')
         for wrist_orientation, poses in hand_poses.items():
-            prefix = u.get_wrist_orientation_nickname(wrist_orientation) + "_"
+            prefix = wrist_orientation + "_"
             for pose in poses:
                 hand_pose = ""
                 for finger in u.FINGERS_WITH_THUMB:
                     status = get_status(finger, pose)
-                    hand_pose += u.get_status_nickname(status)
+                    hand_pose += status+"-"
+                hand_pose = hand_pose[:-1]
                 writer.writerow([prefix + hand_pose])
 
 def get_status(finger, pose) :
