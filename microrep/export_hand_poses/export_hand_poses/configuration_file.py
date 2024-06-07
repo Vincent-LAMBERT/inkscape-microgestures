@@ -86,8 +86,6 @@ def compute_accepted_combinations(wrist_orientation, multi_link_combo=True, simp
             new_finger_accepted_combinations.append(combination)
     finger_accepted_combinations = new_finger_accepted_combinations
 
-    print(f"finger_accepted_combinations: {finger_accepted_combinations}")
-
     return finger_accepted_combinations
 
 def get_hand_poses(file_path, logit=logging.info) :

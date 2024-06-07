@@ -13,12 +13,8 @@
     </param>
     <param name="config" type="string" _gui-text="Export Configuration File">~/</param>
     <param name="dpi" type="float" min="0.0" max="1000.0" _gui-text="Export DPI">300</param>
-    <param name="ascii" type="boolean" _gui-text="Remove Special Characters in Layer Names">false</param>
-    <param name="lower" type="boolean" _gui-text="Lowercase Names">false</param>
-    <param name="multi" type="boolean" _gui-text="Include hand poses with 3 or more fingers linked">true</param>
-    <param name="simple" type="boolean" _gui-text="Include hand poses with 2 fingers linked">true</param>
     <param name="debug" type="boolean" _gui-text="Show debug messages">false</param>
-    <param name="five" type="boolean" _gui-text="Only Process Five First Hand Poses">false</param>
+    <param name="markers" type="boolean" _gui-text="Show markers">false</param>
     <param name="dry" type="boolean" _gui-text="Dry Run">false</param>
     <effect needs-live-preview="false">
         <object-type>all</object-type>

@@ -123,7 +123,7 @@ class CreateRepresentations(inkex.Effect):
                             
                             # Create the family element depending on the marker's position
                             logit(f"Creating the layer : {new_layer_name}")
-                            specific_markers = markers[finger][mg][charac]
+                            specific_markers = markers["front"][finger][mg][charac]
                             create_mg_rep(new_family_layer, element, specific_markers, logit)
                             
                             # Adds the 'mgrep-microgesture-layer' attribute to the layer 

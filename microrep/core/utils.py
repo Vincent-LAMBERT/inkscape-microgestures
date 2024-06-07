@@ -86,7 +86,7 @@ def get_status_name(status_nickname) :
         if get_status_nickname(status) == status_nickname :
             return status
 
-ACCEPTED_STATUSES = { THUMB : [UP, CLOSE],
+ACCEPTED_STATUSES = { THUMB : [UP],
                       INDEX : [UP, CLOSE, FLEX, ADDUCTION, COMPLEX],
                       MIDDLE : [UP, CLOSE, FLEX, ADDUCTION, ABDUCTION, COMPLEX],
                       RING : [UP, CLOSE, FLEX, ADDUCTION, ABDUCTION, COMPLEX],
