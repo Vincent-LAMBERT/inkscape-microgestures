@@ -69,14 +69,16 @@ COMPLEX = "complex"
 FINGER_STATUSES = [UP, CLOSE, FLEX, ADDUCTION, ABDUCTION, COMPLEX]
 ORIENTATION_STATUSES = { LEFT : [UP, CLOSE, FLEX],
                          RIGHT : [UP, CLOSE, FLEX],
-                         BACK : [UP, CLOSE, ADDUCTION, ABDUCTION, COMPLEX],
-                         FRONT : [UP, CLOSE, ADDUCTION, ABDUCTION, COMPLEX],
+                         BACK : [UP, CLOSE, FLEX, ADDUCTION, ABDUCTION, COMPLEX],
+                         FRONT : [UP, CLOSE, FLEX, ADDUCTION, ABDUCTION, COMPLEX],
                          BACK_LEFT : [UP, CLOSE, FLEX, ADDUCTION, ABDUCTION, COMPLEX],
                          BACK_RIGHT : [UP, CLOSE, FLEX, ADDUCTION, ABDUCTION, COMPLEX],
                          FRONT_LEFT : [UP, CLOSE, FLEX, ADDUCTION, ABDUCTION, COMPLEX],
                          FRONT_RIGHT : [UP, CLOSE, FLEX, ADDUCTION, ABDUCTION, COMPLEX]}
 
 def get_status_nickname(status) :
+    if status == COMPLEX:
+        return status[-1]
     if status in [ADDUCTION, ABDUCTION] :
         return status[1]
     return status[0]

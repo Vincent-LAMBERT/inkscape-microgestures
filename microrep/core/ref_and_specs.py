@@ -157,16 +157,23 @@ def get_marker_layer_refs(layer_refs, logit=logging.info) :
             for wrist_export in layer_ref.wrist_orientation_export_specs :
                 if wrist_export.wrist_orientation not in marker_layer_refs:
                     marker_layer_refs[wrist_export.wrist_orientation] = dict()
+                
+                for finger_export in layer_ref.finger_status_export_specs :
+                    if finger_export.finger not in marker_layer_refs[wrist_export.wrist_orientation]:
+                        marker_layer_refs[wrist_export.wrist_orientation][finger_export.finger] = dict()
+                    if finger_export.status not in marker_layer_refs[wrist_export.wrist_orientation][finger_export.finger]:
+                        marker_layer_refs[wrist_export.wrist_orientation][finger_export.finger][finger_export.status] = dict()
                     
-                for export in layer_ref.marker_export_specs :
-                    if export.finger not in marker_layer_refs[wrist_export.wrist_orientation]:
-                        marker_layer_refs[wrist_export.wrist_orientation][export.finger] = dict()
-                    if export.microgesture not in marker_layer_refs[wrist_export.wrist_orientation][export.finger]:
-                        marker_layer_refs[wrist_export.wrist_orientation][export.finger][export.microgesture] = dict()
-                    if export.characteristic not in marker_layer_refs[wrist_export.wrist_orientation][export.finger][export.microgesture]:
-                        marker_layer_refs[wrist_export.wrist_orientation][export.finger][export.microgesture][export.characteristic] = dict()
-                    marker_layer_refs[wrist_export.wrist_orientation][export.finger][export.microgesture][export.characteristic][export.markerType] = layer_ref
-                    counter+=1
+                    for export in layer_ref.marker_export_specs :
+                        if export.finger not in marker_layer_refs[wrist_export.wrist_orientation][finger_export.finger][finger_export.status]:
+                            marker_layer_refs[wrist_export.wrist_orientation][finger_export.finger][finger_export.status][export.finger] = dict()
+                        if export.microgesture not in marker_layer_refs[wrist_export.wrist_orientation][finger_export.finger][finger_export.status][export.finger]:
+                            marker_layer_refs[wrist_export.wrist_orientation][finger_export.finger][finger_export.status][export.finger][export.microgesture] = dict()
+                        
+                        if export.characteristic not in marker_layer_refs[wrist_export.wrist_orientation][finger_export.finger][finger_export.status][export.finger][export.microgesture]:
+                            marker_layer_refs[wrist_export.wrist_orientation][finger_export.finger][finger_export.status][export.finger][export.microgesture][export.characteristic] = dict()
+                        marker_layer_refs[wrist_export.wrist_orientation][finger_export.finger][finger_export.status][export.finger][export.microgesture][export.characteristic][export.markerType] = layer_ref
+                        counter+=1
 
     logit(f"Found {counter} valid markers")
     return marker_layer_refs
@@ -187,7 +194,6 @@ def get_wrist_orientation_layer_refs(layer_refs, logit=logging.info) :
                 counter+=1
 
     logit(f"Found {counter} valid wrist orientations")
-    logit(f"Wrist orientations : {wrist_orientation_layer_refs}")
     return wrist_orientation_layer_refs
 
 def get_finger_pose_layer_refs(layer_refs, logit=logging.info) :
@@ -197,8 +203,8 @@ def get_finger_pose_layer_refs(layer_refs, logit=logging.info) :
     counter=0
     finger_status_layer_refs = dict()
     # Figure out the hand pose layers.
-    for layer_ref in layer_refs :            
-        if not layer_ref.has_valid_finger_status_export_spec() :
+    for layer_ref in layer_refs :
+        if layer_ref.has_valid_marker_export_spec() or layer_ref.has_valid_mg_export_spec() or layer_ref.has_valid_family_export_spec():
             continue
         elif layer_ref.has_valid_finger_status_export_spec() and layer_ref.has_valid_wrist_orientation_export_spec() :
 
@@ -211,11 +217,8 @@ def get_finger_pose_layer_refs(layer_refs, logit=logging.info) :
                         finger_status_layer_refs[wrist_export.wrist_orientation][finger_export.finger] = dict()
                     finger_status_layer_refs[wrist_export.wrist_orientation][finger_export.finger][finger_export.status] = layer_ref
                     counter+=1
-        else :
-            logit(f"Layer {layer_ref.label} has an invalid combination of wrist orientation and finger status")
 
     logit(f"Found {counter} valid finger status")
-    logit(f"Finger status : {finger_status_layer_refs}")
     return finger_status_layer_refs
 
 def get_markers_pos(marker_layer_refs, logit=logging.info) :
@@ -225,45 +228,61 @@ def get_markers_pos(marker_layer_refs, logit=logging.info) :
     markers = dict()
     for orient in marker_layer_refs.keys() :
         markers[orient] = dict()
-        for finger in marker_layer_refs[orient].keys() :
-            markers[orient][finger] = dict()
-            for mg in marker_layer_refs[orient][finger].keys() :
-                markers[orient][finger][mg] = dict()
-                for charac in marker_layer_refs[orient][finger][mg].keys() :
-                    markers[orient][finger][mg][charac] = dict()
-                    for markerType in marker_layer_refs[orient][finger][mg][charac].keys() :
-                        markers[orient][finger][mg][charac][markerType] = []
-                        layer_ref = marker_layer_refs[orient][finger][mg][charac][markerType]
-                        # Get the marker in layer_ref childrens
-                        if 'mgrep-marker' in layer_ref.source.attrib :
-                            marker = layer_ref.source.getchildren()[0]
-                            marker_position = [np.round(float(marker.get('cx')),4), np.round(float(marker.get('cy')),4)]
-                            markers[orient][finger][mg][charac][markerType] = (marker, marker_position)
+        for finger_status in marker_layer_refs[orient].keys() :
+            markers[orient][finger_status] = dict()
+            for status in marker_layer_refs[orient][finger_status].keys() :
+                markers[orient][finger_status][status] = dict()
+                for finger in marker_layer_refs[orient][finger_status][status].keys() :
+                    markers[orient][finger_status][status][finger] = dict()
+                    for mg in marker_layer_refs[orient][finger_status][status][finger].keys() :
+                        markers[orient][finger_status][mg] = dict()
+                        for charac in marker_layer_refs[orient][finger_status][status][finger][mg].keys() :
+                            markers[orient][finger_status][mg][charac] = dict()
+                            for markerType in marker_layer_refs[orient][finger_status][status][finger][mg][charac].keys() :
+                                markers[orient][finger_status][mg][charac][markerType] = []
+                                layer_ref = marker_layer_refs[orient][finger_status][status][finger][mg][charac][markerType]
+                                # Get the marker in layer_ref childrens
+                                if 'mgrep-marker' in layer_ref.source.attrib :
+                                    marker = layer_ref.source.getchildren()[0]
+                                    marker_position = [np.round(float(marker.get('cx')),4), np.round(float(marker.get('cy')),4)]
+                                    markers[orient][finger_status][status][finger][mg][charac][markerType] = (marker, marker_position)
     return markers
 
-def show_marker_layers(marker_layer_refs) :
+def show_marker_layers(marker_layer_refs, logit) :
     """
     Show the markers
     """
     for orient in marker_layer_refs :
-        for finger in marker_layer_refs[orient] :
-            for microgesture in marker_layer_refs[orient][finger] :
-                for characteristic in marker_layer_refs[orient][finger][microgesture] :
-                    for markerType in marker_layer_refs[orient][finger][microgesture][characteristic] :
-                        layer = marker_layer_refs[orient][finger][microgesture][characteristic][markerType]
-                        layer.source.attrib['style'] = 'display:inline'
+        for finger_status in marker_layer_refs[orient] :
+            for status in marker_layer_refs[orient][finger_status] :
+                for finger in marker_layer_refs[orient][finger_status][status] :
+                    for microgesture in marker_layer_refs[orient][finger_status][status][finger] :
+                        for characteristic in marker_layer_refs[orient][finger_status][status][finger][microgesture] :
+                            for markerType in marker_layer_refs[orient][finger_status][status][finger][microgesture][characteristic] :
+                                layer = marker_layer_refs[orient][finger_status][status][finger][microgesture][characteristic][markerType]
+                                # logit(f"Show layer : {layer.id}")
+                                layer.source.attrib['style'] = 'display:inline'
+                                if layer.source.attrib.has_key("id") and layer.source.attrib["id"] == "layer26-2-9-9":
+                                    id = layer.source.attrib["id"]
+                                    logit(f"SHOW layer26-2-9-9")
 
-def hide_marker_layers(marker_layer_refs) :
+def hide_marker_layers(marker_layer_refs, logit) :
     """
     Hide the markers
     """
     for orient in marker_layer_refs :
-        for finger in marker_layer_refs[orient] :
-            for microgesture in marker_layer_refs[orient][finger] :
-                for characteristic in marker_layer_refs[orient][finger][microgesture] :
-                    for markerType in marker_layer_refs[orient][finger][microgesture][characteristic] :
-                        layer = marker_layer_refs[orient][finger][microgesture][characteristic][markerType]
-                        layer.source.attrib['style'] = 'display:none'
+        for finger_status in marker_layer_refs[orient] :
+            for status in marker_layer_refs[orient][finger_status] :
+                for finger in marker_layer_refs[orient][finger_status][status] :
+                    for microgesture in marker_layer_refs[orient][finger_status][status][finger] :
+                        for characteristic in marker_layer_refs[orient][finger_status][status][finger][microgesture] :
+                            for markerType in marker_layer_refs[orient][finger_status][status][finger][microgesture][characteristic] :
+                                layer = marker_layer_refs[orient][finger_status][status][finger][microgesture][characteristic][markerType]
+                                # logit(f"Hide layer : {layer.id}")
+                                layer.source.attrib['style'] = 'display:none'
+                                if layer.source.attrib.has_key("id") and layer.source.attrib["id"] == "layer26-2-9-9":
+                                    id = layer.source.attrib["id"]
+                                    logit(f"HIDE layer26-2-9-9")
 
 def show_family_layers(family_layer_refs) :
     """
@@ -673,10 +692,22 @@ class FingerStatusExportSpec(object):
         A RuntimeError is raised if it is incorrectly formatted.
         """
         result = list()
+        spec = None
+
         if FingerStatusExportSpec.ATTR_ID not in layer.source.attrib:
+            # Find the parent with the mgrep-wrist-orientation attribute
+            # IF AND ONLY IF the layer has at least one of the other attributes
+            if layer.has_valid_marker_export_spec() :
+                for ancestor in layer.source.iterancestors() :
+                    if FingerStatusExportSpec.ATTR_ID in ancestor.attrib :
+                        spec = ancestor.attrib[FingerStatusExportSpec.ATTR_ID]
+                        break
+        else :
+            spec = layer.source.attrib[FingerStatusExportSpec.ATTR_ID]
+
+        if spec == None :
             return result
         
-        spec = layer.source.attrib[FingerStatusExportSpec.ATTR_ID]
         
         g_split = spec.split(",")
 
