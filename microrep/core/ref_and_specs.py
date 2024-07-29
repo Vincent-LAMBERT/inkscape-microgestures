@@ -235,11 +235,11 @@ def get_markers_pos(marker_layer_refs, logit=logging.info) :
                 for finger in marker_layer_refs[orient][finger_status][status].keys() :
                     markers[orient][finger_status][status][finger] = dict()
                     for mg in marker_layer_refs[orient][finger_status][status][finger].keys() :
-                        markers[orient][finger_status][mg] = dict()
+                        markers[orient][finger_status][status][finger][mg] = dict()
                         for charac in marker_layer_refs[orient][finger_status][status][finger][mg].keys() :
-                            markers[orient][finger_status][mg][charac] = dict()
+                            markers[orient][finger_status][status][finger][mg][charac] = dict()
                             for markerType in marker_layer_refs[orient][finger_status][status][finger][mg][charac].keys() :
-                                markers[orient][finger_status][mg][charac][markerType] = []
+                                markers[orient][finger_status][status][finger][mg][charac][markerType] = []
                                 layer_ref = marker_layer_refs[orient][finger_status][status][finger][mg][charac][markerType]
                                 # Get the marker in layer_ref childrens
                                 if 'mgrep-marker' in layer_ref.source.attrib :

@@ -4,6 +4,7 @@ import logging
 import os
 import subprocess
 import tempfile
+from lxml import etree
 
 from .utils import PNG, SVG, JPG, PDF
 
@@ -74,7 +75,7 @@ def export_to_filetype(filetype, svg_path, output_path, label, options, logit=lo
                   PDF : lambda x,y,z: export_to_pdf(x, y, z, options, logit)}
     functions[filetype](svg_path, output_path, label)
 
-def export_to_svg(document, dest):
+def export_to_svg(document, dest,):
     """
     Actually export the layers
     """
@@ -109,6 +110,12 @@ def export_to_jpg(svg_path, output_path, label, options, logit=logging.info):
         command = f"convert \"{png_temp_file.name}\" \"{jpg_path}\""
 
     to_export(command)
+    
+def special_deepcopy(document):
+    root = document.getroot()
+    svg_as_string = etree.tostring(root, pretty_print=True).decode("utf-8")
+    new_root = etree.fromstring(svg_as_string)
+    return etree.ElementTree(new_root)
 
 ######################################################################################################################
 

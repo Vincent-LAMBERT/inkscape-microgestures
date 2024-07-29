@@ -98,7 +98,7 @@ class CreateRepresentations(inkex.Effect):
         marker_layer_refs = rf.get_marker_layer_refs(layer_refs, logit)
         markers = rf.get_markers_pos(marker_layer_refs, fmc_combinations)
         # Hide the marker layers forever
-        rf.hide_marker_layers(marker_layer_refs)
+        rf.hide_marker_layers(marker_layer_refs, logit)
         # Hide the family layers temporarily
         rf.hide_family_layers(family_layer_refs, self.options.traces, self.options.command)
         

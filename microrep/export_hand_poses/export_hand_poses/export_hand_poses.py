@@ -122,7 +122,9 @@ class ExportHandPoses(inkex.Effect):
                 continue
 
             label = self.get_label_from_hand_pose(orient, hand_pose, logit)
-            ex.export(self.document, f"{label}", self.options, logit)
+            new_document = ex.special_deepcopy(self.document)
+            new_document = remove_invisible_layers_for_export(new_document, logit)
+            ex.export(new_document, f"{label}", self.options, logit)
             
             count+=1
         return count
@@ -187,6 +189,21 @@ def hide_finger_layers(finger_status_layer_refs, logit) :
             for status in finger_status_layer_refs[wrist_orientation][finger] :
                 layer = finger_status_layer_refs[wrist_orientation][finger][status]
                 layer.source.attrib['style'] = 'display:none'
+                
+def remove_invisible_layers_for_export(new_document, logit):
+    """
+    Remove the invisible layers with attribute 'mgrep-wrist-orientation' from each export
+    """
+    layer_refs = rf.get_layer_refs(new_document, visible_only=False, logit=logit)
+    wrist_orientation_layer_refs = rf.get_wrist_orientation_layer_refs(layer_refs, logit)
+    
+    for wrist_orientation in wrist_orientation_layer_refs :
+        layer = wrist_orientation_layer_refs[wrist_orientation]
+        if layer.is_visible() :
+            continue
+        parent = layer.source.getparent()
+        parent.remove(layer.source)
+    return new_document
 
 ######################################################################################################################
 
