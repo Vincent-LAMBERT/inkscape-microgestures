@@ -61,11 +61,13 @@ class CreateRepresentations(inkex.Effect):
         self.arg_parser.add_argument("--path", type=str, dest="path", default="~/", help="The directory to export into")
         self.arg_parser.add_argument("--prefix", type=str, dest="prefix", default="", help='Prefix to add to the exported file name (Optional)')
         self.arg_parser.add_argument('-f', '--filetype', type=str, dest='filetype', default='svg', 
-                                     help='Exported file type. One of [svg|png|jpeg|pdf]')
+                                     help='Exported file type. One of [svg|png|jpg|pdf]')
         self.arg_parser.add_argument("--dpi", type=float, dest="dpi", default=90.0, help="DPI of exported image (if applicable)")
         self.arg_parser.add_argument("--config", type=str, dest="config", default="~/", help="Configuration file used to export (Optional)")
+        self.arg_parser.add_argument("--family", type=str, dest="family", default="AandB", help="Selected family")
         self.arg_parser.add_argument("--traces", type=inkex.Boolean, dest="traces", default=False, help='Show traces')
         self.arg_parser.add_argument("--command", type=inkex.Boolean, dest="command", default=False, help='Show command placeholders')
+        self.arg_parser.add_argument("--radius", type=float, dest="radius", default=2.5, help="Command radius (temporary)")
         self.arg_parser.add_argument("--four", type=inkex.Boolean, dest="four", default=False, help='Stop after processing the four first representations of a family')
         self.arg_parser.add_argument("--one", type=inkex.Boolean, dest="one", default=False, help='Stop after processing one family')
         self.arg_parser.add_argument("--debug", type=inkex.Boolean, dest="debug", default=False, help="Debug mode (verbose logging)")
@@ -89,14 +91,21 @@ class CreateRepresentations(inkex.Effect):
         # Get a dictionnary of each exported family with their
         # element layers also put in a dictionnary corresponding 
         # to the element considered
-
         layer_refs = rf.get_layer_refs(self.document, False, logit)
+        wrist_orient_refs = rf.get_wrist_orientation_layer_refs(layer_refs, logit)
+        logit(f"Found {len(wrist_orient_refs)} wrist orientation layers")
+        if len(wrist_orient_refs) != 1:
+            logit(f"Error: expected exactly one wrist orientation layer, found {len(wrist_orient_refs)}")
+            return
+        else:
+            wrist_orient = list(wrist_orient_refs.keys())[0]
+            
         family_layer_refs = rf.get_family_layer_refs(layer_refs, logit)
         
         # Get a dictionnary of each wanted microgesture marker
         # with their positions put in a dictionnary according to their type
         marker_layer_refs = rf.get_marker_layer_refs(layer_refs, logit)
-        markers = rf.get_markers_pos(marker_layer_refs, fmc_combinations)
+        markers = rf.get_markers_pos(marker_layer_refs[wrist_orient], logit)
         # Hide the marker layers forever
         rf.hide_marker_layers(marker_layer_refs, logit)
         # Hide the family layers temporarily
@@ -104,54 +113,16 @@ class CreateRepresentations(inkex.Effect):
         
         # Create the Design layer above all the other layers
         self.design_layer = self.create_design_layer()
-        
+        family = self.options.family
         representation_layers = dict()
-        for family in family_layer_refs:
-            counter=1
-            logit(f"Exporting {family} family\n")
-            representation_layers[family] = dict()
-            for finger, mg, charac in fmc_combinations :
-                logit(f"Creating {mg}-{charac} layers\n")
-                created_layers = list()
-                # Duplicate the family layers to create the representation
-                if mg in family_layer_refs[family] and charac in family_layer_refs[family][mg]:
-                    for element in family_layer_refs[family][mg][charac] :
-                        # Draw trajectory only if its the index (Avoid trajectory overlapping other trajectories)
-                        if not (mg!=u.SWIPE and element==u.TRAJECTORY and finger!=u.INDEX) :
-                            new_layer_name = f"{family}_{finger}_{mg}_{charac}_{element}"
-                            new_family_layer = self.duplicate_family_layer(family_layer_refs[family][mg][charac][element], new_layer_name)
-                            
-                            # Create the family element depending on the marker's position
-                            logit(f"Creating the layer : {new_layer_name}")
-                            specific_markers = markers["front"][finger][mg][charac]
-                            create_mg_rep(new_family_layer, element, specific_markers, logit)
-                            
-                            # Adds the 'mgrep-microgesture-layer' attribute to the layer 
-                            # It can be used later to diversify the representation 
-                            # according to the microgesture and is used to associate
-                            # the commands to their placeholders
-                            new_family_layer.set(rf.MicrogestureExportSpec.ATTR_ID, f"{finger}, {mg}, {charac}")
-                            new_family_layer.set(rf.MicrogestureExportSpec.ELEMENT_ID, f"{element}")
-                            
-                            created_layers.append(new_family_layer)
-                
-                # Adding the representation to the dictionnary
-                if finger not in representation_layers[family] :
-                    representation_layers[family][finger] = dict()
-                if mg not in representation_layers[family][finger] :
-                    representation_layers[family][finger][mg] = dict()
-                if charac not in representation_layers[family][finger][mg] :
-                    representation_layers[family][finger][mg][charac] = dict()
-                representation_layers[family][finger][mg][charac] = created_layers
-                
-                # Break on 4 first microgestures for debug purposes
-                if self.options.four and counter>=4:
+        if family in family_layer_refs:
+            self.export_family(family, family_layer_refs, representation_layers, markers, fmc_combinations, logit)
+        else :
+            logit(f"Error: family {family} not found. Exporting all families")
+            for family in family_layer_refs:
+                break_bool = self.export_family(family, family_layer_refs, representation_layers, markers, fmc_combinations, logit)
+                if break_bool:
                     break
-                counter+=1
-                
-            # Break on first family for debug purposes
-            if self.options.one:
-                break
                 
         self.export_representations(combinations, representation_layers, logit)
         
@@ -159,7 +130,60 @@ class CreateRepresentations(inkex.Effect):
         self.design_layer.delete()
         
         rf.show_family_layers(family_layer_refs)
-        rf.show_marker_layers(marker_layer_refs)
+        rf.show_marker_layers(marker_layer_refs, logit)
+    
+    def export_family(self, family, family_layer_refs, representation_layers, markers, fmc_combinations, logit=logging.info) :
+        counter=1
+        logit(f"Exporting {family} family\n")
+        representation_layers[family] = dict()
+        for finger, mg, charac in fmc_combinations :
+            logit(f"Creating {mg}-{charac} layers\n")
+            created_layers = list()
+            # Duplicate the family layers to create the representation
+            if mg in family_layer_refs[family] and charac in family_layer_refs[family][mg]:
+                for element in family_layer_refs[family][mg][charac] :
+                    # Draw trajectory only if its the index (Avoid trajectory overlapping other trajectories)
+                    if not (mg!=u.SWIPE and element==u.TRAJECTORY and finger!=u.INDEX) :
+                        new_layer_name = f"{family}_{finger}_{mg}_{charac}_{element}"
+                        family_layer_ref = family_layer_refs[family][mg][charac][element]
+                        new_family_layer = self.duplicate_family_layer(family_layer_ref, new_layer_name)
+                                                    
+                        # Create the family element depending on the marker's position
+                        logit(f"Creating the layer : {new_layer_name}")
+                        specific_markers = markers[finger][mg][charac]
+                        if mg==u.SWIPE:
+                            create_mg_rep(new_family_layer, element, specific_markers, self.options.radius, logit)
+                        else:
+                            create_mg_rep(new_family_layer, element, specific_markers, None, logit)
+                        
+                        # Adds the 'mgrep-microgesture-layer' attribute to the layer 
+                        # It can be used later to diversify the representation 
+                        # according to the microgesture and is used to associate
+                        # the commands to their placeholders
+                        new_family_layer.set(rf.MicrogestureExportSpec.ATTR_ID, f"{finger}, {mg}, {charac}")
+                        new_family_layer.set(rf.MicrogestureExportSpec.ELEMENT_ID, f"{element}")
+                        
+                        created_layers.append(new_family_layer)
+            
+            # Adding the representation to the dictionnary
+            if finger not in representation_layers[family] :
+                representation_layers[family][finger] = dict()
+            if mg not in representation_layers[family][finger] :
+                representation_layers[family][finger][mg] = dict()
+            if charac not in representation_layers[family][finger][mg] :
+                representation_layers[family][finger][mg][charac] = dict()
+            representation_layers[family][finger][mg][charac] = created_layers
+            
+            # Break on 4 first microgestures for debug purposes
+            if self.options.four and counter>=4:
+                return True
+            counter+=1
+            
+        # Break on first family for debug purposes
+        if self.options.one:
+            return True
+        
+        return False
 
 #####################################################################
         

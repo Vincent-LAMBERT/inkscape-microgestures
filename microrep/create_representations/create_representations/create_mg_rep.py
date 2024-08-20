@@ -38,7 +38,7 @@ import logging
 import microrep.core.utils as u
 import microrep.core.mg_maths as mg
  
-def create_mg_rep(family_layer, element, markers, logit=logging.info) :
+def create_mg_rep(family_layer, element, markers, command_radius, logit=logging.info) :
     """
     Creates the family representation 
     by moving elements of the family layer
@@ -55,18 +55,17 @@ def create_mg_rep(family_layer, element, markers, logit=logging.info) :
             # In this case, element == markerType as they are both either actuator or receiver
             move_element(family_layer, markers[element][1], logit)
     else :
-        move_path(family_layer, markers[u.TRAJ_START][1], markers[u.TRAJ_END][1], logit)
+        move_path(family_layer, markers[u.TRAJ_START][1], markers[u.TRAJ_END][1], command_radius, logit)
 
 def move_element(parent_layer, position, logit=logging.info) :
     """
     Moves the circle in the parent layer to the given positions
     """
     design_xml = None
-    circle_xmls={}
-    circles={}
+    circle_xmls, circles = {}, {}
     
     for loop_xml in parent_layer.findall(".//{*}path") :
-        if loop_xml.get("mgrep-path-element") == u.DESIGN :
+        if loop_xml.get(u.MREP_PATH_ELEMENT) == u.DESIGN :
             design_xml = loop_xml
             
     for loop_xml in parent_layer.findall(".//{*}circle") :
@@ -90,7 +89,7 @@ def addPathTypeToDicts(pathType, xml, xmls, paths) :
     Adds the parsed path to the paths 
     dictionnary if it is of the given type
     """
-    if xml.get("mgrep-path-element") == pathType :
+    if xml.get(u.MREP_PATH_ELEMENT) == pathType :
         xmls[pathType] = xml
         path = svg.path.parse_path(xml.get("d"))
         paths[pathType] = path
@@ -115,14 +114,14 @@ def addCircleTypeToDicts(circleType, xml, xmls, circles) :
     CAUTION : As we want to move its centroid, it
     would be considered as a path with one coordinates
     """
-    if xml.get("mgrep-path-element") == circleType :
+    if xml.get(u.MREP_PATH_ELEMENT) == circleType :
         path_cx = xml.get("cx")
         path_cy = xml.get("cy")
         path_r = xml.get("r")
         circles[circleType] = {u.COORDINATES : mg.convert_to_complex(path_cx, path_cy), u.CIRCLE_RADIUS : path_r}
         xmls[circleType] = xml
 
-def move_path(parent_layer, start_position, end_position, logit=logging.info) :
+def move_path(parent_layer, start_position, end_position, command_radius=None, logit=logging.info) :
     """
     Moves the path in the parent layer to the given positions
     
@@ -131,10 +130,14 @@ def move_path(parent_layer, start_position, end_position, logit=logging.info) :
     The path is thus reversed from the documentation 
     here https://www.w3.org/TR/SVG/paths.html
     """    
-    path_xmls={}
-    circle_xmls={}
-    paths={}
-    circles={}
+    path_xmls, paths = {}, {}
+    circle_xmls, circles = {}, {}
+    
+    # Compute the new path vector from start to end
+    reference_vector = mg.vector(start_position, end_position)
+    if command_radius is not None :
+        correction_vector = mg.normalize(reference_vector) * command_radius
+        reference_vector = reference_vector - correction_vector
     
     for loop_xml in parent_layer.findall(".//{*}path") :
         for pathType in u.PATH_BASED_TYPES :
@@ -145,14 +148,11 @@ def move_path(parent_layer, start_position, end_position, logit=logging.info) :
             addCircleTypeToDicts(circleType, loop_xml, circle_xmls, circles)
     
     # If at least one design element if specified
-    if u.DESIGN in paths and paths[u.DESIGN] is not None :
-        # Compute the new path vector from start to end
-        reference_vector = mg.vector(start_position, end_position)
-        
+    if u.DESIGN in paths and paths[u.DESIGN] is not None :        
         if u.TRACE in paths and paths[u.TRACE] is not None :
-            paths, circles = mg.compute_transformation(paths, circles, reference_vector, start_position, paths[u.TRACE], logit)
+            paths, circles = mg.compute_transformation(paths, circles, reference_vector, start_position, command_radius, paths[u.TRACE], logit)
         else :
-            paths, circles = mg.compute_transformation(paths, circles, reference_vector, start_position, False, logit)
+            paths, circles = mg.compute_transformation(paths, circles, reference_vector, start_position, None, False, logit)
 
         for pathType in path_xmls :
             setXmlValueFromPathType(pathType, path_xmls[pathType], paths, logit)

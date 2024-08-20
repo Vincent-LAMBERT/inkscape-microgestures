@@ -12,7 +12,11 @@
        <option value="pdf">PDF</option>
     </param>
     <param name="showMg" type="boolean" _gui-text="Show microgesture type in commands">false</param>
+    <param name="name" type="string" _gui-text="Export Name"></param>
     <param name="dpi" type="float" min="0.0" max="1000.0" _gui-text="Export DPI (if applicable)">300</param>
+    <param name="radius" type="float" min="0.0" max="1000.0"  _gui-text="Command radius">2.5</param>
+    <!-- <param name="issue_distance" type="float" min="0.0" max="1000.0"  _gui-text="(Temporary) ISSUE_DISTANCE">35.0</param> -->
+    <!-- <param name="security_distance" type="float"  min="0.0" max="1000.0" _gui-text="(Temporary) SECURITY_DISTANCE">7.0</param> -->
     <param name="config" type="string" _gui-text="Export Configuration File">~/</param>
     <param name="icon" type="string" _gui-text="Command Icons Folder">~/</param>
     <param name="debug" type="boolean" _gui-text="Debug mode (verbose logging)">false</param>

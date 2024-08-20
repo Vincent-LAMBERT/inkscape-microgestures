@@ -57,20 +57,20 @@ class ExportHandPoses(inkex.Effect):
     def __init__(self):
         super().__init__()
         self.arg_parser.add_argument("--path", type=str, dest="path", default="~/", help="The directory to export into")
-        self.arg_parser.add_argument('-f', '--filetype', type=str, dest='filetype', default='jpeg', 
-                                     help='Exported file type. One of [svg|png|jpeg|pdf]')
+        self.arg_parser.add_argument('-f', '--filetype', type=str, dest='filetype', default='jpg', 
+                                     help='Exported file type. One of [svg|png|jpg|pdf]')
         self.arg_parser.add_argument("--config", type=str, dest="config", default="~/", help="Configuration file used to define the hand poses")
         self.arg_parser.add_argument("--dpi", type=float, dest="dpi", default=90.0, help="DPI of exported image")
-        self.arg_parser.add_argument("--markers", type=inkex.Boolean, dest="markers", default=90.0, help="Show or hide markers on the exported image")
+        self.arg_parser.add_argument("--markers", type=inkex.Boolean, dest="markers", default=False, help="Show or hide markers on the exported image")
         self.arg_parser.add_argument("--debug", type=inkex.Boolean, dest="debug", default=False, help="Print debug messages as warnings")
         self.arg_parser.add_argument("--dry", type=inkex.Boolean, dest="dry", default=False, help="Don't actually do all of the exports")
     
     def get_label_from_hand_pose(self, orient, hand_pose, logit):
         # Has as input a hand pose of the form [(finger, status), (finger, status), ...]
-        # Returns a string of the form "finger1_status1_finger2_status2_..."
+        # Returns a string of the form "Finger1status1-Finger2status2-..."
         label = u.get_wrist_orientation_nickname(orient)+"_"
         for finger, status in hand_pose:
-            finger_nick = finger[0].capitalize()
+            finger_nick = u.get_finger_nickname(finger)
             status_nick = u.get_status_nickname(status).lower()
             label += finger_nick+status_nick+"-"
         label = label[:-1]
@@ -110,6 +110,7 @@ class ExportHandPoses(inkex.Effect):
             
         show_orient_front_layer(wrist_orientation_layer_refs, logit)
         show_finger_up_layers(finger_layer_refs, logit)
+        
         if not self.options.markers :
             rf.show_marker_layers(marker_layer_refs, logit)
     
@@ -128,7 +129,9 @@ class ExportHandPoses(inkex.Effect):
             
             count+=1
         return count
-            
+
+###### UPDATES THE HAND POSE ######
+
 def update_show_hide_orient(orient_layer_refs, orient, logit) :
     # logit(f"Update show hide (orient) : ({orient})")
 
@@ -189,22 +192,40 @@ def hide_finger_layers(finger_status_layer_refs, logit) :
             for status in finger_status_layer_refs[wrist_orientation][finger] :
                 layer = finger_status_layer_refs[wrist_orientation][finger][status]
                 layer.source.attrib['style'] = 'display:none'
-                
+    
+###### CLEAN DOCUMENT FOR EXPORT ######
+            
 def remove_invisible_layers_for_export(new_document, logit):
     """
     Remove the invisible layers with attribute 'mgrep-wrist-orientation' from each export
     """
-    layer_refs = rf.get_layer_refs(new_document, visible_only=False, logit=logit)
-    wrist_orientation_layer_refs = rf.get_wrist_orientation_layer_refs(layer_refs, logit)
+    layer_refs = rf.get_layer_refs(new_document, visible_only=False, logit=None)
+    wrist_orientation_layer_refs = rf.get_wrist_orientation_layer_refs(layer_refs, logit=None)
     
     for wrist_orientation in wrist_orientation_layer_refs :
-        layer = wrist_orientation_layer_refs[wrist_orientation]
-        if layer.is_visible() :
-            continue
-        parent = layer.source.getparent()
-        parent.remove(layer.source)
+        layer_ref = wrist_orientation_layer_refs[wrist_orientation]
+        if layer_ref.is_visible() :
+            remove_invisible_fingers_in_children(layer_ref, logit)
+        else :
+            parent = layer_ref.source.getparent()
+            parent.remove(layer_ref.source)
+    
     return new_document
 
+def remove_invisible_fingers_in_children(layer_ref, logit) :
+    """
+    Remove the invisible fingers with attribute FingerStatusExportSpec.ATTR_ID from each children
+    """
+    for child_ref in layer_ref.children :
+        remove_invisible_fingers_in_children(child_ref, logit)     
+            
+        if child_ref.has_valid_finger_status_export_spec() :
+            if not child_ref.is_visible() and not child_ref.has_valid_marker_export_spec() :
+                parent = child_ref.source.getparent()
+                parent.remove(child_ref.source)
+            else :
+                child_ref.source.attrib.pop(rf.FingerStatusExportSpec.ATTR_ID, None)
+            
 ######################################################################################################################
 
 def _main():

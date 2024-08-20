@@ -63,7 +63,7 @@ class CompleteOcclusionAdaptation(inkex.Effect):
         super().__init__()
         self.arg_parser.add_argument("--path", type=str, dest="path", default="~/", help="The directory to export into")
         self.arg_parser.add_argument('-f', '--filetype', type=str, dest='filetype', default='svg', 
-                                     help='Exported file type. One of [svg|png|jpeg|pdf]')
+                                     help='Exported file type. One of [svg|png|jpg|pdf]')
         self.arg_parser.add_argument("--dpi", type=float, dest="dpi", default=90.0, help="DPI of exported image (if applicable)")
         self.arg_parser.add_argument('--strategy', type=str, dest='strategy', default='default', 
                                      help='Non spatial strategy used. One of [default|brightness|text]')

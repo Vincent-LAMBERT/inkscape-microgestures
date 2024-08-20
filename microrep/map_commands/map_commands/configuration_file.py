@@ -162,9 +162,9 @@ def get_mappings_from_file(file_path, logit=logging.info) :
         for row in reader:
             combination = []
             for mg_command in row:
-                fmc, command = mg_command.split('-')
-                fm, charac = fmc.split('_')
-                finger, mg = fm.split('+')
+                finger, mcc = mg_command.split('+')
+                mg, cc = mcc.split('_')
+                charac, command = cc.split('-')
                 combination.append(((finger, mg, charac), command))
             mappings.append(combination)
             

@@ -58,6 +58,12 @@ def convert_from_complex(p) :
     """
     return np.array([p.real, p.imag]).astype(float)
 
+def normalize(vector) :
+    """
+    Normalize the given vector
+    """
+    return vector / np.linalg.norm(vector)
+
 def vector(p1, p2) :
     """
     Computes the vector resulting from the given points
@@ -297,15 +303,22 @@ def get_TRS_matrix(path, reference_vector, start_position, logit=logging.info) :
     TRS_matrix = translation_matrix @ rotation_matrix @ scaling_matrix @ translation_matrix_to_origin
     return TRS_matrix
 
-def compute_transformation(parsed_paths, parsed_circles, reference_vector, start_position, trace_path=False, logit=logging.info) :
+def compute_transformation(parsed_paths, parsed_circles, reference_vector, start_position, command_radius=None, trace_path=False, logit=logging.info) :
     """
     Move the parsed_paths so that the first parsed_path 
     ends match the reference_vector
     """
+    
     # If no trace_path is given, use the design path as a reference
     # CAUTION: It MUST be a stroke path (as any trace) to work
     if trace_path==False :
         trace_path = parsed_paths[DESIGN]
+    
+    if command_radius!=None:
+        # If the parent_layer indicates a swipe, we shift the arrow head by the command_radius given
+        correction_vector = normalize(reference_vector) * command_radius
+        trace_end_reference_vector = reference_vector + correction_vector
+        command_TRS_matrix = get_TRS_matrix(trace_path, trace_end_reference_vector, start_position, logit)
     
     TRS_matrix = get_TRS_matrix(trace_path, reference_vector, start_position, logit)
     
@@ -325,7 +338,10 @@ def compute_transformation(parsed_paths, parsed_circles, reference_vector, start
         transformed_paths[path_name] = apply_matrix_to_path(parsed_paths[path_name], bound_zones, TRS_matrix, logit)
     
     for circle_name in parsed_circles :
-        transformed_circles[circle_name] = apply_matrix_to_circle(parsed_circles[circle_name], bound_zones, TRS_matrix, logit)
+        if circle_name == COMMAND:
+            transformed_circles[circle_name] = apply_matrix_to_circle(parsed_circles[circle_name], bound_zones, command_TRS_matrix, logit)
+        else :
+            transformed_circles[circle_name] = apply_matrix_to_circle(parsed_circles[circle_name], bound_zones, TRS_matrix, logit)
     
     return transformed_paths, transformed_circles
     

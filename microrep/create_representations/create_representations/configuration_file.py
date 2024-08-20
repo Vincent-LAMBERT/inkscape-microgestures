@@ -108,8 +108,8 @@ def get_combinations_from_file(file_path) :
 def get_combination_from_row(row) :  
     combination = []
     for fmc in row:
-        fm, characteristic = fmc.split('-')
-        finger, microgesture = fm.split('+')
+        finger, mc = fmc.split('+')
+        microgesture, characteristic = mc.split('-')
         combination.append((finger, microgesture, characteristic))
     return combination
 

@@ -63,7 +63,7 @@ class AddLegend(inkex.Effect):
         super().__init__()
         self.arg_parser.add_argument("--path", type=str, dest="path", default="~/", help="The directory to export into")
         self.arg_parser.add_argument('-f', '--filetype', type=str, dest='filetype', default='svg', 
-                                     help='Exported file type. One of [svg|png|jpeg|pdf]')
+                                     help='Exported file type. One of [svg|png|jpg|pdf]')
         self.arg_parser.add_argument("--dpi", type=float, dest="dpi", default=90.0, help="DPI of exported image (if applicable)")
         self.arg_parser.add_argument("--config", type=str, dest="config", default="~/", help="Configuration file used to define the legends")
         self.arg_parser.add_argument("--debug", type=inkex.Boolean, dest="debug", default=False, help="Debug mode (verbose logging)")
@@ -87,11 +87,19 @@ class AddLegend(inkex.Effect):
         
         # Get the commands positions
         layer_refs = rf.get_layer_refs(self.document, False, logit)
+        wrist_orient_refs = rf.get_wrist_orientation_layer_refs(layer_refs, logit)
+        logit(f"Found {len(wrist_orient_refs)} wrist orientation layers")
+        if len(wrist_orient_refs) != 1:
+            logit(f"Error: expected exactly one wrist orientation layer, found {len(wrist_orient_refs)}")
+            return
+        else:
+            wrist_orient = list(wrist_orient_refs.keys())[0]
+            
         mg_layer_refs = rf.get_mg_layer_refs(layer_refs, logit)
         self.commands_with_positions = rf.get_commands_with_positions(mg_layer_refs, logit)
         self.duplicate_command_icons(mg_layer_refs, logit)
         marker_layer_refs = rf.get_marker_layer_refs(layer_refs, logit)
-        markers_positions = rf.get_markers_pos(marker_layer_refs, logit)
+        markers_positions = rf.get_markers_pos(marker_layer_refs[wrist_orient], logit)
         
         # Get the legends references
         dirname = os.path.dirname(__file__)

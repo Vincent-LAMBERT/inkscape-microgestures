@@ -59,6 +59,13 @@ RING="ring"
 PINKY="pinky"
 FINGERS = [INDEX, MIDDLE, RING, PINKY]
 FINGERS_WITH_THUMB = [THUMB, INDEX, MIDDLE, RING, PINKY]
+INDEX_MIDDLE=INDEX+"-"+MIDDLE
+MIDDLE_RING=MIDDLE+"-"+RING
+RING_PINKY=RING+"-"+PINKY
+INDEX_MIDDLE_RING=INDEX+"-"+MIDDLE+"-"+RING
+MIDDLE_RING_PINKY=MIDDLE+"-"+RING+"-"+PINKY
+INDEX_MIDDLE_RING_PINKY=INDEX+"-"+MIDDLE+"-"+RING+"-"+PINKY
+FINGERS_COMBOS=[INDEX_MIDDLE, MIDDLE_RING, RING_PINKY]+[INDEX_MIDDLE_RING, MIDDLE_RING_PINKY]+[INDEX_MIDDLE_RING_PINKY]
 
 UP = "up"
 CLOSE = "close"
@@ -75,6 +82,14 @@ ORIENTATION_STATUSES = { LEFT : [UP, CLOSE, FLEX],
                          BACK_RIGHT : [UP, CLOSE, FLEX, ADDUCTION, ABDUCTION, COMPLEX],
                          FRONT_LEFT : [UP, CLOSE, FLEX, ADDUCTION, ABDUCTION, COMPLEX],
                          FRONT_RIGHT : [UP, CLOSE, FLEX, ADDUCTION, ABDUCTION, COMPLEX]}
+
+def get_finger_nickname(finger) :
+    return finger[0].capitalize()
+
+def get_finger_name(finger_nickname) :
+    for finger in FINGERS_WITH_THUMB :
+        if get_finger_nickname(finger) == finger_nickname :
+            return finger
 
 def get_status_nickname(status) :
     if status == COMPLEX:
@@ -212,6 +227,8 @@ END = "end"
 CONTROL_1 = "control1"
 CONTROL_2 = "control2"
 
+
+MREP_PATH_ELEMENT = 'mgrep-path-element'
 DESIGN="design"
 TRACE="trace"
 TRACE_START_BOUND="trace-start-bound"
@@ -285,6 +302,10 @@ STRAWBERRY = "strawberry"
 PRUNE = "prune"
 WATERMELON = "watermelon"
 COMMANDS = [BANANA, PINEAPPLE, CHERRY, KIWI, STRAWBERRY, PRUNE, WATERMELON]
+        
+COLLIDE_WITH_COMMANDS = "collide_with_commands"
+COLLIDE_WITH_DESIGNS = "collide_with_designs"
+COLLIDE_WITH_HAND = "collide_with_hand"
 
 START = "start"
 CENTER = "center"

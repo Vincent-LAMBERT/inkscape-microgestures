@@ -55,6 +55,8 @@ def export(document, label, options, logit=logging.info):
         os.makedirs(os.path.join(output_path))
 
     label=prefix+label
+    
+    logit(f"Exporting {label} to {output_path}")
 
     with CustomNamedTemporaryFile().open(f".{SVG}") as fp_svg :
         if options.filetype!=SVG:
@@ -102,7 +104,7 @@ def export_to_png(svg_path, output_path, label, options, logit=logging.info):
 
 def export_to_jpg(svg_path, output_path, label, options, logit=logging.info):
     """
-    Convert the PNG to JPEG
+    Convert the PNG to JPG
     """
     with CustomNamedTemporaryFile().open(f".{PNG}") as png_temp_file :
         command = f"inkscape --export-type=\"{PNG}\" -d {options.dpi} --export-filename=\"{png_temp_file.name}\" \"{svg_path}\""
