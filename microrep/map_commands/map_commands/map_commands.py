@@ -122,7 +122,6 @@ class MapCommands(inkex.Effect):
             self.change_mapping(new_document, mapping_layer, mapping, legend_exist, visible_designs, visible_hands, logit)   
             
             # Actually do the export into the destination path.
-            # logit(f"self.options.name: {self.options.name} | self.options.name!='': {self.options.name!=''} | name: {name}")
             if self.options.name=='' :
                 family_name = self.svg_name.split("_")[0]
                 name = f"{family_name}_{get_mapping_name(mapping)}"
@@ -178,36 +177,41 @@ class MapCommands(inkex.Effect):
         """        
         if has_main_command_icon(layer_ref) :
             # Insert the new command above all existing commands and at the placeholded location
-            command = layer_ref.source.find(f".//*[@mgrep-path-element='{u.COMMAND}']")
-            command_layer = self.adapt_command_to_placeholder(command, new_command, logit)
+            command_circle = layer_ref.source.find(f".//*[@mgrep-path-element='{u.COMMAND}']")
+            command_layer = self.adapt_command_to_placeholder(command_circle, new_command, logit)
             mapping_layer.insert(0, command_layer)
-            
-            text_marker_pairs = get_text_marker_pairs(new_command, logit)
-                
-            # The text origin and transform matrix is 
-            # overwritten by the insertion. 
-            # Thus we have to use markers and move each 
-            # text to the corresponding location after 
-            # the template insertion
-            text_boxes = {}
-            background_text_boxes = {}
-            for text_type in text_marker_pairs.keys() :
-                for marker in text_marker_pairs[text_type].keys() :
-                    texts = text_marker_pairs[text_type][marker]
-                    for text in texts:
-                        text_box = self.move_text_to_marker(text_type, text, marker, logit)
-                        if text_boxes.get(text_type)==None :
-                            text_boxes[text_type] = text_box
-                        else :
-                            background_text_boxes[text_type] = text_box
-                
-            command_dicts[command_name] =  {"icon": command, "text_boxes": text_boxes, "background_text_boxes": background_text_boxes}
+            command_dicts[command_name] = self.fill_command_dicts(command_circle, new_command, 0, logit)
     
         if has_duplicated_command_icon(layer_ref) :
             duplicated_command_icon = self.create_command(command_name, logit, text=False)
             self.adapt_icon_command_to_layer(layer_ref, mapping_layer, duplicated_command_icon, logit)
+            
+    def fill_command_dicts(self, command_circle, new_command, shift, logit=logging.info) :
+        """
+        Fill the command dictionnary with empty values
+        """
+        text_marker_pairs = get_text_marker_pairs(new_command, shift, logit)
+            
+        # The text origin and transform matrix is 
+        # overwritten by the insertion. 
+        # Thus we have to use markers and move each 
+        # text to the corresponding location after 
+        # the template insertion
+        text_boxes = {}
+        background_text_boxes = {}
+        for text_type in text_marker_pairs.keys() :
+            for marker in text_marker_pairs[text_type].keys() :
+                texts = text_marker_pairs[text_type][marker]
+                for text in texts:
+                    text_box = self.move_text_to_marker(text_type, text, marker, logit)
+                    if text_boxes.get(text_type)==None :
+                        text_boxes[text_type] = text_box
+                    else :
+                        background_text_boxes[text_type] = text_box
+            
+        return {"icon": command_circle, "text_boxes": text_boxes, "background_text_boxes": background_text_boxes, "command_xml": new_command}
 
-    def move_text_to_marker(self, text_type, text, marker, logit):
+    def move_text_to_marker(self, text_type, text, marker, logit=logging.info) :
         """
         Move a text to a marker position
         """
@@ -230,54 +234,11 @@ class MapCommands(inkex.Effect):
         
         text_box = compute_text_box(text, marker, text_type, logit)
         return {"xml": text, "box": text_box}
-        
-    # def hide_text(self, document, text_marker_pairs, cmd, logit=logging.info) :
-    #     """
-    #     Hides the text that may hide other elements
-    #     """
-    #     # Get all the existing markers
-    #     markers = self.get_markers(document, logit)
-    #     # Get all the visible points
-    #     points = self.visible_points
-        
-    #     # Get the current point
-    #     cmd_position = np.array([float(cmd.get('cx')), float(cmd.get('cy'))])
-    #     # Check if their exist a marker not too far from the command which is 
-    #     # not the one that has been used to place the command, hence the minimum distance
-        
-    #     # If one marker is too close to the command define the direction in which it is preferable to show the text
-    #     close_markers = get_close_markers(cmd_position, markers, int(self.options.security_distance), int(self.options.issue_distance), logit)
-        
-
-    #     if len(close_markers) > 0 :
-    #         # Check if the close markers have the attribute mgrep-legend
-    #         if is_close_to_legend(close_markers) :
-    #             show_specific_text(text_marker_pairs, u.RIGHT, logit)
-    #         else :
-    #             close_points = get_close_points(cmd_position, points, int(self.options.security_distance), int(self.options.issue_distance), logit)
-    #             text_zone = self.compute_text_zone(document, text_marker_pairs, cmd_position, close_points, logit)
-                # logit(f"cmd_position: {cmd_position} - close_points: {close_points} - text zone: {text_zone}")
-                    
-    #             show_specific_text(text_marker_pairs, text_zone, logit)
-    #     else :
-    #         show_specific_text(text_marker_pairs, u.BELOW, logit)
     
     def hide_obstructing_labels(self, command_dicts, legend_exist, visible_designs, visible_hands, logit=logging.info) :
         """
         Hide the labels that may obstruct the commands
         """
-        # command_layers = document.findall('//svg:g[@mgrep-command="template"]', namespaces=inkex.NSS)
-        # commands={}
-        
-        # for command in command_layers :
-        #     centroid = command.find('.//svg:circle[@mgrep-icon="centroid"]', namespaces=inkex.NSS)
-        #     disk_center = sympy.Point(float(centroid.get("cx")), float(centroid.get("cy")))
-        #     disk = sympy.Circle(disk_center, float(centroid.get("r")))
-        #     text_boxes = get_text_boxes(command, logit)
-        #     text = command.findall('.//svg:text', namespaces=inkex.NSS)
-        #     if len(text) > 0 :
-        #         command_name = text[0].find('.//svg:tspan', namespaces=inkex.NSS).text
-        #         commands[command_name] = {"disk":disk, "text_boxes":text_boxes}
         obstructions = {}
         for command_name in command_dicts.keys() :
             # Show the text that crosses the less of other designs
@@ -297,17 +258,8 @@ class MapCommands(inkex.Effect):
         definitive_texts = {command_name: None for command_name in ordered_commands}
         
         for command_name in ordered_commands :
-            obstructions[command_name] = self.compute_obstructions_with_definitive_texts(obstructions, command_dicts, command_name, definitive_texts, logit)
-            definitive_texts[command_name], direction = self.compute_definitive_texts(obstructions, command_dicts, command_name, logit)
-            if direction != None :
-                self.hide_other_texts(direction, command_dicts, command_name, logit)
-        
-        # At this point, all the texts that may obstruct other 
-        # commands without having any else space are hidden
-        # obstructions = {cmd: {dir: obstructions[cmd][dir] for dir in obstructions[cmd]} for cmd in ordered_commands if definitive_texts[cmd] == None}
-        obstructions = {cmd: {dir: obstructions[cmd][dir] for dir in obstructions[cmd] if obstructions[cmd][dir]!=True} for cmd in ordered_commands if definitive_texts[cmd] == None}
-        
-        
+            obstructions, definitive_texts = self.hide_text_obstructing_designs(command_name, command_dicts, obstructions, definitive_texts, logit)
+                    
         for command_name in obstructions.keys() :
             for direction in obstructions[command_name].keys() :
                 obstructions[command_name][direction] = {u.COLLIDE_WITH_DESIGNS: 100, 
@@ -317,7 +269,7 @@ class MapCommands(inkex.Effect):
                 obstructions[command_name][direction][u.COLLIDE_WITH_DESIGNS] = collision_with_designs
                 obstructions[command_name][direction][u.COLLIDE_WITH_HAND] = collision_with_hand*2
                 
-            self.hide_text_obstructing_designs(obstructions, command_dicts, command_name, direction, logit)
+            obstructions, definitive_texts = self.hide_text_obstructing_definite_text(command_name, command_dicts, obstructions, definitive_texts, logit)            
                             
     def compute_obstructions_with_commands(self, command_name, command_dicts, legend_exist, logit=logging.info) :
         """
@@ -332,14 +284,34 @@ class MapCommands(inkex.Effect):
                 collision_with_commands = self.compute_collision_with_commands(command_dicts, direction, command_name, logit)
                 obstructions[direction] = collision_with_commands
                 
+            # Check if there is all the directions are obstructed 
+            shift = 0.1
+            while all(obstructions.values()) :
+                command_circle = command_dicts[command_name]["icon"]
+                new_command = command_dicts[command_name]["command_xml"]
+                # self.fill_command_dicts(command_circle, new_command, shift, logit)
+                command_dicts[command_name] = self.fill_command_dicts(command_circle, new_command, shift, logit)
+                
+                for direction in obstructions.keys() :
+                    collision_with_commands = self.compute_collision_with_commands(command_dicts, direction, command_name, logit)
+                    obstructions[direction] = collision_with_commands
+        
         return obstructions
     
-    def compute_obstructions_with_definitive_texts(self, obstructions, command_dicts, command_name, definitive_texts, logit=logging.info) :
+    def compute_obstructions_with_definitive_texts_for_cmd_obstruction(self, obstructions, command_dicts, command_name, definitive_texts, logit=logging.info) :
         for direction in obstructions[command_name].keys() :
             # We check if there is an obstruction with definitive texts only 
-            if not obstructions[command_name][direction] :
+            if obstructions[command_name][direction] != True:
                 dir_text_box = command_dicts[command_name]["text_boxes"][direction]["box"]
                 obstructions[command_name][direction] = self.compute_obstruction_with_definitive_texts(dir_text_box, definitive_texts, logit)
+        return obstructions[command_name]
+    
+    def compute_obstructions_with_definitive_texts_for_text_obstruction(self, obstructions, command_dicts, command_name, definitive_texts, logit=logging.info) :
+        for direction in obstructions[command_name].keys() :
+            # We check if there is an obstruction with definitive texts only 
+            dir_text_box = command_dicts[command_name]["text_boxes"][direction]["box"]
+            if self.compute_obstruction_with_definitive_texts(dir_text_box, definitive_texts, logit):
+                obstructions[command_name][direction] = True
         return obstructions[command_name]
                 
     def compute_obstruction_with_definitive_texts(self, dir_text_box, definitive_texts, logit=logging.info):
@@ -349,54 +321,32 @@ class MapCommands(inkex.Effect):
                 obstruction = self.collide(dir_text_box, text_box, logit)
                 if obstruction :
                     return True
-        return False    
+        return False
                 
-    def compute_definitive_texts(self, obstructions, command_dicts, command_name, logit=logging.info) :
-        # Check if there is one and only one direction with no obstruction
-        directions_with_no_obstruction = [direction for direction in obstructions[command_name].keys() if not obstructions[command_name][direction]]
+    def compute_definitive_texts_for_cmd_obstruction(self, obstructions, command_dicts, command_name, logit=logging.info) :
+        directions_with_no_obstruction = [direction for direction in obstructions[command_name].keys() if not obstructions[command_name][direction]]    
         
+        # Check if there is one and only one direction with no obstruction
         if len(directions_with_no_obstruction) == 1 :
             direction = directions_with_no_obstruction[0]
             return command_dicts[command_name]["text_boxes"][direction]["box"], direction
         else :
             return None, None
-                
-                # collision = {"icon": False, "text_box": {}}
-                # # In that case, we want to evaluate the POSSIBILITY of collision with another command text
-                # for command in command_dicts.keys() :
-                #     if command != command_name :
-                #         other_text_boxes = command_dicts[command]["text_boxes"]
-                #         if command not in collision["text_box"].keys() :
-                #             collision["text_box"][command] = {}
-                #         for other_direction in other_text_boxes.keys() :
-                #             other_text_box = other_text_boxes[other_direction]["box"]
-                #             if self.collide(other_text_box, text_box, logit) :
-                #                 collision["text_box"][command][other_direction] = True
-                #             else :
-                #                 collision["text_box"][command][other_direction] = False
-
-                # collision = {"icon": False}
-        # return False
-                
-        # return obstructions
-                
-            # obstructions = {u.BELOW: {u.COLLIDE_WITH_COMMANDS: {"icon": False}, 
-            #                         u.COLLIDE_WITH_DESIGNS: 100, 
-            #                         u.COLLIDE_WITH_HAND: 100}, 
-            #                 u.LEFT: {u.COLLIDE_WITH_COMMANDS: {"icon": False}, 
-            #                         u.COLLIDE_WITH_DESIGNS: 100, 
-            #                         u.COLLIDE_WITH_HAND: 100}, 
-            #                 u.RIGHT: {u.COLLIDE_WITH_COMMANDS: {"icon": False}, 
-            #                         u.COLLIDE_WITH_DESIGNS: 100, 
-            #                         u.COLLIDE_WITH_HAND: 100}, 
-            #                 u.ABOVE: {u.COLLIDE_WITH_COMMANDS: {"icon": False}, 
-            #                         u.COLLIDE_WITH_DESIGNS: 100, 
-            #                         u.COLLIDE_WITH_HAND: 100}}
+    
+    def compute_definitive_texts_for_text_obstruction(self, obstructions, command_dicts, command_name, logit=logging.info):
+        directions_with_no_obstruction = [direction for direction in obstructions[command_name].keys() if obstructions[command_name][direction]!=True] # Don't use 'not' because we want to push out 'True' but not dictionaries
+        
+        if len(directions_with_no_obstruction) > 0 :
+            # Get the directions with the less collision with designs
+            min_collision = min([obstructions[command_name][direction][u.COLLIDE_WITH_DESIGNS]+obstructions[command_name][direction][u.COLLIDE_WITH_HAND] for direction in directions_with_no_obstruction])
             
-            #     # collision_with_designs = self.compute_collision_with_paths(command_dicts[command_name]["text_boxes"][direction]["box"], visible_designs, logit)
-            #     # collision_with_hand = self.compute_collision_with_paths(command_dicts[command_name]["text_boxes"][direction]["box"], visible_hands, logit)
-            #     # obstructions[direction][u.COLLIDE_WITH_COMMANDS] = collision_with_commands
-            #     # obstructions[direction][u.COLLIDE_WITH_DESIGNS] = collision_with_designs*2+collision_with_hand
+            directions_with_min_collision = [direction for direction in directions_with_no_obstruction if obstructions[command_name][direction][u.COLLIDE_WITH_DESIGNS]+obstructions[command_name][direction][u.COLLIDE_WITH_HAND] == min_collision]
+            # If there is one and only one direction with the less collision with designs, hide the others
+            chosen_direction = directions_with_min_collision[0]
+            # self.hide_other_texts(chosen_direction, command_dicts, command_name, logit)
+            return command_dicts[command_name]["text_boxes"][chosen_direction]["box"], chosen_direction
+        else :
+            return None, None
     
     # def hide_obstructing_text_pairs(self, obstructions, command_dicts, command_name, logit): 
     def hide_text_obstructing_commands(self, obstructions, command_dicts, command_name, logit=logging.info) :
@@ -410,58 +360,27 @@ class MapCommands(inkex.Effect):
             self.hide_text(command_dicts, command_name, direction)
         return collision_with_commands
     
-    def hide_text_obstructing_designs(self, obstructions, command_dicts, command_name, direction, logit=logging.info) :
-        directions_to_check_for = obstructions[command_name].keys()
+    def hide_text_obstructing_designs(self, command_name, command_dicts, obstructions, definitive_texts, logit=logging.info) :
+        obstructions[command_name] = self.compute_obstructions_with_definitive_texts_for_cmd_obstruction(obstructions, command_dicts, command_name, definitive_texts, logit)
+        definitive_texts[command_name], direction = self.compute_definitive_texts_for_cmd_obstruction(obstructions, command_dicts, command_name, logit)
         
-        # Get the directions with the less collision with designs
-        min_collision = min([obstructions[command_name][direction][u.COLLIDE_WITH_DESIGNS]+obstructions[command_name][direction][u.COLLIDE_WITH_HAND] for direction in directions_to_check_for])
+        return self.hide_text_obstructing(command_dicts, command_name, direction, obstructions, definitive_texts, logit)
+    
+    def hide_text_obstructing_definite_text(self, command_name, command_dicts, obstructions, definitive_texts, logit=logging.info) :
+        obstructions[command_name] = self.compute_obstructions_with_definitive_texts_for_text_obstruction(obstructions, command_dicts, command_name, definitive_texts, logit)
+        definitive_texts[command_name], direction = self.compute_definitive_texts_for_text_obstruction(obstructions, command_dicts, command_name, logit)
         
-        directions_with_min_collision = [direction for direction in directions_to_check_for if obstructions[command_name][direction][u.COLLIDE_WITH_DESIGNS]+obstructions[command_name][direction][u.COLLIDE_WITH_HAND] == min_collision]
-        # If there is one and only one direction with the less collision with designs, hide the others
-        chosen_direction = directions_with_min_collision[0]
-        self.hide_other_texts(chosen_direction, command_dicts, command_name, logit)
+        return self.hide_text_obstructing(command_dicts, command_name, direction, obstructions, definitive_texts, logit)
         
-    # def hide_text_obstructing_definitive_texts(self, obstructions, definitive_texts, command_dicts, command_name, logit=logging.info) :
-    #     """
-    #     Hide the texts that may obstruct definitive command texts
-    #     """
-    #     collision_with_definitive_texts = []
-    #     for direction in obstructions[command_name].keys() :
-    #         if not obstructions[command_name][direction] :
-    #             text_box = command_dicts[command_name]["text_boxes"][direction]["box"]
-                
-    #             for definitive_text in definitive_texts :
-    #                 if (not direction in collision_with_definitive_texts) and self.collide(text_box, definitive_text, logit) :
-    #                     collision_with_definitive_texts.append(direction)
-    #                     break
+    def hide_text_obstructing(self, command_dicts, command_name, direction, obstructions, definitive_texts, logit=logging.info) :
+        if direction != None :
+            self.hide_other_texts(direction, command_dicts, command_name, logit)
             
-    #     logit(f"collision_with_definitive_texts: {collision_with_definitive_texts}")
-        
-        # no_obvious_collision = [direction for direction in no_collision_with_commands if direction not in collision_with_definitive_texts]
-        # logit(f"no_obvious_collision: {no_obvious_collision}")
-        
-        # no_obvious_collision = [direction for direction in no_collision_with_commands]
-        
-        
-        # # If there is one and only one direction with no collision with commands, hide the others
-        # if len(no_obvious_collision) == 1 :
-        #     chosen_direction = no_obvious_collision[0]
-        # else :
-        #     # If there is no direction with no collision with commands, check all directions
-        #     directions_to_check_for = []
-        #     if len(no_obvious_collision) == 0 :
-        #         directions_to_check_for = obstructions[command_name].keys()
-        #     else :
-        #         directions_to_check_for = no_obvious_collision
-            
-        #     # Get the directions with the less collision with designs
-        #     min_collision = min([obstructions[command_name][direction][u.COLLIDE_WITH_DESIGNS]+obstructions[command_name][direction][u.COLLIDE_WITH_HAND] for direction in directions_to_check_for])
-            
-        #     directions_with_min_collision = [direction for direction in directions_to_check_for if obstructions[command_name][direction][u.COLLIDE_WITH_DESIGNS]+obstructions[command_name][direction][u.COLLIDE_WITH_HAND] == min_collision]
-        #     # If there is one and only one direction with the less collision with designs, hide the others
-        #     chosen_direction = directions_with_min_collision[0]              
-            
-        # self.hide_other_texts(chosen_direction, command_dicts, command_name, logit)
+        # At this point, all the texts that may obstruct other 
+        # commands without having any else space are hidden
+        # obstructions = {cmd: {dir: obstructions[cmd][dir] for dir in obstructions[cmd]} for cmd in ordered_commands if definitive_texts[cmd] == None}
+        obstructions = {cmd: {dir: obstructions[cmd][dir] for dir in obstructions[cmd] if obstructions[cmd][dir]!=True} for cmd in command_dicts.keys() if definitive_texts[cmd] == None}
+        return obstructions, definitive_texts
         
     def hide_text(self, command_dicts, command_name, direction, logit=logging.info):
         """
@@ -491,7 +410,7 @@ class MapCommands(inkex.Effect):
     def compute_collision_with_commands(self, command_dicts, direction, command_name, logit=logging.info) :
         """
         Compute the collision of a text with other commands
-        """
+        """            
         text_boxes = command_dicts[command_name]["text_boxes"]
         other_command_icons = {c_name: command_dicts[c_name]["icon"] for c_name in command_dicts.keys() if c_name != command_name}
         
@@ -546,13 +465,23 @@ class MapCommands(inkex.Effect):
         bottom_left_box1 = np.array([text_box1[0][0], text_box1[1][1]])
         bottom_right_box1 = text_box1[1]
         
+        top_left_box2 = text_box2[0]
+        top_right_box2 = np.array([text_box2[1][0], text_box2[0][1]])
+        bottom_left_box2 = np.array([text_box2[0][0], text_box2[1][1]])
+        bottom_right_box2 = text_box2[1]
+        
         # Check if the boxes intersect
         top_left_box1_in_box2 = self.in_box(top_left_box1, text_box2)
         top_right_box1_in_box2 = self.in_box(top_right_box1, text_box2)
         bottom_left_box1_in_box2 = self.in_box(bottom_left_box1, text_box2)
         bottom_right_box1_in_box2 = self.in_box(bottom_right_box1, text_box2)
         
-        return top_left_box1_in_box2 or top_right_box1_in_box2 or bottom_left_box1_in_box2 or bottom_right_box1_in_box2
+        top_left_box2_in_box1 = self.in_box(top_left_box2, text_box1)
+        top_right_box2_in_box1 = self.in_box(top_right_box2, text_box1)
+        bottom_left_box2_in_box1 = self.in_box(bottom_left_box2, text_box1)
+        bottom_right_box2_in_box1 = self.in_box(bottom_right_box2, text_box1)
+        
+        return top_left_box1_in_box2 or top_right_box1_in_box2 or bottom_left_box1_in_box2 or bottom_right_box1_in_box2 or top_left_box2_in_box1 or top_right_box2_in_box1 or bottom_left_box2_in_box1 or bottom_right_box2_in_box1
     
     def in_box(self, point, box) :
         """
@@ -589,30 +518,6 @@ class MapCommands(inkex.Effect):
                 if previous_point[1] <= hitbox_textbox[0][1] <= point[1] or previous_point[1] <= hitbox_textbox[1][1] <= point[1] :
                     return True
         return False
-    
-    
-    # def compute_collision_with_hand(self, text_box, logit=logging.info) :
-    #     """
-    #     Compute the collision of a text with the hand
-    #     """
-    #     intersections = []
-    #     for hand_part in self.visible_hands :
-    #         inter = sympy.geometry.intersection(hand_part, text_box)
-    #         if inter :
-    #             intersections.append(inter)
-    #     # Compute area of the intersections
-    #     area = 0
-    #     for inter in intersections :
-    #         area += inter.area
-    #     return area
-    
-    # def intersect(Circle(P, R), Rectangle(A, B, C, D)):
-    # S = Circle(P, R)
-    # return (pointInRectangle(P, Rectangle(A, B, C, D)) or
-    #         intersectCircle(S, (A, B)) or
-    #         intersectCircle(S, (B, C)) or
-    #         intersectCircle(S, (C, D)) or
-    #         intersectCircle(S, (D, A)))        
         
     def compute_visible_designs(self, document, logit=logging.info) -> list :
         """
@@ -647,60 +552,6 @@ class MapCommands(inkex.Effect):
             visible_hands.append(path_points)
         
         return visible_designs, visible_hands
-        
-
-    # def hide_text(self, document, text_marker_pairs, cmd, logit=logging.info) :
-    #     """
-    #     Hides the text that may hide other elements
-    #     """
-    #     # Get all the existing markers
-    #     markers = self.get_markers(document, logit)
-    #     # Get all the visible points
-    #     points = self.visible_points
-        
-    #     # Get the current point
-    #     cmd_position = np.array([float(cmd.get('cx')), float(cmd.get('cy'))])
-    #     # Check if their exist a marker not too far from the command which is 
-    #     # not the one that has been used to place the command, hence the minimum distance
-        
-    #     # If one marker is too close to the command define the direction in which it is preferable to show the text
-    #     close_markers = get_close_markers(cmd_position, markers, int(self.options.security_distance), int(self.options.issue_distance), logit)
-        
-    #     if len(close_markers) > 0 :
-    #         # Check if the close markers have the attribute mgrep-legend
-    #         if is_close_to_legend(close_markers) :
-    #             show_specific_text(text_marker_pairs, u.RIGHT, logit)
-    #         else :
-    #             close_points = get_close_points(cmd_position, points, int(self.options.security_distance), int(self.options.issue_distance), logit)
-    #             text_zone = self.compute_text_zone(document, text_marker_pairs, cmd_position, close_points, logit)
-    #             logit(f"cmd_position: {cmd_position} - close_points: {close_points} - text zone: {text_zone}")
-                    
-    #             show_specific_text(text_marker_pairs, text_zone, logit)
-    #     else :
-    #         show_specific_text(text_marker_pairs, u.BELOW, logit)
-            
-    # def compute_text_zone(self, document, text_marker_pairs, cmd_position, close_points, logit=logging.info) :
-    #     """
-    #     Compute the text zones
-    #     """
-    #     text_zones = {u.BELOW:0, u.LEFT:0, u.RIGHT:0, u.ABOVE:0}
-    #     text_zone = get_text_zone(text_zones, cmd_position, close_points, logit)
-        
-    #     # Get all the active markers
-    #     active_markers = self.get_active_markers_positions(document, logit)
-        
-    #     while text_collision(active_markers, text_marker_pairs, text_zone, 5, logit) and len(text_zones) > 1:
-    #         text_zones.pop(text_zone)
-    #         text_zone = get_text_zone(text_zones, cmd_position, close_points, logit)
-        
-    #     # Get all the icons positions
-    #     icons = self.get_icon_positions(document, logit)
-        
-    #     while text_collision(icons, text_marker_pairs, text_zone, 10, logit) and len(text_zones) > 1:
-    #         text_zones.pop(text_zone)
-    #         text_zone = get_text_zone(text_zones, cmd_position, close_points, logit)
-
-    #     return text_zone
                 
     def adapt_icon_command_to_layer(self, layer_ref, mapping_layer, new_command, logit):
         """
@@ -1002,19 +853,19 @@ class MapCommands(inkex.Effect):
 
 #####################################################################
 
-def get_command_names(mappings, logit):
+def get_command_names(mappings, logit=logging.info):
     """
     Get all commands in mappings
     Each mapping has the form 
     """
     command_names = list()
     for mapping in mappings :
-        for command in get_mapping_commands(mapping, logit=logging.info) :
+        for command in get_mapping_commands(mapping, logit) :
             if command not in command_names :
                 command_names.append(command)
     return command_names
     
-def get_text_marker_pairs(command, logit):
+def get_text_marker_pairs(command, shift, logit=logging.info):
     """
     Get a list of text and marker pairs
     """
@@ -1029,29 +880,31 @@ def get_text_marker_pairs(command, logit):
                 if 'mgrep-command' in marker.attrib :
                     marker_type =  marker.attrib['mgrep-command'].split(",")[1]
                     marker_type = marker_type.replace(" ", "")
+                    move_marker_according_to_type(marker, marker_type, shift, logit)
                     if text_type == marker_type :
                         if marker not in text_marker_pairs[text_type] :
                             text_marker_pairs[text_type][marker] = []
                         text_marker_pairs[text_type][marker].append(text)
     return text_marker_pairs
-    
-# def get_text_boxes(command_template, logit):
-#     """
-#     Get a list of text and marker pairs
-#     """
-#     text_boxes = {}
-#     for text in command_template.xpath(".//svg:text", namespaces=inkex.NSS) :
-#         if 'mgrep-command' in text.attrib :
-#             text_type =  text.attrib['mgrep-command'].split(",")[1]
-#             text_type = text_type.replace(" ", "")
-#             for marker in command_template.xpath(".//svg:circle", namespaces=inkex.NSS) :
-#                 if 'mgrep-command' in marker.attrib :
-#                     marker_type =  marker.attrib['mgrep-command'].split(",")[1]
-#                     marker_type = marker_type.replace(" ", "")
-#                     if text_type == marker_type :
-#                         text_box = compute_text_box(text, marker, marker_type, logit)
-#                         text_boxes[marker_type] = {"xml": text, "box": text_box}
-#     return text_boxes
+
+def move_marker_according_to_type(marker, marker_type, shift, logit=logging.info) :
+    """
+    Move the marker according to its type
+    """
+    cx = float(marker.get('cx'))
+    cy = float(marker.get('cy'))
+    # If the marker_type is 'left', move the marker to the left according to the shift
+    if marker_type == u.LEFT :
+        marker.set('cx', str(cx - shift))
+    # If the marker_type is 'right', move the marker to the right according to the shift
+    elif marker_type == u.RIGHT :
+        marker.set('cx', str(cx + shift))
+    # If the marker_type is 'below', move the marker below according to the shift
+    elif marker_type == u.BELOW :
+        marker.set('cy', str(cy + shift))
+    # If the marker_type is 'above', move the marker above according to the shift
+    elif marker_type == u.ABOVE :
+        marker.set('cy', str(cy - shift))
 
 def compute_text_box(text, marker, marker_type, logit=logging.info) :
     """
@@ -1067,10 +920,10 @@ def compute_text_box(text, marker, marker_type, logit=logging.info) :
     # Get the text length
     text_length = len(textspan.text)
     # Get the text height
-    font_size_height_ratio = 3 # Fixed ratio determined by trial and error on the specific font used
+    font_size_height_ratio = 1.5 # Fixed ratio determined by trial and error on the specific font used
     text_height = font_size / font_size_height_ratio
     # Get the text width (divided by 2 because letters tend to be half as wide as they are tall)
-    text_width = text_length * text_height 
+    text_width = text_length * text_height * 0.5
     
     bbox = compute_bbox(marker, marker_type, text_width, text_height, logit)
     return bbox
@@ -1150,43 +1003,6 @@ def get_close_markers(origin, markers, min_distance, max_distance, logit=logging
             close_markers.append(marker)
     return close_markers
 
-# def get_close_points(origin, points, min_distance, max_distance, logit=logging.info) :
-#     """
-#     Get the points that are close to the origin
-#     """
-#     close_points = []
-#     for point in points :
-#         distance = int(np.linalg.norm(point - origin))
-#         if min_distance <= distance <= max_distance :
-#             close_points.append(point)
-#     # Filter the points to keep fuse the points that are close to each other
-#     fused_close_points = []
-#     while len(close_points) > 0 :
-#         point_i = close_points.pop()
-#         # If there are close points in close_points, remove them
-#         close_points = [point for point in close_points if np.linalg.norm(point_i - point) > min_distance]
-#         fused_close_points.append(point_i)
-        
-#     return fused_close_points
-
-# def text_collision(points, text_marker_pairs, text_position, height, logit=logging.info) :
-#     """
-#     Check if there is a collision between the future text and the existing text boxes
-#     """
-#     # Consider that the future text box would be at the text_position and would have a width of 50
-#     # Compute the bounding box of the future text
-    
-#     for text, marker in text_marker_pairs :
-#         marker_type = marker.get("mgrep-command").split(",")[1]
-#         marker_type = marker_type.replace(" ", "")
-#         if marker_type == text_position :
-#             future_bbox = compute_bbox(marker, text_position, height, logit)
-    
-#     for point_pos in points :
-#         if point_in_bbox(point_pos, future_bbox) :
-#             return True
-#     return False
-
 def compute_bbox(text_marker, text_direction, width, height, logit=logging.info) :
     """
     Compute the bounding box of the text
@@ -1212,44 +1028,6 @@ def point_in_bbox(point_pos, bbox) :
     if bbox[0][0] <= point_pos[0] <= bbox[1][0] and bbox[0][1] <= point_pos[1] <= bbox[1][1] :
         return True
     return False
-
-# def get_text_zone(text_zones, command_origin, close_points, logit=logging.info) :
-#     """
-#     Get the text zone according to the position of the points
-#     """
-#     for point in close_points :
-#         # Determine the directions of the point
-#         dir_values = get_directions(text_zones, command_origin, point, logit)
-#         for dir, value in dir_values :
-#             text_zones[dir] += value
-#     # Get direction(s) with the minimum number of points
-#     min_dirs = get_min_directions(text_zones, logit)
-#     if len(min_dirs) > 1 :
-#         # If there is more than one direction, choose the one that is the opposite of the direction
-#         # with the maximum number of points
-#         max_dir = max(text_zones, key=text_zones.get)
-#         return get_opposite_min_direction(min_dirs, max_dir, logit)
-#     return min_dirs[0]
-
-# def get_min_directions(text_zones, logit=logging.info) :
-#     """
-#     Get the direction(s) with the minimum number of points
-#     """
-#     min_dirs = []
-#     min_value = min(text_zones.values())
-#     for dir, value in text_zones.items() :
-#         if value == min_value :
-#             min_dirs.append(dir)
-#     return min_dirs
-
-# def get_opposite_min_direction(min_dirs, max_dir, logit=logging.info) :
-#     """
-#     Get the direction that is the opposite of the direction max_dir
-#     """
-#     if u.OPPOSITE_ANCHORS[max_dir] in min_dirs :
-#         return u.OPPOSITE_ANCHORS[max_dir]
-#     else :
-#         return min_dirs[0]
 
 def get_directions(text_zones, command_origin, point_pos, logit=logging.info) :
     """

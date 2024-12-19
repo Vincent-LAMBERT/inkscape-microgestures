@@ -97,7 +97,7 @@ class ExportHandPoses(inkex.Effect):
         count=1  # counter to break on 5 first outputs
         for wrist_orientation in hand_poses.keys() :
             poses = hand_poses[wrist_orientation]
-
+            
             # Only shows the layer with the right wrist_orientation
             # logit("\n\nWrist orientation : "+wrist_orientation)
             update_show_hide_orient(wrist_orientation_layer_refs, wrist_orientation, logit)

@@ -33,22 +33,23 @@
 #   SEE: https://github.com/nshkurkin/inkscape-export-layer-combos
 
 import sys
-sys.path.append('/usr/share/inkscape/extensions')
-import inkex
 
+sys.path.append('/usr/share/inkscape/extensions')
 import copy
 import logging
 import os
-import tempfile
 import subprocess
+import tempfile
+
+import inkex
 from inkex.elements import Group
 
-from microrep.create_representations.create_representations.create_mg_rep import *
-from microrep.create_representations.create_representations.configuration_file import *
-import microrep.core.utils as u
+import microrep.core.export as ex
 import microrep.core.mg_maths as mg
 import microrep.core.ref_and_specs as rf
-import microrep.core.export as ex
+import microrep.core.utils as u
+from microrep.create_representations.create_representations.configuration_file import *
+from microrep.create_representations.create_representations.create_mg_rep import *
 
 #####################################################################
 
@@ -133,6 +134,7 @@ class CreateRepresentations(inkex.Effect):
         rf.show_marker_layers(marker_layer_refs, logit)
     
     def export_family(self, family, family_layer_refs, representation_layers, markers, fmc_combinations, logit=logging.info) :
+        mp_finger, mp_charac = u.get_most_proximate_finger_and_charac_for_tap(fmc_combinations, logit)
         counter=1
         logit(f"Exporting {family} family\n")
         representation_layers[family] = dict()
@@ -142,8 +144,8 @@ class CreateRepresentations(inkex.Effect):
             # Duplicate the family layers to create the representation
             if mg in family_layer_refs[family] and charac in family_layer_refs[family][mg]:
                 for element in family_layer_refs[family][mg][charac] :
-                    # Draw trajectory only if its the index (Avoid trajectory overlapping other trajectories)
-                    if not (mg!=u.SWIPE and element==u.TRAJECTORY and finger!=u.INDEX) :
+                    # Draw trajectory only if its the index tip (Avoid trajectory overlapping other trajectories)
+                    if to_draw(finger, mg, charac, element, mp_finger, mp_charac, logit):
                         new_layer_name = f"{family}_{finger}_{mg}_{charac}_{element}"
                         family_layer_ref = family_layer_refs[family][mg][charac][element]
                         new_family_layer = self.duplicate_family_layer(family_layer_ref, new_layer_name)
@@ -183,7 +185,7 @@ class CreateRepresentations(inkex.Effect):
         if self.options.one:
             return True
         
-        return False
+        return False  
 
 #####################################################################
         
@@ -272,6 +274,12 @@ def delete_created_layers(representation_layers):
             for charac in representation_layers[family][mg] :
                 for layer in representation_layers[family][mg][charac] :
                     layer.delete()
+    
+def to_draw(finger, mg, charac, element, mp_finger, mp_charac, logit):
+    """
+    Returns True if the trajectory should be drawn
+    """
+    return not (mg!=u.SWIPE and element==u.TRAJECTORY and (finger!=mp_finger or charac!=mp_charac))
                     
 #####################################################################
 

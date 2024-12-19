@@ -185,7 +185,7 @@ BASE = "base"
 NAIL = "nail"
 SIDE = "side"
 MICROGESTURES = [TAP, HOLD, SWIPE]
-TAP_CHARACTERISTICS = [TIP, MIDDLE, BASE, NAIL, SIDE]
+TAP_CHARACTERISTICS = [SIDE, TIP, MIDDLE, BASE, NAIL]
 SWIPE_CHARACTERISTICS = [UP, DOWN, RIGHT, LEFT]
 HOLD_CHARACTERISTICS = [TIP, MIDDLE, BASE, NAIL, SIDE]
 MICROGESTURE_CHARACTERISTICS = { TAP : TAP_CHARACTERISTICS,
@@ -380,3 +380,32 @@ def get_fmc_combination(combinations) :
         if fmc not in filtered_fmcs :
             filtered_fmcs.append(fmc)
     return fmcs
+      
+def get_most_proximate_finger_and_charac_for_tap_raw(fmc_combinations, logit) :
+    for p_f in FINGERS :
+        for p_c in TAP_CHARACTERISTICS :
+            for finger, mg, charac in fmc_combinations :
+                if finger==p_f and mg==TAP and charac==p_c :
+                    return p_f, p_c
+    return None, None
+
+def get_most_proximate_finger_and_charac_for_tap(fmc_combinations, logit) :
+    """
+    Get the finger and characteristic that are closer to the thumb in the fmc_combinations
+    Don't send any if other fingers exist and would cross the arrow trajectory
+    """
+    f, c = get_most_proximate_finger_and_charac_for_tap_raw(fmc_combinations, logit)
+    logit(f"f: {f}, c: {c}")
+                    
+    if f in [INDEX, MIDDLE]:
+        return f, c
+    elif f in [RING, PINKY]:
+        # Check if there is a SWIPE involving the MIDDLE finger AND that the tap was done on the tip or the side of the finger
+        # If so, the tap arrow would cross the swipe arrow and should not be displayed
+        if c in [TIP, SIDE]:
+            for finger, mg, charac in fmc_combinations :
+                if MIDDLE in finger and mg==SWIPE :
+                    return None, None
+        return f, c
+
+    return None, None
