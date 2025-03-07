@@ -395,7 +395,6 @@ def get_most_proximate_finger_and_charac_for_tap(fmc_combinations, logit) :
     Don't send any if other fingers exist and would cross the arrow trajectory
     """
     f, c = get_most_proximate_finger_and_charac_for_tap_raw(fmc_combinations, logit)
-    logit(f"f: {f}, c: {c}")
                     
     if f in [INDEX, MIDDLE]:
         return f, c

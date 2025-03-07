@@ -116,6 +116,7 @@ class CreateRepresentations(inkex.Effect):
         self.design_layer = self.create_design_layer()
         family = self.options.family
         representation_layers = dict()
+        
         if family in family_layer_refs:
             self.export_family(family, family_layer_refs, representation_layers, markers, fmc_combinations, logit)
         else :

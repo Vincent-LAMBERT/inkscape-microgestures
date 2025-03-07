@@ -33,12 +33,12 @@
 #   SEE: https://github.com/nshkurkin/inkscape-export-layer-combos
 
 import logging
+
 import inkex
 import numpy as np
-
-from .utils import *
 from lxml import etree
 
+from .utils import *
 
 #####################################################################
 

@@ -32,12 +32,14 @@
 # Implementation References:
 #   SEE: https://github.com/nshkurkin/inkscape-export-layer-combos
 
-import svg.path
 import logging
 
-import microrep.core.utils as u
+import svg.path
+
 import microrep.core.mg_maths as mg
- 
+import microrep.core.utils as u
+
+
 def create_mg_rep(family_layer, element, markers, command_radius, logit=logging.info) :
     """
     Creates the family representation 
@@ -129,7 +131,7 @@ def move_path(parent_layer, start_position, end_position, command_radius=None, l
     to the ending segment and not the first *MoveTo* segment. 
     The path is thus reversed from the documentation 
     here https://www.w3.org/TR/SVG/paths.html
-    """    
+    """
     path_xmls, paths = {}, {}
     circle_xmls, circles = {}, {}
     
@@ -150,9 +152,9 @@ def move_path(parent_layer, start_position, end_position, command_radius=None, l
     # If at least one design element if specified
     if u.DESIGN in paths and paths[u.DESIGN] is not None :        
         if u.TRACE in paths and paths[u.TRACE] is not None :
-            paths, circles = mg.compute_transformation(paths, circles, reference_vector, start_position, command_radius, paths[u.TRACE], logit)
+            paths, circles = mg.compute_transformation(paths, circles, reference_vector, start_position, (command_radius, paths[u.TRACE]), logit)
         else :
-            paths, circles = mg.compute_transformation(paths, circles, reference_vector, start_position, None, False, logit)
+            paths, circles = mg.compute_transformation(paths, circles, reference_vector, start_position, (None, False), logit)
 
         for pathType in path_xmls :
             setXmlValueFromPathType(pathType, path_xmls[pathType], paths, logit)

@@ -33,15 +33,16 @@
 #   SEE: https://github.com/nshkurkin/inkscape-export-layer-combos
 
 import logging
+
 import inkex
 import inkex.bezier
 import numpy as np
 import svg.path
+from inkex.elements import PathElement
+from inkex.paths import Path
+from shapely.geometry import Point, Polygon
 
 from .utils import *
-from shapely.geometry import Point, Polygon
-from inkex.paths import Path 
-from inkex.elements import PathElement
 
 #######################################################################################################################
         
@@ -303,24 +304,33 @@ def get_TRS_matrix(path, reference_vector, start_position, logit=logging.info) :
     TRS_matrix = translation_matrix @ rotation_matrix @ scaling_matrix @ translation_matrix_to_origin
     return TRS_matrix
 
-def compute_transformation(parsed_paths, parsed_circles, reference_vector, start_position, command_radius=None, trace_path=False, logit=logging.info) :
+def compute_transformation(parsed_paths, parsed_circles, reference_vector, start_position, special_behavior=(None,False), logit=logging.info) :
     """
     Move the parsed_paths so that the first parsed_path 
     ends match the reference_vector
     """
+    command_radius, trace_path = special_behavior
     
     # If no trace_path is given, use the design path as a reference
     # CAUTION: It MUST be a stroke path (as any trace) to work
     if trace_path==False :
         trace_path = parsed_paths[DESIGN]
     
+    TRS_matrix = get_TRS_matrix(trace_path, reference_vector, start_position, logit)
+    
     if command_radius!=None:
-        # If the parent_layer indicates a swipe, we shift the arrow head by the command_radius given
+        # if swipe_behavior == "stick_arrow_to_command": 
+            # We shift the arrow head by the given command_radius 
         correction_vector = normalize(reference_vector) * command_radius
         trace_end_reference_vector = reference_vector + correction_vector
         command_TRS_matrix = get_TRS_matrix(trace_path, trace_end_reference_vector, start_position, logit)
-    
-    TRS_matrix = get_TRS_matrix(trace_path, reference_vector, start_position, logit)
+        # elif swipe_behavior == "grow_with_command_radius":
+        #     # We grow the design by the given command_radius
+        #     scale_matrix = get_scaling_matrix_from_factor(1 + command_radius)
+        #     logit("\nTRS_matrix: " + str(TRS_matrix))
+        #     logit("scale_matrix: " + str(scale_matrix))
+        #     TRS_matrix = TRS_matrix @ scale_matrix
+        #     logit("TRS_matrix: " + str(TRS_matrix))
     
     # The design points being in the bounds of a trace do not scale. 
     # Instead, they are translated and rotated according to the 
@@ -338,7 +348,7 @@ def compute_transformation(parsed_paths, parsed_circles, reference_vector, start
         transformed_paths[path_name] = apply_matrix_to_path(parsed_paths[path_name], bound_zones, TRS_matrix, logit)
     
     for circle_name in parsed_circles :
-        if circle_name == COMMAND:
+        if circle_name == COMMAND :
             transformed_circles[circle_name] = apply_matrix_to_circle(parsed_circles[circle_name], bound_zones, command_TRS_matrix, logit)
         else :
             transformed_circles[circle_name] = apply_matrix_to_circle(parsed_circles[circle_name], bound_zones, TRS_matrix, logit)
