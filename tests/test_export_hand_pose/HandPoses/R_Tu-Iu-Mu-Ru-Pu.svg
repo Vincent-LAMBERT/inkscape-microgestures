@@ -1,0 +1,191 @@
+<svg xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" width="200mm" height="200mm" viewBox="0 0 200 200" version="1.1" id="svg5" xml:space="preserve" inkscape:version="1.2.2 (732a01da63, 2022-12-09)" sodipodi:docname="handPoses.svg" inkscape:export-filename="Full_Side.png" inkscape:export-xdpi="96" inkscape:export-ydpi="96">
+  <sodipodi:namedview id="namedview7" pagecolor="#6e6e6e" bordercolor="#eeeeee" borderopacity="1" inkscape:showpageshadow="0" inkscape:pageopacity="0" inkscape:pagecheckerboard="false" inkscape:deskcolor="#505050" inkscape:document-units="mm" showgrid="false" inkscape:zoom="1" inkscape:cx="161.5" inkscape:cy="348.5" inkscape:window-width="1440" inkscape:window-height="890" inkscape:window-x="214" inkscape:window-y="1073" inkscape:window-maximized="1" inkscape:current-layer="layer3-33" showguides="false" inkscape:pageshadow="2">
+    <inkscape:grid type="xygrid" id="grid515" originx="0" originy="0"/>
+    <sodipodi:guide position="160.66239,38.168301" orientation="0,-1" id="guide1784" inkscape:locked="false"/>
+  </sodipodi:namedview>
+  <defs id="defs2">
+    <marker style="overflow:visible" id="TriangleStart" refX="0" refY="0" orient="auto-start-reverse" inkscape:stockid="TriangleStart" markerWidth="3.5" markerHeight="3.5" viewBox="0 0 5.3244086 6.1553856" inkscape:isstock="true" inkscape:collect="always" preserveAspectRatio="xMidYMid" markerUnits="strokeWidth">
+      <path style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:0.666667" d="M 2.885,0 -1.44,2.5 v -5 z" id="path135"/>
+    </marker>
+  </defs>
+  <rect style="display:inline;fill:#ffffff;stroke:#e2e2e2;stroke-width:0.309389;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:5;stroke-dasharray:0.309389, 1.23755" id="rect1650-4" width="199.69061" height="199.69061" x="-0.00010051778" y="-0.00010051778"/>
+  <g inkscape:groupmode="layer" id="layer2" inkscape:label="Right" style="display:inline" mgrep-wrist-orientation="right">
+    <g inkscape:groupmode="layer" id="g1343-8" inkscape:label="Pinky" style="display:inline;stroke:#919191;stroke-opacity:1">
+      <g inkscape:groupmode="layer" id="g1333-4" inkscape:label="PinkyUp" style="display:inline">
+        <path id="path9249" style="display:inline;fill:#ffffff;fill-opacity:1;stroke:#919191;stroke-width:1;stroke-opacity:1" d="M 98.8993,110.308 C 98.1172,108.115 96.3851,100.842 95.3286,97.5831 93.83,92.96 93.4507,90.77 92.9485,87.8226 92.315,84.1041 90.5775,79.0733 89.3699,74.8058 88.4297,71.483 87.0665,66.1807 84.0771,66.0109 c -3.1461,0.4581 -2.604,1.3528 -3.3322,2.9081 -0.7484,1.5981 0.566,5.5551 0.8785,8.4805 0.2874,2.6921 1.1802,7.3109 1.571,9.7001 1.0248,6.2652 2.3568,10.965 2.7824,15.6604 0.2745,2.147 0.815,4.76 1.3675,7.086 1.1613,4.889 2.1565,9.674 1.3706,12.818"/>
+        <path d="m 95.6683,205.675 c 0.0891,-1.91 2.0469,-10.656 -1.9241,-16.862 -2.5933,-4.053 -4.8159,-11.622 -4.341,-16.879 0.0948,-1.049 0.0619,-4.355 -0.6051,-8.653 -0.9173,-5.911 2.1902,-12.454 2.2104,-18.237 0.0103,-2.964 -2.365,-10.874 -2.7317,-13 -0.2351,-5.155 -0.5645,-6.901 0.5057,-9.924" style="display:inline;fill:#ffffff;fill-opacity:1;stroke:#919191;stroke-width:1;stroke-opacity:1" id="path9454"/>
+        <path id="path9293" style="display:inline;fill:none;fill-opacity:1;stroke:#919191;stroke-width:0.5;stroke-dasharray:none;stroke-opacity:1" d="m 95.4067,138.445 c 0,0 -0.6216,1.347 -1.3468,2.279 -0.7252,0.933 -2.9008,3.108 -2.9008,3.108 M 83.1493,83.4936 c 0,0 0.8059,-0.3662 1.3186,-0.293 0.5128,0.0733 1.1721,0.2198 1.1721,0.2198 m 6.8861,32.3056 c -0.224,3.46 -1.353,3.635 -3.15,6.08 l -1.1355,1.649 m 3.6262,-40.3276 h -0.4029 m 0.3296,-0.9157 -0.3663,0.2197 m 0.0733,-1.0255 -0.293,0.3296 m 3.9304,16.3805 -1.036,0.2072 m 1.2432,0.7252 c 0,0 -0.518,0.4144 -0.9324,0.4144 -0.4144,0 -1.1396,-0.1036 -1.1396,-0.1036 m 1.554,-1.9684 c 0,0 -1.2432,-0.4144 -1.554,0 -0.3108,0.4144 -0.8288,1.2432 -0.8288,1.2432 m -6.15,2.426 c 0.518,-0.104 1.0359,-0.622 1.0359,-0.622 m -1.4503,-1.5539 h 0.8288 m -0.7252,1.2429 c 0.6216,-0.2069 2.2791,-0.5177 2.2791,-0.5177 M 82.9791,84.173 c 0,0 1.2432,0.4144 1.9684,0.2072 0.7252,-0.2072 2.3827,-0.9324 2.3827,-0.9324 M 86.5533,68.3741 c -0.3626,0.4662 -0.6734,1.295 -0.777,2.0202 -0.1036,0.7251 -0.1554,2.7453 -0.0518,3.1597 0.1036,0.4144 0.3626,1.3986 0.7252,1.8648 0.3626,0.4662 1.036,0.9842 1.036,0.9842 0,0 1.6057,-0.0518 2.0201,-0.1554"/>
+        <g inkscape:groupmode="layer" id="layer29-9-3-1-4-53-9" inkscape:label="Markers" style="display:inline;stroke:none;stroke-opacity:1">
+          <g id="g3880-4-9-5-1-52-8" inkscape:label="Hold" style="display:inline;opacity:1;stroke:none;stroke-opacity:1">
+            <g inkscape:groupmode="layer" id="g3870-1-3-95-9-87-1" inkscape:label="HoldSideReceiver" style="display:none" mgrep-marker="pinky, hold, side, receiver">
+              <circle style="display:inline;opacity:1;fill:#f10000;fill-opacity:1;stroke:none;stroke-width:0.487412;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1" id="circle3868-9-6-3-5-5-41" cx="88.19381" cy="92.611275" r="0.53110468" inkscape:label="HoldSideReceiver"/>
+            </g>
+          </g>
+          <g id="g13172-0-8-3-4-2-7" inkscape:label="Tap" style="display:inline;opacity:1;stroke:none;stroke-opacity:1">
+            <g inkscape:groupmode="layer" id="layer26-2-9-9-6-9-0" inkscape:label="TapSideReceiver" style="display:none" mgrep-marker="pinky, tap, side, receiver">
+              <circle style="display:inline;opacity:1;fill:#f10000;fill-opacity:1;stroke:none;stroke-width:0.487412;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1" id="circle13102-1-4-8-6-5-1" cx="88.19381" cy="92.611275" r="0.53110468" inkscape:label="TapSideReceiver"/>
+            </g>
+          </g>
+          <g id="g3906-8-0-8-2-32-9" inkscape:label="Tap/Hold" style="display:inline;opacity:1;stroke:none;stroke-opacity:1">
+            <g inkscape:groupmode="layer" id="g3884-8-2-5-5-95-4" inkscape:label="TapSideTrajEnd" mgrep-marker="pinky, tap|hold, side, traj-end" style="display:none">
+              <circle style="display:inline;opacity:1;fill:#f10000;fill-opacity:1;stroke:none;stroke-width:0.487412;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1" id="circle3882-2-7-8-2-28-9" cx="99.566704" cy="94.698616" r="0.53110468" inkscape:label="TapSideTrajEnd"/>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+    <g inkscape:groupmode="layer" id="g1329-5" inkscape:label="Ring" style="display:inline;stroke:#919191;stroke-opacity:1">
+      <g inkscape:groupmode="layer" id="g1315-2" inkscape:label="RingUp" style="display:inline">
+        <path id="path1313-9" style="display:inline;fill:#ffffff;fill-opacity:1;stroke:#919191;stroke-width:0.996919;stroke-linecap:round;stroke-opacity:1" d="m 106.588,108.652 c -0.461,-2.101 -1.206,-6.775 -2.475,-12.5449 -1.377,-6.2616 -3.26,-12.0224 -4.4218,-17.5552 -0.9246,-4.4049 -2.348,-11.4433 -2.6703,-13.2361 -0.9406,-5.2315 -4.195,-18.1113 -6.8306,-19.0921 -2.6931,0.0252 -3.8643,-0.359 -4.9648,1.4699 -2.223,3.6942 0.492,15.3898 0.8464,19.397 0.61,11.0401 2.9113,20.312 4.1691,31.1671 1.6301,8.7823 4.4728,13.3923 2.4164,17.5753"/>
+        <path id="path9109-3" style="fill:none;fill-opacity:1;stroke:#919191;stroke-width:0.499999;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:5;stroke-dasharray:none;stroke-dashoffset:0.793701;stroke-opacity:1;paint-order:markers stroke fill" d="m 95.8581,112.026 c -0.586,0.366 -1.1721,1.025 -1.1721,1.025 m 2.564,-1.538 c -0.586,0.659 -0.4395,0.806 -0.9523,1.172 -0.5128,0.366 -1.8314,1.575 -1.8314,1.575 M 90.2739,46.4052 c 0,0 -1.2431,0.7252 -1.4503,1.6575 -0.2072,0.9324 -0.4144,2.072 -0.2072,3.3152 0.2072,1.2432 0.7251,3.5224 1.2431,4.2476 0.518,0.7252 1.554,1.6576 1.554,1.6576 h 1.2432 l 2.072,-1.2432 m 1.8648,8.3915 c 0,0 -0.7252,-0.1036 -1.1396,0.3108 -0.4144,0.4144 -0.4144,1.036 -0.4144,1.036 m 1.554,0 c 0,0 -0.1036,0.6216 -0.518,0.8288 m 5.3875,21.0307 c 0,0 -0.518,-0.4144 -1.036,0 -0.5183,0.4144 -0.6219,0.6216 -0.6219,0.6216 m 1.7609,0.7252 -0.829,0.4144 m 1.865,0.9324 c 0,0 -0.725,0.518 -1.347,0.518 -0.621,0 -1.6571,-0.8288 -1.6571,-0.8288 M 86.648,69.4042 c 0,0 0.9324,-0.1036 1.3468,-0.2072 0.4144,-0.1036 0.8288,-0.4144 0.8288,-0.4144 M 86.13,68.2646 c 0,0 1.1396,0.2072 1.7612,0.1036 0.6216,-0.1036 2.1755,-0.7252 2.1755,-0.7252 m -0.317,25.3955 c 0,0 0.6278,-0.3762 1.2494,-0.5834 0.6216,-0.2072 1.6058,-0.6734 1.6058,-0.6734 M 89.871,93.86 c 0,0 0.8173,-0.2135 1.6461,-0.3171 1.3952,-0.294 1.7926,-0.3275 2.5382,-1.6576"/>
+        <g inkscape:groupmode="layer" id="layer29-9-3-1-4-53-2" inkscape:label="Markers" style="display:inline;stroke:none;stroke-opacity:1">
+          <g id="g3880-4-9-5-1-52-7" inkscape:label="Hold" style="display:inline;opacity:1;stroke:none;stroke-opacity:1">
+            <g inkscape:groupmode="layer" id="g3870-1-3-95-9-87-8" inkscape:label="HoldSideReceiver" style="display:none" mgrep-marker="ring, hold, side, receiver">
+              <circle style="display:inline;opacity:1;fill:#f10000;fill-opacity:1;stroke:none;stroke-width:0.487412;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1" id="circle3868-9-6-3-5-5-2" cx="93.088608" cy="79.646683" r="0.53110468" inkscape:label="HoldSideReceiver"/>
+            </g>
+          </g>
+          <g id="g13172-0-8-3-4-2-44" inkscape:label="Tap" style="display:inline;opacity:1;stroke:none;stroke-opacity:1">
+            <g inkscape:groupmode="layer" id="layer26-2-9-9-6-9-6" inkscape:label="TapSideReceiver" style="display:none" mgrep-marker="ring, tap, side, receiver">
+              <circle style="display:inline;opacity:1;fill:#f10000;fill-opacity:1;stroke:none;stroke-width:0.487412;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1" id="circle13102-1-4-8-6-5-3" cx="93.088608" cy="79.646683" r="0.53110468" inkscape:label="TapSideReceiver"/>
+            </g>
+          </g>
+          <g id="g3906-8-0-8-2-32-0" inkscape:label="Tap/Hold" style="display:inline;opacity:1;stroke:none;stroke-opacity:1">
+            <g inkscape:groupmode="layer" id="g3884-8-2-5-5-95-3" inkscape:label="TapSideTrajEnd" mgrep-marker="ring, tap|hold, side, traj-end" style="display:none">
+              <circle style="display:inline;opacity:1;fill:#f10000;fill-opacity:1;stroke:none;stroke-width:0.487412;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1" id="circle3882-2-7-8-2-28-0" cx="103.2617" cy="84.733612" r="0.53110468" inkscape:label="TapSideTrajEnd"/>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+    <g inkscape:groupmode="layer" id="g1361-5" inkscape:label="Middle" style="display:inline;stroke:#919191;stroke-opacity:1">
+      <g inkscape:groupmode="layer" id="g1351-78" inkscape:label="MiddleUp" style="display:inline">
+        <path id="path1349-7" style="display:inline;fill:#ffffff;fill-opacity:1;stroke:#919191;stroke-width:0.996919;stroke-linecap:round;stroke-opacity:1" d="m 116.672,105.898 c 0,0 -0.794,-0.284 -1.263,-3.413 -0.676,-4.5185 -2.357,-8.8972 -2.794,-12.1063 -1.126,-8.272 -3.189,-12.0201 -4.601,-16.7322 -1.065,-3.555 -1.795,-7.6604 -2.915,-12.4976 -0.333,-1.4348 -1.368,-3.836 -1.621,-5.1787 -1.201,-6.3681 -2.129,-12.1782 -2.608,-14.5038 -0.479,-2.3255 -0.746,-5.2009 -2.6152,-6.3943 -2.2841,-0.5718 -2.9158,-0.7148 -4.5068,0.4471 -1.591,1.1619 -3.0115,2.2014 -3.1838,6.0104 -0.1723,3.809 0.2444,8.9908 0.2797,12.4419 0.049,4.7977 1.7803,9.8419 2.9698,16.8043 0.6485,3.7959 1.6812,13.1762 2.2993,17.7015 0.479,3.5076 2.0465,8.2629 2.792,12.1237 0.7841,4.061 2.071,9.22 1.496,10.868"/>
+        <path id="path9113-4" style="fill:none;fill-opacity:1;stroke:#919191;stroke-width:0.499999;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:5;stroke-dasharray:none;stroke-dashoffset:0.793701;stroke-opacity:1;paint-order:markers stroke fill" d="m 92.7437,65.6171 c 0,0 0.586,-0.8058 0.9523,-0.8791 0.3663,-0.0733 1.0989,-0.5128 1.0989,-0.5128 m 4.1502,51.2908 c 0,0 -0.7252,1.762 -0.8288,3.005 -0.1036,1.243 -0.4144,1.865 0.1036,3.004 0.518,1.14 1.2432,4.248 1.2432,4.248 m 5.2579,-64.2949 c 0,0 -0.11,0.293 -0.476,0.3297 -0.366,0.0366 -1.612,0.0366 -1.612,0.0366 m 2.271,0.5494 c 0,0 -0.513,0.7326 -0.806,0.7326 -0.293,0 -1.282,0.2197 -1.611,0.1831 -0.33,-0.0366 -0.586,-0.1465 -0.586,-0.1465 m 2.765,-2.48 c 0,0 -0.829,-0.6216 -1.45,-0.6216 -0.622,0 -1.865,0.9324 -1.865,0.9324 m 9.912,23.8467 c 0,0 -0.414,-0.4144 -1.036,-0.3108 -0.622,0.1036 -0.829,0.7252 -1.243,1.036 -0.415,0.3108 -0.518,0.518 -0.518,0.518 m 3.108,-0.2072 c 0,0 -0.933,0.8288 -1.451,0.9324 l -0.518,0.1036 m 1.865,0.4144 c 0,0 -0.311,0.7252 -1.036,0.7252 -0.725,0 -1.865,0.3108 -2.383,0.1036 -0.518,-0.2072 -1.036,-0.6216 -1.036,-0.6216 M 99.6984,37.6599 c 0,0 -1.554,1.4504 -1.7612,2.9008 -0.2071,1.4504 -1.0359,4.144 -0.7251,4.8692 0.3108,0.7251 0.1036,4.6619 0.518,5.1799 0.4143,0.518 2.6939,1.2432 3.2119,1.2432 0.518,0 1.761,-0.518 1.761,-0.518 m -9.9457,13.5715 c 0,0 0.8288,-1.1396 1.7612,-1.2432 0.9324,-0.1036 2.1756,-0.1036 2.1756,-0.1036 m -0.3108,25.1747 h 1.5539 m -1.7611,1.6576 3.4187,-1.4504 m 5.3792,21.0554 c -0.354,-0.347 -2.968,0.176 -3.097,0.692"/>
+        <g inkscape:groupmode="layer" id="layer29-9-3-1-4-53-3" inkscape:label="Markers" style="display:inline;stroke:none;stroke-opacity:1">
+          <g id="g3880-4-9-5-1-52-2" inkscape:label="Hold" style="display:inline;opacity:1;stroke:none;stroke-opacity:1">
+            <g inkscape:groupmode="layer" id="g3870-1-3-95-9-87-3" inkscape:label="HoldSideReceiver" style="display:none" mgrep-marker="middle, hold, side, receiver">
+              <circle style="display:inline;opacity:1;fill:#f10000;fill-opacity:1;stroke:none;stroke-width:0.487412;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1" id="circle3868-9-6-3-5-5-4" cx="100.10011" cy="73.495178" r="0.53110468" inkscape:label="HoldSideReceiver"/>
+            </g>
+          </g>
+          <g id="g13172-0-8-3-4-2-4" inkscape:label="Tap" style="display:inline;opacity:1;stroke:none;stroke-opacity:1">
+            <g inkscape:groupmode="layer" id="layer26-2-9-9-6-9-3" inkscape:label="TapSideReceiver" style="display:none" mgrep-marker="middle, tap, side, receiver">
+              <circle style="display:inline;opacity:1;fill:#f10000;fill-opacity:1;stroke:none;stroke-width:0.487412;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1" id="circle13102-1-4-8-6-5-6" cx="100.10011" cy="73.495178" r="0.53110468" inkscape:label="TapSideReceiver"/>
+            </g>
+          </g>
+          <g id="g3906-8-0-8-2-32-4" inkscape:label="Tap/Hold" style="display:inline;opacity:1;stroke:none;stroke-opacity:1">
+            <g inkscape:groupmode="layer" id="g3884-8-2-5-5-95-1" inkscape:label="TapSideTrajEnd" mgrep-marker="middle, tap|hold, side, traj-end" style="display:none">
+              <circle style="display:inline;opacity:1;fill:#f10000;fill-opacity:1;stroke:none;stroke-width:0.487412;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1" id="circle3882-2-7-8-2-28-4" cx="108.95271" cy="80.44162" r="0.53110468" inkscape:label="TapSideTrajEnd"/>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+    <g inkscape:groupmode="layer" id="g1375-1" inkscape:label="Index" style="display:inline;stroke:#919191;stroke-opacity:1">
+      <g inkscape:groupmode="layer" id="g1369-86" inkscape:label="IndexUp" style="display:inline">
+        <path id="path1367-2" style="display:inline;fill:#ffffff;fill-opacity:1;stroke:#919191;stroke-width:0.996999;stroke-dasharray:none;stroke-opacity:1" d="m 123.451,108.509 c 0,0 -1.364,-8.5173 -2.433,-11.0552 -1.068,-2.5379 -2.941,-9.7513 -3.762,-15.8799 -0.715,-5.3342 -4.071,-16.6362 -4.845,-19.1036 -0.773,-2.4674 -2.733,-14.3788 -2.581,-15.8622 0.151,-1.4834 -0.584,-5.1176 -2.415,-6.1612 -1.831,-1.0437 -4.128,-0.7745 -5.48,0.9375 -1.352,1.712 -2.1379,1.4201 -2.5345,6.5495 -0.3966,5.1294 -0.4624,7.0211 0.3985,12.1295 1.208,7.1663 1.379,14.1632 2.211,20.6492 0.739,5.7687 2.677,12.9589 3.221,17.3998 0.544,4.4406 0.923,8.8686 0.587,10.9926"/>
+        <path id="path8904-3" style="fill:none;stroke:#919191;stroke-width:0.499999;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:5;stroke-dashoffset:0.793701;stroke-opacity:1;paint-order:markers stroke fill" d="m 112.417,63.2269 -1.036,0.518 -1.036,-0.4144 m 1.036,-1.036 1.14,0.9324 z m 0.622,-0.7252 c 0,0 -1.14,-0.518 -1.658,-0.518 -0.518,0 -1.036,0.6216 -1.036,0.6216 m 7.28,18.0692 c 0,0 -1.14,0.1036 -1.554,0.2072 -0.415,0.1036 -1.14,0.518 -1.451,0.9324 m 3.419,-0.4144 -1.14,0.7252 m 1.347,0.9324 -0.829,0.4144 -1.761,-0.2072 m 2.694,0.8287 c 0,0 -1.036,0.6216 -1.865,0.6216 -0.829,0 -2.486,-0.518 -2.486,-0.518 m -10.418,0.4678 c 0,0 1.036,0 1.45,-0.1036 m -1.523,1.6649 c 0,0 1.761,-0.4144 2.486,-0.6216 0.725,-0.2072 1.658,-0.9324 1.658,-0.9324 M 100.4,63.0197 c 0,0 1.864,-0.2072 2.382,-0.2072 0.518,0 1.192,0.1946 1.192,0.1946 m 5.025,-20.6037 c 0,0 -2.383,1.1396 -2.487,2.1756 -0.103,1.036 -1.036,3.7295 -1.036,4.7655 0,1.036 -0.311,2.9008 -0.103,3.8332 0.207,0.9324 0.932,2.4864 0.932,2.4864 l 2.797,0.1036 1.347,-0.6216 M 94.2874,174.493 c 0.7252,-2.797 2.3828,-8.391 2.9008,-9.324 0.518,-0.932 2.4864,-8.702 2.7972,-10.671 0.3106,-1.968 0.2076,-11.914 0.2076,-14.089 0,-2.176 1.864,-6.63 1.864,-8.081 0,-1.45 -0.31,-3.315 -0.828,-4.765 -0.518,-1.451 -0.933,-3.42 -1.036,-4.456 -0.104,-1.036 0,-3.419 0.103,-4.351 0.104,-0.932 0.725,-3.212 1.14,-4.351 0.414,-1.14 1.45,-2.279 2.175,-2.797 0.726,-0.518 1.347,-1.658 1.347,-1.658 0,0 0.135,-0.357 0.428,-0.65 0.293,-0.293 0.476,-0.219 1.135,-0.293 1.212,0.167 1.995,0.978 3.701,0.804 1.281,0.061 2.739,-0.379 2.739,-0.379"/>
+        <g inkscape:groupmode="layer" id="layer29-9-3-1-4-53" inkscape:label="Markers" style="display:inline;stroke:none;stroke-opacity:1">
+          <g id="g3880-4-9-5-1-52" inkscape:label="Hold" style="display:inline;opacity:1;stroke:none;stroke-opacity:1">
+            <g inkscape:groupmode="layer" id="g3870-1-3-95-9-87" inkscape:label="HoldSideReceiver" style="display:none" mgrep-marker="index, hold, side, receiver">
+              <circle style="display:inline;opacity:1;fill:#f10000;fill-opacity:1;stroke:none;stroke-width:0.487412;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1" id="circle3868-9-6-3-5-5" cx="108.40601" cy="75.019775" r="0.53110468" inkscape:label="HoldSideReceiver"/>
+            </g>
+          </g>
+          <g id="g13172-0-8-3-4-2" inkscape:label="Tap" style="display:inline;opacity:1;stroke:none;stroke-opacity:1">
+            <g inkscape:groupmode="layer" id="layer26-2-9-9-6-9" inkscape:label="TapSideReceiver" style="display:none" mgrep-marker="index, tap, side, receiver">
+              <circle style="display:inline;opacity:1;fill:#f10000;fill-opacity:1;stroke:none;stroke-width:0.487412;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1" id="circle13102-1-4-8-6-5" cx="108.40601" cy="75.019775" r="0.53110468" inkscape:label="TapSideReceiver"/>
+            </g>
+          </g>
+          <g id="g3906-8-0-8-2-32" inkscape:label="Tap/Hold" style="display:inline;opacity:1;stroke:none;stroke-opacity:1">
+            <g inkscape:groupmode="layer" id="g3884-8-2-5-5-95" inkscape:label="TapTipTrajEnd" mgrep-marker="index, tap|hold, side, traj-end" style="display:none">
+              <circle style="display:inline;opacity:1;fill:#f10000;fill-opacity:1;stroke:none;stroke-width:0.487412;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1" id="circle3882-2-7-8-2-28" cx="116.7927" cy="83.880615" r="0.53110468" inkscape:label="TapTipTrajEnd"/>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+    <g inkscape:groupmode="layer" id="layer3-3" inkscape:label="Thumb" style="display:inline;stroke:#919191;stroke-opacity:1">
+      <g inkscape:groupmode="layer" id="layer10-3" inkscape:label="ThumbUp" style="display:inline">
+        <path id="path1110-5" style="display:inline;fill:#ffffff;fill-opacity:1;stroke:#919191;stroke-width:0.996919;stroke-opacity:1" d="m 139.315,210.553 c 0,0 -1.171,-10.677 -2.779,-18.129 -1.41,-6.531 -5.155,-18.772 -5.967,-23.147 m -17.394,24.21 c 4.497,-2.091 7.704,-6.565 9.705,-10.063 5.047,-8.824 7.219,-10.182 8.104,-16.064 0.514,-3.416 -0.458,-7.207 -0.395,-16.341 0.034,-4.789 0.943,-14.543 1.104,-15.937 0.868,-7.524 0.039,-8.941 -0.511,-14.535 -0.338,-3.433 2.839,-9.705 1.125,-11.928 -2.229,-2.893 -11.804,-2.06 -15.45,7.105 -2.953,7.424 -3.911,18.088 -5.677,27.185 -1.206,6.209 -3.065,12.296 -5.103,13.73"/>
+        <path id="path8868" style="fill:none;stroke:#919191;stroke-width:0.499999;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:5;stroke-dashoffset:0.793701;stroke-opacity:1;paint-order:markers stroke fill" d="m 109.827,146.832 c 0,0 -1.347,-0.622 -1.968,-0.622 -0.622,0 -2.383,-0.103 -2.383,-0.103 m 5.076,-2.901 c 0,0 -0.932,-1.14 -1.45,-1.243 -0.518,-0.104 -3.108,-0.829 -3.108,-0.829 m 25.693,-13.468 c 0,0 -0.725,0.207 -1.657,1.036 -0.933,0.829 -3.005,2.694 -3.005,2.694 m 4.248,8.184 c 0,0 -2.176,1.347 -3.005,1.45 -0.828,0.104 -2.59,-0.103 -3.522,-0.31 -0.933,-0.208 -1.658,-0.726 -1.658,-0.726 m 8.496,-7.355 c 0,0 -0.518,1.968 -1.451,2.486 -0.932,0.518 -1.968,1.036 -1.968,1.036 m 2.797,-15.851 c 0,0 -1.036,1.451 -1.554,1.554 -0.518,0.104 -3.005,0.415 -4.144,0.104 -1.14,-0.311 -2.383,-1.554 -2.383,-1.554 0,0 1.243,-2.279 1.968,-3.005 0.725,-0.725 3.937,-4.351 4.766,-4.765 0.829,-0.415 3.108,-1.451 3.108,-1.451"/>
+        <g inkscape:groupmode="layer" id="layer30-6-8-6" inkscape:label="Markers" style="display:inline;stroke:none;stroke-opacity:1">
+          <g inkscape:groupmode="layer" id="layer24-5-2-6" inkscape:label="TapSideTrajStart" style="display:none" mgrep-marker="index|middle|ring|pinky|index-middle|middle-ring|ring-pinky|index-middle-ring|middle-ring-pinky|index-middle-ring-pinky, tap|hold, side, traj-start">
+            <circle style="display:inline;opacity:1;fill:#f10000;fill-opacity:1;stroke:none;stroke-width:0.487412;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1" id="circle11716-4-0-1" cx="123.7021" cy="103.87108" r="0.53110468" inkscape:label="TapSideTrajStart"/>
+          </g>
+          <g inkscape:groupmode="layer" id="layer19-6-7-0-0" inkscape:label="TapHoldActuator" style="display:none" mgrep-marker="index|middle|ring|pinky|index-middle|middle-ring|ring-pinky|index-middle-ring|middle-ring-pinky|index-middle-ring-pinky, tap|hold, side, actuator">
+            <circle style="display:inline;opacity:1;fill:#f10000;fill-opacity:1;stroke:none;stroke-width:0.487412;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1" id="circle386-5-8-9-9" cx="126.52148" cy="110.13593" r="0.53110468" inkscape:label="TapHoldActuator"/>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+  <g inkscape:groupmode="layer" id="layer4-8" inkscape:label="Families" style="display:none">
+    <g inkscape:groupmode="layer" id="g2222-8" inkscape:label="MaS" style="display:inline">
+      <g inkscape:groupmode="layer" id="g2220-8" inkscape:label="Trajectory" style="display:inline">
+        <g inkscape:groupmode="layer" id="layer11-3" inkscape:label="Swipe" mgrep-family-layer="MaS, trajectory, swipe" style="display:inline">
+          <path id="circle2498-8" style="display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.11404;stroke-linecap:round;stroke-opacity:1" d="m 123.57,59.7478 c -0.629,0.0011 -1.268,0.1071 -1.893,0.3292 -1.921,0.6823 -3.251,2.2985 -3.663,4.1579 -1.01,3.7933 -6.52,24.2541 -7.582,28.1776 -0.368,1.1502 -0.378,2.4249 0.056,3.6463 0.658,1.8523 2.185,3.1558 3.961,3.6158 l 0.001,5e-4 c 1.065,0.276 2.221,0.2481 3.332,-0.1468 1.92,-0.6823 3.25,-2.2984 3.663,-4.1578 0.819,-3.0599 6.595,-24.5267 7.582,-28.1777 0.368,-1.1502 0.378,-2.4254 -0.056,-3.6468 -0.658,-1.8523 -2.185,-3.1558 -3.961,-3.6158 h -0.001 c -0.466,-0.1207 -0.949,-0.1833 -1.439,-0.1824 z m 0.062,1.4966 c 1.718,0.0139 3.315,1.0853 3.925,2.8039 0.331,0.9295 0.316,1.8934 0.026,2.7564 -1.375,5.1064 -6.314,23.5096 -7.582,28.1782 -1.285,4.5255 -6.849,3.7837 -8.099,0.5741 -0.331,-0.9295 -0.316,-1.8939 -0.026,-2.7569 1.439,-5.3499 6.214,-23.1395 7.582,-28.1777 0.282,-1.3999 1.271,-2.6169 2.721,-3.1321 0.482,-0.1709 0.972,-0.2498 1.453,-0.2459 z m -7.739,29.0085 c -2.035,0 -3.684,1.6497 -3.684,3.6845 0,2.0349 1.649,3.6845 3.684,3.6846 0.978,0 1.914,-0.388 2.606,-1.079 0.69,-0.691 1.079,-1.6284 1.079,-2.6056 0,-0.9772 -0.389,-1.914 -1.079,-2.605 -0.692,-0.6909 -1.628,-1.0795 -2.606,-1.0795 z" mgrep-path-element="design"/>
+          <circle style="display:inline;fill:#f6e90f;fill-opacity:1;stroke:none;stroke-opacity:1" id="circle5115-3-7" cx="115.85417" cy="93.993752" r="2.5" mgrep-path-element="command" inkscape:label="Command"/>
+          <circle style="display:inline;fill:none;fill-opacity:1;stroke:#47bd52;stroke-opacity:1" id="path11075-4-1-9-6" cx="115.85417" cy="93.993752" inkscape:label="TraceStartBound" mgrep-path-element="trace-start-bound" r="7.4983792"/>
+          <circle style="display:inline;fill:none;fill-opacity:1;stroke:#47bd52;stroke-opacity:1" id="path11075-4-1-9-6-3" cx="123.57469" cy="65.460838" r="7.4983792" inkscape:label="TraceEndBound" mgrep-path-element="trace-end-bound"/>
+          <path style="display:inline;fill:none;fill-opacity:1;stroke:#47bd52;stroke-opacity:1" d="m 115.854,93.9937 7.654,-28.3548" id="path72594-4" mgrep-path-element="trace"/>
+        </g>
+      </g>
+      <g inkscape:groupmode="layer" id="g2212-2" inkscape:label="Actuator" style="display:inline">
+        <g inkscape:groupmode="layer" id="layer1-6" inkscape:label="Tap/Swipe" mgrep-family-layer="MaS, actuator, tap|swipe" style="display:inline">
+          <path style="color:#000000;display:inline;fill:#000000;stroke:none;stroke-width:0.688783;stroke-linecap:round;-inkscape-stroke:none" d="m 160.494,120.347 c -2.166,0 -3.934,1.768 -3.934,3.934 0,2.166 1.768,3.934 3.934,3.934 2.166,0 3.934,-1.768 3.934,-3.934 0,-2.166 -1.768,-3.934 -3.934,-3.934 z m 0,1.034 c 1.608,0 2.9,1.292 2.9,2.9 0,1.608 -1.292,2.9 -2.9,2.9 -1.608,0 -2.9,-1.292 -2.9,-2.9 0,-1.608 1.292,-2.9 2.9,-2.9 z" id="path1986-8" mgrep-path-element="design"/>
+          <circle style="display:inline;fill:none;fill-opacity:1;stroke:#47bd52;stroke-opacity:1" id="path11075-4-1-9-3" cx="160.54675" cy="124.25444" r="5.2347221" inkscape:label="TraceStartBound" mgrep-path-element="trace-start-bound"/>
+        </g>
+        <g inkscape:groupmode="layer" id="g3040" inkscape:label="Hold" mgrep-family-layer="MaS, actuator, hold" style="display:inline">
+          <circle style="display:inline;fill:none;fill-opacity:1;stroke:#47bd52;stroke-opacity:1" id="circle3038" cx="160.54675" cy="124.25444" r="7" inkscape:label="TraceStartBound" mgrep-path-element="trace-start-bound"/>
+          <path id="rect1040-8-7" style="display:inline;fill:none;stroke:#020603;stroke-width:0.748242;stroke-linecap:square;stroke-miterlimit:5;paint-order:markers stroke fill" d="m 157,120.663 h 7.193 v 7.192 H 157 Z" mgrep-path-element="design"/>
+        </g>
+      </g>
+      <g inkscape:groupmode="layer" id="g2216-5" inkscape:label="Receiver" style="display:inline">
+        <g inkscape:groupmode="layer" id="layer6-1" inkscape:label="Tap" mgrep-family-layer="MaS, receiver, tap" style="display:inline">
+          <circle style="display:inline;fill:none;fill-opacity:1;stroke:#47bd52;stroke-opacity:1" id="path11075-4-1-9-1" cx="125.06006" cy="53.897034" r="5.2347221" inkscape:label="TraceStartBound" mgrep-path-element="trace-start-bound"/>
+          <path id="path5062" style="display:inline;fill:#000000;fill-opacity:1;stroke-width:1.25028;stroke-linecap:round" d="m 128.761,53.9087 c 0,1.9937 -1.63,3.6099 -3.642,3.6099 -2.011,0 -3.641,-1.6162 -3.641,-3.6099 0,-1.9937 1.63,-3.6099 3.641,-3.6099 2.012,0 3.642,1.6162 3.642,3.6099 z" mgrep-path-element="design"/>
+          <circle style="display:inline;fill:#f6e90f;fill-opacity:1;stroke:none;stroke-opacity:1" id="circle5115-3" cx="125.11943" cy="53.90871" r="2.5" mgrep-path-element="command" inkscape:label="Command"/>
+        </g>
+        <g inkscape:groupmode="layer" id="g2848" inkscape:label="Hold" mgrep-family-layer="MaS, receiver, hold" style="display:inline">
+          <path id="rect1040-8" style="display:inline;fill:#000000;fill-opacity:1;stroke:#020603;stroke-width:0.848084;stroke-linecap:square;stroke-miterlimit:5;stroke-opacity:1;paint-order:markers stroke fill" d="m 120.913,49.8601 h 8.152 v 8.1519 h -8.152 z" mgrep-path-element="design"/>
+          <circle style="display:inline;fill:none;fill-opacity:1;stroke:#47bd52;stroke-opacity:1" id="circle2842" cx="125.06006" cy="53.897034" r="7" inkscape:label="TraceStartBound" mgrep-path-element="trace-start-bound"/>
+          <circle style="display:inline;fill:#f6e90f;fill-opacity:1;stroke:none;stroke-opacity:1" id="circle2846" cx="125.11943" cy="53.90871" r="2.5" mgrep-path-element="command" inkscape:label="Command"/>
+        </g>
+      </g>
+    </g>
+    <g inkscape:groupmode="layer" id="layer5-5" inkscape:label="AandB" style="display:none;stroke-width:1.5;stroke-dasharray:none">
+      <g inkscape:groupmode="layer" id="layer12-7" inkscape:label="Trajectory" style="display:inline;stroke-width:1.5;stroke-dasharray:none">
+        <g inkscape:groupmode="layer" id="layer2-8" inkscape:label="Tap/Hold" mgrep-family-layer="AandB, trajectory, tap|hold" style="display:inline">
+          <path style="display:inline;fill:none;stroke:#000000;stroke-width:2.2;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#TriangleStart)" d="M 160.959,115.092 C 159.879,73.42 131.897,58.1957 131.897,58.1957" id="path1012" mgrep-path-element="design"/>
+        </g>
+        <g inkscape:groupmode="layer" id="layer33" inkscape:label="Pattern" style="display:none;stroke-width:1.5;stroke-dasharray:none">
+          <path id="path8540" style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.5;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1" d="m 162.356,41.4373 -1.479,0.7693 V 40.668 Z m 1.359,1.3614 c -0.361,1e-4 -0.707,-0.1433 -0.962,-0.3986 -0.255,-0.2552 -0.399,-0.6014 -0.399,-0.9624 0,-0.3609 0.144,-0.7071 0.399,-0.9624 0.255,-0.2552 0.601,-0.3986 0.962,-0.3986 0.752,0 1.361,0.6094 1.361,1.361 0,0.7517 -0.609,1.361 -1.361,1.361 z"/>
+        </g>
+        <g inkscape:groupmode="layer" id="layer3-33" inkscape:label="Swipe" style="display:inline" mgrep-family-layer="AandB, trajectory, swipe">
+          <circle style="display:inline;fill:none;fill-opacity:1;stroke:#47bd52;stroke-opacity:1" id="path11073" cx="122.99717" cy="63.722878" r="11" inkscape:label="TraceEndBound" mgrep-path-element="trace-end-bound"/>
+          <circle style="display:inline;fill:none;fill-opacity:1;stroke:#47bd52;stroke-opacity:1" id="path11075" cx="115.36449" cy="94.890915" r="4" inkscape:label="TraceStartBound" mgrep-path-element="trace-start-bound"/>
+          <path id="path4962" style="color:#000000;fill:#000000;stroke-width:2;stroke-linecap:square;stroke-miterlimit:5;stroke-dasharray:none" d="m 123.009,63.8871 -4.951,4.9635 2.459,0.8041 -5.863,23.6518 v 0.0016 c -0.624,0.2797 -1.025,0.8993 -1.026,1.5828 0,0.959 0.778,1.7363 1.736,1.7364 0.959,-1e-4 1.737,-0.7774 1.737,-1.7364 -0.001,-0.3825 -0.127,-0.7541 -0.36,-1.0573 v -0.001 l 5.786,-23.6259 2.614,0.7296 z" mgrep-path-element="design"/>
+          <circle style="display:inline;fill:#f6e90f;fill-opacity:1;stroke:none;stroke-opacity:1" id="path4705" cx="122.99717" cy="63.722878" r="2.5" mgrep-path-element="command" inkscape:label="Command"/>
+          <path style="display:inline;fill:none;fill-opacity:1;stroke:#47bd52;stroke-opacity:1" d="m 115.364,94.8909 7.645,-31.0038" id="path72594" mgrep-path-element="trace"/>
+        </g>
+      </g>
+      <g inkscape:groupmode="layer" id="g492" inkscape:label="Receiver" style="display:inline;stroke-width:1.5;stroke-dasharray:none">
+        <g inkscape:groupmode="layer" id="layer8-5" inkscape:label="Tap" mgrep-family-layer="AandB, receiver, tap" style="display:inline">
+          <circle style="display:inline;fill:none;fill-opacity:1;stroke:#47bd52;stroke-opacity:1" id="path11075-4" cx="124.70074" cy="54.67057" r="4" inkscape:label="TraceEndBound" mgrep-path-element="trace-end-bound"/>
+          <path id="circle490" style="display:inline;fill:#000000;fill-opacity:1;stroke-width:1.5;stroke-linecap:round;stroke-dasharray:none" d="m 127.6,54.6556 c 0,1.6016 -1.298,2.9 -2.9,2.9 -1.601,0 -2.9,-1.2984 -2.9,-2.9 0,-1.6016 1.299,-2.9 2.9,-2.9 1.602,0 2.9,1.2984 2.9,2.9 z" mgrep-path-element="design"/>
+          <circle style="display:inline;fill:#f6e90f;fill-opacity:1;stroke:none;stroke-opacity:1" id="circle5115" cx="124.70074" cy="54.67057" r="2.5" mgrep-path-element="command" inkscape:label="Command"/>
+        </g>
+        <g inkscape:groupmode="layer" id="g2856" inkscape:label="Hold" mgrep-family-layer="AandB, receiver, hold" style="display:inline">
+          <circle style="display:inline;fill:none;fill-opacity:1;stroke:#47bd52;stroke-opacity:1" id="circle2850" cx="124.70074" cy="54.67057" r="7" inkscape:label="TraceEndBound" mgrep-path-element="trace-end-bound"/>
+          <path id="path2912" style="display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.5;stroke-linecap:square;stroke-miterlimit:5;stroke-dasharray:none;paint-order:markers stroke fill" d="m 130.351,54.6706 c 0,3.1205 -2.53,5.6502 -5.65,5.6502 -3.121,0 -5.651,-2.5297 -5.651,-5.6502 0,-3.1206 2.53,-5.6503 5.651,-5.6503 3.12,0 5.65,2.5297 5.65,5.6503 z" mgrep-path-element="design"/>
+          <circle style="display:inline;fill:#f6e90f;fill-opacity:1;stroke:none;stroke-opacity:1" id="circle2854" cx="124.70074" cy="54.67057" r="2.5" mgrep-path-element="command" inkscape:label="Command"/>
+        </g>
+      </g>
+      <g inkscape:groupmode="layer" id="g494" inkscape:label="Actuator" style="display:inline;stroke-width:1.5;stroke-dasharray:none">
+        <g inkscape:groupmode="layer" id="layer32" inkscape:label="Swipe" mgrep-family-layer="AandB, actuator, swipe" style="display:inline">
+          <circle style="display:inline;fill:none;fill-opacity:1;stroke:#47bd52;stroke-opacity:1" id="path11075-4-1" cx="160.0257" cy="124.04261" r="4" inkscape:label="TraceStartBound" mgrep-path-element="trace-start-bound"/>
+          <path id="circle490-5-9" style="display:inline;fill:#000000;fill-opacity:1;stroke-width:1.5;stroke-linecap:round;stroke-dasharray:none" d="m 162.089,124.065 c 0,1.142 -0.926,2.067 -2.068,2.067 -1.142,0 -2.067,-0.925 -2.067,-2.067 0,-1.142 0.925,-2.068 2.067,-2.068 0.549,0 1.075,0.218 1.462,0.606 0.388,0.388 0.606,0.913 0.606,1.462 z" mgrep-path-element="design"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

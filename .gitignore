@@ -6,3 +6,5 @@ temp
 dist/
 microrep.egg-info/
 create_extension_zip.py
+env/
+winenv/

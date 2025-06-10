@@ -1,0 +1,365 @@
+<svg xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" width="200mm" height="200mm" viewBox="0 0 200 200" version="1.1" id="svg5" xml:space="preserve" inkscape:version="1.2.2 (732a01da63, 2022-12-09)" sodipodi:docname="handPoses.svg" inkscape:export-filename="Full_Side.png" inkscape:export-xdpi="96" inkscape:export-ydpi="96">
+  <sodipodi:namedview id="namedview7" pagecolor="#6e6e6e" bordercolor="#eeeeee" borderopacity="1" inkscape:showpageshadow="0" inkscape:pageopacity="0" inkscape:pagecheckerboard="false" inkscape:deskcolor="#505050" inkscape:document-units="mm" showgrid="false" inkscape:zoom="1" inkscape:cx="161.5" inkscape:cy="348.5" inkscape:window-width="1440" inkscape:window-height="890" inkscape:window-x="214" inkscape:window-y="1073" inkscape:window-maximized="1" inkscape:current-layer="layer3-33" showguides="false" inkscape:pageshadow="2">
+    <inkscape:grid type="xygrid" id="grid515" originx="0" originy="0"/>
+    <sodipodi:guide position="160.66239,38.168301" orientation="0,-1" id="guide1784" inkscape:locked="false"/>
+  </sodipodi:namedview>
+  <defs id="defs2">
+    <marker style="overflow:visible" id="TriangleStart" refX="0" refY="0" orient="auto-start-reverse" inkscape:stockid="TriangleStart" markerWidth="3.5" markerHeight="3.5" viewBox="0 0 5.3244086 6.1553856" inkscape:isstock="true" inkscape:collect="always" preserveAspectRatio="xMidYMid" markerUnits="strokeWidth">
+      <path style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:0.666667" d="M 2.885,0 -1.44,2.5 v -5 z" id="path135"/>
+    </marker>
+  </defs>
+  <rect style="display:inline;fill:#ffffff;stroke:#e2e2e2;stroke-width:0.309389;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:5;stroke-dasharray:0.309389, 1.23755" id="rect1650-4" width="199.69061" height="199.69061" x="-0.00010051778" y="-0.00010051778"/>
+  <g inkscape:groupmode="layer" id="layer1-7" inkscape:label="Front-Right" style="display:inline" mgrep-wrist-orientation="front-right">
+    <g inkscape:groupmode="layer" id="g1343-5-6-7-8" inkscape:label="Pinky" style="display:inline;stroke:#919191;stroke-width:0.964448;stroke-dasharray:none;stroke-opacity:1">
+      <g inkscape:groupmode="layer" id="g1333-7-2-5-0" inkscape:label="PinkyUp" style="display:inline">
+        <path id="path1129" style="fill:#ffffff;fill-opacity:1;stroke:#919191;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:5;stroke-dashoffset:0.793701;stroke-opacity:1" d="m 81.6877,195.08 c 0,0 0.093,0.421 1.7772,0.655 1.6838,0.234 3.9757,0.187 3.9757,0.187 m 4.6071,-81.291 c 0,0 -0.3041,-2.221 -0.5145,-4.022 -0.2105,-1.801 -1.1226,-3.835 -1.7306,-5.87 -0.6081,-2.034 -1.0056,-3.812 -2.5023,-6.7117 -1.4967,-2.8999 -2.5725,-6.4078 -3.0402,-8.0916 -0.4677,-1.6838 -0.3742,-2.8064 -1.45,-6.0337 -1.0754,-3.2272 -2.7594,-6.5948 -2.9934,-8.6061 -0.234,-2.0112 -0.094,-3.695 -0.842,-4.4433 -0.748,-0.7484 -1.59,-1.8709 -4.303,-1.1226 -2.713,0.7484 -3.742,2.7596 -3.695,7.0627 0.047,4.303 0.702,11.9269 1.263,13.143 0.561,1.216 0.374,1.7773 0.514,3.7417 0.141,1.9645 1.684,9.7286 2.152,11.4126 0.468,1.684 1.403,4.958 1.684,7.203 0.28,2.245 0.748,8.045 1.075,9.869 0.328,1.824 0.468,3.414 -0.374,4.771 -0.842,1.356 -2.479,5.706 -2.151,9.963 0.327,4.256 1.59,8.699 1.73,13.33 0.141,4.63 0.421,14.593 0.421,21.421 0,6.829 -1.004,11.258 -0.045,13.904 0.959,2.646 1.985,6.416 2.249,7.078 0.265,0.661 1.389,1.719 1.819,2.182 0.43,0.463 -0.309,3.773 -1.276,7.183 -1.027,3.619 -2.663,7.265 -2.663,7.265"/>
+        <path id="path6875" style="fill:none;stroke:#919191;stroke-width:0.500001;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:5;stroke-dasharray:none;stroke-dashoffset:0.793701;stroke-opacity:1" d="m 119.386,133.949 c 0,0 -3.648,-0.842 -6.267,-0.094 -2.62,0.749 -13.4709,7.203 -15.903,8.419 -2.4322,1.216 -7.2029,4.023 -7.2029,4.023 m 25.3509,-10.851 c 0,0 -6.736,0.654 -11.693,7.483 -4.9583,6.829 -2.994,11.038 -7.3905,19.457 -4.3965,8.419 -4.5836,8.981 -4.5836,8.981 m 15.8091,-56.782 c 0,0 -3.742,5.051 -4.21,7.016 -0.467,1.964 -2.993,9.261 -6.6413,12.441 -3.6482,3.181 -10.9447,5.145 -12.6285,6.268 -1.6835,1.122 -4.3035,3.274 -4.3035,3.274 m -4.49,-53.4612 c 0,0 -0.701,-0.1871 -1.263,-0.1404 -0.561,0.0468 -1.262,0.2807 -1.262,0.2807 m 0.748,1.5902 c 0,0 1.029,-0.2338 1.637,-0.4209 0.608,-0.1871 2.245,-1.2161 2.245,-1.2161 m 10.881,9.7535 c 0,0 0.017,1.0042 -0.1701,1.4722 -0.1871,0.467 -0.3274,0.842 -0.3274,0.842 m -11.1785,3.975 c 0,0 0.702,-0.748 1.216,-0.982 0.515,-0.234 2.713,-0.702 2.713,-0.702 m -0.281,1.45 c 0,0 -0.514,0.702 -1.497,1.123 -0.982,0.421 -2.478,0.514 -2.478,0.514 m 3.227,16.651 c 0,0 0.701,-1.169 1.263,-1.59 0.561,-0.421 2.198,-1.31 2.198,-1.31 m 7.6239,-5.799 c 0,0 -0.3274,0.467 -0.8419,0.841 -0.5145,0.375 -1.8242,1.684 -1.8242,1.684"/>
+        <g inkscape:groupmode="layer" id="layer29-9-2-8-3" inkscape:label="Markers" style="display:inline;stroke:none;stroke-width:0.855159;stroke-dasharray:none;stroke-opacity:1">
+          <g id="g13164-2-9-3-1" inkscape:label="Swipe" style="display:inline;opacity:1;stroke:none;stroke-opacity:1">
+            <g inkscape:groupmode="layer" id="layer15-2-0-7-7" inkscape:label="SwipeDownTrajEnd" style="display:none" mgrep-marker="pinky, swipe, down, traj-end">
+              <circle style="display:inline;opacity:1;fill:#f10000;fill-opacity:1;stroke:none;stroke-width:0.487412;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1" id="circle1691-1-1-1-3" cx="77.203278" cy="112.95832" r="0.47092128" inkscape:label="SwipeDownTrajEnd"/>
+            </g>
+            <g inkscape:groupmode="layer" id="layer17-7-2-43-6" inkscape:label="SwipeDownTrajStart" mgrep-marker="pinky, swipe, down, traj-start" style="display:none">
+              <circle style="display:inline;fill:#f10000;fill-opacity:1;stroke:none;stroke-width:0.487412;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1" id="circle13120-8-6-9-0-8" cx="72.224289" cy="83.294647" r="0.47092128" inkscape:label="SwipeDownTrajStart"/>
+            </g>
+            <g inkscape:groupmode="layer" id="g2467-4-2-1-2" inkscape:label="SwipeUpTrajEnd" mgrep-marker="pinky, swipe, up, traj-end" style="display:none">
+              <circle style="display:inline;fill:#f10000;fill-opacity:1;stroke:none;stroke-width:0.487412;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1" id="circle2465-4-4-2-4" cx="72.224289" cy="83.294647" r="0.47092128" inkscape:label="SwipeUpTrajEnd"/>
+            </g>
+            <g inkscape:groupmode="layer" id="g2471-8-7-6-6" inkscape:label="SwipeUpTrajStart" style="display:none" mgrep-marker="pinky, swipe, up, traj-start">
+              <circle style="display:inline;opacity:1;fill:#f10000;fill-opacity:1;stroke:none;stroke-width:0.487412;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1" id="circle2469-7-6-7-6" cx="77.203278" cy="112.95832" r="0.47092128" inkscape:label="SwipeUpTrajStart"/>
+            </g>
+          </g>
+          <g id="g3880-4-0-5-5" inkscape:label="Hold" style="display:inline;opacity:1;stroke:none;stroke-opacity:1">
+            <g inkscape:groupmode="layer" id="g3870-1-1-3-5" inkscape:label="HoldTipReceiver" style="display:none" mgrep-marker="pinky, hold, tip, receiver">
+              <circle style="display:inline;opacity:1;fill:#f10000;fill-opacity:1;stroke:none;stroke-width:0.487412;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1" id="circle3868-9-8-57-0" cx="70.470955" cy="75.155083" r="0.47092128" inkscape:label="HoldTipReceiver"/>
+            </g>
+            <g inkscape:groupmode="layer" id="g3874-0-9-8-6" inkscape:label="HoldMiddleReceiver" mgrep-marker="pinky, hold, middle, receiver" style="display:none">
+              <circle style="display:inline;opacity:1;fill:#f10000;fill-opacity:1;stroke:none;stroke-width:0.487412;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1" id="circle3872-7-4-0-8" cx="74.859802" cy="98.004745" r="0.47092128" inkscape:label="HoldMiddleReceiver"/>
+            </g>
+            <g inkscape:groupmode="layer" id="layer27-9-4-2-7-0-0" inkscape:label="HoldSideReceiver" mgrep-marker="pinky, hold, side, receiver" style="display:none">
+              <circle style="display:inline;opacity:1;fill:#f10000;fill-opacity:1;stroke:none;stroke-width:0.487412;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1" id="circle13100-8-1-2-4-4-5" cx="86.774979" cy="95.986481" r="0.47092128" inkscape:label="HoldSideReceiver"/>
+            </g>
+            <g inkscape:groupmode="layer" id="g3878-8-8-7-1" inkscape:label="HoldBaseReceiver" mgrep-marker="pinky, hold, base, receiver" style="display:none">
+              <circle style="display:inline;opacity:1;fill:#f10000;fill-opacity:1;stroke:none;stroke-width:0.487412;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1" id="circle3876-1-3-6-0" cx="77.995285" cy="121.4072" r="0.47092128" inkscape:label="HoldBaseReceiver"/>
+            </g>
+          </g>
+          <g id="g13172-0-9-0-7" inkscape:label="Tap" style="display:inline;opacity:1;stroke:none;stroke-opacity:1">
+            <g inkscape:groupmode="layer" id="layer26-2-6-6-5" inkscape:label="TapTipReceiver" style="display:none" mgrep-marker="pinky, tap, tip, receiver">
+              <circle style="display:inline;opacity:1;fill:#f10000;fill-opacity:1;stroke:none;stroke-width:0.487412;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1" id="circle13102-1-5-8-3" cx="70.470955" cy="75.155083" r="0.47092128" inkscape:label="TapTipReceiver"/>
+            </g>
+            <g inkscape:groupmode="layer" id="layer27-9-4-9-8" inkscape:label="TapMiddleReceiver" mgrep-marker="pinky, tap, middle, receiver" style="display:none">
+              <circle style="display:inline;opacity:1;fill:#f10000;fill-opacity:1;stroke:none;stroke-width:0.487412;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1" id="circle13100-8-1-8-1" cx="74.859802" cy="98.004745" r="0.47092128" inkscape:label="TapMiddleReceiver"/>
+            </g>
+            <g inkscape:groupmode="layer" id="layer27-9-4-2-7-0" inkscape:label="TapSideReceiver" mgrep-marker="pinky, tap, side, receiver" style="display:none">
+              <circle style="display:inline;opacity:1;fill:#f10000;fill-opacity:1;stroke:none;stroke-width:0.487412;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1" id="circle13100-8-1-2-4-4" cx="86.774979" cy="95.986481" r="0.47092128" inkscape:label="TapSideReceiver"/>
+            </g>
+            <g inkscape:groupmode="layer" id="layer28-2-8-0-2" inkscape:label="TapBaseReceiver" mgrep-marker="pinky, tap, base, receiver" style="display:none">
+              <circle style="display:inline;opacity:1;fill:#f10000;fill-opacity:1;stroke:none;stroke-width:0.487412;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1" id="circle13098-1-3-7-5" cx="77.995285" cy="121.4072" r="0.47092128" inkscape:label="TapBaseReceiver"/>
+            </g>
+          </g>
+          <g id="g3906-8-1-5-8" inkscape:label="Tap/Hold" style="display:inline;opacity:1;stroke:none;stroke-opacity:1">
+            <g inkscape:groupmode="layer" id="g3884-8-22-7-6" inkscape:label="TapTipTrajEnd" mgrep-marker="pinky, tap|hold, tip, traj-end" style="display:none">
+              <circle style="display:inline;opacity:1;fill:#f10000;fill-opacity:1;stroke:none;stroke-width:0.487412;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1" id="circle3882-2-9-2-9" cx="80.539581" cy="77.468208" r="0.47092128" inkscape:label="TapTipTrajEnd"/>
+            </g>
+            <g inkscape:groupmode="layer" id="g3888-0-3-3-4" inkscape:label="TapSideTrajEnd" mgrep-marker="pinky, tap|hold, side, traj-end" style="display:none">
+              <circle style="display:inline;opacity:1;fill:#f10000;fill-opacity:1;stroke:none;stroke-width:0.487412;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1" id="circle3886-6-4-7-4" cx="96.355957" cy="101.86539" r="0.47092128" inkscape:label="TapSideTrajEnd"/>
+            </g>
+            <g inkscape:groupmode="layer" id="g3888-0-3-7-9-1" inkscape:label="TapMiddleTrajEnd" mgrep-marker="pinky, tap|hold, middle, traj-end" style="display:none">
+              <circle style="display:inline;opacity:1;fill:#f10000;fill-opacity:1;stroke:none;stroke-width:0.487412;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1" id="circle3886-6-4-1-6-8" cx="88.003464" cy="101.46522" r="0.47092128" inkscape:label="TapCenterTrajEnd"/>
+            </g>
+            <g inkscape:groupmode="layer" id="g3892-2-5-7-4" inkscape:label="TapBaseTrajEnd" mgrep-marker="pinky, tap|hold, base, traj-end" style="display:none">
+              <circle style="display:inline;opacity:1;fill:#f10000;fill-opacity:1;stroke:none;stroke-width:0.487412;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1" id="circle3890-4-8-6-4" cx="88.547844" cy="116.94156" r="0.47092128" inkscape:label="TapBaseTrajEnd"/>
+            </g>
+          </g>
+        </g>
+      </g>
+      </g>
+    <g inkscape:groupmode="layer" id="g1329-4-3-3-5" inkscape:label="Ring" style="display:inline;stroke:#919191;stroke-width:0.964448;stroke-dasharray:none;stroke-opacity:1">
+      <g inkscape:groupmode="layer" id="g1315-8-6-4-8" inkscape:label="RingUp" style="display:inline">
+        <path style="fill:#ffffff;fill-opacity:1;stroke:#919191;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:5;stroke-dashoffset:0.793701;stroke-opacity:1" d="m 88.2384,117.759 c 0,0 2.0302,-1.897 2.0962,-6.616 0.0659,-4.718 -0.7037,-5.184 -0.5338,-10.244 C 89.9707,95.8398 90.3597,94.944 88.673,89.9088 86.9863,84.8735 86.7208,78.5897 86.3337,76.3654 85.9466,74.1411 85.0025,74.752 83.6388,64.1134 82.2747,53.4748 82.964,50.6285 84.0558,49.4078 c 1.0917,-1.2208 2.953,-1.9755 4.4141,-1.9662 1.4612,0.0093 3.7208,1.6107 3.9519,1.9894 0.2312,0.3788 0.8206,1.8558 0.7956,3.9157 -0.0251,2.06 0.3499,3.3559 0.9608,4.3 0.6108,0.9441 0.9422,2.5093 1.4379,3.6623 0.4957,1.153 2.7033,5.2812 3.1284,7.1704 0.4252,1.8891 1.9995,4.8096 3.2525,10.2134 1.253,5.4038 3.075,8.1043 3.197,9.5544 0.123,1.45 0.037,3.5814 0.159,4.235 0.122,0.6535 0.894,3.5091 1.284,8.1228 0.39,4.614 0.631,9.041 0.631,9.041" id="path1052"/>
+        <path id="path1087" style="fill:none;stroke:#919191;stroke-width:0.500001;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:5;stroke-dasharray:none;stroke-dashoffset:0.793701;stroke-opacity:1" d="m 96.701,111.07 c 0,0 -1.8873,2.018 -2.6392,2.546 -0.752,0.529 -1.6738,1.403 -1.6738,1.403 m 6.1514,-45.8253 -0.5264,0.8411 m -8.7639,5.0885 c 0,0 -0.395,0.4317 -1.1502,0.5287 -0.7552,0.097 -1.2138,0.169 -1.2138,0.169 m 3.5133,-2.0228 c 0,0 -1.3953,-0.0149 -1.9198,0.0626 -0.5245,0.0775 -1.8506,0.4883 -1.8506,0.4883 m 6.9929,19.1245 c 0,0 -1.0383,-0.1115 -1.3349,-0.0864 -0.2966,0.0251 -1.1859,0.4985 -1.1859,0.4985 m 4.384,0.4262 c 0,0 -0.9525,0.5119 -1.4245,0.8173 -0.4721,0.3054 -2.6801,0.492 -2.6801,0.492 m 13.0365,-6.3789 -0.588,0.5143 m 0.489,2.2489 c 0,0 -0.653,0.5198 -1.147,0.5616"/>
+        <g inkscape:groupmode="layer" id="layer29-9-2-8" inkscape:label="Markers" style="display:inline;stroke:none;stroke-width:0.964448;stroke-dasharray:none;stroke-opacity:1">
+          <g id="g13164-2-9-3" inkscape:label="Swipe" style="display:inline;opacity:1;stroke:none;stroke-opacity:1">
+            <g inkscape:groupmode="layer" id="layer15-2-0-7" inkscape:label="SwipeDownTrajEnd" style="display:none" mgrep-marker="ring, swipe, down, traj-end">
+              <circle style="display:inline;opacity:1;fill:#f10000;fill-opacity:1;stroke:none;stroke-width:0.487412;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1" id="circle1691-1-1-1" cx="89.528625" cy="98.929947" r="0.5311048" inkscape:label="SwipeDownTrajEnd"/>
+            </g>
+            <g inkscape:groupmode="layer" id="layer17-7-2-43" inkscape:label="SwipeDownTrajStart" mgrep-marker="ring, swipe, down, traj-start" style="display:none">
+              <circle style="display:inline;fill:#f10000;fill-opacity:1;stroke:none;stroke-width:0.487412;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1" id="circle13120-8-6-9-0" cx="85.084274" cy="65.299683" r="0.5311048" inkscape:label="SwipeDownTrajStart"/>
+            </g>
+            <g inkscape:groupmode="layer" id="g2467-4-2-1" inkscape:label="SwipeUpTrajEnd" mgrep-marker="ring, swipe, up, traj-end" style="display:none">
+              <circle style="display:inline;fill:#f10000;fill-opacity:1;stroke:none;stroke-width:0.487412;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1" id="circle2465-4-4-2" cx="85.084274" cy="65.299683" r="0.5311048" inkscape:label="SwipeUpTrajEnd"/>
+            </g>
+            <g inkscape:groupmode="layer" id="g2471-8-7-6" inkscape:label="SwipeUpTrajStart" style="display:none" mgrep-marker="ring, swipe, up, traj-start">
+              <circle style="display:inline;opacity:1;fill:#f10000;fill-opacity:1;stroke:none;stroke-width:0.487412;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1" id="circle2469-7-6-7" cx="89.528625" cy="98.929947" r="0.5311048" inkscape:label="SwipeUpTrajStart"/>
+            </g>
+          </g>
+          <g id="g3880-4-0-5" inkscape:label="Hold" style="display:inline;opacity:1;stroke:none;stroke-opacity:1">
+            <g inkscape:groupmode="layer" id="g3870-1-1-3" inkscape:label="HoldTipReceiver" style="display:none" mgrep-marker="ring, hold, tip, receiver">
+              <circle style="display:inline;opacity:1;fill:#f10000;fill-opacity:1;stroke:none;stroke-width:0.487412;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1" id="circle3868-9-8-57" cx="83.428436" cy="56.056454" r="0.5311048" inkscape:label="HoldTipReceiver"/>
+            </g>
+            <g inkscape:groupmode="layer" id="g3874-0-9-8" inkscape:label="HoldMiddleReceiver" mgrep-marker="ring, hold, middle, receiver" style="display:none">
+              <circle style="display:inline;opacity:1;fill:#f10000;fill-opacity:1;stroke:none;stroke-width:0.487412;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1" id="circle3872-7-4-0" cx="87.475822" cy="81.983345" r="0.5311048" inkscape:label="HoldMiddleReceiver"/>
+            </g>
+            <g inkscape:groupmode="layer" id="layer27-9-4-2-7-8" inkscape:label="HoldSideReceiver" mgrep-marker="ring, hold, side, receiver" style="display:none">
+              <circle style="display:inline;opacity:1;fill:#f10000;fill-opacity:1;stroke:none;stroke-width:0.487412;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1" id="circle13100-8-1-2-4-2" cx="100.985" cy="80.177505" r="0.5311048" inkscape:label="HoldSideReceiver"/>
+            </g>
+            <g inkscape:groupmode="layer" id="g3878-8-8-7" inkscape:label="HoldBaseReceiver" mgrep-marker="ring, hold, base, receiver" style="display:none">
+              <circle style="display:inline;opacity:1;fill:#f10000;fill-opacity:1;stroke:none;stroke-width:0.487412;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1" id="circle3876-1-3-6" cx="90.088768" cy="108.48395" r="0.5311048" inkscape:label="HoldBaseReceiver"/>
+            </g>
+          </g>
+          <g id="g13172-0-9-0" inkscape:label="Tap" style="display:inline;opacity:1;stroke:none;stroke-opacity:1">
+            <g inkscape:groupmode="layer" id="layer26-2-6-6" inkscape:label="TapTipReceiver" style="display:none" mgrep-marker="ring, tap, tip, receiver">
+              <circle style="display:inline;opacity:1;fill:#f10000;fill-opacity:1;stroke:none;stroke-width:0.487412;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1" id="circle13102-1-5-8" cx="83.428436" cy="56.056454" r="0.5311048" inkscape:label="TapTipReceiver"/>
+            </g>
+            <g inkscape:groupmode="layer" id="layer27-9-4-9" inkscape:label="TapMiddleReceiver" mgrep-marker="ring, tap, middle, receiver" style="display:none">
+              <circle style="display:inline;opacity:1;fill:#f10000;fill-opacity:1;stroke:none;stroke-width:0.487412;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1" id="circle13100-8-1-8" cx="87.475822" cy="81.983345" r="0.5311048" inkscape:label="TapMiddleReceiver"/>
+            </g>
+            <g inkscape:groupmode="layer" id="layer27-9-4-2-7" inkscape:label="TapSideReceiver" mgrep-marker="ring, tap, side, receiver" style="display:none">
+              <circle style="display:inline;opacity:1;fill:#f10000;fill-opacity:1;stroke:none;stroke-width:0.487412;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1" id="circle13100-8-1-2-4" cx="100.985" cy="80.177505" r="0.5311048" inkscape:label="TapSideReceiver"/>
+            </g>
+            <g inkscape:groupmode="layer" id="layer28-2-8-0" inkscape:label="TapBaseReceiver" mgrep-marker="ring, tap, base, receiver" style="display:none">
+              <circle style="display:inline;opacity:1;fill:#f10000;fill-opacity:1;stroke:none;stroke-width:0.487412;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1" id="circle13098-1-3-7" cx="90.088768" cy="108.48395" r="0.5311048" inkscape:label="TapBaseReceiver"/>
+            </g>
+          </g>
+          <g id="g3906-8-1-5" inkscape:label="Tap/Hold" style="display:inline;opacity:1;stroke:none;stroke-opacity:1">
+            <g inkscape:groupmode="layer" id="g3884-8-22-7" inkscape:label="TapTipTrajEnd" mgrep-marker="ring, tap|hold, tip, traj-end" style="display:none">
+              <circle style="display:inline;opacity:1;fill:#f10000;fill-opacity:1;stroke:none;stroke-width:0.487412;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1" id="circle3882-2-9-2" cx="94.685867" cy="59.059906" r="0.5311048" inkscape:label="TapTipTrajEnd"/>
+            </g>
+            <g inkscape:groupmode="layer" id="g3888-0-3-3" inkscape:label="TapSideTrajEnd" mgrep-marker="ring, tap|hold, side, traj-end" style="display:none">
+              <circle style="display:inline;opacity:1;fill:#f10000;fill-opacity:1;stroke:none;stroke-width:0.487412;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1" id="circle3886-6-4-7" cx="111.55246" cy="87.180801" r="0.5311048" inkscape:label="TapSideTrajEnd"/>
+            </g>
+            <g inkscape:groupmode="layer" id="g3888-0-3-7-9" inkscape:label="TapMiddleTrajEnd" mgrep-marker="ring, tap|hold, middle, traj-end" style="display:none">
+              <circle style="display:inline;opacity:1;fill:#f10000;fill-opacity:1;stroke:none;stroke-width:0.487412;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1" id="circle3886-6-4-1-6" cx="102.15401" cy="86.401009" r="0.5311048" inkscape:label="TapCenterTrajEnd"/>
+            </g>
+            <g inkscape:groupmode="layer" id="g3892-2-5-7" inkscape:label="TapBaseTrajEnd" mgrep-marker="ring, tap|hold, base, traj-end" style="display:none">
+              <circle style="display:inline;opacity:1;fill:#f10000;fill-opacity:1;stroke:none;stroke-width:0.487412;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1" id="circle3890-4-8-6" cx="102.15845" cy="103.866" r="0.5311048" inkscape:label="TapBaseTrajEnd"/>
+            </g>
+          </g>
+        </g>
+      </g>
+      </g>
+    <g inkscape:groupmode="layer" id="g1361-8-0-4-6" inkscape:label="Middle" style="display:inline;stroke:#919191;stroke-width:0.964448;stroke-dasharray:none;stroke-opacity:1">
+      <g inkscape:groupmode="layer" id="g1351-0-7-7-1" inkscape:label="MiddleUp" style="display:inline">
+        <path style="display:inline;fill:#ffffff;stroke:#919191;stroke-width:0.26;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:5;stroke-dasharray:0.26, 1.04;stroke-opacity:1" d="m 103.887,105.017 -1.852,5.689 5.82,5.821 6.086,-1.654 0.331,-7.21 z" id="path15824"/>
+        <path style="fill:#ffffff;fill-opacity:1;stroke:#919191;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:5;stroke-dashoffset:0.793701;stroke-opacity:1" d="m 101.757,109.336 c 0,0 1.704,-1.287 2.02,-3.457 0.315,-2.169 -0.094,-1.915 -0.346,-5.181 -0.253,-3.2655 -0.378,-7.7549 -0.193,-9.7307 0.185,-1.9757 0.414,-2.0805 0.201,-3.5686 -0.213,-1.4882 -0.788,-8.4843 -0.802,-11.6679 -0.015,-3.1836 -0.441,-4.2399 -0.394,-8.082 0.047,-3.8422 0.006,-4.6831 -0.266,-5.4659 -0.272,-0.7828 -0.601,-2.7336 -0.897,-8.8068 -0.296,-6.0732 -0.387,-11.7817 0.443,-13.9762 0.83,-2.1945 2.524,-2.9794 3.933,-2.9075 1.408,0.0719 2.253,0.1244 3.152,0.3148 0.899,0.1904 2.16,1.0656 2.763,3.8458 0.604,2.7803 0.43,4.9896 1.012,6.3661 0.583,1.3765 1.341,3.4936 1.805,6.2807 0.463,2.7871 1.124,5.5156 1.045,6.6121 -0.079,1.0966 1.379,5.6792 2.42,13.5892 1.041,7.9101 1.382,11.0777 1.428,12.0121 0.046,0.9343 1.603,9.8494 1.138,15.6788 -0.465,5.829 -0.828,8.001 -0.839,9.687 -0.012,1.687 -0.007,1.78 -0.007,1.78" id="path1034"/>
+        <path id="path1048" style="fill:none;stroke:#919191;stroke-width:0.500001;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:5;stroke-dasharray:none;stroke-dashoffset:0.793701;stroke-opacity:1" d="m 105.297,107.068 c 0,0 1.351,-0.019 2.299,0.399 0.947,0.417 2.192,1.626 2.192,1.626 m -2.035,-21.2179 c 0,0 -0.804,0.155 -1.117,0.1703 -0.314,0.0153 -0.617,-0.0859 -0.617,-0.0859 m 4.002,-0.975 c 0,0 -2.016,-1.0257 -2.857,-0.9847 -0.841,0.0409 -2.029,0.6607 -2.029,0.6607 m -0.505,2.1318 c 0,0 0.897,0.1436 1.932,0.2338 1.034,0.0901 3.118,-0.386 3.118,-0.386 m 5.443,-28.6426 c 0,0 -0.333,0.8591 -0.656,0.9685 -0.322,0.1093 -0.369,0.1116 -0.369,0.1116 m -8.662,0.9837 c 0,0 -0.985,-0.514 -1.333,-0.4502 -0.348,0.0638 -0.92,0.3491 -0.92,0.3491 m 0.186,1.8875 c 0,0 0.956,-0.0933 1.627,-0.2431 0.672,-0.1498 1.602,-0.757 1.602,-0.757"/>
+        <g inkscape:groupmode="layer" id="layer29-9-2-7" inkscape:label="Markers" style="display:inline;stroke:none;stroke-width:1.0919;stroke-dasharray:none;stroke-opacity:1">
+          <g id="g13164-2-9-9" inkscape:label="Swipe" style="display:inline;opacity:1;stroke:none;stroke-opacity:1">
+            <g inkscape:groupmode="layer" id="layer15-2-0-4" inkscape:label="SwipeDownTrajEnd" style="display:none" mgrep-marker="middle, swipe, down, traj-end">
+              <circle style="display:inline;opacity:1;fill:#f10000;fill-opacity:1;stroke:none;stroke-width:0.487412;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1" id="circle1691-1-1-4" cx="103.4815" cy="91.997536" r="0.60128999" inkscape:label="SwipeDownTrajEnd"/>
+            </g>
+            <g inkscape:groupmode="layer" id="layer17-7-2-4" inkscape:label="SwipeDownTrajStart" mgrep-marker="middle, swipe, down, traj-start" style="display:none">
+              <circle style="display:inline;fill:#f10000;fill-opacity:1;stroke:none;stroke-width:0.487412;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1" id="circle13120-8-6-9-1" cx="101.78738" cy="53.629395" r="0.60128999" inkscape:label="SwipeDownTrajStart"/>
+            </g>
+            <g inkscape:groupmode="layer" id="g2467-4-2-3" inkscape:label="SwipeUpTrajEnd" mgrep-marker="middle, swipe, up, traj-end" style="display:none">
+              <circle style="display:inline;fill:#f10000;fill-opacity:1;stroke:none;stroke-width:0.487412;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1" id="circle2465-4-4-9" cx="101.78738" cy="53.629395" r="0.60128999" inkscape:label="SwipeUpTrajEnd"/>
+            </g>
+            <g inkscape:groupmode="layer" id="g2471-8-7-5" inkscape:label="SwipeUpTrajStart" style="display:none" mgrep-marker="middle, swipe, up, traj-start">
+              <circle style="display:inline;opacity:1;fill:#f10000;fill-opacity:1;stroke:none;stroke-width:0.487412;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1" id="circle2469-7-6-9" cx="103.4815" cy="91.997536" r="0.60128999" inkscape:label="SwipeUpTrajStart"/>
+            </g>
+          </g>
+          <g id="g3880-4-0-3" inkscape:label="Hold" style="display:inline;opacity:1;stroke:none;stroke-opacity:1">
+            <g inkscape:groupmode="layer" id="g3870-1-1-5" inkscape:label="HoldTipReceiver" style="display:none" mgrep-marker="middle, hold, tip, receiver">
+              <circle style="display:inline;opacity:1;fill:#f10000;fill-opacity:1;stroke:none;stroke-width:0.487412;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1" id="circle3868-9-8-5" cx="100.83192" cy="43.041119" r="0.60128999" inkscape:label="HoldTipReceiver"/>
+            </g>
+            <g inkscape:groupmode="layer" id="g3874-0-9-7" inkscape:label="HoldMiddleReceiver" mgrep-marker="middle, hold, middle, receiver" style="display:none">
+              <circle style="display:inline;opacity:1;fill:#f10000;fill-opacity:1;stroke:none;stroke-width:0.487412;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1" id="circle3872-7-4-6" cx="102.83844" cy="72.681908" r="0.60128999" inkscape:label="HoldMiddleReceiver"/>
+            </g>
+            <g inkscape:groupmode="layer" id="layer27-9-4-2-1-3" inkscape:label="HoldSideReceiver" mgrep-marker="middle, hold, side, receiver" style="display:none">
+              <circle style="display:inline;opacity:1;fill:#f10000;fill-opacity:1;stroke:none;stroke-width:0.487412;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1" id="circle13100-8-1-2-1-3" cx="118.25284" cy="71.978195" r="0.60128999" inkscape:label="HoldSideReceiver"/>
+            </g>
+            <g inkscape:groupmode="layer" id="g3878-8-8-5" inkscape:label="HoldBaseReceiver" mgrep-marker="middle, hold, base, receiver" style="display:none">
+              <circle style="display:inline;opacity:1;fill:#f10000;fill-opacity:1;stroke:none;stroke-width:0.487412;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1" id="circle3876-1-3-0" cx="103.17052" cy="102.8282" r="0.60128999" inkscape:label="HoldBaseReceiver"/>
+            </g>
+          </g>
+          <g id="g13172-0-9-2" inkscape:label="Tap" style="display:inline;opacity:1;stroke:none;stroke-opacity:1">
+            <g inkscape:groupmode="layer" id="layer26-2-6-7" inkscape:label="TapTipReceiver" style="display:none" mgrep-marker="middle, tap, tip, receiver">
+              <circle style="display:inline;opacity:1;fill:#f10000;fill-opacity:1;stroke:none;stroke-width:0.487412;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1" id="circle13102-1-5-5" cx="100.83192" cy="43.041119" r="0.60128999" inkscape:label="TapTipReceiver"/>
+            </g>
+            <g inkscape:groupmode="layer" id="layer27-9-4-8" inkscape:label="TapMiddleReceiver" mgrep-marker="middle, tap, middle, receiver" style="display:none">
+              <circle style="display:inline;opacity:1;fill:#f10000;fill-opacity:1;stroke:none;stroke-width:0.487412;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1" id="circle13100-8-1-4" cx="102.83844" cy="72.681908" r="0.60128999" inkscape:label="TapMiddleReceiver"/>
+            </g>
+            <g inkscape:groupmode="layer" id="layer27-9-4-2-1" inkscape:label="TapSideReceiver" mgrep-marker="middle, tap, side, receiver" style="display:none">
+              <circle style="display:inline;opacity:1;fill:#f10000;fill-opacity:1;stroke:none;stroke-width:0.487412;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1" id="circle13100-8-1-2-1" cx="118.25284" cy="71.978195" r="0.60128999" inkscape:label="TapSideReceiver"/>
+            </g>
+            <g inkscape:groupmode="layer" id="layer28-2-8-7" inkscape:label="TapBaseReceiver" mgrep-marker="middle, tap, base, receiver" style="display:none">
+              <circle style="display:inline;opacity:1;fill:#f10000;fill-opacity:1;stroke:none;stroke-width:0.487412;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1" id="circle13098-1-3-9" cx="103.17052" cy="102.8282" r="0.60128999" inkscape:label="TapBaseReceiver"/>
+            </g>
+          </g>
+          <g id="g3906-8-1-8" inkscape:label="Tap/Hold" style="display:inline;opacity:1;stroke:none;stroke-opacity:1">
+            <g inkscape:groupmode="layer" id="g3884-8-22-1" inkscape:label="TapTipTrajEnd" mgrep-marker="middle, tap|hold, tip, traj-end" style="display:none">
+              <circle style="display:inline;opacity:1;fill:#f10000;fill-opacity:1;stroke:none;stroke-width:0.487412;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1" id="circle3882-2-9-8" cx="113.23215" cy="47.539337" r="0.60128999" inkscape:label="TapTipTrajEnd"/>
+            </g>
+            <g inkscape:groupmode="layer" id="g3888-0-3-2" inkscape:label="TapSideTrajEnd" mgrep-marker="middle, tap|hold, side, traj-end" style="display:none">
+              <circle style="display:inline;opacity:1;fill:#f10000;fill-opacity:1;stroke:none;stroke-width:0.487412;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1" id="circle3886-6-4-6" cx="129.48021" cy="80.919525" r="0.60128999" inkscape:label="TapSideTrajEnd"/>
+            </g>
+            <g inkscape:groupmode="layer" id="g3888-0-3-7-0" inkscape:label="TapMiddleTrajEnd" mgrep-marker="middle, tap|hold, middle, traj-end" style="display:none">
+              <circle style="display:inline;opacity:1;fill:#f10000;fill-opacity:1;stroke:none;stroke-width:0.487412;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1" id="circle3886-6-4-1-7" cx="118.9572" cy="79.112671" r="0.60128999" inkscape:label="TapCenterTrajEnd"/>
+            </g>
+            <g inkscape:groupmode="layer" id="g3892-2-5-6" inkscape:label="TapBaseTrajEnd" mgrep-marker="middle, tap|hold, base, traj-end" style="display:none">
+              <circle style="display:inline;opacity:1;fill:#f10000;fill-opacity:1;stroke:none;stroke-width:0.487412;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1" id="circle3890-4-8-4" cx="117.23888" cy="98.810852" r="0.60128999" inkscape:label="TapBaseTrajEnd"/>
+            </g>
+          </g>
+        </g>
+      </g>
+      </g>
+    <g inkscape:groupmode="layer" id="g1375-8-8-0-6" inkscape:label="Index" style="display:inline;stroke:#919191;stroke-width:0.964448;stroke-dasharray:none;stroke-opacity:1">
+      <g inkscape:groupmode="layer" id="g1369-8-5-5-9" inkscape:label="IndexUp" style="display:inline">
+        <path style="fill:#ffffff;fill-opacity:1;stroke:#919191;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:5;stroke-dashoffset:0.793701;stroke-opacity:1" d="m 131.453,120.959 c -0.463,-1.389 -0.232,-2.679 0.132,-5.589 0.364,-2.911 1.72,-11.245 1.852,-14.288 0.132,-3.0426 0.298,-8.0697 0.463,-9.3265 0.165,-1.2568 -0.265,-4.8617 -0.562,-5.8539 -0.298,-0.9922 0.132,-1.3229 0.033,-2.6128 -0.099,-1.2898 -1.323,-8.9297 -1.356,-11.9063 -0.033,-2.9765 -0.761,-5.5231 -0.761,-6.9784 0,-1.4552 -0.86,-5.5562 -1.687,-9.062 -0.826,-3.5057 -0.802,-5.9995 -1.322,-8.3343 -0.787,-2.3317 -1.557,-3.4038 -4.041,-3.9613 -3.799,-0.8971 -6.002,1.1669 -6.642,3.6248 -0.819,3.3208 -0.14,7.1328 -0.351,8.723 -0.21,1.5903 -0.468,3.6717 -0.468,4.9111 0,1.2395 -0.093,5.1918 0.164,7.6005 0.257,2.4088 0.257,2.5023 0.024,5.8699 -0.234,3.3676 -0.749,15.2946 -0.702,16.651 0.047,1.3564 0.187,1.1225 -0.257,2.2684 -0.445,1.1459 -1.618,7.6928 -2.147,12.4218 -0.529,4.729 -0.596,5.49 -1.224,6.119 -0.628,0.628 -0.85,0.718 -0.85,0.718" id="path903"/>
+        <path id="path1050" style="fill:none;stroke:#919191;stroke-width:0.500001;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:5;stroke-dasharray:none;stroke-dashoffset:0.793701;stroke-opacity:1" d="m 114.122,111.5 c 0,0 1.852,0.132 2.911,0.86 1.058,0.728 3.572,2.712 3.572,2.712 m -1.032,-24.1073 c 0,0 -0.748,-0.2339 -1.122,-0.2339 -0.375,0 -1.871,0.3742 -1.871,0.3742 m 0.561,1.1225 c 0,0 0.795,0 1.59,-0.0468 0.795,-0.0467 2.198,-0.2806 2.198,-0.2806 0,0 0.965,-0.2107 1.362,-0.2107 h 0.43 m 10.65,-0.6312 -0.515,-0.1871 m 0.187,-5.5191 -0.608,0.7483 m -1.262,-19.3169 -0.328,0.7483 m -10.149,1.8242 c 0,0 -0.795,0.5145 -1.029,0.5612 -0.234,0.0468 -0.983,0.1404 -0.983,0.1404 m -0.514,-2.2451 h 1.31 c 0.561,0 1.356,0.2806 1.356,0.2806"/>
+        <g inkscape:groupmode="layer" id="layer29-9-2" inkscape:label="Markers" style="display:inline;stroke:none;stroke-opacity:1">
+          <g id="g13164-2-9" inkscape:label="Swipe" style="display:inline;opacity:1;stroke:none;stroke-opacity:1">
+            <g inkscape:groupmode="layer" id="layer15-2-0" inkscape:label="SwipeDownTrajEnd" style="display:none" mgrep-marker="index, swipe, down, traj-end">
+              <circle style="display:inline;opacity:1;fill:#f10000;fill-opacity:1;stroke:none;stroke-width:0.487412;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1" id="circle1691-1-1" cx="115.48397" cy="93.463982" r="0.53110456" inkscape:label="SwipeDownTrajEnd"/>
+            </g>
+            <g inkscape:groupmode="layer" id="layer17-7-2" inkscape:label="SwipeDownTrajStart" mgrep-marker="index, swipe, down, traj-start" style="display:none">
+              <circle style="display:inline;fill:#f10000;fill-opacity:1;stroke:none;stroke-width:0.487412;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1" id="circle13120-8-6-9" cx="117.53824" cy="59.603596" r="0.53110456" inkscape:label="SwipeDownTrajStart"/>
+            </g>
+            <g inkscape:groupmode="layer" id="g2467-4-2" inkscape:label="SwipeUpTrajEnd" mgrep-marker="index, swipe, up, traj-end" style="display:none">
+              <circle style="display:inline;fill:#f10000;fill-opacity:1;stroke:none;stroke-width:0.487412;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1" id="circle2465-4-4" cx="117.53824" cy="59.603596" r="0.53110456" inkscape:label="SwipeUpTrajEnd"/>
+            </g>
+            <g inkscape:groupmode="layer" id="g2471-8-7" inkscape:label="SwipeUpTrajStart" style="display:none" mgrep-marker="index, swipe, up, traj-start">
+              <circle style="display:inline;opacity:1;fill:#f10000;fill-opacity:1;stroke:none;stroke-width:0.487412;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1" id="circle2469-7-6" cx="115.48397" cy="93.463982" r="0.53110456" inkscape:label="SwipeUpTrajStart"/>
+            </g>
+          </g>
+          <g id="g3880-4-0" inkscape:label="Hold" style="display:inline;opacity:1;stroke:none;stroke-opacity:1">
+            <g inkscape:groupmode="layer" id="g3870-1-1" inkscape:label="HoldTipReceiver" style="display:none" mgrep-marker="index, hold, tip, receiver">
+              <circle style="display:inline;opacity:1;fill:#f10000;fill-opacity:1;stroke:none;stroke-width:0.487412;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1" id="circle3868-9-8" cx="117.67651" cy="50.214249" r="0.53110456" inkscape:label="HoldTipReceiver"/>
+            </g>
+            <g inkscape:groupmode="layer" id="g3874-0-9" inkscape:label="HoldMiddleReceiver" mgrep-marker="index, hold, middle, receiver" style="display:none">
+              <circle style="display:inline;opacity:1;fill:#f10000;fill-opacity:1;stroke:none;stroke-width:0.487412;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1" id="circle3872-7-4" cx="116.70245" cy="76.437057" r="0.53110456" inkscape:label="HoldMiddleReceiver"/>
+            </g>
+            <g inkscape:groupmode="layer" id="layer27-9-4-2-5" inkscape:label="HoldSideReceiver" mgrep-marker="index, hold, side, receiver" style="display:none">
+              <circle style="display:inline;opacity:1;fill:#f10000;fill-opacity:1;stroke:none;stroke-width:0.487412;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1" id="circle13100-8-1-2-40" cx="130.30798" cy="77.242073" r="0.53110456" inkscape:label="HoldSideReceiver"/>
+            </g>
+            <g inkscape:groupmode="layer" id="g3878-8-8" inkscape:label="HoldBaseReceiver" mgrep-marker="index, hold, base, receiver" style="display:none">
+              <circle style="display:inline;opacity:1;fill:#f10000;fill-opacity:1;stroke:none;stroke-width:0.487412;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1" id="circle3876-1-3" cx="114.21082" cy="102.94933" r="0.53110456" inkscape:label="HoldBaseReceiver"/>
+            </g>
+          </g>
+          <g id="g13172-0-9" inkscape:label="Tap" style="display:inline;opacity:1;stroke:none;stroke-opacity:1">
+            <g inkscape:groupmode="layer" id="layer26-2-6" inkscape:label="TapTipReceiver" style="display:none" mgrep-marker="index, tap, tip, receiver">
+              <circle style="display:inline;opacity:1;fill:#f10000;fill-opacity:1;stroke:none;stroke-width:0.487412;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1" id="circle13102-1-5" cx="117.67651" cy="50.214249" r="0.53110456" inkscape:label="TapTipReceiver"/>
+            </g>
+            <g inkscape:groupmode="layer" id="layer27-9-4" inkscape:label="TapMiddleReceiver" mgrep-marker="index, tap, middle, receiver" style="display:none">
+              <circle style="display:inline;opacity:1;fill:#f10000;fill-opacity:1;stroke:none;stroke-width:0.487412;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1" id="circle13100-8-1" cx="116.70245" cy="76.437057" r="0.53110456" inkscape:label="TapMiddleReceiver"/>
+            </g>
+            <g inkscape:groupmode="layer" id="layer27-9-4-2" inkscape:label="TapSideReceiver" mgrep-marker="index, tap, side, receiver" style="display:none">
+              <circle style="display:inline;opacity:1;fill:#f10000;fill-opacity:1;stroke:none;stroke-width:0.487412;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1" id="circle13100-8-1-2" cx="130.30798" cy="77.242073" r="0.53110456" inkscape:label="TapSideReceiver"/>
+            </g>
+            <g inkscape:groupmode="layer" id="layer28-2-8" inkscape:label="TapBaseReceiver" mgrep-marker="index, tap, base, receiver" style="display:none">
+              <circle style="display:inline;opacity:1;fill:#f10000;fill-opacity:1;stroke:none;stroke-width:0.487412;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1" id="circle13098-1-3" cx="114.21082" cy="102.94933" r="0.53110456" inkscape:label="TapBaseReceiver"/>
+            </g>
+          </g>
+          <g id="g3906-8-1" inkscape:label="Tap/Hold" style="display:inline;opacity:1;stroke:none;stroke-opacity:1">
+            <g inkscape:groupmode="layer" id="g3884-8-22" inkscape:label="TapTipTrajEnd" mgrep-marker="index, tap|hold, tip, traj-end" style="display:none">
+              <circle style="display:inline;opacity:1;fill:#f10000;fill-opacity:1;stroke:none;stroke-width:0.487412;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1" id="circle3882-2-9" cx="128.15402" cy="55.310539" r="0.53110456" inkscape:label="TapTipTrajEnd"/>
+            </g>
+            <g inkscape:groupmode="layer" id="g3888-0-3" inkscape:label="TapSideTrajEnd" mgrep-marker="index, tap|hold, side, traj-end" style="display:none">
+              <circle style="display:inline;opacity:1;fill:#f10000;fill-opacity:1;stroke:none;stroke-width:0.487412;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1" id="circle3886-6-4" cx="139.34499" cy="86.133057" r="0.53110456" inkscape:label="TapSideTrajEnd"/>
+            </g>
+            <g inkscape:groupmode="layer" id="g3888-0-3-7" inkscape:label="TapMiddleTrajEnd" mgrep-marker="index, tap|hold, middle, traj-end" style="display:none">
+              <circle style="display:inline;opacity:1;fill:#f10000;fill-opacity:1;stroke:none;stroke-width:0.487412;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1" id="circle3886-6-4-1" cx="130.26802" cy="83.574287" r="0.53110456" inkscape:label="TapCenterTrajEnd"/>
+            </g>
+            <g inkscape:groupmode="layer" id="g3892-2-5" inkscape:label="TapBaseTrajEnd" mgrep-marker="index, tap|hold, base, traj-end" style="display:none">
+              <circle style="display:inline;opacity:1;fill:#f10000;fill-opacity:1;stroke:none;stroke-width:0.487412;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1" id="circle3890-4-8" cx="126.9399" cy="100.71924" r="0.53110456" inkscape:label="TapBaseTrajEnd"/>
+            </g>
+          </g>
+        </g>
+      </g>
+      </g>
+    <g inkscape:groupmode="layer" id="layer3-0-2-2-2" inkscape:label="Thumb" style="display:inline;stroke:#919191;stroke-opacity:1">
+      <g inkscape:groupmode="layer" id="layer10-7-6-8-0" inkscape:label="ThumbUp" style="display:inline">
+        <path id="path899" style="fill:none;stroke:#919191;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:5;stroke-dashoffset:0.793701;stroke-opacity:1" d="m 124.243,208.867 c 0,0 1.719,-4.894 1.984,-8.069 0.265,-3.175 0.265,-7.144 0.265,-8.599 0,-1.456 1.455,-6.615 1.455,-6.615 m 2.976,-36.016 c 0,0 0.363,-5.817 0.116,-7.522 -0.248,-1.706 -0.713,-4.086 -0.513,-5.476 0.201,-1.39 1.431,-5.747 1.436,-7.604 0.004,-1.857 0.07,-4.295 -0.22,-6.151 l -0.289,-1.856"/>
+        <path style="fill:#ffffff;fill-opacity:1;stroke:#919191;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:5;stroke-dashoffset:0.793701;stroke-opacity:1" d="m 110.352,197.755 c 0,0 4.366,0 7.541,-1.984 3.175,-1.985 8.863,-7.938 11.377,-9.922 2.513,-1.985 5.027,-4.961 7.673,-7.276 2.646,-2.316 5.821,-6.218 7.21,-9.129 1.389,-2.91 1.719,-3.571 1.719,-6.151 0,-2.58 1.059,-4.564 1.985,-6.681 0.926,-2.117 1.852,-5.027 1.918,-7.21 0.066,-2.183 1.654,-3.902 2.183,-5.556 0.529,-1.654 0.463,-5.821 0.595,-8.268 0.133,-2.448 -0.661,-5.424 0.86,-8.93 1.522,-3.506 2.646,-4.895 2.448,-7.409 -0.199,-2.513 -3.308,-3.241 -5.226,-3.043 -1.918,0.199 -6.086,0.728 -10.716,8.401 -4.63,7.673 -4.63,10.385 -5.424,12.965 -0.794,2.58 -1.984,6.879 -2.976,8.004 -0.993,1.124 -1.522,3.373 -2.183,4.035 -0.662,0.661 -2.051,1.256 -2.051,1.256" id="path901"/>
+        <path id="path1032" style="fill:none;stroke:#919191;stroke-width:0.500001;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:5;stroke-dasharray:none;stroke-dashoffset:0.793701;stroke-opacity:1" d="m 152.197,133.902 c 0,0 -0.748,0.304 -1.193,0.234 -0.444,-0.07 -1.38,-0.772 -1.497,-1.356 -0.117,-0.585 0.538,-3.508 2.69,-6.198 2.152,-2.69 2.596,-2.69 2.596,-2.69 m -19.902,16.09 c 0,0 0.374,0.679 0.538,0.819 0.164,0.14 0.585,0.421 0.585,0.421 m -8.795,9.702 c 0,0 -1.058,0.363 -2.083,0.529 -1.026,0.165 -3.44,-0.463 -3.44,-0.463 m 8.401,-2.547 c 0,0 -0.496,0.331 -1.423,0.232 -0.926,-0.1 -2.48,-0.695 -3.042,-1.158 -0.563,-0.463 -2.15,-1.521 -2.15,-1.521 m 28.505,-3.301 c 0,0 -0.234,-0.561 -0.655,-0.608 -0.421,-0.047 -1.544,-0.047 -1.544,-0.047 m 0.561,5.333 c 0,0 -0.608,0.28 -1.169,0.42 -0.561,0.141 -1.918,0.094 -1.918,0.094"/>
+        <g inkscape:groupmode="layer" id="layer30-6-5" inkscape:label="Markers" style="display:inline;stroke:none;stroke-opacity:1">
+          <g inkscape:groupmode="layer" id="layer23-2-9" inkscape:label="TapTipTrajStart" style="display:none" mgrep-marker="index|middle|ring|pinky|index-middle|middle-ring|ring-pinky|index-middle-ring|middle-ring-pinky|index-middle-ring-pinky, tap|hold, tip, traj-start">
+            <circle style="display:inline;opacity:1;fill:#f10000;fill-opacity:1;stroke:none;stroke-width:0.487412;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1" id="circle11718-8-0" cx="151.87939" cy="112.47165" r="0.53110468" inkscape:label="TapTipTrajStart"/>
+          </g>
+          <g inkscape:groupmode="layer" id="layer24-5-0" inkscape:label="TapMiddleTrajStart" style="display:none" mgrep-marker="index|middle|ring|pinky|index-middle|middle-ring|ring-pinky|index-middle-ring|middle-ring-pinky|index-middle-ring-pinky, tap|hold, middle|side, traj-start">
+            <circle style="display:inline;opacity:1;fill:#f10000;fill-opacity:1;stroke:none;stroke-width:0.487412;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1" id="circle11716-4-08" cx="148.04622" cy="113.66305" r="0.53110468" inkscape:label="TapMiddleTrajStart"/>
+          </g>
+          <g inkscape:groupmode="layer" id="layer25-0-1" inkscape:label="TapBaseNailTrajStart" style="display:none" mgrep-marker="index|middle|ring|pinky|index-middle|middle-ring|ring-pinky|index-middle-ring|middle-ring-pinky|index-middle-ring-pinky, tap|hold, base|nail, traj-start">
+            <circle style="display:inline;opacity:1;fill:#f10000;fill-opacity:1;stroke:none;stroke-width:0.487412;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1" id="circle11714-3-7" cx="144.21304" cy="115.26884" r="0.53110468" inkscape:label="TapBaseTrajStart"/>
+          </g>
+          <g inkscape:groupmode="layer" id="layer19-7-65" inkscape:label="SwipeActuator" style="display:none" mgrep-marker="index|middle|ring|pinky|index-middle|middle-ring|ring-pinky|index-middle-ring|middle-ring-pinky|index-middle-ring-pinky, swipe, up|down|right|left, actuator">
+            <circle style="display:inline;opacity:1;fill:#f10000;fill-opacity:1;stroke:none;stroke-width:0.487412;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1" id="circle386-3-70" cx="150.86559" cy="119.92789" r="0.53110468" inkscape:label="SwipeActuator"/>
+          </g>
+          <g inkscape:groupmode="layer" id="layer19-6-7-8" inkscape:label="TapHoldActuator" style="display:none" mgrep-marker="index|middle|ring|pinky|index-middle|middle-ring|ring-pinky|index-middle-ring|middle-ring-pinky|index-middle-ring-pinky, tap|hold, tip|middle|base|nail|side, actuator">
+            <circle style="display:inline;opacity:1;fill:#f10000;fill-opacity:1;stroke:none;stroke-width:0.487412;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1" id="circle386-5-8-0" cx="150.8656" cy="119.92789" r="0.53110468" inkscape:label="TapHoldActuator"/>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+  <g inkscape:groupmode="layer" id="layer4-8" inkscape:label="Families" style="display:none">
+    <g inkscape:groupmode="layer" id="g2222-8" inkscape:label="MaS" style="display:inline">
+      <g inkscape:groupmode="layer" id="g2220-8" inkscape:label="Trajectory" style="display:inline">
+        <g inkscape:groupmode="layer" id="layer11-3" inkscape:label="Swipe" mgrep-family-layer="MaS, trajectory, swipe" style="display:inline">
+          <path id="circle2498-8" style="display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.11404;stroke-linecap:round;stroke-opacity:1" d="m 123.57,59.7478 c -0.629,0.0011 -1.268,0.1071 -1.893,0.3292 -1.921,0.6823 -3.251,2.2985 -3.663,4.1579 -1.01,3.7933 -6.52,24.2541 -7.582,28.1776 -0.368,1.1502 -0.378,2.4249 0.056,3.6463 0.658,1.8523 2.185,3.1558 3.961,3.6158 l 0.001,5e-4 c 1.065,0.276 2.221,0.2481 3.332,-0.1468 1.92,-0.6823 3.25,-2.2984 3.663,-4.1578 0.819,-3.0599 6.595,-24.5267 7.582,-28.1777 0.368,-1.1502 0.378,-2.4254 -0.056,-3.6468 -0.658,-1.8523 -2.185,-3.1558 -3.961,-3.6158 h -0.001 c -0.466,-0.1207 -0.949,-0.1833 -1.439,-0.1824 z m 0.062,1.4966 c 1.718,0.0139 3.315,1.0853 3.925,2.8039 0.331,0.9295 0.316,1.8934 0.026,2.7564 -1.375,5.1064 -6.314,23.5096 -7.582,28.1782 -1.285,4.5255 -6.849,3.7837 -8.099,0.5741 -0.331,-0.9295 -0.316,-1.8939 -0.026,-2.7569 1.439,-5.3499 6.214,-23.1395 7.582,-28.1777 0.282,-1.3999 1.271,-2.6169 2.721,-3.1321 0.482,-0.1709 0.972,-0.2498 1.453,-0.2459 z m -7.739,29.0085 c -2.035,0 -3.684,1.6497 -3.684,3.6845 0,2.0349 1.649,3.6845 3.684,3.6846 0.978,0 1.914,-0.388 2.606,-1.079 0.69,-0.691 1.079,-1.6284 1.079,-2.6056 0,-0.9772 -0.389,-1.914 -1.079,-2.605 -0.692,-0.6909 -1.628,-1.0795 -2.606,-1.0795 z" mgrep-path-element="design"/>
+          <circle style="display:inline;fill:#f6e90f;fill-opacity:1;stroke:none;stroke-opacity:1" id="circle5115-3-7" cx="115.85417" cy="93.993752" r="2.5" mgrep-path-element="command" inkscape:label="Command"/>
+          <circle style="display:inline;fill:none;fill-opacity:1;stroke:#47bd52;stroke-opacity:1" id="path11075-4-1-9-6" cx="115.85417" cy="93.993752" inkscape:label="TraceStartBound" mgrep-path-element="trace-start-bound" r="7.4983792"/>
+          <circle style="display:inline;fill:none;fill-opacity:1;stroke:#47bd52;stroke-opacity:1" id="path11075-4-1-9-6-3" cx="123.57469" cy="65.460838" r="7.4983792" inkscape:label="TraceEndBound" mgrep-path-element="trace-end-bound"/>
+          <path style="display:inline;fill:none;fill-opacity:1;stroke:#47bd52;stroke-opacity:1" d="m 115.854,93.9937 7.654,-28.3548" id="path72594-4" mgrep-path-element="trace"/>
+        </g>
+      </g>
+      <g inkscape:groupmode="layer" id="g2212-2" inkscape:label="Actuator" style="display:inline">
+        <g inkscape:groupmode="layer" id="layer1-6" inkscape:label="Tap/Swipe" mgrep-family-layer="MaS, actuator, tap|swipe" style="display:inline">
+          <path style="color:#000000;display:inline;fill:#000000;stroke:none;stroke-width:0.688783;stroke-linecap:round;-inkscape-stroke:none" d="m 160.494,120.347 c -2.166,0 -3.934,1.768 -3.934,3.934 0,2.166 1.768,3.934 3.934,3.934 2.166,0 3.934,-1.768 3.934,-3.934 0,-2.166 -1.768,-3.934 -3.934,-3.934 z m 0,1.034 c 1.608,0 2.9,1.292 2.9,2.9 0,1.608 -1.292,2.9 -2.9,2.9 -1.608,0 -2.9,-1.292 -2.9,-2.9 0,-1.608 1.292,-2.9 2.9,-2.9 z" id="path1986-8" mgrep-path-element="design"/>
+          <circle style="display:inline;fill:none;fill-opacity:1;stroke:#47bd52;stroke-opacity:1" id="path11075-4-1-9-3" cx="160.54675" cy="124.25444" r="5.2347221" inkscape:label="TraceStartBound" mgrep-path-element="trace-start-bound"/>
+        </g>
+        <g inkscape:groupmode="layer" id="g3040" inkscape:label="Hold" mgrep-family-layer="MaS, actuator, hold" style="display:inline">
+          <circle style="display:inline;fill:none;fill-opacity:1;stroke:#47bd52;stroke-opacity:1" id="circle3038" cx="160.54675" cy="124.25444" r="7" inkscape:label="TraceStartBound" mgrep-path-element="trace-start-bound"/>
+          <path id="rect1040-8-7" style="display:inline;fill:none;stroke:#020603;stroke-width:0.748242;stroke-linecap:square;stroke-miterlimit:5;paint-order:markers stroke fill" d="m 157,120.663 h 7.193 v 7.192 H 157 Z" mgrep-path-element="design"/>
+        </g>
+      </g>
+      <g inkscape:groupmode="layer" id="g2216-5" inkscape:label="Receiver" style="display:inline">
+        <g inkscape:groupmode="layer" id="layer6-1" inkscape:label="Tap" mgrep-family-layer="MaS, receiver, tap" style="display:inline">
+          <circle style="display:inline;fill:none;fill-opacity:1;stroke:#47bd52;stroke-opacity:1" id="path11075-4-1-9-1" cx="125.06006" cy="53.897034" r="5.2347221" inkscape:label="TraceStartBound" mgrep-path-element="trace-start-bound"/>
+          <path id="path5062" style="display:inline;fill:#000000;fill-opacity:1;stroke-width:1.25028;stroke-linecap:round" d="m 128.761,53.9087 c 0,1.9937 -1.63,3.6099 -3.642,3.6099 -2.011,0 -3.641,-1.6162 -3.641,-3.6099 0,-1.9937 1.63,-3.6099 3.641,-3.6099 2.012,0 3.642,1.6162 3.642,3.6099 z" mgrep-path-element="design"/>
+          <circle style="display:inline;fill:#f6e90f;fill-opacity:1;stroke:none;stroke-opacity:1" id="circle5115-3" cx="125.11943" cy="53.90871" r="2.5" mgrep-path-element="command" inkscape:label="Command"/>
+        </g>
+        <g inkscape:groupmode="layer" id="g2848" inkscape:label="Hold" mgrep-family-layer="MaS, receiver, hold" style="display:inline">
+          <path id="rect1040-8" style="display:inline;fill:#000000;fill-opacity:1;stroke:#020603;stroke-width:0.848084;stroke-linecap:square;stroke-miterlimit:5;stroke-opacity:1;paint-order:markers stroke fill" d="m 120.913,49.8601 h 8.152 v 8.1519 h -8.152 z" mgrep-path-element="design"/>
+          <circle style="display:inline;fill:none;fill-opacity:1;stroke:#47bd52;stroke-opacity:1" id="circle2842" cx="125.06006" cy="53.897034" r="7" inkscape:label="TraceStartBound" mgrep-path-element="trace-start-bound"/>
+          <circle style="display:inline;fill:#f6e90f;fill-opacity:1;stroke:none;stroke-opacity:1" id="circle2846" cx="125.11943" cy="53.90871" r="2.5" mgrep-path-element="command" inkscape:label="Command"/>
+        </g>
+      </g>
+    </g>
+    <g inkscape:groupmode="layer" id="layer5-5" inkscape:label="AandB" style="display:none;stroke-width:1.5;stroke-dasharray:none">
+      <g inkscape:groupmode="layer" id="layer12-7" inkscape:label="Trajectory" style="display:inline;stroke-width:1.5;stroke-dasharray:none">
+        <g inkscape:groupmode="layer" id="layer2-8" inkscape:label="Tap/Hold" mgrep-family-layer="AandB, trajectory, tap|hold" style="display:inline">
+          <path style="display:inline;fill:none;stroke:#000000;stroke-width:2.2;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#TriangleStart)" d="M 160.959,115.092 C 159.879,73.42 131.897,58.1957 131.897,58.1957" id="path1012" mgrep-path-element="design"/>
+        </g>
+        <g inkscape:groupmode="layer" id="layer33" inkscape:label="Pattern" style="display:none;stroke-width:1.5;stroke-dasharray:none">
+          <path id="path8540" style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.5;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1" d="m 162.356,41.4373 -1.479,0.7693 V 40.668 Z m 1.359,1.3614 c -0.361,1e-4 -0.707,-0.1433 -0.962,-0.3986 -0.255,-0.2552 -0.399,-0.6014 -0.399,-0.9624 0,-0.3609 0.144,-0.7071 0.399,-0.9624 0.255,-0.2552 0.601,-0.3986 0.962,-0.3986 0.752,0 1.361,0.6094 1.361,1.361 0,0.7517 -0.609,1.361 -1.361,1.361 z"/>
+        </g>
+        <g inkscape:groupmode="layer" id="layer3-33" inkscape:label="Swipe" style="display:inline" mgrep-family-layer="AandB, trajectory, swipe">
+          <circle style="display:inline;fill:none;fill-opacity:1;stroke:#47bd52;stroke-opacity:1" id="path11073" cx="122.99717" cy="63.722878" r="11" inkscape:label="TraceEndBound" mgrep-path-element="trace-end-bound"/>
+          <circle style="display:inline;fill:none;fill-opacity:1;stroke:#47bd52;stroke-opacity:1" id="path11075" cx="115.36449" cy="94.890915" r="4" inkscape:label="TraceStartBound" mgrep-path-element="trace-start-bound"/>
+          <path id="path4962" style="color:#000000;fill:#000000;stroke-width:2;stroke-linecap:square;stroke-miterlimit:5;stroke-dasharray:none" d="m 123.009,63.8871 -4.951,4.9635 2.459,0.8041 -5.863,23.6518 v 0.0016 c -0.624,0.2797 -1.025,0.8993 -1.026,1.5828 0,0.959 0.778,1.7363 1.736,1.7364 0.959,-1e-4 1.737,-0.7774 1.737,-1.7364 -0.001,-0.3825 -0.127,-0.7541 -0.36,-1.0573 v -0.001 l 5.786,-23.6259 2.614,0.7296 z" mgrep-path-element="design"/>
+          <circle style="display:inline;fill:#f6e90f;fill-opacity:1;stroke:none;stroke-opacity:1" id="path4705" cx="122.99717" cy="63.722878" r="2.5" mgrep-path-element="command" inkscape:label="Command"/>
+          <path style="display:inline;fill:none;fill-opacity:1;stroke:#47bd52;stroke-opacity:1" d="m 115.364,94.8909 7.645,-31.0038" id="path72594" mgrep-path-element="trace"/>
+        </g>
+      </g>
+      <g inkscape:groupmode="layer" id="g492" inkscape:label="Receiver" style="display:inline;stroke-width:1.5;stroke-dasharray:none">
+        <g inkscape:groupmode="layer" id="layer8-5" inkscape:label="Tap" mgrep-family-layer="AandB, receiver, tap" style="display:inline">
+          <circle style="display:inline;fill:none;fill-opacity:1;stroke:#47bd52;stroke-opacity:1" id="path11075-4" cx="124.70074" cy="54.67057" r="4" inkscape:label="TraceEndBound" mgrep-path-element="trace-end-bound"/>
+          <path id="circle490" style="display:inline;fill:#000000;fill-opacity:1;stroke-width:1.5;stroke-linecap:round;stroke-dasharray:none" d="m 127.6,54.6556 c 0,1.6016 -1.298,2.9 -2.9,2.9 -1.601,0 -2.9,-1.2984 -2.9,-2.9 0,-1.6016 1.299,-2.9 2.9,-2.9 1.602,0 2.9,1.2984 2.9,2.9 z" mgrep-path-element="design"/>
+          <circle style="display:inline;fill:#f6e90f;fill-opacity:1;stroke:none;stroke-opacity:1" id="circle5115" cx="124.70074" cy="54.67057" r="2.5" mgrep-path-element="command" inkscape:label="Command"/>
+        </g>
+        <g inkscape:groupmode="layer" id="g2856" inkscape:label="Hold" mgrep-family-layer="AandB, receiver, hold" style="display:inline">
+          <circle style="display:inline;fill:none;fill-opacity:1;stroke:#47bd52;stroke-opacity:1" id="circle2850" cx="124.70074" cy="54.67057" r="7" inkscape:label="TraceEndBound" mgrep-path-element="trace-end-bound"/>
+          <path id="path2912" style="display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.5;stroke-linecap:square;stroke-miterlimit:5;stroke-dasharray:none;paint-order:markers stroke fill" d="m 130.351,54.6706 c 0,3.1205 -2.53,5.6502 -5.65,5.6502 -3.121,0 -5.651,-2.5297 -5.651,-5.6502 0,-3.1206 2.53,-5.6503 5.651,-5.6503 3.12,0 5.65,2.5297 5.65,5.6503 z" mgrep-path-element="design"/>
+          <circle style="display:inline;fill:#f6e90f;fill-opacity:1;stroke:none;stroke-opacity:1" id="circle2854" cx="124.70074" cy="54.67057" r="2.5" mgrep-path-element="command" inkscape:label="Command"/>
+        </g>
+      </g>
+      <g inkscape:groupmode="layer" id="g494" inkscape:label="Actuator" style="display:inline;stroke-width:1.5;stroke-dasharray:none">
+        <g inkscape:groupmode="layer" id="layer32" inkscape:label="Swipe" mgrep-family-layer="AandB, actuator, swipe" style="display:inline">
+          <circle style="display:inline;fill:none;fill-opacity:1;stroke:#47bd52;stroke-opacity:1" id="path11075-4-1" cx="160.0257" cy="124.04261" r="4" inkscape:label="TraceStartBound" mgrep-path-element="trace-start-bound"/>
+          <path id="circle490-5-9" style="display:inline;fill:#000000;fill-opacity:1;stroke-width:1.5;stroke-linecap:round;stroke-dasharray:none" d="m 162.089,124.065 c 0,1.142 -0.926,2.067 -2.068,2.067 -1.142,0 -2.067,-0.925 -2.067,-2.067 0,-1.142 0.925,-2.068 2.067,-2.068 0.549,0 1.075,0.218 1.462,0.606 0.388,0.388 0.606,0.913 0.606,1.462 z" mgrep-path-element="design"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

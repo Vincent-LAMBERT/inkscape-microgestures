@@ -1,7 +1,7 @@
-# Inkscape Extension: Simultaneous Representation of Microgestures
+# Inkscape Extension: Representation of Microgestures
 
-This module allows you to export and modify simultaneous representations of microgestures, i.e. a kind of representation that simultaneously shows the multiple microgestures available to control an application. 
-This allows you to create a large number of representations and find the designs that best matches your needs.
+This module allows you to batch export and modify representations of microgestures.
+This allows you to create a large number of representations and find the designs that best matches your needs or quickly create representations and iterate on them for research purposes. 
 
 It can be used directly in Inkscape, or as a module in your own python scripts. 
 
