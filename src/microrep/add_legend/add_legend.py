@@ -36,6 +36,7 @@ import sys
 
 sys.path.append('/usr/share/inkscape/extensions')
 import copy
+import importlib.resources as resources
 import logging
 import os
 import subprocess
@@ -104,7 +105,8 @@ class AddLegend(inkex.Effect):
         
         # Get the legends references
         dirname = os.path.dirname(__file__)
-        self.legend_one_ref = self.get_svg_layers_ref(f"{dirname}/Legends/LegendOne.svg", logit)[0]
+        with resources.as_file(resources.files('microrep').joinpath('legends/LegendOne.svg')) as legend_one_path:
+            self.legend_one_ref = self.get_svg_layers_ref(legend_one_path, logit)[0]
         self.legend_two_ref = self.get_svg_layers_ref(f"{dirname}/Legends/LegendTwo.svg", logit)[0]
         self.legend_three_ref = self.get_svg_layers_ref(f"{dirname}/Legends/LegendThree.svg", logit)[0]
         self.legend_four_ref = self.get_svg_layers_ref(f"{dirname}/Legends/LegendFour.svg", logit)[0]

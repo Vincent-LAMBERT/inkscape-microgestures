@@ -4,13 +4,12 @@ import os
 import shutil
 import sys
 
-from microrep.export_hand_poses import ExportHandPoses
+from microrep.create_representations import CreateRepresentations
 
 script_path = os.path.dirname(os.path.realpath(__file__))
 base_file = os.path.join(script_path, 'initial.svg')
 config_file = os.path.join(script_path, 'config.csv')
 output_folder = os.path.join(script_path, 'output')
-FAMILY = 'MaS'
 
 def deleteFolderContent(folder):
     for element in os.listdir(folder):
@@ -20,22 +19,23 @@ def deleteFolderContent(folder):
         elif os.path.isfile(os.path.join(folder, element)):
             os.remove(os.path.join(folder, element))
 
-def create_hand_poses(file, output_folder, config_file):
+def create_representations(file, output_folder, config_file, family):
     """
-    Create the hand poses for the given hand pose file.
+    Create the representations for the given hand pose file.
     
-    :param file: The hand pose file to create hand poses for.
-    :param output_folder: The folder to save the hand poses in.
-    :param config_dict: The configuration dictionary for the hand poses.
+    :param file: The hand pose file to create representations for.
+    :param output_folder: The folder to save the representations in.
+    :param config_dict: The configuration dictionary for the representations.
     """    
     path_str = f"--path={output_folder}"
     config_str = f"--config={config_file}"
+    family_str = f"--family={family}"
     
     # Redirect stdout to null to avoid printing to console
     sys.stdout = open(os.devnull, 'w')
     
-    export_rep = ExportHandPoses()
-    export_rep.run(args=[file, path_str, config_str])
+    export_rep = CreateRepresentations()
+    export_rep.run(args=[file, path_str, family_str, config_str])
     
     # Close the redirected stdout
     sys.stdout.close()
@@ -50,6 +50,7 @@ if __name__== "__main__":
     # Delete the content of the output folder
     deleteFolderContent(output_folder)
     
-    print(f"Creating hand poses for {base_file}")
+    print(f"Creating representations for {base_file}")
     # Create the output for the given hand pose  
-    create_hand_poses(base_file, output_folder, config_file)
+    create_representations(base_file, output_folder, config_file, family="AandB")
+    create_representations(base_file, output_folder, config_file, family="MaS")
