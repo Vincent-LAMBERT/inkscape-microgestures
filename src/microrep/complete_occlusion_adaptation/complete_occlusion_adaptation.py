@@ -123,8 +123,9 @@ class CompleteOcclusionAdaptation(inkex.Effect):
                 else :
                     modify_text_integration(tap_commands, hold_commands, logit)
         
-        logit(f"Exporting to {self.svg_name}")
-        ex.export(self.document, self.svg_name, self.options, logit)
+        adpated_name = f"adapted({strategy},{integration})_{self.svg_name}"
+        logit(f"Exporting to {adpated_name}")
+        ex.export(self.document, adpated_name, self.options, logit)
                     
     def get_active_family(self) :
         """

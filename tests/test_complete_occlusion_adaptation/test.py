@@ -4,14 +4,12 @@ import os
 import shutil
 import sys
 
-from microrep.map_commands import MapCommands
+from microrep.complete_occlusion_adaptation import CompleteOcclusionAdaptation
 
 script_path = os.path.dirname(os.path.realpath(__file__))
 base_file = os.path.join(script_path, 'initial.svg')
 config_file = os.path.join(script_path, 'config.csv')
 output_folder = os.path.join(script_path, 'output')
-icons_folder = os.path.join(script_path, 'icons')
-COMMAND_RADIUS = 3  # Default radius for commands
 
 def deleteFolderContent(folder):
     for element in os.listdir(folder):
@@ -21,7 +19,7 @@ def deleteFolderContent(folder):
         elif os.path.isfile(os.path.join(folder, element)):
             os.remove(os.path.join(folder, element))
 
-def map_commands(file, output_folder, config_file, icons_folder):
+def complete_occlusion_adaptation(file, output_folder, strategy, integration):
     """
     Create the representations for the given representation file.
     
@@ -30,15 +28,14 @@ def map_commands(file, output_folder, config_file, icons_folder):
     :param config_dict: The configuration dictionary for the representations.
     """    
     path_str = f"--path={output_folder}"
-    config_str = f"--config={config_file}"
-    icons_str = f"--icons={icons_folder}"
-    radius_str = f"--radius={COMMAND_RADIUS}"
+    strategy_str = f"--strategy={strategy}"
+    integration_str = f"--integration={integration}"
     
     # Redirect stdout to null to avoid printing to console
     sys.stdout = open(os.devnull, 'w')
     
-    export_rep = MapCommands()
-    export_rep.run(args=[file, path_str, config_str, icons_str, radius_str])
+    export_rep = CompleteOcclusionAdaptation()
+    export_rep.run(args=[file, path_str, strategy_str, integration_str])
     
     # Close the redirected stdout
     sys.stdout.close()
@@ -53,6 +50,7 @@ if __name__== "__main__":
     # Delete the content of the output folder
     deleteFolderContent(output_folder)
     
-    print(f"Mapping commands for {base_file}")
+    print(f"Adapting {base_file} for complete occlusion")
     # Create the output for the given representation  
-    map_commands(base_file, output_folder, config_file, icons_folder)
+    complete_occlusion_adaptation(base_file, output_folder, strategy='brightness', integration='default')
+    complete_occlusion_adaptation(base_file, output_folder, strategy='text', integration='default')
