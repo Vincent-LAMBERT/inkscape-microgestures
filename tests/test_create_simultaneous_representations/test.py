@@ -50,7 +50,7 @@ if __name__== "__main__":
     # Delete the content of the output folder
     deleteFolderContent(output_folder)
     
-    print(f"Creating representations for {base_file}")
+    print(f"Creating simultaneous representations for {base_file}")
     # Create the output for the given hand pose  
     create_representations(base_file, output_folder, config_file, family="AandB")
     create_representations(base_file, output_folder, config_file, family="MaS")

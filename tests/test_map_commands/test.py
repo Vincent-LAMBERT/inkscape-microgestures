@@ -4,12 +4,13 @@ import os
 import shutil
 import sys
 
-from microrep.create_representations import CreateRepresentations
+from microrep.map_commands import MapCommands
 
 script_path = os.path.dirname(os.path.realpath(__file__))
 base_file = os.path.join(script_path, 'initial.svg')
 config_file = os.path.join(script_path, 'config.csv')
 output_folder = os.path.join(script_path, 'output')
+icons_folder = os.path.join(script_path, 'icons')
 
 def deleteFolderContent(folder):
     for element in os.listdir(folder):
@@ -19,23 +20,23 @@ def deleteFolderContent(folder):
         elif os.path.isfile(os.path.join(folder, element)):
             os.remove(os.path.join(folder, element))
 
-def create_representations(file, output_folder, config_file, family):
+def map_commands(file, output_folder, config_file):
     """
-    Create the representations for the given hand pose file.
+    Create the representations for the given representation file.
     
-    :param file: The hand pose file to create representations for.
+    :param file: The representation file to create representations for.
     :param output_folder: The folder to save the representations in.
     :param config_dict: The configuration dictionary for the representations.
     """    
     path_str = f"--path={output_folder}"
     config_str = f"--config={config_file}"
-    family_str = f"--family={family}"
+    icons_str = f"--icons={icons_folder}"
     
     # Redirect stdout to null to avoid printing to console
     sys.stdout = open(os.devnull, 'w')
     
-    export_rep = CreateRepresentations()
-    export_rep.run(args=[file, path_str, family_str, config_str])
+    export_rep = MapCommands()
+    export_rep.run(args=[file, path_str, config_str, icons_str])
     
     # Close the redirected stdout
     sys.stdout.close()
@@ -50,7 +51,6 @@ if __name__== "__main__":
     # Delete the content of the output folder
     deleteFolderContent(output_folder)
     
-    print(f"Creating single-picture representations for {base_file}")
-    # Create the output for the given hand pose  
-    create_representations(base_file, output_folder, config_file, family="AandB")
-    create_representations(base_file, output_folder, config_file, family="MaS")
+    print(f"Mapping commands for {base_file}")
+    # Create the output for the given representation  
+    map_commands(base_file, output_folder, config_file)

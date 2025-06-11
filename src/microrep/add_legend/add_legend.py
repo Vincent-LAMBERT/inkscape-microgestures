@@ -36,11 +36,11 @@ import sys
 
 sys.path.append('/usr/share/inkscape/extensions')
 import copy
-import importlib.resources as resources
 import logging
 import os
 import subprocess
 import tempfile
+from importlib.resources import files
 
 import inkex
 import numpy as np
@@ -105,13 +105,12 @@ class AddLegend(inkex.Effect):
         
         # Get the legends references
         dirname = os.path.dirname(__file__)
-        with resources.as_file(resources.files('microrep').joinpath('legends/LegendOne.svg')) as legend_one_path:
-            self.legend_one_ref = self.get_svg_layers_ref(legend_one_path, logit)[0]
-        self.legend_two_ref = self.get_svg_layers_ref(f"{dirname}/Legends/LegendTwo.svg", logit)[0]
-        self.legend_three_ref = self.get_svg_layers_ref(f"{dirname}/Legends/LegendThree.svg", logit)[0]
-        self.legend_four_ref = self.get_svg_layers_ref(f"{dirname}/Legends/LegendFour.svg", logit)[0]
-        self.legend_five_ref = self.get_svg_layers_ref(f"{dirname}/Legends/LegendFive.svg", logit)[0]
-        self.legend_six_ref = self.get_svg_layers_ref(f"{dirname}/Legends/LegendSix.svg", logit)[0]
+        self.legend_one_ref = self.get_svg_layers_ref(str(files('microrep').joinpath('add_legend/legends/LegendOne.svg')), logit)[0]
+        self.legend_two_ref = self.get_svg_layers_ref(str(files('microrep').joinpath('add_legend/legends/LegendTwo.svg')), logit)[0]
+        self.legend_three_ref = self.get_svg_layers_ref(str(files('microrep').joinpath('add_legend/legends/LegendThree.svg')), logit)[0]
+        self.legend_four_ref = self.get_svg_layers_ref(str(files('microrep').joinpath('add_legend/legends/LegendFour.svg')), logit)[0]
+        self.legend_five_ref = self.get_svg_layers_ref(str(files('microrep').joinpath('add_legend/legends/LegendFive.svg')), logit)[0]
+        self.legend_six_ref = self.get_svg_layers_ref(str(files('microrep').joinpath('add_legend/legends/LegendSix.svg')), logit)[0]
         
         # Create the legend layer above all the other layers
         self.legend_layer = self.create_legend_layer()

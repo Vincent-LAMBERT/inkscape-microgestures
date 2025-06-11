@@ -42,6 +42,7 @@ import os
 import subprocess
 import tempfile
 import time
+from importlib.resources import files
 
 import inkex
 import numpy as np
@@ -73,7 +74,7 @@ class MapCommands(inkex.Effect):
         self.arg_parser.add_argument("--radius", type=float, dest="radius", default=2.5, help="Command radius")
         self.arg_parser.add_argument("--name", type=str, dest="name", default='', help="Export Name")
         self.arg_parser.add_argument("--config", type=str, dest="config", default="~/", help="Configuration file used to export")
-        self.arg_parser.add_argument("--icon", type=str, dest="icon", default="~/", help="Icon folder")
+        self.arg_parser.add_argument("--icons", type=str, dest="icons", default="~/", help="Icons folder")
         self.arg_parser.add_argument("--debug", type=inkex.Boolean, dest="debug", default=False, help="Debug mode (verbose logging)")
         
         self.start_time = time.time()
@@ -97,10 +98,9 @@ class MapCommands(inkex.Effect):
         # Get all commands in mappings
         command_names = get_command_names(mappings, logit)        
         # Add the command icons to the svg
-        dirname = os.path.dirname(__file__)
-        document = etree.parse(f"{dirname}/Icon/Icon.svg")
+        document = etree.parse(str(files('microrep').joinpath('map_commands/icon_placeholder.svg')))
         self.command_template_ref = rf.get_layer_refs(document, False, logit)[0]
-        self.icon_SVG_refs = self.get_icon_SVGs_refs(self.options.icon, command_names, logit)
+        self.icon_SVG_refs = self.get_icon_SVGs_refs(self.options.icons, command_names, logit)
         
         # Check if there is an element with the attribute 'mgrep-legend' somewhere
         if self.document.xpath('.//*[@mgrep-legend]') :
