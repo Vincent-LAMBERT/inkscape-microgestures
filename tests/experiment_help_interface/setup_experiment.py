@@ -11,9 +11,9 @@ from microrep.export_hand_poses import ExportHandPoses
 from microrep.map_commands import MapCommands
 
 script_path = os.path.dirname(os.path.realpath(__file__))
+config_folder = os.path.join(script_path, 'configurations')
 output_folder = os.path.join(script_path, 'output')
 
-tempfile = os.path.join(output_folder, 'tempfile')
 base_file_left = os.path.join(script_path, 'base_left.svg')
 base_file_right = os.path.join(script_path, 'base_right.svg')
 hand_poses_folder = os.path.join(output_folder, 'hand-poses')
@@ -359,7 +359,7 @@ def get_label_from_hand_pose(orient, hand_pose):
     label = label[:-1]
     return label
 
-def get_one_by_one_configs_for_pose(wanted_pose, config_file='config_one_by_one_hand_poses.csv'):
+def get_one_by_one_configs_for_pose(wanted_pose, config_file):
     config_dict = {}
     with open(config_file, 'r') as f:
         lines = f.readlines()
@@ -552,8 +552,8 @@ def copy_folder_content_to_smartwatch_experiment_folder(folder, smartwatch_exper
 def create_swipe_one_by_one_representations():
     base_file = os.path.join(script_path, 'base_right.svg')
     icon_folder = command_icons_folder_fr
-    config_file = os.path.join(script_path, 'config_one_by_one_hand_poses.csv')
-    config_rep_file = os.path.join(script_path, 'config_one_by_one_hand_poses_rep.csv')
+    config_file = os.path.join(config_folder, 'config_one_by_one_hand_poses.csv')
+    config_rep_file = os.path.join(config_folder, 'config_one_by_one_hand_poses_rep.csv')
     mappings_folder = os.path.join(output_folder, 'mappings-one-by-one')
     # Create the mappings folder if it does not exist
     if not os.path.exists(mappings_folder):
@@ -611,8 +611,8 @@ def create_swipe_multiple_representations():
     # Setting up the variables for the simultaneous hand poses
     base_file = os.path.join(script_path, 'base_right.svg')
     icon_folder = command_icons_folder_fr
-    config_file = os.path.join(script_path, 'config_simultaneous_hand_poses.csv')
-    config_rep_file = os.path.join(script_path, 'config_simultaneous_hand_poses_rep.csv')
+    config_file = os.path.join(config_folder, 'config_simultaneous_hand_poses.csv')
+    config_rep_file = os.path.join(config_folder, 'config_simultaneous_hand_poses_rep.csv')
     mappings_folder = os.path.join(output_folder, 'mappings-simultaneous')
     # Create the mappings folder if it does not exist
     if not os.path.exists(mappings_folder):
@@ -687,7 +687,7 @@ def get_mimic_hand_pose_configurations():
 
 def create_mimic_hand_pose_representations():  
     configurations = get_mimic_hand_pose_configurations()
-    config_file = os.path.join(script_path, 'config_export_hand_poses.csv')
+    config_file = os.path.join(config_folder, 'config_export_hand_poses.csv')
     
     for config in configurations:
         base_file = config["file"]
@@ -760,17 +760,17 @@ if __name__ == "__main__":
     if not os.path.exists(mappings_experiment_folder):
         os.mkdir(mappings_experiment_folder)
     
-    print(f"#############################################################")
+    print(f"\n\n#############################################################")
     print(f"########   Creating SwipeOneByOne representations   #########")
     print(f"#############################################################")
     create_swipe_one_by_one_representations()
     
-    print(f"#############################################################")
+    print(f"\n\n#############################################################")
     print(f"########   Creating SwipeMultiple representations   #########")
     print(f"#############################################################")
     create_swipe_multiple_representations()
     
-    print(f"#############################################################")
+    print(f"\n\n#############################################################")
     print(f"########   Creating MimicHandPose representations   #########")
     print(f"#############################################################")
     create_mimic_hand_pose_representations()

@@ -19,7 +19,7 @@ def deleteFolderContent(folder):
         elif os.path.isfile(os.path.join(folder, element)):
             os.remove(os.path.join(folder, element))
 
-def complete_occlusion_adaptation(file, output_folder, strategy, integration):
+def complete_occlusion_adaptation(file, output_folder, prefix, strategy, integration):
     """
     Create the representations for the given representation file.
     
@@ -28,6 +28,7 @@ def complete_occlusion_adaptation(file, output_folder, strategy, integration):
     :param config_dict: The configuration dictionary for the representations.
     """    
     path_str = f"--path={output_folder}"
+    prefix_str = f"--prefix={prefix}"
     strategy_str = f"--strategy={strategy}"
     integration_str = f"--integration={integration}"
     
@@ -35,7 +36,7 @@ def complete_occlusion_adaptation(file, output_folder, strategy, integration):
     sys.stdout = open(os.devnull, 'w')
     
     export_rep = CompleteOcclusionAdaptation()
-    export_rep.run(args=[file, path_str, strategy_str, integration_str])
+    export_rep.run(args=[file, path_str, prefix_str, strategy_str, integration_str])
     
     # Close the redirected stdout
     sys.stdout.close()
@@ -52,5 +53,5 @@ if __name__== "__main__":
     
     print(f"Adapting {base_file} for complete occlusion")
     # Create the output for the given representation  
-    complete_occlusion_adaptation(base_file, output_folder, strategy='brightness', integration='default')
-    complete_occlusion_adaptation(base_file, output_folder, strategy='text', integration='default')
+    complete_occlusion_adaptation(base_file, output_folder, prefix="@brightness_", strategy='brightness', integration='default')
+    complete_occlusion_adaptation(base_file, output_folder, prefix="@text_", strategy='text', integration='default')

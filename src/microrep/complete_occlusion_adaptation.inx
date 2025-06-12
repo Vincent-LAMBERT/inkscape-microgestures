@@ -5,6 +5,7 @@
     <dependency type="executable" location="extensions">complete_occlusion_adaptation/complete_occlusion_adaptation.py</dependency>
 	<param name="help" type="description">Adapt the Simultaneous Representation of Microgestures to Complete Occlusion</param>
     <param name="path" type="string" _gui-text="Choose path to export">~/</param>
+    <param name="prefix" type="string" _gui-text="Prefix to add (Optional)"></param>
     <param name="filetype" type="optiongroup" gui-text="Export layers as..." appearance="minimal">
        <option selected="selected" value="svg">SVG</option>
        <option value="png">PNG</option>

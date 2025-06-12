@@ -63,6 +63,7 @@ class CompleteOcclusionAdaptation(inkex.Effect):
     def __init__(self):
         super().__init__()
         self.arg_parser.add_argument("--path", type=str, dest="path", default="~/", help="The directory to export into")
+        self.arg_parser.add_argument("--prefix", type=str, dest="prefix", default="", help='Prefix to add to the exported file name (Optional)')
         self.arg_parser.add_argument('-f', '--filetype', type=str, dest='filetype', default='svg', 
                                      help='Exported file type. One of [svg|png|jpg|pdf]')
         self.arg_parser.add_argument("--dpi", type=float, dest="dpi", default=90.0, help="DPI of exported image (if applicable)")
@@ -123,9 +124,7 @@ class CompleteOcclusionAdaptation(inkex.Effect):
                 else :
                     modify_text_integration(tap_commands, hold_commands, logit)
         
-        adpated_name = f"adapted({strategy},{integration})_{self.svg_name}"
-        logit(f"Exporting to {adpated_name}")
-        ex.export(self.document, adpated_name, self.options, logit)
+        ex.export(self.document, self.svg_name, self.options, logit)
                     
     def get_active_family(self) :
         """
