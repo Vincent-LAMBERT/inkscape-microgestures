@@ -32,8 +32,8 @@
 # Implementation References:
 #   SEE: https://github.com/nshkurkin/inkscape-export-layer-combos
 
-import itertools
 import csv
+import itertools
 import logging
 import os
 import random
@@ -106,8 +106,8 @@ def get_hand_poses_from_file(file_path, logit=logging.info) :
     """
     hand_poses = {}
     with open(file_path, 'r') as csvfile:
-        reader = csv.reader(csvfile, delimiter='\n')
-        for row in reader:
+        for row in csvfile:
+            row = [row]
             wrist_orientation = row[0].split('_')[0]
             if wrist_orientation not in hand_poses :
                 hand_poses[wrist_orientation] = []

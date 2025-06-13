@@ -31,16 +31,16 @@ def create_hand_poses(file, output_folder, config_file):
     path_str = f"--path={output_folder}"
     config_str = f"--config={config_file}"
     
-    # Redirect stdout to null to avoid printing to console
-    sys.stdout = open(os.devnull, 'w')
+    # # Redirect stdout to null to avoid printing to console
+    # sys.stdout = open(os.devnull, 'w')
     
     export_rep = ExportHandPoses()
     export_rep.run(args=[file, path_str, config_str])
     
-    # Close the redirected stdout
-    sys.stdout.close()
-    # Restore stdout to default
-    sys.stdout = sys.__stdout__
+    # # Close the redirected stdout
+    # sys.stdout.close()
+    # # Restore stdout to default
+    # sys.stdout = sys.__stdout__
         
 if __name__== "__main__":
     # Create the output folder if it does not exist

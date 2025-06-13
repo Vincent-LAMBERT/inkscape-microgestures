@@ -32,8 +32,8 @@
 # Implementation References:
 #   SEE: https://github.com/nshkurkin/inkscape-export-layer-combos
 
-import itertools
 import csv
+import itertools
 import logging
 import os
 import random
@@ -67,8 +67,8 @@ def get_legends_from_file(file_path, logit=logging.info) :
     """
     legends = []
     with open(file_path, 'r') as csvfile:
-        reader = csv.reader(csvfile, delimiter='\n')
-        for row in reader:
+        for row in csvfile:
+            row = [row]
             legended_elements = row[0].split('_')
             legend = []
             for legended in legended_elements :
