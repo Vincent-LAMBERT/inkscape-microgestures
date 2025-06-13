@@ -68,12 +68,13 @@ def get_legends_from_file(file_path, logit=logging.info) :
     legends = []
     with open(file_path, 'r') as csvfile:
         for row in csvfile:
-            row = [row]
+            row = [row.replace('\n', '')]
             legended_elements = row[0].split('_')
             legend = []
             for legended in legended_elements :
                 fm, charac = legended.split('-')
                 finger, mg = fm.split('+')
+                charac = charac.replace('\n', '') # Just in case
                 legend.append((finger, mg, charac))
             legends.append(legend)
     

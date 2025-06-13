@@ -40,7 +40,7 @@ import microrep.core.mg_maths as mg
 import microrep.core.utils as u
 
 
-def create_mg_rep(family_layer, element, markers, command_radius, logit=logging.info) :
+def create_mg_rep(family_layer, element, markers, command_radius=None, include_multi_design=False, logit=logging.info) :
     """
     Creates the family representation 
     by moving elements of the family layer
@@ -57,7 +57,7 @@ def create_mg_rep(family_layer, element, markers, command_radius, logit=logging.
             # In this case, element == markerType as they are both either actuator or receiver
             move_element(family_layer, markers[element][1], logit)
     else :
-        move_path(family_layer, markers[u.TRAJ_START][1], markers[u.TRAJ_END][1], command_radius, logit)
+        move_path(family_layer, markers[u.TRAJ_START][1], markers[u.TRAJ_END][1], command_radius, include_multi_design, logit)
 
 def move_element(parent_layer, position, logit=logging.info) :
     """
@@ -67,7 +67,7 @@ def move_element(parent_layer, position, logit=logging.info) :
     circle_xmls, circles = {}, {}
     
     for loop_xml in parent_layer.findall(".//{*}path") :
-        if loop_xml.get(u.MREP_PATH_ELEMENT) == u.DESIGN :
+        if loop_xml.get(u.MREP_PATH_ELEMENT) in [u.DESIGN, u.MULTI_DESIGN] :
             design_xml = loop_xml
             
     for loop_xml in parent_layer.findall(".//{*}circle") :
@@ -86,15 +86,20 @@ def move_element(parent_layer, position, logit=logging.info) :
             command_xml.set("cx", str(command_path_cx))
             command_xml.set("cy", str(command_path_cy))
 
-def addPathTypeToDicts(pathType, xml, xmls, paths) :
+def addPathTypeToDicts(pathType, xml, xmls, paths, include_multi_design=False) :
     """
     Adds the parsed path to the paths 
     dictionnary if it is of the given type
     """
     if xml.get(u.MREP_PATH_ELEMENT) == pathType :
-        xmls[pathType] = xml
-        path = svg.path.parse_path(xml.get("d"))
-        paths[pathType] = path
+        if include_multi_design and pathType == u.DESIGN :
+            xml.set('style', xml.get('style').replace('display:inline', 'display:none'))
+        elif not include_multi_design and pathType == u.MULTI_DESIGN :
+            xml.set('style', xml.get('style').replace('display:inline', 'display:none'))
+        else :
+            xmls[pathType] = xml
+            path = svg.path.parse_path(xml.get("d"))
+            paths[pathType] = path
 
 def setXmlValueFromPathType(type, xml, paths, logit=logging.info) :
     """
@@ -123,7 +128,7 @@ def addCircleTypeToDicts(circleType, xml, xmls, circles) :
         circles[circleType] = {u.COORDINATES : mg.convert_to_complex(path_cx, path_cy), u.CIRCLE_RADIUS : path_r}
         xmls[circleType] = xml
 
-def move_path(parent_layer, start_position, end_position, command_radius=None, logit=logging.info) :
+def move_path(parent_layer, start_position, end_position, command_radius=None, include_multi_design=False, logit=logging.info) :
     """
     Moves the path in the parent layer to the given positions
     
@@ -143,14 +148,14 @@ def move_path(parent_layer, start_position, end_position, command_radius=None, l
     
     for loop_xml in parent_layer.findall(".//{*}path") :
         for pathType in u.PATH_BASED_TYPES :
-            addPathTypeToDicts(pathType, loop_xml, path_xmls, paths)
+            addPathTypeToDicts(pathType, loop_xml, path_xmls, paths, include_multi_design)
             
     for loop_xml in parent_layer.findall(".//{*}circle") :
         for circleType in u.CIRCLE_BASED_TYPES :
             addCircleTypeToDicts(circleType, loop_xml, circle_xmls, circles)
     
-    # If at least one design element if specified
-    if u.DESIGN in paths and paths[u.DESIGN] is not None :        
+    # If at least one design element if specified    
+    if (u.DESIGN in paths and paths[u.DESIGN] is not None) or (u.MULTI_DESIGN in paths and paths[u.MULTI_DESIGN] is not None) :        
         if u.TRACE in paths and paths[u.TRACE] is not None :
             paths, circles = mg.compute_transformation(paths, circles, reference_vector, start_position, (command_radius, paths[u.TRACE]), logit)
         else :

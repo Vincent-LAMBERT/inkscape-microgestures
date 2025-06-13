@@ -120,7 +120,9 @@ class AddLegend(inkex.Effect):
             finger = legend[0][0]
             mgs = [mg for (finger, mg, charac) in legend]
             characs = [charac for (finger, mg, charac) in legend]
+            logit(f"len(mgs): {len(mgs)}")
             legend_ref = self.get_legend_ref(len(mgs))
+            logit(f"legend_ref: {legend_ref}")
             legend_TRS_matrix = self.create_legend(legend_ref, mgs, characs, markers_positions[finger], u.LEGEND_TYPES[len(legends)-(i+1)], logit)
             self.move_commands_to_legend(legend_ref, finger, mgs, characs, legend_TRS_matrix, logit)
         
@@ -177,11 +179,11 @@ class AddLegend(inkex.Effect):
                             # Get the command in layer_ref childrens
                             for child in layer_ref.source.getchildren() :
                                 # Check if there is an attribute mgrep-path-element with value equal to COMMAND
-                                if 'mgrep-path-element' in child.attrib and child.attrib['mgrep-path-element'] == u.COMMAND :    
+                                if u.MREP_PATH_ELEMENT in child.attrib and child.attrib[u.MREP_PATH_ELEMENT] == u.COMMAND :    
                                     new_layer = self.svg.add(child.copy())
                                     new_layer.set("id", self.svg.get_unique_id("layer"))
                                     new_layer.style = 'display:none'
-                                    new_layer.set("mgrep-path-element", u.ICON_COMMAND)
+                                    new_layer.set(u.MREP_PATH_ELEMENT, u.ICON_COMMAND)
                                     # Insert to parent layer
                                     layer_ref.source.insert(0, new_layer)
 
@@ -200,7 +202,7 @@ class AddLegend(inkex.Effect):
                             # Get the command in layer_ref childrens
                             for child in layer_ref.source.getchildren() :
                                 # Check if there is an attribute mgrep-path-element with value equal to COMMAND
-                                if 'mgrep-path-element' in child.attrib and child.attrib['mgrep-path-element'] == u.ICON_COMMAND :    
+                                if u.MREP_PATH_ELEMENT in child.attrib and child.attrib[u.MREP_PATH_ELEMENT] == u.ICON_COMMAND :    
                                     child.delete()
         
     def get_active_family(self) :

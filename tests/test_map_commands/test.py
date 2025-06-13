@@ -11,7 +11,7 @@ base_file = os.path.join(script_path, 'initial.svg')
 config_file = os.path.join(script_path, 'config.csv')
 output_folder = os.path.join(script_path, 'output')
 icons_folder = os.path.join(script_path, 'icons')
-COMMAND_RADIUS = 3  # Default radius for commands
+COMMAND_RADIUS = 2.5 # Default radius for commands
 
 def deleteFolderContent(folder):
     for element in os.listdir(folder):
@@ -34,7 +34,7 @@ def map_commands(file, output_folder, config_file, icons_folder):
     icons_str = f"--icons={icons_folder}"
     radius_str = f"--radius={COMMAND_RADIUS}"
     
-    # Redirect stdout to null to avoid printing to console
+    # Redirect stdout to null to avoid printing exported files to console
     sys.stdout = open(os.devnull, 'w')
     
     export_rep = MapCommands()

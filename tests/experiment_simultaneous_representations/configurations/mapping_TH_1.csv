@@ -13,11 +13,11 @@ index+tap_tip-artichoke,index+tap_middle-cucumber,index+tap_base-garlic,index+ho
 index+tap_tip-corn,index+tap_middle-lettuce,index+tap_base-broccoli,index+hold_tip-cucumber,index+hold_middle-artichoke,index+hold_base-carrot
 index+tap_tip-carrot,index+tap_middle-cucumber,index+tap_base-artichoke,index+hold_tip-mushroom,index+hold_middle-broccoli,index+hold_base-corn
 index+tap_tip-cucumber,index+tap_middle-onion,index+tap_base-artichoke,index+hold_tip-corn,index+hold_middle-broccoli,index+hold_base-carrot
-index+tap_tip-keyboard,index+tap_middle-mouse,index+tap_base-clock,index+hold_tip-paperclip,index+hold_middle-enveloppe,index+hold_base-chair
-index+tap_tip-enveloppe,index+tap_middle-chair,index+tap_base-clock,index+hold_tip-pencil,index+hold_middle-mouse,index+hold_base-keyboard
-index+tap_tip-mouse,index+tap_middle-keyboard,index+tap_base-chair,index+hold_tip-enveloppe,index+hold_middle-clock,index+hold_base-printer
-index+tap_tip-keyboard,index+tap_middle-chair,index+tap_base-mouse,index+hold_tip-stamp,index+hold_middle-clock,index+hold_base-enveloppe
-index+tap_tip-chair,index+tap_middle-mouse,index+tap_base-clock,index+hold_tip-stapler,index+hold_middle-enveloppe,index+hold_base-keyboard
+index+tap_tip-keyboard,index+tap_middle-mouse,index+tap_base-clock,index+hold_tip-paperclip,index+hold_middle-envelope,index+hold_base-chair
+index+tap_tip-envelope,index+tap_middle-chair,index+tap_base-clock,index+hold_tip-pencil,index+hold_middle-mouse,index+hold_base-keyboard
+index+tap_tip-mouse,index+tap_middle-keyboard,index+tap_base-chair,index+hold_tip-envelope,index+hold_middle-clock,index+hold_base-printer
+index+tap_tip-keyboard,index+tap_middle-chair,index+tap_base-mouse,index+hold_tip-stamp,index+hold_middle-clock,index+hold_base-envelope
+index+tap_tip-chair,index+tap_middle-mouse,index+tap_base-clock,index+hold_tip-stapler,index+hold_middle-envelope,index+hold_base-keyboard
 index+tap_tip-boot,index+tap_middle-button,index+tap_base-bowtie,index+hold_tip-coat,index+hold_middle-gloves,index+hold_base-shirt
 index+tap_tip-bowtie,index+tap_middle-shirt,index+tap_base-hat,index+hold_tip-coat,index+hold_middle-boot,index+hold_base-button
 index+tap_tip-coat,index+tap_middle-shirt,index+tap_base-button,index+hold_tip-skirt,index+hold_middle-boot,index+hold_base-bowtie

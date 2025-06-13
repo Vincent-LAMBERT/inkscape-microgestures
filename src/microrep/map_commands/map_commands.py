@@ -71,7 +71,7 @@ class MapCommands(inkex.Effect):
                                      help='Exported file type. One of [svg|png|jpg|pdf]')
         self.arg_parser.add_argument("--dpi", type=float, dest="dpi", default=90.0, help="DPI of exported image (if applicable)")
         self.arg_parser.add_argument("--showMg", type=inkex.Boolean, dest="showMg", default=False, help="Show microgesture type")
-        self.arg_parser.add_argument("--radius", type=float, dest="radius", default=2.5, help="Command radius")
+        self.arg_parser.add_argument("--radius", type=float, dest="radius", default=u.BASE_RADIUS, help="Command radius")
         self.arg_parser.add_argument("--name", type=str, dest="name", default='', help="Export Name")
         self.arg_parser.add_argument("--config", type=str, dest="config", default="~/", help="Configuration file used to export")
         self.arg_parser.add_argument("--icons", type=str, dest="icons", default="~/", help="Icons folder")
@@ -96,7 +96,7 @@ class MapCommands(inkex.Effect):
         # Get a dictionnary of the wanted mappings with their characteristics
         mappings = get_mappings(self.options.config, logit)
         # Get all commands in mappings
-        command_names = get_command_names(mappings, logit)        
+        command_names = get_command_names(mappings, logit)
         # Add the command icons to the svg
         document = etree.parse(str(files('microrep').joinpath('map_commands/icon_placeholder.svg')))
         self.command_template_ref = rf.get_layer_refs(document, False, logit)[0]
@@ -158,6 +158,7 @@ class MapCommands(inkex.Effect):
         command_dicts = {}
         for fmc, command_name in mapping :
             finger, mg, charac = fmc
+            command_name = command_name.capitalize()
             
             command_icon = self.create_command(command_name, logit, text=True)
             if (self.options.showMg) :
@@ -178,7 +179,7 @@ class MapCommands(inkex.Effect):
         """        
         if has_main_command_icon(layer_ref) :
             # Insert the new command above all existing commands and at the placeholded location
-            command_circle = layer_ref.source.find(f".//*[@mgrep-path-element='{u.COMMAND}']")
+            command_circle = layer_ref.source.find(f".//*[@{u.MREP_PATH_ELEMENT}='{u.COMMAND}']")
             command_layer = self.adapt_command_to_placeholder(command_circle, new_command, logit)
             mapping_layer.insert(0, command_layer)
             command_dicts[command_name] = self.fill_command_dicts(command_circle, new_command, 0, logit)
@@ -524,7 +525,7 @@ class MapCommands(inkex.Effect):
         """
         Get all the points of the representations
         Those points are the points of the path of the representation that are visible
-        and located under the Designs layer. They have the attribute 'mgrep-path-element' = design
+        and located under the Designs layer. They have the attribute MREP_PATH_ELEMENT = design
         """
         # Get the Designs layer
         designs_layer = document.xpath('//svg:g[@inkscape:label="Designs"]', namespaces=inkex.NSS)
@@ -534,7 +535,7 @@ class MapCommands(inkex.Effect):
         visible_designs = []
         for layer in visible_layers :
             for child in layer.getchildren() :
-                if child.get("mgrep-path-element") == "design" :
+                if child.get(u.MREP_PATH_ELEMENT) in [u.DESIGN, u.MULTI_DESIGN] :
                     # Get all points of the path
                     path = svg.path.parse_path(child.get("d"))
                     path_points = [mg.convert_from_complex(path.point(i)) for i in np.linspace(0, 1, 20)]
@@ -558,9 +559,9 @@ class MapCommands(inkex.Effect):
         """
         Move the icon command to the layer
         """
-        # Find child of layer with 'mgrep-path-element' with 
+        # Find child of layer with MREP_PATH_ELEMENT with 
         # the value of 'icon-command'
-        command = layer_ref.source.find(f".//*[@mgrep-path-element='{u.ICON_COMMAND}']")
+        command = layer_ref.source.find(f".//*[@{u.MREP_PATH_ELEMENT}='{u.ICON_COMMAND}']")
         
         if command is not None :
             # Insert the new command above all existing commands and at the placeholded location
@@ -600,7 +601,7 @@ class MapCommands(inkex.Effect):
             original_style = xml.get("style")
             style_dict = {style.split(":")[0]:style.split(":")[1] for style in original_style.split(";")}
             font_size = float(style_dict["font-size"][:-2])
-            new_font_size = np.round(font_size * factor * 0.75, 2)
+            new_font_size = np.round(font_size * factor * 1.2 * np.pow(0.9, int(placeholder_radius - command_radius)), 2)
             new_style_element = {"font-size":f"{new_font_size}px"}
             new_style = compute_new_style(original_style, new_style_element, logit)
             xml.set("style", new_style)
@@ -616,13 +617,13 @@ class MapCommands(inkex.Effect):
             # It is indicated by the mgrep-command
             mgrep_command = xml.get("mgrep-command")
             if mgrep_command != None and mgrep_command.split(", ")[0] == "marker" :
-                correcting_factor = 0.75 * factor
+                correcting_factor = 0.85 * factor
                 # Correct by the scaling factor
                 New_S_matrix = mg.get_scaling_matrix_from_factor(correcting_factor)
                 TRS_matrix = T_placeholder_matrix @ New_S_matrix @ T_origin_matrix 
                 # Adjust if the element is the below text
                 if xml.get("mgrep-command")=="marker, below":
-                    correcting_factor = 1.15 * factor
+                    correcting_factor = 1.25 * factor
                     New_S_matrix = mg.get_scaling_matrix_from_factor(correcting_factor)
                     TRS_matrix = T_placeholder_matrix @ New_S_matrix @ T_origin_matrix 
                 #     T_marker = mg.get_translation_matrix(np.array([0, -2]), np.array([0, 0]))
@@ -726,7 +727,7 @@ class MapCommands(inkex.Effect):
         """
         Get all the points of the representations
         Those points are the points of the path of the representation that are visible
-        and located under the Designs layer. They have the attribute 'mgrep-path-element' = design
+        and located under the Designs layer. They have the attribute MREP_PATH_ELEMENT = design
         """
         # Get the Designs layer
         designs_layer = document.xpath('//svg:g[@inkscape:label="Designs"]', namespaces=inkex.NSS)
@@ -736,7 +737,7 @@ class MapCommands(inkex.Effect):
         design_points = []
         for layer in visible_layers :
             for child in layer.getchildren() :
-                if child.get("mgrep-path-element") == "design" :
+                if child.get(u.MREP_PATH_ELEMENT) in [u.DESIGN, u.MULTI_DESIGN] :
                     # Get all points of the path
                     path = svg.path.parse_path(child.get("d"))
                     path_points = [mg.convert_from_complex(path.point(i)) for i in np.linspace(0, 1, 20)]
@@ -792,7 +793,7 @@ class MapCommands(inkex.Effect):
         
         icons = []
         for circle in svg_circles :
-            if circle.get('mgrep-path-element')==u.COMMAND:
+            if circle.get(u.MREP_PATH_ELEMENT)==u.COMMAND:
                 position = np.array([float(circle.get('cx')), float(circle.get('cy'))])
                 icons.append(position)
         
@@ -816,7 +817,7 @@ class MapCommands(inkex.Effect):
                 if not layer_ref.is_visible() :
                     continue
                 
-                circle = layer_ref.source.find(f".//*[@mgrep-path-element='{u.COMMAND}']")
+                circle = layer_ref.source.find(f".//*[@{u.MREP_PATH_ELEMENT}='{u.COMMAND}']")
                 
                 if circle is not None :
                     command_circles.append(circle)
@@ -862,6 +863,7 @@ def get_command_names(mappings, logit=logging.info):
     command_names = list()
     for mapping in mappings :
         for command in get_mapping_commands(mapping, logit) :
+            command = command.capitalize()
             if command not in command_names :
                 command_names.append(command)
     return command_names
@@ -1063,13 +1065,13 @@ def has_main_command_icon(layer_ref) :
     """
     Check if the layer has a command
     """
-    return layer_ref.source.find(f".//*[@mgrep-path-element='{u.COMMAND}']") is not None
+    return layer_ref.source.find(f".//*[@{u.MREP_PATH_ELEMENT}='{u.COMMAND}']") is not None
 
 def has_duplicated_command_icon(layer_ref) :
     """
     Check if the layer has an icon-command
     """
-    return layer_ref.source.find(f".//*[@mgrep-path-element='{u.ICON_COMMAND}']") is not None
+    return layer_ref.source.find(f".//*[@{u.MREP_PATH_ELEMENT}='{u.ICON_COMMAND}']") is not None
 
 def is_close_to_legend(close_points) :
     """

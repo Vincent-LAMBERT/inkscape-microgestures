@@ -115,7 +115,7 @@ def change_styles(mg_layer_refs, style_combination, logit=logging.info) :
                     # Get each element of the layer
                     for child in layer_ref.source.getchildren() :
                         # Check if the element is a design element
-                        if (child.tag == inkex.addNS('path','svg') or child.tag == inkex.addNS('circle','svg')) and child.attrib['mgrep-path-element'] == u.DESIGN :
+                        if (child.tag == inkex.addNS('path','svg') or child.tag == inkex.addNS('circle','svg')) and child.attrib[u.MREP_PATH_ELEMENT] in [u.DESIGN, u.MULTI_DESIGN] :
                             # Get the child style
                             if child not in layer_ref.non_layer_children_style :
                                 layer_ref.non_layer_children_style[child.get("id")] = child.get("style")
@@ -123,7 +123,7 @@ def change_styles(mg_layer_refs, style_combination, logit=logging.info) :
                             new_style = compute_new_style(original_style, mg_styles, logit)
                             child.set("style", new_style)
                         
-                        if child.attrib['mgrep-path-element'] in [u.DESIGN, u.TRACE] and (u.PATH_SCALE in mg_styles or u.STROKE_WIDTH in mg_styles) :
+                        if child.attrib[u.MREP_PATH_ELEMENT] in [u.DESIGN, u.MULTI_DESIGN, u.TRACE] and (u.PATH_SCALE in mg_styles or u.STROKE_WIDTH in mg_styles) :
                             if child.tag == inkex.addNS('path','svg') :
                                 if u.PATH_SCALE in mg_styles :
                                     scaling = float(mg_styles[u.PATH_SCALE])
@@ -149,12 +149,12 @@ def reset_styles(mg_layer_refs) :
             for charac in mg_layer_refs[finger][mg] :
                 for layer_ref in mg_layer_refs[finger][mg][charac] :
                     for child in layer_ref.source.getchildren() :# Check if the element is a design element
-                        if (child.tag == inkex.addNS('path','svg') or child.tag == inkex.addNS('circle','svg')) and child.attrib['mgrep-path-element'] == u.DESIGN :
+                        if (child.tag == inkex.addNS('path','svg') or child.tag == inkex.addNS('circle','svg')) and child.attrib[u.MREP_PATH_ELEMENT] in [u.DESIGN, u.MULTI_DESIGN] :
                             # Get the child style
                             original_style = layer_ref.non_layer_children_style[child.get("id")]
                             child.set("style", original_style)
                             
-                        if child.attrib['mgrep-path-element'] in [u.DESIGN] :
+                        if child.attrib[u.MREP_PATH_ELEMENT] in [u.DESIGN, u.MULTI_DESIGN] :
                             if child.get("id") in layer_ref.non_layer_children_initial_path :
                                 if child.tag == inkex.addNS('path','svg') :
                                     child.set("d", layer_ref.non_layer_children_initial_path[child.get("id")])

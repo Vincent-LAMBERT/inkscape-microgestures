@@ -192,6 +192,11 @@ MICROGESTURE_CHARACTERISTICS = { TAP : TAP_CHARACTERISTICS,
                                  SWIPE : SWIPE_CHARACTERISTICS,
                                  HOLD : HOLD_CHARACTERISTICS}
 
+OPPOSITE_SWIPE_CHARACTERISTICS = { UP : DOWN,
+                                   DOWN : UP,
+                                   LEFT : RIGHT,
+                                   RIGHT : LEFT}
+
 ACTUATOR="actuator"
 RECEIVER="receiver"
 TRAJECTORY="trajectory"
@@ -230,13 +235,15 @@ CONTROL_2 = "control2"
 
 MREP_PATH_ELEMENT = 'mgrep-path-element'
 DESIGN="design"
+MULTI_DESIGN="multi-design"
 TRACE="trace"
 TRACE_START_BOUND="trace-start-bound"
 TRACE_END_BOUND="trace-end-bound"
 COMMAND="command"
 ICON_COMMAND="icon-command"
-PATH_BASED_TYPES = [DESIGN, TRACE]
+PATH_BASED_TYPES = [DESIGN, MULTI_DESIGN, TRACE]
 CIRCLE_BASED_TYPES = [TRACE_START_BOUND, TRACE_END_BOUND, COMMAND]
+BASE_RADIUS = 2.5
 
 
 SWIPE_UP = "swipe-up"
@@ -365,36 +372,30 @@ def get_combination_from_name(name) :
             continue
     return combination
 
-def get_fmc_combination(combinations) :
+def get_fmc_combination(combination) :
     """
     Return the (finger, microgestures, characteristic) unique tuples from the given combinations
     """
     fmcs = []
-    for combination in combinations :
-        for fmc in combination :
-            if fmcs not in fmcs :
-                fmcs.append(fmc)
-    # Filter the fmcs to keep distinct fmcs with the SAME ORDER
-    filtered_fmcs = []
-    for fmc in fmcs :
-        if fmc not in filtered_fmcs :
-            filtered_fmcs.append(fmc)
+    for fmc in combination :
+        if fmcs not in fmcs :
+            fmcs.append(fmc)
     return fmcs
       
-def get_most_proximate_finger_and_charac_for_tap_raw(fmc_combinations, logit) :
+def get_most_proximate_finger_and_charac_for_tap_raw(fmc_combination, logit) :
     for p_f in FINGERS :
         for p_c in TAP_CHARACTERISTICS :
-            for finger, mg, charac in fmc_combinations :
+            for finger, mg, charac in fmc_combination :
                 if finger==p_f and mg==TAP and charac==p_c :
                     return p_f, p_c
     return None, None
 
-def get_most_proximate_finger_and_charac_for_tap(fmc_combinations, logit) :
+def get_most_proximate_finger_and_charac_for_tap(fmc_combination, logit) :
     """
     Get the finger and characteristic that are closer to the thumb in the fmc_combinations
     Don't send any if other fingers exist and would cross the arrow trajectory
     """
-    f, c = get_most_proximate_finger_and_charac_for_tap_raw(fmc_combinations, logit)
+    f, c = get_most_proximate_finger_and_charac_for_tap_raw(fmc_combination, logit)
                     
     if f in [INDEX, MIDDLE]:
         return f, c
@@ -402,7 +403,7 @@ def get_most_proximate_finger_and_charac_for_tap(fmc_combinations, logit) :
         # Check if there is a SWIPE involving the MIDDLE finger AND that the tap was done on the tip or the side of the finger
         # If so, the tap arrow would cross the swipe arrow and should not be displayed
         if c in [TIP, SIDE]:
-            for finger, mg, charac in fmc_combinations :
+            for finger, mg, charac in fmc_combination :
                 if MIDDLE in finger and mg==SWIPE :
                     return None, None
         return f, c

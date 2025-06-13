@@ -83,6 +83,10 @@ class ExportHandPoses(inkex.Effect):
     def effect(self):
         logit = logging.warning if self.options.debug else logging.info
         logit(f"Options: {str(self.options)}")
+        
+        # Make the families layer invisible
+        families_layer = self.document.xpath('//svg:g[@inkscape:label="Families"]', namespaces=inkex.NSS)[0]
+        families_layer.set('style', 'display:none')
     
         layer_refs = rf.get_layer_refs(self.document, visible_only=False, logit=logit)        
         wrist_orientation_layer_refs = rf.get_wrist_orientation_layer_refs(layer_refs, logit)

@@ -107,7 +107,7 @@ def get_hand_poses_from_file(file_path, logit=logging.info) :
     hand_poses = {}
     with open(file_path, 'r') as csvfile:
         for row in csvfile:
-            row = [row]
+            row = [row.replace('\n', '')]
             wrist_orientation = row[0].split('_')[0]
             if wrist_orientation not in hand_poses :
                 hand_poses[wrist_orientation] = []

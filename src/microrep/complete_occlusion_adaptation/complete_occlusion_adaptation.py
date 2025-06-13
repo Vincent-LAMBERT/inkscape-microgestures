@@ -179,9 +179,9 @@ def get_commands(layer_refs) :
     icon_commands = []
     for layer_ref in layer_refs :
         for child in layer_ref.source.getchildren() :
-            if child.get("mgrep-path-element") == u.COMMAND :
+            if child.get(u.MREP_PATH_ELEMENT) == u.COMMAND :
                 commands.append(child)
-            elif child.get("mgrep-path-element") == u.ICON_COMMAND :
+            elif child.get(u.MREP_PATH_ELEMENT) == u.ICON_COMMAND :
                 icon_commands.append(child)
     if len(icon_commands) == 0 :
         return commands
@@ -195,9 +195,9 @@ def get_designs(layer_refs) :
     designs = []
     for layer_ref in layer_refs :
         for child in layer_ref.source.getchildren() :
-            if child.get("mgrep-path-element") == u.COMMAND :
+            if child.get(u.MREP_PATH_ELEMENT) == u.COMMAND :
                 for child in layer_ref.source.getchildren() :
-                    if child.get("mgrep-path-element") == u.DESIGN :
+                    if child.get(u.MREP_PATH_ELEMENT) in [u.DESIGN, u.MULTI_DESIGN] :
                         designs.append(child)
                         break
     return designs

@@ -31,7 +31,7 @@ def create_representations(file, output_folder, config_file, family):
     config_str = f"--config={config_file}"
     family_str = f"--family={family}"
     
-    # Redirect stdout to null to avoid printing to console
+    # Redirect stdout to null to avoid printing exported files to console
     sys.stdout = open(os.devnull, 'w')
     
     export_rep = CreateRepresentations()

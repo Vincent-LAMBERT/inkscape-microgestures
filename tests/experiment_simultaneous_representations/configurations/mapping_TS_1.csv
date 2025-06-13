@@ -13,11 +13,11 @@ index+tap_tip-pumpkin,index+tap_middle-broccoli,index+tap_base-artichoke,index+s
 index+tap_tip-carrot,index+tap_middle-corn,index+tap_base-artichoke,index+swipe_up-broccoli,index+swipe_down-garlic
 index+tap_tip-corn,index+tap_middle-lettuce,index+tap_base-artichoke,index+swipe_up-carrot,index+swipe_down-broccoli
 index+tap_tip-corn,index+tap_middle-mushroom,index+tap_base-broccoli,index+swipe_up-carrot,index+swipe_down-artichoke
-index+tap_tip-keyboard,index+tap_middle-mouse,index+tap_base-chair,index+swipe_up-enveloppe,index+swipe_down-clock
-index+tap_tip-paperclip,index+tap_middle-enveloppe,index+tap_base-clock,index+swipe_up-keyboard,index+swipe_down-chair
-index+tap_tip-clock,index+tap_middle-keyboard,index+tap_base-chair,index+swipe_up-pencil,index+swipe_down-enveloppe
-index+tap_tip-enveloppe,index+tap_middle-clock,index+tap_base-keyboard,index+swipe_up-printer,index+swipe_down-chair
-index+tap_tip-chair,index+tap_middle-clock,index+tap_base-enveloppe,index+swipe_up-stamp,index+swipe_down-keyboard
+index+tap_tip-keyboard,index+tap_middle-mouse,index+tap_base-chair,index+swipe_up-envelope,index+swipe_down-clock
+index+tap_tip-paperclip,index+tap_middle-envelope,index+tap_base-clock,index+swipe_up-keyboard,index+swipe_down-chair
+index+tap_tip-clock,index+tap_middle-keyboard,index+tap_base-chair,index+swipe_up-pencil,index+swipe_down-envelope
+index+tap_tip-envelope,index+tap_middle-clock,index+tap_base-keyboard,index+swipe_up-printer,index+swipe_down-chair
+index+tap_tip-chair,index+tap_middle-clock,index+tap_base-envelope,index+swipe_up-stamp,index+swipe_down-keyboard
 index+tap_tip-boot,index+tap_middle-coat,index+tap_base-shirt,index+swipe_up-button,index+swipe_down-bowtie
 index+tap_tip-button,index+tap_middle-bowtie,index+tap_base-coat,index+swipe_up-boot,index+swipe_down-gloves
 index+tap_tip-coat,index+tap_middle-button,index+tap_base-hat,index+swipe_up-bowtie,index+swipe_down-boot

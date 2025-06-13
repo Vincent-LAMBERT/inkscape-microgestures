@@ -4,9 +4,13 @@
 This folder contains the code and resources used to create the representations of the paper *Designing a Help Interface for Hand Microgestures* being submitted concomitantly with the evaluation of my thesis.
 This README file provides an overview of the experiment setup but does not explains the details of the experiment itself. I **strongly** recommend reading the paper for a complete understanding of the following lines.
 
-### Base files
+# Installation
 
-At the root of this folder, you will find the `base_left.svg` and `base_right.svg` files. They are used as the starting point for the different representations of the help interface with the left and right hands, respectively. The `base_left.svg` has not been used in the experiment as we only selected right handed people.
+To run this test, you need to install the `cairosvg` module requirements. You can do it by simply installing it with `pip install cairosvg`. We use a modified version of the `cairosvg` library which is contained in the `cairosvgmg` folder.
+
+### Base file
+
+At the root of this folder, you will find the  `base_right.svg` files. It is the starting point for the different representations of the help interface. During our tests, we played with the left hand which is simply a mirrored version of the base_right file. We commented the related code in the `setup_experiment.py` script if you want to generate representations for the left hand.
 
 ### Config files
 

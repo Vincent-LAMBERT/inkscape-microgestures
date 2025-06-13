@@ -33,18 +33,20 @@
 #   SEE: https://github.com/nshkurkin/inkscape-export-layer-combos
 
 import logging
-import svg.path
 import math
 
-from .utils import *
+import svg.path
+
 from .mg_maths import *
+from .utils import *
+
 
 def addPathTypeToDicts(pathType, xml, xmls, paths) :
     """
     Adds the parsed path to the paths 
     dictionnary if it is of the given type
     """
-    if xml.get("mgrep-path-element") == pathType :
+    if xml.get(MREP_PATH_ELEMENT) == pathType :
         xmls[pathType] = xml
         path = svg.path.parse_path(xml.get("d"))
         paths[pathType] = path
@@ -69,7 +71,7 @@ def addCircleTypeToDicts(circleType, xml, xmls, circles) :
     CAUTION : As we want to move its centroid, it
     would be considered as a path with one coordinates
     """
-    if xml.get("mgrep-path-element") == circleType :
+    if xml.get(MREP_PATH_ELEMENT) == circleType :
         path_cx = xml.get("cx")
         path_cy = xml.get("cy")
         path_r = xml.get("r")

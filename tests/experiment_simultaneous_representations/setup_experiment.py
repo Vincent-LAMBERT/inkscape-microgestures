@@ -28,9 +28,9 @@ rep_th_diversified = os.path.join(representations_folder, 'TH', 'diversified')
 mappings_folder = os.path.join(output_folder, 'mappings')
 command_icons_folder_fr = os.path.join(script_path, 'icons', 'french-commands')
 command_icons_folder_en = os.path.join(script_path, 'icons', 'english-commands')
-icons_folder = command_icons_folder_fr
+icons_folder = command_icons_folder_en
 
-COMMAND_RADIUS = 7
+COMMAND_RADIUS = 2.5
 TS = 'TS'  # Partial occlusion condition
 TH = 'TH'  # Complete occlusion condition
 AANDB = 'AandB'  # A&B family
@@ -51,7 +51,7 @@ def deleteFolderContent(folder):
         elif os.path.isfile(os.path.join(folder, element)):
             os.remove(os.path.join(folder, element))
         
-def create_representations(file, output_folder, config_file, family, prefix=''):
+def create_representations(file, output_folder, config_file, family, prefix='', one_trajectory_only=False):
     """
     Create the representations for the given hand pose file.
     
@@ -62,16 +62,17 @@ def create_representations(file, output_folder, config_file, family, prefix=''):
     path_str = f"--path={output_folder}"
     config_str = f"--config={config_file}"
     family_str = f"--family={family}"
+    one_trajectory_only_str = f"--one_trajectory_only={one_trajectory_only}"
     if prefix:
         prefix_str = f"--prefix={prefix}"
     else:
         prefix_str = ""
     
-    # Redirect stdout to null to avoid printing to console
+    # Redirect stdout to null to avoid printing exported files to console
     sys.stdout = open(os.devnull, 'w')
     
     export_rep = CreateRepresentations()
-    export_rep.run(args=[file, path_str, family_str, config_str, prefix_str,])
+    export_rep.run(args=[file, path_str, family_str, config_str, prefix_str, one_trajectory_only_str])
     
     # Close the redirected stdout
     sys.stdout.close()
@@ -89,7 +90,7 @@ def add_enhancement(file, output_folder, config_file):
     path_str = f"--path={output_folder}"
     config_str = f"--config={config_file}"
     
-    # Redirect stdout to null to avoid printing to console
+    # Redirect stdout to null to avoid printing exported files to console
     sys.stdout = open(os.devnull, 'w')
     
     export_rep = AddEnhancement()
@@ -111,7 +112,7 @@ def add_legend(file, output_folder, config_file):
     path_str = f"--path={output_folder}"
     config_str = f"--config={config_file}"
     
-    # Redirect stdout to null to avoid printing to console
+    # Redirect stdout to null to avoid printing exported files to console
     sys.stdout = open(os.devnull, 'w')
     
     export_rep = AddLegend()
@@ -134,7 +135,7 @@ def complete_occlusion_adaptation(file, output_folder, strategy, integration):
     strategy_str = f"--strategy={strategy}"
     integration_str = f"--integration={integration}"
     
-    # Redirect stdout to null to avoid printing to console
+    # Redirect stdout to null to avoid printing exported files to console
     sys.stdout = open(os.devnull, 'w')
     
     export_rep = CompleteOcclusionAdaptation()
@@ -159,7 +160,7 @@ def map_commands(file, output_folder, config_file, icons_folder, output_name):
     output_name_str = f"--name={output_name}"
     radius_str = f"--radius={COMMAND_RADIUS}"
     
-    # Redirect stdout to null to avoid printing to console
+    # Redirect stdout to null to avoid printing exported files to console
     sys.stdout = open(os.devnull, 'w')
     
     export_rep = MapCommands()
@@ -184,8 +185,10 @@ def compute_base_rep(svg_file, condition, num_fingers):
     
     # Creating representations with config base_{condition}_{num_fingers}.csv
     config_file = os.path.join(config_folder, f'base_{condition}_{num_fingers}.csv')
-    create_representations(svg_file, default_folder, config_file, AANDB, prefix=f'{filename}#')
-    create_representations(svg_file, default_folder, config_file, MAS, prefix=f'{filename}#')
+    create_representations(svg_file, default_folder, config_file, AANDB, prefix=f'{filename}#', one_trajectory_only=False)
+    print(f"Created base representations for {filename} in {default_folder} for family {AANDB}")
+    create_representations(svg_file, default_folder, config_file, MAS, prefix=f'{filename}#', one_trajectory_only=False)
+    print(f"Created base representations for {filename} in {default_folder} for family {MAS}")  
     
     # Diversifying with config style_{case}.csv
     config_file = os.path.join(config_folder, f'style_{condition}.csv')
@@ -193,6 +196,7 @@ def compute_base_rep(svg_file, condition, num_fingers):
         if file_name.endswith('.svg'):
             file = os.path.join(default_folder, file_name)
             add_enhancement(file, diversified_folder, config_file)
+            print(f"Created enhanced representations for {file_name} in {diversified_folder}")
 
 def duplicate_default_to_text(file_name, condition):
     """
@@ -255,13 +259,14 @@ def compute_legends(condition_rep_folder, condition, num_fingers):
             add_legend(file_path, condition_rep_folder, config_file)
             print(f"Added legend to {file_path}")
             
-def compute_adaptation(condition_rep_folder):
+def compute_superimposition_adaptation(condition_rep_folder):
     for file_name in os.listdir(condition_rep_folder):
-        if file_name.endswith('.svg'):
+        if (file_name.startswith('Superimposition') or file_name.startswith('Legended+Superimposition')) and file_name.endswith('.svg'):
             file_path = os.path.join(condition_rep_folder, file_name)
             # Create the adaptation for the given representation
             strategy, integration = get_strat_integration(file_name)
             complete_occlusion_adaptation(file_path, condition_rep_folder, strategy, integration)
+            print(f"Adapted {file_path} with strategy {strategy} and integration {integration}")
 
 def get_strat_integration(file_name):
     """
@@ -292,7 +297,7 @@ def compute_mappings(condition_rep_folder, condition, num_fingers):
     for file_name in os.listdir(condition_rep_folder):
         if file_name.endswith('.svg'):
             file_path = os.path.join(condition_rep_folder, file_name)
-            output_name = f"{condition}_{num_fingers}_{file_name}"
+            output_name = f"{condition}_{num_fingers}_{file_name}".replace('.svg', '')
             # Create the mapping for the given representation
             map_commands(file_path, mappings_folder, config_file, icons_folder, output_name)
             print(f"Mapped commands for {file_path} to {output_name}")
@@ -339,18 +344,16 @@ def compute_representations(num_fingers):
     print(f"\n\n#############################################################")
     print(f"#######            Compute the adaptations            #######")
     print(f"#############################################################")
-    compute_adaptation(rep_ts_default)
-    compute_adaptation(rep_th_default)
-    compute_adaptation(rep_ts_diversified)
-    compute_adaptation(rep_th_diversified)
+    compute_superimposition_adaptation(rep_th_default)
+    compute_superimposition_adaptation(rep_th_diversified)
     
-    # print(f"\n\n#############################################################")
-    # print(f"#######               Map the commands                #######")
-    # print(f"#############################################################")
-    # compute_mappings(rep_ts_default, TS, num_fingers)
-    # compute_mappings(rep_th_default, TH, num_fingers)
-    # compute_mappings(rep_ts_diversified, TS, num_fingers)
-    # compute_mappings(rep_th_diversified, TH, num_fingers)
+    print(f"\n\n#############################################################")
+    print(f"#######               Map the commands                #######")
+    print(f"#############################################################")
+    compute_mappings(rep_ts_default, TS, num_fingers)
+    compute_mappings(rep_th_default, TH, num_fingers)
+    compute_mappings(rep_ts_diversified, TS, num_fingers)
+    compute_mappings(rep_th_diversified, TH, num_fingers)
 
 if __name__ == "__main__":
     # Create the output folder
@@ -375,10 +378,13 @@ if __name__ == "__main__":
     print(f"#############################################################")
     compute_representations(1)
     
-    # print(f"#############################################################")
-    # print(f"########## Compute representations for two fingers ###########")
-    # print(f"#############################################################")
-    # compute_representations(2)
+    # Delete the computes representations to compute the next ones
+    shutil.rmtree(representations_folder)
     
-    # Delete all the folders except the mappings folder
-    # shutil.rmtree(representations_folder)
+    print(f"#############################################################")
+    print(f"########## Compute representations for two fingers ###########")
+    print(f"#############################################################")
+    compute_representations(2)
+    
+    # Delete the remaining representations
+    shutil.rmtree(representations_folder)

@@ -6,7 +6,7 @@
    inkscape:export-xdpi="96"
    inkscape:export-filename="ThumbPinkyUp.png"
    sodipodi:docname="Juxtaposition.svg"
-   inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
    xml:space="preserve"
    id="svg5"
    version="1.1"
@@ -27,15 +27,15 @@
      inkscape:deskcolor="#505050"
      inkscape:document-units="mm"
      showgrid="false"
-     inkscape:zoom="0.70710691"
-     inkscape:cx="-2.12132"
-     inkscape:cy="330.21881"
-     inkscape:window-width="1440"
-     inkscape:window-height="890"
-     inkscape:window-x="214"
-     inkscape:window-y="1073"
+     inkscape:zoom="1.4142138"
+     inkscape:cx="224.85992"
+     inkscape:cy="274.35738"
+     inkscape:window-width="2560"
+     inkscape:window-height="1407"
+     inkscape:window-x="2208"
+     inkscape:window-y="0"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer7"
+     inkscape:current-layer="layer4-8"
      showguides="false"
      inkscape:pageshadow="2"><inkscape:grid
        type="xygrid"
@@ -97,23 +97,7 @@
        prop_units="false"
        vertical_pattern="false"
        hide_knot="false"
-       fuse_tolerance="0" /><marker
-       style="overflow:visible"
-       id="TriangleStart"
-       refX="0"
-       refY="0"
-       orient="auto-start-reverse"
-       inkscape:stockid="TriangleStart"
-       markerWidth="3.5"
-       markerHeight="3.5"
-       viewBox="0 0 5.3244086 6.1553856"
-       inkscape:isstock="true"
-       inkscape:collect="always"
-       preserveAspectRatio="xMidYMid"
-       markerUnits="strokeWidth"><path
-         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:0.666667"
-         d="M 2.885,0 -1.44,2.5 v -5 z"
-         id="path135" /></marker><filter
+       fuse_tolerance="0" /><filter
        style="color-interpolation-filters:sRGB"
        inkscape:label="Fade to Black or White"
        id="filter2067"
@@ -177,274 +161,28 @@
        markerUnits="userSpaceOnUse"><path
          id="path752"
          style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.35692;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1"
-         d="M 5.5922268,5.1422891 0,8.049978 V 2.2345965 Z M 10.728416,10.28801 A 5.1440001,5.1440001 0 0 1 5.5844031,5.1440126 5.1440001,5.1440001 0 0 1 10.728416,0 5.1440001,5.1440001 0 0 1 15.872391,5.1440126 5.1440001,5.1440001 0 0 1 10.728416,10.28801 Z" /></marker></defs><path
+         d="M 5.5922268,5.1422891 0,8.049978 V 2.2345965 Z M 10.728416,10.28801 A 5.1440001,5.1440001 0 0 1 5.5844031,5.1440126 5.1440001,5.1440001 0 0 1 10.728416,0 5.1440001,5.1440001 0 0 1 15.872391,5.1440126 5.1440001,5.1440001 0 0 1 10.728416,10.28801 Z" /></marker><marker
+       style="overflow:visible"
+       id="TriangleStart"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="TriangleStart"
+       markerWidth="3.5"
+       markerHeight="3.5"
+       viewBox="0 0 5.3244086 6.1553856"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid"
+       markerUnits="strokeWidth">
+      <path
+   style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:0.666667"
+   d="M 2.885,0 -1.44,2.5 v -5 z"
+   id="path135" />
+    </marker></defs><path
      id="path1331"
      style="display:inline;fill:#ffffff;fill-opacity:1;opacity:1;stroke:#919191;stroke-dasharray:none;stroke-linecap:square;stroke-opacity:1;stroke-width:0.996998579914763"
      d="M 27.0299 159.673 C 26.9046 157.255 27.2352 154.497 26.8337 150.998 C 26.4323 147.5 26.8572 142.592 25.6852 134.748 C 24.5133 126.904 24.8688 118.357 25.6368 113.281 C 26.4847 107.678 26.0844 99.6389 25.9414 95.9048 C 25.297 88.2589 24.7676 89.8045 23.2327 82.7912 C 21.087 76.125 20.8333 75.2551 18.8103 68.7425 C 15.6179 58.4651 14.2013 56.9948 11.9712 49.4804 C 10.9887 46.1698 9.53162 42.3176 11.3943 39.5959 C 13.257 36.8741 16.4688 36.7879 18.0643 37.7794 C 19.6598 38.771 24.166 44.3052 25.5272 48.3492 C 26.8884 52.3932 31.555 61.2634 33.772 66.3184 C 37.8559 74.9073 38.9264 82.7558 41.2683 84.8184 M 40.4719 83.8334 C 43.0765 88.0024 41.1468 79.5815 41.1143 77.8977 C 41.0686 75.5296 38.381 62.065 38.1767 57.584 C 37.9723 53.103 38.1608 43.6722 37.4202 38.3381 C 36.6796 33.004 35.5 26.4901 35.666 24.6761 C 35.8319 22.8622 36.0149 18.8962 39.1005 17.9641 C 42.186 17.0321 43.7221 17.6008 44.6762 18.3079 C 45.6304 19.0149 46.8489 20.316 47.6056 24.324 C 48.7519 30.3962 49.289 34.1736 49.8234 36.8484 C 50.3578 39.5231 51.1003 43.0356 51.4114 45.2031 C 51.7226 47.3705 53.3429 53.2426 53.8181 55.4178 C 54.2937 57.5928 54.6901 60.4951 54.9595 62.7579 C 55.1164 65.3949 55.2822 68.2381 55.4445 70.0674 C 55.548 71.2337 56.2773 75.9267 56.7876 79.0386 C 57.3049 82.1931 58.9555 81.787 58.9555 81.787 M 75.637 82.6961 C 75.637 82.6961 78.4795 84.068 79.9316 81.7285 C 81.3837 79.3889 84.2003 74.8907 84.611 73.0709 C 85.0217 71.2512 90.6074 53.5503 91.7573 51.2343 C 92.9073 48.9183 96.6858 34.9395 96.768 33.4506 C 96.8501 31.9618 98.3286 27.3297 100.3 26.5853 C 102.271 25.8409 105.557 26.3372 106.625 28.2396 C 107.693 30.142 108.514 29.9766 108.103 35.1049 C 107.693 40.2332 107.364 44.7825 106.461 51.1516 C 105.557 57.5206 104.161 66.2883 101.943 71.6648 C 99.725 77.0413 98.0822 84.072 96.8501 88.3732 C 95.618 92.6743 94.4201 99.7997 94.4201 101.95 C 94.4201 104.101 94.6325 107.34 94.5501 110.582 C 94.4764 113.483 95.9673 119.828 97.7301 120.636 M 59.2421 81.6798 C 59.2421 81.6798 60.0365 81.3962 60.5049 78.2664 C 61.181 73.7484 61.2269 72.7387 61.2551 69.5 C 61.2825 66.3559 61.9716 61.2735 62.2542 56.3626 C 62.4956 52.1675 64.5284 41.3227 65.0038 35.369 C 65.4792 29.4153 65.7863 20.4972 66.2653 18.1716 C 66.7443 15.846 67.2178 13.6958 69.5019 13.124 C 71.786 12.5522 73.2465 12.3057 74.8375 13.4676 C 76.4285 14.6295 77.849 15.669 78.0213 19.478 C 78.1936 23.287 77.5835 34.4777 77.5345 37.9286 C 77.4854 41.3795 77.9297 52.8469 77.3618 58.4625 C 76.9744 62.2938 76.7166 65.1119 76.0985 69.6373 C 75.6194 73.1449 74.416 77.8953 74.4461 79.3782 C 74.515 82.7743 75.983 83.0518 77.1441 83.0884 M 23.4978 184.488 C 23.4978 184.488 27.2763 171.584 27.5228 170.095 C 27.7692 168.606 27.3585 163.478 27.0299 159.673 M 96.9417 119.994 C 99.3907 122.128 100.899 122.319 104.604 121.16 C 108.232 120.024 112.511 117.681 115.275 114.489 C 118.039 111.297 118.091 110.166 119.81 109.053 C 121.529 107.939 122.272 107.165 124.25 105.73 C 126.227 104.295 130.175 101.468 133.172 100.207 C 136.169 98.9459 140.825 97.5195 142.992 99.1895 C 145.16 100.859 146.732 103.399 144.21 106.235 C 141.688 109.07 138.881 111.932 137.706 114.376 C 136.532 116.82 133.241 121.212 130.65 123.517 C 128.059 125.822 125.908 127.788 123.55 130.814 C 121.192 133.841 118.696 136.181 116.977 139.347 C 115.258 142.513 112.71 146.088 109.739 148.114 C 106.768 150.141 96.1751 154.348 91.3165 158.42 M 93.6052 156.693 C 89.2693 159.946 86.8336 162.147 84.8816 163.269 C 83.176 164.249 81.9858 164.666 80.0023 167.809 C 78.3689 170.397 78.3113 171.993 77.2029 176.71 C 76.275 180.659 75.0061 186.649 74.9171 187.031" /><g
-     inkscape:groupmode="layer"
-     id="layer4"
-     inkscape:label="Families"
-     style="display:inline"><g
-       inkscape:groupmode="layer"
-       id="g2222-8"
-       inkscape:label="MaS"
-       style="display:none"><g
-         inkscape:groupmode="layer"
-         id="g2220-8"
-         inkscape:label="Trajectory"
-         style="display:inline"><g
-           inkscape:groupmode="layer"
-           id="layer11"
-           inkscape:label="Swipe"
-           mgrep-family-layer="MaS, trajectory, swipe"
-           style="display:inline"><path
-             id="circle2498-8"
-             style="display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.11404;stroke-linecap:round;stroke-opacity:1"
-             d="m 101.41138,37.280929 c -0.62922,0.0011 -1.26843,0.107047 -1.893423,0.329178 -1.920399,0.6823 -3.250526,2.298488 -3.662826,4.157886 -1.010082,3.793353 -6.519649,24.254083 -7.58197,28.177625 -0.368,1.150199 -0.378189,2.424891 0.05581,3.646289 0.658,1.852299 2.185001,3.155801 3.960999,3.6158 l 0.001,5.17e-4 c 1.065002,0.276 2.220998,0.248139 3.332097,-0.146761 1.920398,-0.682299 3.250526,-2.298487 3.662825,-4.157886 0.818988,-3.059867 6.595298,-24.526657 7.581928,-28.177625 0.368,-1.150199 0.37818,-2.425407 -0.0558,-3.646806 -0.65799,-1.852298 -2.185,-3.1558 -3.96099,-3.6158 h -10e-4 c -0.46593,-0.12075 -0.94928,-0.183288 -1.43867,-0.182417 z m 0.0615,1.496549 c 1.7183,0.0139 3.31518,1.085371 3.92534,2.803963 0.331,0.929499 0.31584,1.893422 0.0258,2.756421 -1.37433,5.106339 -6.313536,23.509516 -7.58156,28.178125 -1.285713,4.525524 -6.849516,3.783687 -8.099247,0.574125 -0.331,-0.929499 -0.315838,-1.893938 -0.02584,-2.756937 1.438354,-5.349847 6.214109,-23.139479 7.581433,-28.177609 0.281999,-1.399898 1.271799,-2.616909 2.721794,-3.132108 0.48125,-0.170975 0.9715,-0.249872 1.45263,-0.24598 z m -7.739061,29.008561 c -2.034409,0 -3.684017,1.64968 -3.684017,3.68453 0,2.03485 1.649608,3.684416 3.684017,3.684529 0.97813,0 1.91432,-0.387965 2.60604,-1.079003 0.69058,-0.690926 1.079,-1.628404 1.079,-2.605526 0,-0.977235 -0.38842,-1.914084 -1.079,-2.605009 -0.69172,-0.690925 -1.62791,-1.079521 -2.60604,-1.079521 z"
-             mgrep-path-element="design" /><circle
-             style="display:inline;fill:#f6e90f;fill-opacity:1;stroke:none;stroke-opacity:1"
-             id="circle5115-3-7"
-             cx="93.695335"
-             cy="71.526863"
-             r="2.5"
-             mgrep-path-element="command"
-             inkscape:label="Command" /><circle
-             style="display:inline;fill:none;fill-opacity:1;stroke:#47bd52;stroke-opacity:1"
-             id="path11075-4-1-9-6"
-             cx="93.695335"
-             cy="71.526863"
-             inkscape:label="TraceStartBound"
-             mgrep-path-element="trace-start-bound"
-             r="7.4983792" /><circle
-             style="display:inline;fill:none;fill-opacity:1;stroke:#47bd52;stroke-opacity:1"
-             id="path11075-4-1-9-6-3"
-             cx="101.41585"
-             cy="42.993946"
-             r="7.4983792"
-             inkscape:label="TraceEndBound"
-             mgrep-path-element="trace-end-bound" /><path
-             style="display:inline;fill:none;fill-opacity:1;stroke:#47bd52;stroke-opacity:1"
-             d="M 93.695335,71.526863 101.34878,43.172049"
-             id="path72594-4"
-             mgrep-path-element="trace" /></g></g><g
-         inkscape:groupmode="layer"
-         id="g2212-2"
-         inkscape:label="Actuator"
-         style="display:inline"><g
-           inkscape:groupmode="layer"
-           id="layer1-6"
-           inkscape:label="Tap/Swipe"
-           mgrep-family-layer="MaS, actuator, tap|swipe"
-           style="display:inline"><path
-             style="color:#000000;display:inline;fill:#000000;stroke:none;stroke-width:0.688783;stroke-linecap:round;-inkscape-stroke:none"
-             d="m 138.335,97.8804 c -2.166,0 -3.934,1.7672 -3.934,3.9336 0,2.166 1.768,3.934 3.934,3.934 2.166,0 3.934,-1.768 3.934,-3.934 0,-2.1664 -1.768,-3.9336 -3.934,-3.9336 z m 0,1.0332 c 1.608,0 2.9,1.2924 2.9,2.9004 0,1.608 -1.292,2.9 -2.9,2.9 -1.608,0 -2.9,-1.292 -2.9,-2.9 0,-1.608 1.292,-2.9004 2.9,-2.9004 z"
-             id="path1986-8"
-             mgrep-path-element="design" /><circle
-             style="display:inline;fill:none;fill-opacity:1;stroke:#47bd52;stroke-opacity:1"
-             id="path11075-4-1-9-3"
-             cx="138.38792"
-             cy="101.78755"
-             r="5.2347221"
-             inkscape:label="TraceStartBound"
-             mgrep-path-element="trace-start-bound" /></g><g
-           inkscape:groupmode="layer"
-           id="g3040"
-           inkscape:label="Hold"
-           mgrep-family-layer="MaS, actuator, hold"
-           style="display:inline"><circle
-             style="display:inline;fill:none;fill-opacity:1;stroke:#47bd52;stroke-opacity:1"
-             id="circle3038"
-             cx="138.38792"
-             cy="101.78755"
-             r="7"
-             inkscape:label="TraceStartBound"
-             mgrep-path-element="trace-start-bound" /><path
-             id="rect1040-8-7"
-             style="display:inline;fill:none;stroke:#020603;stroke-width:0.748242;stroke-linecap:square;stroke-miterlimit:5;paint-order:markers stroke fill"
-             d="m 134.84163,98.19561 h 7.19221 v 7.19222 h -7.19221 z"
-             mgrep-path-element="design" /></g></g><g
-         inkscape:groupmode="layer"
-         id="g2216-5"
-         inkscape:label="Receiver"
-         style="display:inline"><g
-           inkscape:groupmode="layer"
-           id="layer6"
-           inkscape:label="Tap"
-           mgrep-family-layer="MaS, receiver, tap"
-           style="display:inline"><circle
-             style="display:inline;fill:none;fill-opacity:1;stroke:#47bd52;stroke-opacity:1"
-             id="path11075-4-1-9-1"
-             cx="102.90122"
-             cy="31.430143"
-             r="5.2347221"
-             inkscape:label="TraceStartBound"
-             mgrep-path-element="trace-start-bound" /><path
-             id="path5062"
-             style="display:inline;fill:#000000;fill-opacity:1;stroke-width:1.25028;stroke-linecap:round"
-             d="m 106.60235,31.44182 a 3.6417657,3.6098954 0 0 1 -3.64176,3.609895 3.6417657,3.6098954 0 0 1 -3.641764,-3.609895 3.6417657,3.6098954 0 0 1 3.641764,-3.609895 3.6417657,3.6098954 0 0 1 3.64176,3.609895 z"
-             mgrep-path-element="design" /><circle
-             style="display:inline;fill:#f6e90f;fill-opacity:1;stroke:none;stroke-opacity:1"
-             id="circle5115-3"
-             cx="102.96059"
-             cy="31.44182"
-             r="2.5"
-             mgrep-path-element="command"
-             inkscape:label="Command" /></g><g
-           inkscape:groupmode="layer"
-           id="g2848"
-           inkscape:label="Hold"
-           mgrep-family-layer="MaS, receiver, hold"
-           style="display:inline"><path
-             id="rect1040-8"
-             style="display:inline;fill:#000000;fill-opacity:1;stroke:#020603;stroke-width:0.848084;stroke-linecap:square;stroke-miterlimit:5;stroke-opacity:1;paint-order:markers stroke fill"
-             d="m 98.754129,27.393211 h 8.151921 v 8.151916 h -8.151921 z"
-             mgrep-path-element="design"
-             inkscape:label="Design" /><circle
-             style="display:inline;fill:none;fill-opacity:1;stroke:#47bd52;stroke-opacity:1"
-             id="circle2842"
-             cx="102.90122"
-             cy="31.430143"
-             r="7"
-             inkscape:label="TraceStartBound"
-             mgrep-path-element="trace-start-bound" /><circle
-             style="display:inline;fill:#f6e90f;fill-opacity:1;stroke:none;stroke-opacity:1"
-             id="circle2846"
-             cx="102.96059"
-             cy="31.44182"
-             r="2.5"
-             mgrep-path-element="command"
-             inkscape:label="Command" /></g></g></g><g
-       inkscape:groupmode="layer"
-       id="layer5"
-       inkscape:label="AandB"
-       style="display:inline;stroke-width:1.5;stroke-dasharray:none"><g
-         inkscape:groupmode="layer"
-         id="layer12"
-         inkscape:label="Trajectory"
-         style="display:inline;stroke-width:1.5;stroke-dasharray:none"><g
-           inkscape:groupmode="layer"
-           id="layer2"
-           inkscape:label="Tap/Hold"
-           mgrep-family-layer="AandB, trajectory, tap|hold"
-           style="display:inline"><path
-             style="display:inline;fill:none;stroke:#000000;stroke-width:2.2;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#TriangleStart)"
-             d="M 138.8,92.6254 C 137.72,50.9531 109.738,35.7288 109.738,35.7288"
-             id="path1012"
-             mgrep-path-element="design" /></g><g
-           inkscape:groupmode="layer"
-           id="layer33"
-           inkscape:label="Pattern"
-           style="display:none;stroke-width:1.5;stroke-dasharray:none"><path
-             id="path8540"
-             style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.5;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1"
-             d="m 140.19776,18.970398 -1.47961,0.769326 v -1.538653 z m 1.35895,1.361472 a 1.3610167,1.3610167 0 0 1 -1.36102,-1.361016 1.3610167,1.3610167 0 0 1 1.36102,-1.36102 1.3610167,1.3610167 0 0 1 1.36101,1.36102 1.3610167,1.3610167 0 0 1 -1.36101,1.361016 z" /></g><g
-           inkscape:groupmode="layer"
-           id="layer3"
-           inkscape:label="Swipe"
-           style="display:inline"
-           mgrep-family-layer="AandB, trajectory, swipe"><circle
-             style="display:inline;fill:none;fill-opacity:1;stroke:#47bd52;stroke-opacity:1"
-             id="path11073"
-             cx="100.83833"
-             cy="41.255985"
-             r="11"
-             inkscape:label="TraceEndBound"
-             mgrep-path-element="trace-end-bound" /><circle
-             style="display:inline;fill:none;fill-opacity:1;stroke:#47bd52;stroke-opacity:1"
-             id="path11075"
-             cx="93.205658"
-             cy="72.424026"
-             r="4"
-             inkscape:label="TraceStartBound"
-             mgrep-path-element="trace-start-bound" /><path
-             id="path4962-3"
-             style="color:#000000;display:inline;fill:#000000;stroke-width:2;stroke-linecap:square;stroke-miterlimit:5;stroke-dasharray:none"
-             d="m 100.2745,43.755986 -4.951119,4.963521 2.458764,0.804085 -5.750037,23.647652 c 1.712554,0.471012 0.107772,0.0025 1.888774,0.526149 l 5.87096,-23.621814 2.614308,0.729672 z"
-             mgrep-path-element="design"
-             sodipodi:nodetypes="cccccccc" /><circle
-             style="display:inline;fill:#f6e90f;fill-opacity:1;stroke:none;stroke-opacity:1"
-             id="path4705"
-             cx="100.83833"
-             cy="41.255985"
-             r="2.5"
-             mgrep-path-element="command"
-             inkscape:label="Command" /><path
-             style="display:inline;fill:none;fill-opacity:1;stroke:#47bd52;stroke-opacity:1"
-             d="M 91.646444,78.895532 100.85002,41.420208"
-             id="path72594"
-             mgrep-path-element="trace" /></g></g><g
-         inkscape:groupmode="layer"
-         id="g492"
-         inkscape:label="Receiver"
-         style="display:inline;stroke-width:1.5;stroke-dasharray:none"><g
-           inkscape:groupmode="layer"
-           id="layer8"
-           inkscape:label="Tap"
-           mgrep-family-layer="AandB, receiver, tap"
-           style="display:inline"><circle
-             style="display:inline;fill:none;fill-opacity:1;stroke:#47bd52;stroke-opacity:1"
-             id="path11075-4"
-             cx="102.5419"
-             cy="32.203682"
-             r="4"
-             inkscape:label="TraceEndBound"
-             mgrep-path-element="trace-end-bound" /><path
-             id="circle490"
-             style="display:inline;fill:#000000;fill-opacity:1;stroke-width:1.5;stroke-linecap:round;stroke-dasharray:none"
-             d="m 105.44163,32.188732 a 2.9000001,2.9000001 0 0 1 -2.9,2.9 2.9000001,2.9000001 0 0 1 -2.899996,-2.9 2.9000001,2.9000001 0 0 1 2.899996,-2.9 2.9000001,2.9000001 0 0 1 2.9,2.9 z"
-             mgrep-path-element="design"
-             inkscape:label="Design" /><circle
-             style="display:inline;fill:#f6e90f;fill-opacity:1;stroke:none;stroke-opacity:1"
-             id="circle5115"
-             cx="102.5419"
-             cy="32.203682"
-             r="2.5"
-             mgrep-path-element="command"
-             inkscape:label="Command" /></g><g
-           inkscape:groupmode="layer"
-           id="g2856"
-           inkscape:label="Hold"
-           mgrep-family-layer="AandB, receiver, hold"
-           style="display:inline"><circle
-             style="display:inline;fill:none;fill-opacity:1;stroke:#47bd52;stroke-opacity:1"
-             id="circle2850"
-             cx="102.5419"
-             cy="32.203682"
-             r="7"
-             inkscape:label="TraceEndBound"
-             mgrep-path-element="trace-end-bound" /><path
-             id="path2912"
-             style="display:inline;stroke:none;stroke-width:1.5;stroke-linecap:square;stroke-miterlimit:5;stroke-dasharray:none;paint-order:markers stroke fill;fill:#000000;fill-opacity:1"
-             d="m 108.19216,32.203682 a 5.6502643,5.6502643 0 0 1 -5.65026,5.650264 5.6502643,5.6502643 0 0 1 -5.650264,-5.650264 5.6502643,5.6502643 0 0 1 5.650264,-5.650264 5.6502643,5.6502643 0 0 1 5.65026,5.650264 z"
-             mgrep-path-element="design"
-             inkscape:label="Design" /><circle
-             style="display:inline;fill:#f6e90f;fill-opacity:1;stroke:none;stroke-opacity:1"
-             id="circle2854"
-             cx="102.5419"
-             cy="32.203682"
-             r="2.5"
-             mgrep-path-element="command"
-             inkscape:label="Command" /></g></g><g
-         inkscape:groupmode="layer"
-         id="g494"
-         inkscape:label="Actuator"
-         style="display:inline;stroke-width:1.5;stroke-dasharray:none"><g
-           inkscape:groupmode="layer"
-           id="layer32"
-           inkscape:label="Swipe"
-           mgrep-family-layer="AandB, actuator, swipe"
-           style="display:inline"><circle
-             style="display:inline;fill:none;fill-opacity:1;stroke:#47bd52;stroke-opacity:1"
-             id="path11075-4-1"
-             cx="137.86687"
-             cy="101.57572"
-             r="4"
-             inkscape:label="TraceStartBound"
-             mgrep-path-element="trace-start-bound" /><path
-             id="circle490-5-9"
-             style="display:inline;fill:#000000;fill-opacity:1;stroke-width:1.5;stroke-linecap:round;stroke-dasharray:none"
-             d="m 139.93019,101.59786 a 2.0676057,2.0676057 0 0 1 -2.06761,2.0676 2.0676057,2.0676057 0 0 1 -2.0676,-2.0676 2.0676057,2.0676057 0 0 1 2.0676,-2.067604 2.0676057,2.0676057 0 0 1 2.06761,2.067604 z"
-             mgrep-path-element="design" /></g></g></g></g><g
      inkscape:groupmode="layer"
      id="layer7"
      inkscape:label="Markers"
@@ -1143,4 +881,341 @@
            cx="137.86688"
            cy="101.57572"
            r="0.53110468"
-           inkscape:label="TapHoldActuator" /></g></g></g></svg>
+           inkscape:label="TapHoldActuator" /></g></g></g><g
+     inkscape:groupmode="layer"
+     id="layer4-8"
+     inkscape:label="Families"
+     style="display:inline">
+    <g
+   inkscape:groupmode="layer"
+   id="g2222-8"
+   inkscape:label="MaS"
+   style="display:none">
+      <g
+   inkscape:groupmode="layer"
+   id="g2220-8"
+   inkscape:label="Trajectory"
+   style="display:inline">
+        <g
+   inkscape:groupmode="layer"
+   id="layer11-3"
+   inkscape:label="Swipe"
+   mgrep-family-layer="MaS, trajectory, swipe"
+   style="display:inline">
+          <path
+   id="circle2498-8"
+   style="display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:round;stroke-opacity:1;stroke-width:1.11404"
+   d="M 102.125 37.3723 C 101.496 37.3734 100.857 37.4794 100.232 37.7015 C 98.3109 38.3838 96.9809 40 96.5689 41.8594 C 95.5589 45.6527 90.0489 66.1135 88.9869 70.037 C 88.6189 71.1872 88.6089 72.4619 89.0429 73.6833 C 89.7009 75.5356 91.2279 76.8391 93.0039 77.2991 L 93.0049 77.2996 C 94.0699 77.5758 95.2259 77.5478 96.3369 77.1528 C 98.2569 76.4705 99.5869 74.8544 99.9999 72.995 C 100.819 69.9351 106.595 48.4683 107.582 44.8173 C 107.95 43.6671 107.96 42.3919 107.526 41.1705 C 106.868 39.3182 105.341 38.0147 103.565 37.5547 L 103.564 37.5547 C 103.098 37.434 102.615 37.3714 102.125 37.3723 Z M 102.187 38.8689 C 103.905 38.8828 105.502 39.9542 106.112 41.6728 C 106.443 42.6023 106.428 43.5662 106.138 44.4292 C 104.763 49.5356 99.8239 67.9388 98.5559 72.6074 C 97.2709 77.1329 91.7069 76.3911 90.4569 73.1815 C 90.1259 72.252 90.1409 71.2876 90.4309 70.4246 C 91.8699 65.0747 96.6449 47.2851 98.0129 42.2469 C 98.2949 40.847 99.2839 39.63 100.734 39.1148 C 101.216 38.9439 101.706 38.865 102.187 38.8689 Z M 94.4479 67.8774 C 92.4129 67.8774 90.7639 69.5271 90.7639 71.5619 C 90.7639 73.5968 92.4129 75.2464 94.4479 75.2465 C 95.4259 75.2465 96.3619 74.8585 97.0539 74.1675 C 97.7439 73.4765 98.1329 72.5391 98.1329 71.5619 C 98.1329 70.5847 97.7439 69.6479 97.0539 68.9569 C 96.3619 68.266 95.4259 67.8774 94.4479 67.8774 Z"
+   mgrep-path-element="design" /><path
+   id="circle2498-8-3"
+   style="display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-linecap:round;stroke-opacity:1;stroke-width:1.11404"
+   d="M 96.5689 41.8594 C 95.5589 45.6527 90.0489 66.1135 88.9869 70.037 C 88.6189 71.1872 88.6089 72.4619 89.0429 73.6833 C 89.7009 75.5356 91.2279 76.8391 93.0039 77.2991 L 93.0049 77.2996 C 94.0699 77.5758 95.2259 77.5478 96.3369 77.1528 C 98.2569 76.4705 99.5869 74.8544 99.9999 72.995 C 100.819 69.9351 106.595 48.4683 107.582 44.8173 M 106.138 44.4292 C 104.763 49.5356 99.8239 67.9388 98.5559 72.6074 C 97.2709 77.1329 91.7069 76.3911 90.4569 73.1815 C 90.1259 72.252 90.1409 71.2876 90.4309 70.4246 C 91.8699 65.0747 96.6449 47.2851 98.0129 42.2469 M 94.4479 67.8774 C 92.4129 67.8774 90.7639 69.5271 90.7639 71.5619 C 90.7639 73.5968 92.4129 75.2464 94.4479 75.2465 C 95.4259 75.2465 96.3619 74.8585 97.0539 74.1675 C 97.7439 73.4765 98.1329 72.5391 98.1329 71.5619 C 98.1329 70.5847 97.7439 69.6479 97.0539 68.9569 C 96.3619 68.266 95.4259 67.8774 94.4479 67.8774 Z"
+   mgrep-path-element="multi-design" />
+          <circle
+   style="display:inline;fill:#f6e90f;fill-opacity:1;stroke:none;stroke-opacity:1"
+   id="circle5115-3-7"
+   cx="94.40897"
+   cy="71.61820800000001"
+   r="2.5"
+   mgrep-path-element="command"
+   inkscape:label="Command" />
+          <circle
+   style="display:inline;fill:none;fill-opacity:1;stroke:#47bd52;stroke-opacity:1"
+   id="path11075-4-1-9-6"
+   cx="94.40896999999998"
+   cy="71.618208"
+   inkscape:label="TraceStartBound"
+   mgrep-path-element="trace-start-bound"
+   r="7.498379199999995" />
+          <circle
+   style="display:inline;fill:none;fill-opacity:1;stroke:#47bd52;stroke-opacity:1"
+   id="path11075-4-1-9-6-3"
+   cx="102.12949999999998"
+   cy="43.085294999999995"
+   r="7.498379199999995"
+   inkscape:label="TraceEndBound"
+   mgrep-path-element="trace-end-bound" />
+          <path
+   style="display:inline;fill:none;fill-opacity:1;stroke:#47bd52;stroke-opacity:1"
+   d="M 94.4089 71.6182 L 102.063 43.2634"
+   id="path72594-4"
+   mgrep-path-element="trace" />
+        </g>
+      </g>
+      <g
+   inkscape:groupmode="layer"
+   id="g2212-2"
+   inkscape:label="Actuator"
+   style="display:inline">
+        <g
+   inkscape:groupmode="layer"
+   id="layer1-6"
+   inkscape:label="Tap/Swipe"
+   mgrep-family-layer="MaS, actuator, tap|swipe"
+   style="display:inline">
+          <path
+   style="-inkscape-stroke:none;color:#000000;display:inline;fill:#000000;stroke:none;stroke-linecap:round;stroke-width:0.688783"
+   d="M 139.049 97.9718 C 136.883 97.9718 135.115 99.7398 135.115 101.906 C 135.115 104.072 136.883 105.84 139.049 105.84 C 141.215 105.84 142.983 104.072 142.983 101.906 C 142.983 99.7398 141.215 97.9718 139.049 97.9718 Z M 139.049 99.0058 C 140.657 99.0058 141.949 100.298 141.949 101.906 C 141.949 103.514 140.657 104.806 139.049 104.806 C 137.441 104.806 136.149 103.514 136.149 101.906 C 136.149 100.298 137.441 99.0058 139.049 99.0058 Z"
+   id="path1986-8"
+   mgrep-path-element="design" />
+          <circle
+   style="display:inline;fill:none;fill-opacity:1;stroke:#47bd52;stroke-opacity:1"
+   id="path11075-4-1-9-3"
+   cx="139.10156"
+   cy="101.87889999999999"
+   r="5.234722099999999"
+   inkscape:label="TraceStartBound"
+   mgrep-path-element="trace-start-bound" />
+        </g>
+        <g
+   inkscape:groupmode="layer"
+   id="g3040"
+   inkscape:label="Hold"
+   mgrep-family-layer="MaS, actuator, hold"
+   style="display:inline">
+          <circle
+   style="display:inline;fill:none;fill-opacity:1;stroke:#47bd52;stroke-opacity:1"
+   id="circle3038"
+   cx="139.10156"
+   cy="101.87889999999999"
+   r="7.0"
+   inkscape:label="TraceStartBound"
+   mgrep-path-element="trace-start-bound" />
+          <path
+   id="rect1040-8-7"
+   style="display:inline;fill:none;paint-order:markers stroke fill;stroke:#020603;stroke-linecap:square;stroke-miterlimit:5;stroke-width:0.748242"
+   d="M 135.555 98.2878 L 142.748 98.2878 L 142.748 105.48 L 135.555 105.48 Z"
+   mgrep-path-element="design" />
+        </g>
+      </g>
+      <g
+   inkscape:groupmode="layer"
+   id="g2216-5"
+   inkscape:label="Receiver"
+   style="display:inline">
+        <g
+   inkscape:groupmode="layer"
+   id="layer6-1"
+   inkscape:label="Tap"
+   mgrep-family-layer="MaS, receiver, tap"
+   style="display:inline">
+          <circle
+   style="display:inline;fill:none;fill-opacity:1;stroke:#47bd52;stroke-opacity:1"
+   id="path11075-4-1-9-1"
+   cx="103.61486000000001"
+   cy="31.521493999999997"
+   r="5.234722099999999"
+   inkscape:label="TraceStartBound"
+   mgrep-path-element="trace-start-bound" />
+          <path
+   id="path5062"
+   style="display:inline;fill:#000000;fill-opacity:1;stroke-linecap:round;stroke-width:1.25028"
+   d="M 107.316 31.5332 C 107.316 33.5269 105.686 35.1431 103.674 35.1431 C 101.663 35.1431 100.033 33.5269 100.033 31.5332 C 100.033 29.5395 101.663 27.9233 103.674 27.9233 C 105.686 27.9233 107.316 29.5395 107.316 31.5332 Z"
+   mgrep-path-element="design" />
+          <circle
+   style="display:inline;fill:#f6e90f;fill-opacity:1;stroke:none;stroke-opacity:1"
+   id="circle5115-3"
+   cx="103.67423000000001"
+   cy="31.533171000000003"
+   r="2.5"
+   mgrep-path-element="command"
+   inkscape:label="Command" />
+        </g>
+        <g
+   inkscape:groupmode="layer"
+   id="g2848"
+   inkscape:label="Hold"
+   mgrep-family-layer="MaS, receiver, hold"
+   style="display:inline">
+          <path
+   id="rect1040-8"
+   style="display:inline;fill:#000000;fill-opacity:1;paint-order:markers stroke fill;stroke:#020603;stroke-linecap:square;stroke-miterlimit:5;stroke-opacity:1;stroke-width:0.848084"
+   d="M 99.4679 27.4846 L 107.62 27.4846 L 107.62 35.6365 L 99.4679 35.6365 Z"
+   mgrep-path-element="design" />
+          <circle
+   style="display:inline;fill:none;fill-opacity:1;stroke:#47bd52;stroke-opacity:1"
+   id="circle2842"
+   cx="103.61486000000001"
+   cy="31.521493999999997"
+   r="7.0"
+   inkscape:label="TraceStartBound"
+   mgrep-path-element="trace-start-bound" />
+          <circle
+   style="display:inline;fill:#f6e90f;fill-opacity:1;stroke:none;stroke-opacity:1"
+   id="circle2846"
+   cx="103.67423000000001"
+   cy="31.533171000000003"
+   r="2.5"
+   mgrep-path-element="command"
+   inkscape:label="Command" />
+        </g>
+      </g>
+    </g>
+    <g
+   inkscape:groupmode="layer"
+   id="layer5-5"
+   inkscape:label="AandB"
+   style="display:inline;stroke-dasharray:none;stroke-width:1.5">
+      <g
+   inkscape:groupmode="layer"
+   id="layer12-7"
+   inkscape:label="Trajectory"
+   style="display:inline;stroke-dasharray:none;stroke-width:1.5">
+        <g
+   inkscape:groupmode="layer"
+   id="layer2-8"
+   inkscape:label="Tap/Hold"
+   mgrep-family-layer="AandB, trajectory, tap|hold"
+   style="display:inline">
+          <path
+   style="display:inline;fill:none;marker-end:url(#TriangleStart);stroke:#000000;stroke-dasharray:none;stroke-linecap:round;stroke-opacity:1;stroke-width:2.2"
+   d="M 139.514 92.7168 C 138.434 51.0445 110.452 35.8202 110.452 35.8202"
+   id="path1012"
+   mgrep-path-element="design" />
+        </g>
+        <g
+   inkscape:groupmode="layer"
+   id="layer33"
+   inkscape:label="Pattern"
+   style="display:none;stroke-dasharray:none;stroke-width:1.5">
+          <path
+   id="path8540"
+   style="fill:#000000;fill-opacity:1;stroke:none;stroke-dasharray:none;stroke-linecap:square;stroke-opacity:1;stroke-width:1.5"
+   d="M 140.911 19.0618 L 139.432 19.8311 L 139.432 18.2925 Z M 142.27 20.4232 C 141.909 20.4233 141.563 20.2799 141.308 20.0246 C 141.053 19.7694 140.909 19.4232 140.909 19.0622 C 140.909 18.7013 141.053 18.3551 141.308 18.0998 C 141.563 17.8446 141.909 17.7012 142.27 17.7012 C 143.022 17.7012 143.631 18.3106 143.631 19.0622 C 143.631 19.8139 143.022 20.4232 142.27 20.4232 Z" />
+        </g>
+        <g
+   inkscape:groupmode="layer"
+   id="layer3-33"
+   inkscape:label="Swipe"
+   style="display:inline"
+   mgrep-family-layer="AandB, trajectory, swipe">
+          <circle
+   style="display:inline;fill:none;fill-opacity:1;stroke:#47bd52;stroke-opacity:1"
+   id="path11073"
+   cx="101.55197"
+   cy="41.347338"
+   r="11.0"
+   inkscape:label="TraceEndBound"
+   mgrep-path-element="trace-end-bound" />
+          <circle
+   style="display:inline;fill:none;fill-opacity:1;stroke:#47bd52;stroke-opacity:1"
+   id="path11075"
+   cx="93.91929"
+   cy="72.51537200000001"
+   r="9.0"
+   inkscape:label="TraceStartBound"
+   mgrep-path-element="trace-start-bound" />
+          <path
+   id="path4962"
+   style="color:#000000;display:inline;fill:#000000;stroke-dasharray:none;stroke-linecap:square;stroke-miterlimit:5;stroke-width:2.0"
+   d="M 101.564 41.5116 L 96.6129 46.4751 L 99.0719 47.2792 L 93.2089 70.931 L 93.2089 70.9326 C 92.5849 71.2123 92.1839 71.8319 92.1829 72.5154 C 92.1829 73.4744 92.9609 74.2517 93.9189 74.2518 C 94.8779 74.2517 95.6559 73.4744 95.6559 72.5154 C 95.6549 72.1329 95.5289 71.7613 95.2959 71.4581 L 95.2959 71.4571 L 101.082 47.8312 L 103.696 48.5608 Z"
+   mgrep-path-element="design" /><path
+   id="path4218"
+   style="color:#000000;display:inline;fill:#000000;stroke-dasharray:none;stroke-linecap:square;stroke-miterlimit:5;stroke-width:2.0"
+   d="M 101.082 47.8312 L 103.696 48.5608 L 101.564 41.5116 L 96.6129 46.4751 L 99.0719 47.2792 Z M 99.0719 47.2792 L 94.6229 65.1584 L 96.7099 65.6839 L 101.082 47.8312 Z"
+   mgrep-path-element="multi-design" />
+          <circle
+   style="display:inline;fill:#f6e90f;fill-opacity:1;stroke:none;stroke-opacity:1"
+   id="path4705"
+   cx="101.55197"
+   cy="41.347338"
+   r="2.5"
+   mgrep-path-element="command"
+   inkscape:label="Command" />
+          <path
+   style="display:inline;fill:none;fill-opacity:1;stroke:#47bd52;stroke-opacity:1"
+   d="M 93.9189 72.5154 L 101.564 41.5116"
+   id="path72594"
+   mgrep-path-element="trace" />
+        </g>
+      </g>
+      <g
+   inkscape:groupmode="layer"
+   id="g492"
+   inkscape:label="Receiver"
+   style="display:inline;stroke-dasharray:none;stroke-width:1.5">
+        <g
+   inkscape:groupmode="layer"
+   id="layer8-5"
+   inkscape:label="Tap"
+   mgrep-family-layer="AandB, receiver, tap"
+   style="display:inline">
+          <circle
+   style="display:inline;fill:none;fill-opacity:1;stroke:#47bd52;stroke-opacity:1"
+   id="path11075-4"
+   cx="103.25553000000001"
+   cy="32.295031"
+   r="4.0"
+   inkscape:label="TraceEndBound"
+   mgrep-path-element="trace-end-bound" />
+          <path
+   id="circle490"
+   style="display:inline;fill:#000000;fill-opacity:1;stroke-dasharray:none;stroke-linecap:round;stroke-width:1.5"
+   d="M 106.155 32.2801 C 106.155 33.8817 104.857 35.1801 103.255 35.1801 C 101.654 35.1801 100.355 33.8817 100.355 32.2801 C 100.355 30.6785 101.654 29.3801 103.255 29.3801 C 104.857 29.3801 106.155 30.6785 106.155 32.2801 Z"
+   mgrep-path-element="design" />
+          <circle
+   style="display:inline;fill:#f6e90f;fill-opacity:1;stroke:none;stroke-opacity:1"
+   id="circle5115"
+   cx="103.25553000000001"
+   cy="32.295031"
+   r="2.5"
+   mgrep-path-element="command"
+   inkscape:label="Command" />
+        </g>
+        <g
+   inkscape:groupmode="layer"
+   id="g2856"
+   inkscape:label="Hold"
+   mgrep-family-layer="AandB, receiver, hold"
+   style="display:inline">
+          <circle
+   style="display:inline;fill:none;fill-opacity:1;stroke:#47bd52;stroke-opacity:1"
+   id="circle2850"
+   cx="103.25553000000001"
+   cy="32.295031"
+   r="7.0"
+   inkscape:label="TraceEndBound"
+   mgrep-path-element="trace-end-bound" />
+          <path
+   id="path2912"
+   style="display:inline;fill:#000000;fill-opacity:1;paint-order:markers stroke fill;stroke:none;stroke-dasharray:none;stroke-linecap:square;stroke-miterlimit:5;stroke-width:1.5"
+   d="M 108.906 32.2951 C 108.906 35.4156 106.376 37.9453 103.256 37.9453 C 100.135 37.9453 97.6049 35.4156 97.6049 32.2951 C 97.6049 29.1745 100.135 26.6448 103.256 26.6448 C 106.376 26.6448 108.906 29.1745 108.906 32.2951 Z"
+   mgrep-path-element="design" />
+          <circle
+   style="display:inline;fill:#f6e90f;fill-opacity:1;stroke:none;stroke-opacity:1"
+   id="circle2854"
+   cx="103.25553000000001"
+   cy="32.295031"
+   r="2.5"
+   mgrep-path-element="command"
+   inkscape:label="Command" />
+        </g>
+      </g>
+      <g
+   inkscape:groupmode="layer"
+   id="g494"
+   inkscape:label="Actuator"
+   style="display:inline;stroke-dasharray:none;stroke-width:1.5">
+        <g
+   inkscape:groupmode="layer"
+   id="layer32"
+   inkscape:label="Swipe"
+   mgrep-family-layer="AandB, actuator, swipe"
+   style="display:inline">
+          <circle
+   style="display:inline;fill:none;fill-opacity:1;stroke:#47bd52;stroke-opacity:1"
+   id="path11075-4-1"
+   cx="138.58049999999997"
+   cy="101.66707"
+   r="4.0"
+   inkscape:label="TraceStartBound"
+   mgrep-path-element="trace-start-bound" />
+          <path
+   id="circle490-5-9"
+   style="display:inline;fill:#000000;fill-opacity:1;stroke-dasharray:none;stroke-linecap:round;stroke-width:1.5"
+   d="M 140.644 101.69 C 140.644 102.832 139.718 103.757 138.576 103.757 C 137.434 103.757 136.509 102.832 136.509 101.69 C 136.509 100.548 137.434 99.6218 138.576 99.6218 C 139.125 99.6218 139.651 99.8398 140.038 100.228 C 140.426 100.616 140.644 101.141 140.644 101.69 Z"
+   mgrep-path-element="design" />
+        </g>
+      </g>
+    </g>
+  </g></svg>
