@@ -1,0 +1,35 @@
+name: Deploy Multiple README Files to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main  # Run workflow on pushes to the main branch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Setup Pages Directory
+        run: |
+          mkdir -p _site
+          cp -r docs/* _site/
+
+      - name: Create Table of Contents
+        run: |
+          echo "# Documentation Home" > _site/index.md
+          echo "- [Home](README.md)" >> _site/index.md
+          echo "- [Export Hand Poses](export-hand-poses.md)" >> _site/index.md
+          echo "- [Create Representations](create-representations.md)" >> _site/index.md
+          echo "- [Map Commands](map-commands.md)" >> _site/index.md
+          echo "- [Add Enhancement](add-enhancement.md)" >> _site/index.md
+          echo "- [Add Legend](add-legend.md)" >> _site/index.md
+          echo "- [Complete Occlusion Adaptation](complete-occlusion-adaptation.md)" >> _site/index.md
+
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages  # Deploy to GitHub Pages branch
+          folder: _site     # Directory to publish
