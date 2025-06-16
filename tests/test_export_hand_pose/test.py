@@ -13,6 +13,9 @@ output_folder = os.path.join(script_path, 'output')
 FAMILY = 'MaS'
 
 def deleteFolderContent(folder):
+    """
+    Delete the content of a folder
+    """
     for element in os.listdir(folder):
         # If it's a folder, delete it 
         if os.path.isdir(os.path.join(folder, element)):

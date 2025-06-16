@@ -45,9 +45,15 @@ FRONT_RIGHT = "front-right"
 WRIST_ORIENTATIONS = [LEFT, RIGHT, BACK, FRONT, BACK_LEFT, BACK_RIGHT, FRONT_LEFT, FRONT_RIGHT]
 
 def get_wrist_orientation_nickname(wrist_orientation) :
+    """
+    Returns the nickname of the wrist orientation given its name
+    """
     return ''.join([str(x[0]).capitalize() for x in wrist_orientation.split('-')])
 
 def get_wrist_orientation_name(wrist_orientation_nickname) :
+    """
+    Returns the name of the wrist orientation given its nickname
+    """
     for wrist_orientation in WRIST_ORIENTATIONS :
         if get_wrist_orientation_nickname(wrist_orientation) == wrist_orientation_nickname :
             return wrist_orientation
@@ -84,14 +90,23 @@ ORIENTATION_STATUSES = { LEFT : [UP, CLOSE, FLEX],
                          FRONT_RIGHT : [UP, CLOSE, FLEX, ADDUCTION, ABDUCTION, COMPLEX]}
 
 def get_finger_nickname(finger) :
+    """
+    Returns the nickname of the finger given its name
+    """
     return finger[0].capitalize()
 
 def get_finger_name(finger_nickname) :
+    """
+    Returns the name of the finger given its nickname
+    """
     for finger in FINGERS_WITH_THUMB :
         if get_finger_nickname(finger) == finger_nickname :
             return finger
 
 def get_status_nickname(status) :
+    """
+    Returns the nickname of the status given its name
+    """
     if status == COMPLEX:
         return status[-1]
     if status in [ADDUCTION, ABDUCTION] :
@@ -99,6 +114,9 @@ def get_status_nickname(status) :
     return status[0]
 
 def get_status_name(status_nickname) :
+    """
+    Returns the name of the status given its nickname
+    """
     for status in FINGER_STATUSES :
         if get_status_nickname(status) == status_nickname :
             return status
@@ -121,12 +139,25 @@ ACCEPTED_LINKS = [  {ADDUCTION : INDEX, ABDUCTION : MIDDLE},
 
 
 def has_multi_joints(combination) :
+    """
+    Returns true if the given combination of fingers and 
+    statuses includes 'complex' annotated, statuses
+    """
     return any([status == COMPLEX for finger,status in combination])
 
 def has_add_or_abd_joints(combination) :
+    """
+    Returns true if the given combination of fingers and 
+    statuses includes 'adduction' or 'abduction' annotated statuses
+    """
     return any([status == ADDUCTION for finger,status in combination]) or any([status == ABDUCTION for finger,status in combination])
 
 def has_valid_multi_joints(combination) :
+    """
+    Returns true if in the given combination of fingers
+    statuses shows that three or four fingers are correctly joined while being up
+    (This function ensures that the 'complex' annotation is correct)
+    """
     # If the thumb is a complex, return False
     if any([finger == THUMB and status == COMPLEX for finger,status in combination]) :
         return False
@@ -139,6 +170,11 @@ def has_valid_multi_joints(combination) :
     return False
 
 def has_valid_add_and_abd_joints(combination) :
+    """
+    Returns true if in the given combination of fingers
+    statuses shows that two fingers are correctly joined while being up
+    (This function ensures that the 'adduction' or 'abduction' annotation is correct)
+    """
     # Check if there is an equal number of add-links and abd-links
     if len([status for finger,status in combination if status == ADDUCTION]) != len([status for finger,status in combination if status == ABDUCTION]) :
         return False
@@ -163,6 +199,9 @@ def has_valid_add_and_abd_joints(combination) :
     return True
 
 def intersect(list1, list2):
+    """
+    Returns the intersection of two lists
+    """
     set1 = set(list1)
     set2 = set(list2)
 
@@ -383,6 +422,10 @@ def get_fmc_combination(combination) :
     return fmcs
       
 def get_most_proximate_finger_and_charac_for_tap_raw(fmc_combination, logit) :
+    """
+    Get the finger and characteristic that are closer to the thumb in the fmc_combinations
+    Raw version that is called by 'get_most_proximate_finger_and_charac_for_tap'
+    """
     for p_f in FINGERS :
         for p_c in TAP_CHARACTERISTICS :
             for finger, mg, charac in fmc_combination :

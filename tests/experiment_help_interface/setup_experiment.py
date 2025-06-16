@@ -13,7 +13,7 @@ from microrep.map_commands import MapCommands
 script_path = os.path.dirname(os.path.realpath(__file__))
 config_folder = os.path.join(script_path, 'configurations')
 output_folder = os.path.join(script_path, 'output')
-
+temp_config_file = os.path.join(script_path, 'temp_config_file.csv')
 base_file_left = os.path.join(script_path, 'base_left.svg')
 base_file_right = os.path.join(script_path, 'base_right.svg')
 hand_poses_folder = os.path.join(output_folder, 'hand-poses')
@@ -242,7 +242,9 @@ commands_for_posture = {u.FRONT: {u.UP: {u.TAP: [u.TIP]},
 ################################################################################
 
 def create_simultaneous_config_dict_for_pose(file):
-    # Create the representations corresponding to the experiment command mapping and the hand pose
+    """
+    Create the representations corresponding to the experiment command mapping and the hand pose
+    """
     wrist_orient = u.get_wrist_orientation_name(file.split("_")[0])
     if not wrist_orient in commands_for_posture.keys():
         return None
@@ -293,6 +295,10 @@ def create_simultaneous_config_dict_for_pose(file):
     return config_dict
 
 def remove_side_in_adjacent_fingers_with_same_state(config_dict, fingers_with_status, wrist_orient):
+    """
+    Evaluate the states of all the fingers and make sure the side microgestures 
+    are only depicted when the finger is not obstructed by another finger
+    """
     fingers_with_priority = {u.INDEX: fingers_with_status[u.INDEX]}
     for finger, status in fingers_with_status.items():
         status_prioritized = [s for s in fingers_with_priority.values()]
@@ -322,20 +328,24 @@ def remove_side_in_adjacent_fingers_with_same_state(config_dict, fingers_with_st
     return new_config_dict
     
 def create_rep_config_file(config_dict):
-    # Create a string with the shape index+tap-tip,index+tap-side,middle+tap-tip,middle+tap-side,ring+tap-tip,ring+tap-side,pinky+tap-tip,pinky+tap-side from the previously created dictionnary
+    """
+    Create a string with the shape index+tap-tip,index+tap-side,middle+tap-tip,middle+tap-side,ring+tap-tip,ring+tap-side,pinky+tap-tip,pinky+tap-side from the previously created dictionnary
+    """
     config_string = ""
     for finger, microgesture in config_dict.items():
         for mg_type, mg_characs in microgesture.items():
             for mg_charac in mg_characs:
                 config_string += f"{finger}+{mg_type}-{mg_charac},"
     config_string = config_string[:-1]
-
-    with open('temp_config_file.csv', 'w') as f:
+    
+    with open(temp_config_file, 'w') as f:
         f.write(config_string)
-    return 'temp_config_file.csv'
+    return temp_config_file
 
 def create_mapping_config_file(config_dict, command_mapping):
-    # Create a string with the shape index+tap_tip-command,index+tap_side-command,middle+tap_tip-command,middle+tap_side-command,ring+tap_tip-command,ring+tap_side-command,pinky+tap_tip-command,pinky+tap_side-command from the previously created dictionnary
+    """
+    Create a string with the shape index+tap_tip-command,index+tap_side-command,middle+tap_tip-command,middle+tap_side-command,ring+tap_tip-command,ring+tap_side-command,pinky+tap_tip-command,pinky+tap_side-command from the previously created dictionnary
+    """
     config_string = ""
     for finger, microgesture in config_dict.items():
         for mg_type, mg_characs in microgesture.items():
@@ -343,14 +353,16 @@ def create_mapping_config_file(config_dict, command_mapping):
                 # print(f"mg_type: {mg_type}, command_mapping[mg_type]: {command_mapping[mg_type]}")
                 config_string += f"{finger}+{mg_type}_{mg_charac}-{command_mapping[mg_type][mg_charac][finger]},"
     config_string = config_string[:-1]
-    # print(config_string)
-    with open('temp_config_file.csv', 'w') as f:
+    
+    with open(temp_config_file, 'w') as f:
         f.write(config_string)
-    return 'temp_config_file.csv'
+    return temp_config_file
         
 def get_label_from_hand_pose(orient, hand_pose):
-    # Has as input a hand pose of the form [(finger, status), (finger, status), ...]
-    # Returns a string of the form "Finger1status1-Finger2status2-..."
+    """
+    Has as input a hand pose of the form [(finger, status), (finger, status), ...]
+    Returns a string of the form 'Finger1status1-Finger2status2-...'
+    """
     label = u.get_wrist_orientation_nickname(orient)+"_"
     for finger, status in hand_pose:
         finger_nick = u.get_finger_nickname(finger)
@@ -360,6 +372,10 @@ def get_label_from_hand_pose(orient, hand_pose):
     return label
 
 def get_one_by_one_configs_for_pose(wanted_pose, config_file):
+    """
+    Return the list of configs corresponding to the wanted pose 
+    among the configurations (one by one condition)
+    """
     config_dict = {}
     with open(config_file, 'r') as f:
         lines = f.readlines()
@@ -384,6 +400,10 @@ def get_one_by_one_configs_for_pose(wanted_pose, config_file):
     return config_dict[wanted_pose]
 
 def get_simultaneous_config_for_pose(wanted_pose, config_file):
+    """
+    Return the list of configs corresponding to the wanted pose 
+    among the configurations (simultaneous condition)
+    """
     config_dict = {}
     with open(config_file, 'r') as f:
         lines = f.readlines()
@@ -419,6 +439,9 @@ def get_simultaneous_config_for_pose(wanted_pose, config_file):
 ################################################################################
 
 def deleteFolderContent(folder):
+    """
+    Delete the content of a folder
+    """
     for element in os.listdir(folder):
         # If it's a folder, delete it 
         if os.path.isdir(os.path.join(folder, element)):
@@ -539,6 +562,12 @@ def convert_to_png(folder):
             os.remove(filename)
 
 def copy_folder_content_to_smartwatch_experiment_folder(folder, smartwatch_experiment_folder, nick=None):
+    """
+    Copy the files in the given folder to the smartwatch experiment folder.
+    
+    :param folder: The folder containing the files to copy.
+    :param smartwatch_experiment_folder: The folder to copy the files to.
+    """
     for file in os.listdir(folder):
         shutil.copy(os.path.join(folder, file), smartwatch_experiment_folder)
         if nick!=None:
@@ -550,6 +579,10 @@ def copy_folder_content_to_smartwatch_experiment_folder(folder, smartwatch_exper
         os.rename(os.path.join(smartwatch_experiment_folder, file), new_file)
         
 def create_swipe_one_by_one_representations():
+    """
+    Invoke the functions to create the representations 
+    for the SwipeOneByOne condition of the experiment
+    """
     base_file = os.path.join(script_path, 'base_right.svg')
     icon_folder = command_icons_folder_fr
     config_file = os.path.join(config_folder, 'config_one_by_one_hand_poses.csv')
@@ -608,6 +641,10 @@ def create_swipe_one_by_one_representations():
     shutil.rmtree(mappings_folder)
         
 def create_swipe_multiple_representations():
+    """
+    Invoke the functions to create the representations 
+    for the SwipeMultiple condition of the experiment
+    """
     # Setting up the variables for the simultaneous hand poses
     base_file = os.path.join(script_path, 'base_right.svg')
     icon_folder = command_icons_folder_fr
@@ -666,6 +703,10 @@ def create_swipe_multiple_representations():
     shutil.rmtree(mappings_folder)
     
 def get_mimic_hand_pose_configurations():
+    """
+    Return the configurations for the MimicHandPose 
+    condition of the experiment.
+    """
     configurations = []
     # config = {"name": "Training for left hand (french commands)", "nickname": "training_left_fr", "folder": os.path.join(mappings_training_folder, 'left', 'french'), "file": base_file_left, "command_mapping": command_mapping_training_fr, "icon_folder": command_icons_folder_fr}
     # configurations.append(config)
@@ -686,6 +727,10 @@ def get_mimic_hand_pose_configurations():
     return configurations
 
 def create_mimic_hand_pose_representations():  
+    """
+    Invoke the functions to create the representations 
+    for the MimicHandPose condition of the experiment
+    """
     configurations = get_mimic_hand_pose_configurations()
     config_file = os.path.join(config_folder, 'config_export_hand_poses.csv')
     
@@ -760,23 +805,26 @@ if __name__ == "__main__":
     if not os.path.exists(mappings_experiment_folder):
         os.mkdir(mappings_experiment_folder)
     
-    print(f"\n\n#############################################################")
-    print(f"########   Creating SwipeOneByOne representations   #########")
-    print(f"#############################################################")
-    create_swipe_one_by_one_representations()
+    # print(f"\n\n#############################################################")
+    # print(f"########   Creating SwipeOneByOne representations   #########")
+    # print(f"#############################################################")
+    # create_swipe_one_by_one_representations()
     
     print(f"\n\n#############################################################")
     print(f"########   Creating SwipeMultiple representations   #########")
     print(f"#############################################################")
     create_swipe_multiple_representations()
     
-    print(f"\n\n#############################################################")
-    print(f"########   Creating MimicHandPose representations   #########")
-    print(f"#############################################################")
-    create_mimic_hand_pose_representations()
+    # print(f"\n\n#############################################################")
+    # print(f"########   Creating MimicHandPose representations   #########")
+    # print(f"#############################################################")
+    # create_mimic_hand_pose_representations()
     
     # Delete all the folders except the smartwatch experiment folder
     shutil.rmtree(hand_poses_folder)
     shutil.rmtree(representations_folder)
     shutil.rmtree(mappings_training_folder)
     shutil.rmtree(mappings_experiment_folder)  
+    
+    # Delete the temp_config_file
+    os.remove(temp_config_file)

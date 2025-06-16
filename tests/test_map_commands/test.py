@@ -14,6 +14,9 @@ icons_folder = os.path.join(script_path, 'icons')
 COMMAND_RADIUS = 2.5 # Default radius for commands
 
 def deleteFolderContent(folder):
+    """
+    Delete the content of a folder
+    """
     for element in os.listdir(folder):
         # If it's a folder, delete it 
         if os.path.isdir(os.path.join(folder, element)):
@@ -21,7 +24,8 @@ def deleteFolderContent(folder):
         elif os.path.isfile(os.path.join(folder, element)):
             os.remove(os.path.join(folder, element))
 
-def map_commands(file, output_folder, config_file, icons_folder):
+
+def map_commands(file, output_folder, config_file, icons_folder, showMg=False):
     """
     Create the representations for the given representation file.
     
@@ -32,13 +36,14 @@ def map_commands(file, output_folder, config_file, icons_folder):
     path_str = f"--path={output_folder}"
     config_str = f"--config={config_file}"
     icons_str = f"--icons={icons_folder}"
+    showMg_str = f"--showMg={showMg}"
     radius_str = f"--radius={COMMAND_RADIUS}"
     
     # Redirect stdout to null to avoid printing exported files to console
     sys.stdout = open(os.devnull, 'w')
     
     export_rep = MapCommands()
-    export_rep.run(args=[file, path_str, config_str, icons_str, radius_str])
+    export_rep.run(args=[file, path_str, config_str, icons_str, radius_str, showMg_str])
     
     # Close the redirected stdout
     sys.stdout.close()

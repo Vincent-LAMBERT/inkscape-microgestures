@@ -56,7 +56,9 @@ def compute_default_hand_poses(multi_link_combo=True, simple_link_combo=True) :
     return hand_poses
 
 def compute_accepted_combinations(wrist_orientation, multi_link_combo=True, simple_link_combo=True) :
-    # Compute all possible combinations of finger other than the thumb and status
+    """
+    Compute all possible combinations of finger other than the thumb and status
+    """
     # Compute all possible finger statuses
     orientation_statuses = itertools.product(u.ORIENTATION_STATUSES[wrist_orientation], 
                                     repeat=len(u.FINGERS_WITH_THUMB))
@@ -151,6 +153,9 @@ def create_configuration_file(hand_poses, file_path="./configuration/config_expo
                 writer.writerow([prefix + hand_pose])
 
 def get_status(finger, pose) :
+    """
+    Returns the status corresponding to the given finger and hand pose
+    """
     for f, s in pose :
         if f == finger :
             return s

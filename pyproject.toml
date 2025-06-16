@@ -6,12 +6,12 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "microrep"
-version = "0.0.0"
+version = "1.0.10"
 authors = [{ name="Vincent Lambert", email="vincent.lambert29@gmail.com" }]
 license-files = [ "LICENSE" ]
 classifiers = [
     "Programming Language :: Python :: 3",
-    "MIT",
+    "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
 ]
 keywords = ["microgesture", "representation", "illustration", "hand", "fingers", "gesture"]
@@ -21,8 +21,14 @@ requires-python = ">=3.8"
 dependencies = [
     "requests",
     'importlib-metadata; python_version<"3.8"',
-    "inkex","lxml","numpy","Shapely","svg.path"
+    "inkex>=1.4.1",
+    "lxml>=5.4.0",
+    "Shapely>=2.1.1",
+    "svg.path>=6.3"
 ]
+
+[project.optional-dependencies]
+test = ["cairosvg"]
 
 [project.urls]
 Homepage = "https://github.com/Vincent-LAMBERT/inkscape-microgestures"

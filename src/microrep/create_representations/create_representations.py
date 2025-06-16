@@ -118,11 +118,11 @@ class CreateRepresentations(inkex.Effect):
         representation_layers = {u.get_combination_name(combination): dict()for combination in combinations}
         
         if family in family_layer_refs:
-            self.export_family(family, family_layer_refs, representation_layers, combinations, markers, logit)
+            self.register_family(family, family_layer_refs, representation_layers, combinations, markers, logit)
         else :
             logit(f"Error: family {family} not found. Exporting all families")
             for family in family_layer_refs:
-                break_bool = self.export_family(family, family_layer_refs, representation_layers, combinations, markers, logit)
+                break_bool = self.register_family(family, family_layer_refs, representation_layers, combinations, markers, logit)
                 if break_bool:
                     break
                 
@@ -134,7 +134,10 @@ class CreateRepresentations(inkex.Effect):
         rf.show_family_layers(family_layer_refs)
         rf.show_marker_layers(marker_layer_refs, logit)
     
-    def export_family(self, family, family_layer_refs, representation_layers, combinations, markers, logit=logging.info) :
+    def register_family(self, family, family_layer_refs, representation_layers, combinations, markers, logit=logging.info) :
+        """
+        Register the representation layers corresponding to the family 
+        """
         counter=1
         logit(f"Exporting {family} family\n")
         for combination in combinations:

@@ -72,7 +72,8 @@ class MapCommands(inkex.Effect):
         self.arg_parser.add_argument("--dpi", type=float, dest="dpi", default=90.0, help="DPI of exported image (if applicable)")
         self.arg_parser.add_argument("--showMg", type=inkex.Boolean, dest="showMg", default=False, help="Show microgesture type")
         self.arg_parser.add_argument("--radius", type=float, dest="radius", default=u.BASE_RADIUS, help="Command radius")
-        self.arg_parser.add_argument("--name", type=str, dest="name", default='', help="Export Name")
+        self.arg_parser.add_argument("--prefix", type=str, dest="prefix", default='', help="Export Prefix")
+        self.arg_parser.add_argument("--name", type=str, dest="name", default='', help="Export Name (overrides the prefix if set)")
         self.arg_parser.add_argument("--config", type=str, dest="config", default="~/", help="Configuration file used to export")
         self.arg_parser.add_argument("--icons", type=str, dest="icons", default="~/", help="Icons folder")
         self.arg_parser.add_argument("--debug", type=inkex.Boolean, dest="debug", default=False, help="Debug mode (verbose logging)")
@@ -128,6 +129,7 @@ class MapCommands(inkex.Effect):
                 name = f"{family_name}_{get_mapping_name(mapping)}"
             else :
                 name = self.options.name
+                self.options.prefix = '' # to make sure it is overidden
                 
             logit(f"Exporting {name}")
             ex.export(new_document, name, self.options, logit)
@@ -301,6 +303,9 @@ class MapCommands(inkex.Effect):
         return obstructions
     
     def compute_obstructions_with_definitive_texts_for_cmd_obstruction(self, obstructions, command_dicts, command_name, definitive_texts, logit=logging.info) :
+        """
+        Compute the texts that may obstruct the icon of other commands
+        """        
         for direction in obstructions[command_name].keys() :
             # We check if there is an obstruction with definitive texts only 
             if obstructions[command_name][direction] != True:
@@ -309,6 +314,9 @@ class MapCommands(inkex.Effect):
         return obstructions[command_name]
     
     def compute_obstructions_with_definitive_texts_for_text_obstruction(self, obstructions, command_dicts, command_name, definitive_texts, logit=logging.info) :
+        """
+        Compute the texts that may obstruct the text of other commands
+        """        
         for direction in obstructions[command_name].keys() :
             # We check if there is an obstruction with definitive texts only 
             dir_text_box = command_dicts[command_name]["text_boxes"][direction]["box"]
@@ -317,6 +325,9 @@ class MapCommands(inkex.Effect):
         return obstructions[command_name]
                 
     def compute_obstruction_with_definitive_texts(self, dir_text_box, definitive_texts, logit=logging.info):
+        """
+        Compute the texts that may obstruct the definitive text of other commands
+        """        
         for command in definitive_texts.keys():
             text_box = definitive_texts[command]
             if text_box != None :
@@ -326,6 +337,9 @@ class MapCommands(inkex.Effect):
         return False
                 
     def compute_definitive_texts_for_cmd_obstruction(self, obstructions, command_dicts, command_name, logit=logging.info) :
+        """
+        Compute the definitive text knowing the possible obstructions with other command icons
+        """        
         directions_with_no_obstruction = [direction for direction in obstructions[command_name].keys() if not obstructions[command_name][direction]]    
         
         # Check if there is one and only one direction with no obstruction
@@ -336,6 +350,9 @@ class MapCommands(inkex.Effect):
             return None, None
     
     def compute_definitive_texts_for_text_obstruction(self, obstructions, command_dicts, command_name, logit=logging.info):
+        """
+        Compute the definitive text knowing the possible obstructions with other command texts
+        """        
         directions_with_no_obstruction = [direction for direction in obstructions[command_name].keys() if obstructions[command_name][direction]!=True] # Don't use 'not' because we want to push out 'True' but not dictionaries
         
         if len(directions_with_no_obstruction) > 0 :
@@ -363,18 +380,27 @@ class MapCommands(inkex.Effect):
         return collision_with_commands
     
     def hide_text_obstructing_designs(self, command_name, command_dicts, obstructions, definitive_texts, logit=logging.info) :
+        """
+        Hide the texts that may obstruct other command designs
+        """
         obstructions[command_name] = self.compute_obstructions_with_definitive_texts_for_cmd_obstruction(obstructions, command_dicts, command_name, definitive_texts, logit)
         definitive_texts[command_name], direction = self.compute_definitive_texts_for_cmd_obstruction(obstructions, command_dicts, command_name, logit)
         
         return self.hide_text_obstructing(command_dicts, command_name, direction, obstructions, definitive_texts, logit)
     
     def hide_text_obstructing_definite_text(self, command_name, command_dicts, obstructions, definitive_texts, logit=logging.info) :
+        """
+        Hide the texts that may obstruct the definitive text of other commands
+        """
         obstructions[command_name] = self.compute_obstructions_with_definitive_texts_for_text_obstruction(obstructions, command_dicts, command_name, definitive_texts, logit)
         definitive_texts[command_name], direction = self.compute_definitive_texts_for_text_obstruction(obstructions, command_dicts, command_name, logit)
         
         return self.hide_text_obstructing(command_dicts, command_name, direction, obstructions, definitive_texts, logit)
         
     def hide_text_obstructing(self, command_dicts, command_name, direction, obstructions, definitive_texts, logit=logging.info) :
+        """
+        Invoke the 'hide_other_text' function and returns the remaining obstructions
+        """
         if direction != None :
             self.hide_other_texts(direction, command_dicts, command_name, logit)
             
@@ -386,7 +412,7 @@ class MapCommands(inkex.Effect):
         
     def hide_text(self, command_dicts, command_name, direction, logit=logging.info):
         """
-        Hide the text in the direction
+        Hide the text in the given direction
         """
         text_box = command_dicts[command_name]["text_boxes"][direction]["xml"]
         text_box.set("style", "display:none")
@@ -395,7 +421,7 @@ class MapCommands(inkex.Effect):
 
     def hide_other_texts(self, direction, command_dicts, command_name, logit=logging.info) :
         """
-        Hide the texts that are not in the direction
+        Hide the texts that are not in the chosen direction
         """
         text_boxes = command_dicts[command_name]["text_boxes"]
         for other_direction in text_boxes.keys() :
@@ -432,6 +458,9 @@ class MapCommands(inkex.Effect):
         return False
         
     def intersect(self, circle, text_box, logit=logging.info) :
+        """
+        Return True if the circle intersects the text box
+        """
         r = float(circle.get("r"))
         cx = float(circle.get("cx"))
         cy = float(circle.get("cy"))
@@ -510,6 +539,9 @@ class MapCommands(inkex.Effect):
         return close_points
     
     def in_segment(self, previous_point, point, hitbox_textbox, logit=logging.info) :
+        """
+        Evaluate if a point is in a segment
+        """
         # Check if previous point has None values
         if previous_point[0] != None and previous_point[1] != None :
             # We want to check if the segment [previous_point, point] intersects the hitbox
@@ -601,7 +633,7 @@ class MapCommands(inkex.Effect):
             original_style = xml.get("style")
             style_dict = {style.split(":")[0]:style.split(":")[1] for style in original_style.split(";")}
             font_size = float(style_dict["font-size"][:-2])
-            new_font_size = np.round(font_size * factor * 1.2 * np.pow(0.9, int(placeholder_radius - command_radius)), 2)
+            new_font_size = np.round(font_size * factor * 0.90 * np.pow(0.95, int(placeholder_radius - command_radius)), 2)
             new_style_element = {"font-size":f"{new_font_size}px"}
             new_style = compute_new_style(original_style, new_style_element, logit)
             xml.set("style", new_style)
@@ -1089,7 +1121,7 @@ def add_text_to_command(mg_text, cmd, logit=logging.info) :
     Add the text to the command
     """ 
     # Replace the command texts by the command name
-    for text in cmd.findall('//svg:text', namespaces=inkex.NSS) :
+    for text in cmd.findall('.//svg:text', namespaces=inkex.NSS) :
         textspan = text.find('.//svg:tspan', namespaces=inkex.NSS)
         # Set command name with capitalized first letter
         textspan.text = f"{mg_text.upper()} {textspan.text}"

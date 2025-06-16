@@ -9,3 +9,4 @@ create_extension_zip.py
 env/
 winenv/
 output/
+microrep-*

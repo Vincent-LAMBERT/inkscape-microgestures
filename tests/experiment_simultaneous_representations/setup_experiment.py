@@ -44,6 +44,9 @@ DIVERSIFIED = 'diversified'
 ################################################################################
 
 def deleteFolderContent(folder):
+    """
+    Delete the content of a folder
+    """
     for element in os.listdir(folder):
         # If it's a folder, delete it 
         if os.path.isdir(os.path.join(folder, element)):
@@ -146,7 +149,7 @@ def complete_occlusion_adaptation(file, output_folder, strategy, integration):
     # Restore stdout to default
     sys.stdout = sys.__stdout__
 
-def map_commands(file, output_folder, config_file, icons_folder, output_name):
+def map_commands(file, output_folder, config_file, icons_folder, prefix, showMg):
     """
     Create the representations for the given representation file.
     
@@ -157,14 +160,15 @@ def map_commands(file, output_folder, config_file, icons_folder, output_name):
     path_str = f"--path={output_folder}"
     config_str = f"--config={config_file}"
     icons_str = f"--icons={icons_folder}"
-    output_name_str = f"--name={output_name}"
+    prefix_str = f"--prefix={prefix}"
+    showMg_str = f"--showMg={showMg}"
     radius_str = f"--radius={COMMAND_RADIUS}"
     
     # Redirect stdout to null to avoid printing exported files to console
     sys.stdout = open(os.devnull, 'w')
     
     export_rep = MapCommands()
-    export_rep.run(args=[file, path_str, config_str, icons_str, output_name_str, radius_str])
+    export_rep.run(args=[file, path_str, config_str, icons_str, prefix_str, showMg_str, radius_str])
     
     # Close the redirected stdout
     sys.stdout.close()
@@ -176,6 +180,12 @@ def map_commands(file, output_folder, config_file, icons_folder, output_name):
 ################################################################################
 
 def compute_base_rep(svg_file, condition, num_fingers):
+    """
+    Create the representations for the TS or TH condition with 1 or 2 fingers
+    :param svg_file: The SVG file to create representations from.
+    :param condition: The condition to create representations for (TS or TH).
+    :param num_fingers: The number of fingers to create representations for (1 or 2).
+    """
     filename = os.path.basename(svg_file).replace('.svg', '')
     condition_rep_folder = os.path.join(representations_folder, condition)
     default_folder = os.path.join(condition_rep_folder, DEFAULT)
@@ -221,8 +231,10 @@ def duplicate_default_to_text(file_name, condition):
         raise FileNotFoundError(f"File {default_file} does not exist.")
 
 def adapt_TH_default_superimposition():
-    # Ensure that SpecialSuperimposition representations are renamed to be 
-    # the default Superimposition for default and not text diversification
+    """
+    Ensure that SpecialSuperimposition representations are renamed to be 
+    the default Superimposition for default and not text diversification
+    """
     for file_name in os.listdir(rep_th_default):
         if file_name.startswith('SpecialSuperimposition') and file_name.endswith('.svg'):
             # Rename the SpecialSuperimposition* files to Superimposition* files 
@@ -260,6 +272,10 @@ def compute_legends(condition_rep_folder, condition, num_fingers):
             print(f"Added legend to {file_path}")
             
 def compute_superimposition_adaptation(condition_rep_folder):
+    """
+    Adapt the Superimposition representations in the given condition folder.
+    Necessary to make sure every command is visible after applying the map_commands function.
+    """
     for file_name in os.listdir(condition_rep_folder):
         if (file_name.startswith('Superimposition') or file_name.startswith('Legended+Superimposition')) and file_name.endswith('.svg'):
             file_path = os.path.join(condition_rep_folder, file_name)
@@ -297,12 +313,21 @@ def compute_mappings(condition_rep_folder, condition, num_fingers):
     for file_name in os.listdir(condition_rep_folder):
         if file_name.endswith('.svg'):
             file_path = os.path.join(condition_rep_folder, file_name)
-            output_name = f"{condition}_{num_fingers}_{file_name}".replace('.svg', '')
-            # Create the mapping for the given representation
-            map_commands(file_path, mappings_folder, config_file, icons_folder, output_name)
-            print(f"Mapped commands for {file_path} to {output_name}")
+            prefix = f"{condition}_{num_fingers}_"
+            
+            showMg = False
+            if '@text' in file_name:
+                showMg = True
+            
+                # Create the mapping for the given representation
+                map_commands(file_path, mappings_folder, config_file, icons_folder, prefix, showMg)
+                print(f"Mapped commands for {file_path} with prefix '{prefix}'")
 
 def compute_representations(num_fingers):
+    """
+    Create the representations for the TS and TH condition with 1 or 2 fingers
+    :param num_fingers: The number of fingers to create representations for (1 or 2).
+    """
     print(f"\n\n#############################################################")
     print(f"####### Computing Superimposition and Juxtaposition  ########")
     print(f"#######     for the partial occlusion condition      ########")

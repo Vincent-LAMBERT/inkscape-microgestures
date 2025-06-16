@@ -70,8 +70,10 @@ class ExportHandPoses(inkex.Effect):
         self.arg_parser.add_argument("--dry", type=inkex.Boolean, dest="dry", default=False, help="Don't actually do all of the exports")
     
     def get_label_from_hand_pose(self, orient, hand_pose, logit):
-        # Has as input a hand pose of the form [(finger, status), (finger, status), ...]
-        # Returns a string of the form "Finger1status1-Finger2status2-..."
+        """
+        Has as input a hand pose of the form [(finger, status), (finger, status), ...]
+        Returns a string of the form 'Finger1status1-Finger2status2-...'
+        """
         label = u.get_wrist_orientation_nickname(orient)+"_"
         for finger, status in hand_pose:
             finger_nick = u.get_finger_nickname(finger)
@@ -81,6 +83,10 @@ class ExportHandPoses(inkex.Effect):
         return label
 
     def effect(self):
+        """
+        Export all combinations of layers corresponding to the given configuration
+        This allows to generate all the possible hand poses
+        """
         logit = logging.warning if self.options.debug else logging.info
         logit(f"Options: {str(self.options)}")
         
@@ -123,6 +129,9 @@ class ExportHandPoses(inkex.Effect):
             rf.show_marker_layers(marker_layer_refs, logit)
     
     def export_hand_poses(self, orient, poses, finger_layer_refs, count, logit):
+        """
+        Export the hand poses for the given wrist orientation
+        """
         for hand_pose in poses:
             update_show_hide_hand_pose(finger_layer_refs, hand_pose, logit)
 
@@ -141,6 +150,9 @@ class ExportHandPoses(inkex.Effect):
 ###### UPDATES THE HAND POSE ######
 
 def update_show_hide_orient(orient_layer_refs, orient, logit) :
+    """
+    Show the right wrist orientation layer and hide the others
+    """
     # logit(f"Update show hide (orient) : ({orient})")
 
     for wrist_orient, layer_ref in orient_layer_refs.items() :
@@ -150,6 +162,9 @@ def update_show_hide_orient(orient_layer_refs, orient, logit) :
             layer_ref.hide_layer()
     
 def update_show_hide_hand_pose(finger_layer_refs, hand_pose, logit) :
+    """
+    Show the right hand pose
+    """
     # logit(f"Update show hide hand_pose : ({hand_pose})")  
         
     for finger, status_layer_refs in finger_layer_refs.items() :
@@ -161,7 +176,7 @@ def update_show_hide_hand_pose(finger_layer_refs, hand_pose, logit) :
 
 def show_orient_front_layer(wrist_orientation_layer_refs, logit) :
     """
-    Show the wrist orientation layers
+    Show the front wrist orientation layers
     """
     for wrist_orientation in wrist_orientation_layer_refs :
         layer = wrist_orientation_layer_refs[wrist_orientation]
