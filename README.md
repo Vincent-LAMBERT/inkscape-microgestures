@@ -25,7 +25,7 @@ If during your installation another module is missing, please check your local d
 
 In case you want to build the module locally, you can run `python3 -m build` in the root folder of the project. This will create a `.tar.gz` file in the `dist` folder that you can install with `python3 -m pip install dist/microrep-{version}.tar.gz`.
 
-### Additional steps for Inkscape
+### Additional steps for Inkscape 
 
 First of all, make sure you change your Inkscape python interpreter to your python3 interpreter. You can do this by editing the `preferences.xml` file whose location is indicated in `Edit -> Preferences -> System: User Preferences`.
 You have to add the following `python-interpreter="'C:\path\to\your\python.exe'"` after `<group id="extensions"`. Please, note that you have to close all Inkscape instances **before** modifying the `preferences.xml` file, otherwise, its content may be erased on close.
