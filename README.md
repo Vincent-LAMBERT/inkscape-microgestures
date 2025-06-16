@@ -12,7 +12,7 @@ Tested with Inkscape v1.2.0+
 
 Make sure you have a [python3](https://www.python.org/downloads/) interpreter installed on your system.
 
-You can then install the extension by simply running `python3 -m pip install microrep` in a terminal. Pip should automatically install the required dependencies. If not, please check the list below :
+You can then install the extension by simply running `python3 -m pip install microrep` in a terminal. Pip should automatically install the required dependencies. If not, please check the main dependencies of this package with the list below :
 - svg.path
 - numpy
 - scipy
@@ -23,7 +23,7 @@ You can then install the extension by simply running `python3 -m pip install mic
 
 If during your installation another module is missing, please check your local distribution before warning us for a missing module in this list.
 
-In case you want to build the module locally, you can run `python3 -m build` in the root folder of the project. This will create a `.tar.gz` file in the `dist` folder that you can install with `python3 -m pip install dist/microrep-version.tar.gz`.
+In case you want to build the module locally, you can run `python3 -m build` in the root folder of the project. This will create a `.tar.gz` file in the `dist` folder that you can install with `python3 -m pip install dist/microrep-{version}.tar.gz`.
 
 ### Additional steps for Inkscape
 
