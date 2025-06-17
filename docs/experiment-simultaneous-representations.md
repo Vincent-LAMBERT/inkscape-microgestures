@@ -27,7 +27,8 @@
 
 ---
 
-This github projects has been used to setup the representations used in Experiment 1 of the paper *Studying the Simultaneous Visual Representation of Microgestures*
+This project has been used to setup the representations used in Experiment 1 of the paper [*Studying the Simultaneous Visual Representation of Microgestures*](https://dl.acm.org/doi/10.1145/3676523).
+This documentation file provides an overview of the experiment setup but does not explains the details of the experiment itself. We **strongly** recommend reading the paper for a complete understanding of the following lines.
 
 ### Installation
 
@@ -37,18 +38,25 @@ No additional installation is required
 
 Simply run the `setup_experiment.py` script	to create the representations. They will appear in the `output/mappings` folder under the svg format.
 
-### Code organization
+### Base file
 
-This overview of the code organization is not supposed to be exhaustive and requires a deep understanding of the project. Please refer to the [paper] (https://dl.acm.org/doi/10.1145/3676523) for more details.
+You will find 3 files in the `svg_files` folder: `Superimposition.svg`, `Juxtaposition.svg` and `SpecialSuperimposition.svg`.
+There are the starting points for the different representations compared in our experiment. The `SpecialSuperimposition.svg` file is a special case of `Superimposition.svg` in which the we change the design of the family. It is used to replace the representations produced from `Superimposition.svg` but only for the Default Superimposition representations in the TH condition. It gives 4 representations depending on 2 variables: with or without legend and for the A&B or the MaS family.
 
-The code of this project is divided in 7 steps repeated for the representations with 1 or 2 fingers used, i.e. index finger or index and middle fingers.
+### Config files
 
-- Computing Superimposition and Juxtaposition for the partial occlusion condition (TS condition)
-- Computing Superimposition and Juxtaposition for the complete occlusion condition (TH condition)
-- Duplicating the default representation to be the base for a text diversification (the text diversification does not modify the design of visual cues and thus the related files are not created by the `add_enhancement` subpackage)
-- Adapt the default superimposition representations to be special (we have a `SpecialSuperimposition` file because for specific reasons in this research we want to change the design of the family in very specific cases)
-- Adding the legend to the representations
-- Compute the adaptations (the adapations allow to correctly map the commands for specific cases of complete occlusion)
-- Map the commands
+The configuration files in the `configurations` folder are meant to specify the representations to create from the base svg files (`base_*` config files), add enhancements (`style_*` config files), add legends (`legend_*` config files) and create multiple mappings for each representation (`mapping_*` config files). We separated them according to the condition (TS or TH) and the number of fingers involved (1 or 2) to make things clearer.
+
+### The setup_experiment.py script
+
+The script of this project is divided in 7 steps repeated for the representations involving 1 or 2 fingers, i.e. index finger or index and middle fingers.
+
+1. Computing Superimposition and Juxtaposition for the partial occlusion condition (TS condition)
+2. Computing Superimposition and Juxtaposition for the complete occlusion condition (TH condition)
+3. Duplicating the default representation to be the base for a text diversification (the text diversification does not modify the design of visual cues and thus the related files are not created by the `add_enhancement` subpackage)
+4. Adapt the default superimposition representations to be special (we have a `SpecialSuperimposition` file because in this experiment we want to change the design of the family only for the Default Superimposition representations in the TH condition)
+5. Adding the legend to the representations
+6. Compute the adaptations (the adapations allow to correctly map the commands for specific cases of complete occlusion)
+7. Map the commands
 
 Every subpackage of the `microrep` package his used in this experiment except the `export_hand_poses` subpackage.

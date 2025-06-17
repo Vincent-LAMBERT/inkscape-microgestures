@@ -1,60 +1,133 @@
+<p align="center">
+<h1 align="center">Microrep</h1>
+<h3 align="center">A Python Package to Create Representation of Microgestures</h3>
+</p>
+<p align="center">
+  <p align="center">
+    <a href="https://vincent-lambert.eu/">Vincent Lambert</a><sup>1</sup>
+    ·
+    <a href="http://alixgoguey.fr/">Alix Goguey</a><sup>1</sup>
+    ·
+    <a href="https://malacria.com/">Sylvain Malacria</a><sup>2</sup>
+    ·
+    <a href="http://iihm.imag.fr/member/lnigay/">Laurence Nigay</a><sup>1</sup>
+    <br>
+    <sup>1</sup>Université Grenoble Alpes <sup>2</sup>Université Lille - INRIA
+  </p>
+</p>
 
-# Inkscape Plugin: Export Hand Poses
-Inkscape v1.2.0+ plugin to export the hand poses corresponding to your SVG layers.
-This plugin was developed using Nikolai Shkurkin's plugin export-layers-combo (https://github.com/nshkurkin/inkscape-export-layer-combos) as a base. 
+---
 
-## Installation
+<h3 align="center">
+    Export Hand Poses &#9995;
+</h3>
+<p align="center">
+    Go back to <a href="../README.md">Home Page</a>
+</p>
 
-Download `export_hand_poses.inx` and `export_hand_poses.py`, then copy them to the Inkscape installation folder subdirectory `share\inkscape\extensions`.
+<p align="center">
+    <u>Note:</u> in this documentation page, the base file corresponds to the <code>tests/test_export_hand_poses/initial.svg</code> file
+</p>
 
-- On Windows this may be `C:\Program Files\Inkscape\share\inkscape\extensions` (or `%appdata%\inkscape\extensions` if you don't want to install globally)
-- On Ubuntu, this may be `/usr/share/inkscape/extensions/` or (`~/.config/inkscape/extensions` if you don't want to install globally)
-- On macOS, this may be `~/Library/Application Support/org.inkscape.Inkscape/config/inkscape/extensions`
+---
 
-- Generally, you should be able to go to the Inkscape `Preferences`, select `System`, and see the path for `User extensions`
+This subpackage allows you to export SVG files with different hand poses from a base SVG and a config file. You can either create your own base file, copy our base file or use the result of a previously exported hand pose (see the `export_hand_poses` :raised_hand: subpackage).
 
-If the downloaded files have `.txt` suffixes added by GitHub, be sure to remove them. Restart Inkscape if it's running.
+### Usage 
 
-## How it works
+With the `export_hand_poses` subpackage, you can use various parameters to control the output :
 
-Open the `Layers` and `XML Editor` tabs. In the `XML Editor` select layer objects and add the attribute `export-hand-poses` to them and given them a value of the form `[finger],[status]`. 
+1. path - The directory to export into
+2. filetype - Exported file type. One of [svg|png|jpg|pdf]
+3. config - Configuration file path
+4. dpi - DPI of the exported image (if applicable)
+5. markers - Show or hide markers on the exported image
+6. debug - Debug mode (verbose logging)
+7. dry - Do not export (for testing purposes)
 
-* `[finger]` is the name of the finger the layer corresponds to. 
-* `[status]` (one of `up, down, adduction, abd-linkd, complex`) controls the visibility of the layer and how combinations are formed with each finger. `adduction` and `abduction` work in pair to create a link between two joined fingers. `complex` is used to create a link between multiple joined fingers.
+The following sections will explain the structure of the configuration file and the structure of the specific base file, to make sure you can create your own from scratch if you need to.
+Make sure to read it with the base file openned to better understand the explanations.
 
-You use the tool by running "**Extensions > Export > Export Hand Poses...**". Once you have configured your settings, you hit `Apply` to generate the combinations.
+### Specify the hand poses to export: the configuration file
 
-When you export images, the name of the image is of the form `[finger1]-[status1]-[finger2]-[...].png`.
+Each subpackage uses a different kind of configuration file. For the `export_hand_poses` subpackage, the configuration file allows to create hand poses SVG files using the following structure for each line: ``wristorientation_fingerstatus-fingerstatus-fingerstatus-fingerstatus-fingerstatus``. Each line exports a new hand pose. 
 
-## Working case
-We aim to export hand poses from a single SVG file with multiple layers having the following structure.
+`tests/test_export_hand_poses/config.csv` file:
 
+```csv
+  front_up-up-up-up-up
+  back_up-up-up-up-up
+  front-right_up-up-up-up-up
+  front-left_up-up-up-up-up
+  right_up-up-up-up-up
+  left_up-up-up-up-up
+  front_up-up-up-close-close
+  front_up-up-close-close-close
+  right_up-up-flex-flex-close
+  back_up-close-close-close-up
 ```
- layer1
-    layer1A   -  thumb, up
-    layer1B   -  thumb, down
- layer2
-    layer2A   -  index, up
-    layer2B   -  index, down
-    layer2C   -  index, adduction
-    layer2D   -  index, complex
- layer3
-    layer3A   -  middle, up
-    layer3B   -  middle, down
-    layer3C   -  middle, adduction
-    layer3D   -  middle, abduction
-    layer3E   -  middle, complex
- layer4
-    layer4A   -  ring, up
-    layer4B   -  ring, down
-    layer4C   -  ring, adduction
-    layer4D   -  ring, abduction
-    layer4E   -  ring, complex
- layer5
-    layer5A   -  pinky, up
-    layer5B   -  pinky, down
-    layer5C   -  pinky, abduction
-    layer5D   -  pinky, complex
-```
 
+You can draw inspiration from the `src/microrep/export_hand_poses/configuration_file.py` file to produce a `config.csv` file corresponding to you own needs if you don't want to do it manually.
+
+### SVG file structure
+
+To export different hand poses from the base file, you simply need to understand the concept of layers in Inkscape. Basically, each layer is a group of elements that can be hidden or shown. If a layer is above another, the elements of the upper layer are drawn on top of the elements of the lower layer. We took advantage of this concept to pre-design the hand poses with finger states and wrist orientations. An hand performing the [sign of the horns](https://en.wikipedia.org/wiki/Sign_of_the_horns) can thus be displayed by hiding and showing the right layers. This is exactly what the `export_hand_poses` subpackage does, according to the configuration file.
 When you run the tool, it will generate various hand poses corresponding to your designs. Please make sure your layers overlap correctly as the final results depends on the order of the layers.
+
+#### Declaring the wrist orientation with the attribute `mgrep-wrist-orientation`
+
+Each finger status design is different according to the wrist orientation. Thus, each top layer corresponding to the wrist orientation, e.g. Front or Right, must have the attribute `mgrep-wrist-orientation` set to the corresponding wrist orientation among `front`, `right`, `back`, `left`, `front-right`, `front-left`, `back-right` and `back-left`.
+
+Base file XML structure:
+
+```xml
+  <g inkscape:groupmode="layer" ... inkscape:label="Front" 
+     mgrep-wrist-orientation="front" g>
+   <g inkscape:groupmode="layer" ... inkscape:label="Back"
+     mgrep-wrist-orientation="back" g>...</g>
+   <g inkscape:groupmode="layer" ... inkscape:label="Right"   
+     mgrep-wrist-orientation="right" g>...</g>
+   <g inkscape:groupmode="layer" ... inkscape:label="Left" 
+     mgrep-wrist-orientation="left" g>...</g>
+   <g inkscape:groupmode="layer" ... inkscape:label="Front-Right" 
+     mgrep-wrist-orientation="front-right" g>...</g>
+   <g inkscape:groupmode="layer" ... inkscape:label="Back-Left" 
+     mgrep-wrist-orientation="back-left" g>...</g>
+   <g inkscape:groupmode="layer" ... inkscape:label="Front-Left" 
+     mgrep-wrist-orientation="front-left" g>...</g>
+   <g inkscape:groupmode="layer" ... inkscape:label="Back-Right" 
+     mgrep-wrist-orientation="back-right" g>...</g>
+    <!-- used by the create_representations subpackage on the exported hand poses -->
+   <g inkscape:groupmode="layer" ... inkscape:label="Families" g>...</g>
+```
+
+<u>Note:</u> In the following explanations, we will shorten the ```inkscape:groupmode="layer" ... inkscape:label="..."``` part of the XML structure with the term ```...label="..."```. 
+
+#### Declaring the finger statuses with the attribute `mgrep-finger-poses`
+
+Each finger status must have the `mgrep-finger-poses` attribute and be the child of a layer with the `mgrep-wrist-orientation` attribute. These attributes can be seen in the `XML Editor` tab of Inkscape. The ``mgrep-finger-poses`` attribute takes values with the shape `[finger],[status]`.
+
+* `[finger]` is the name of the finger. It can be either `thumb`, `index`, `middle`, `ring` or `pinky`	
+* `[status]` is the status of the finger. It can be either `up`, `close`, `flex`, `abduction`, `adduction` or `complex`
+
+The `abduction` and `adduction` statuses work in pair. When you want to export an hand pose with the `abduction` status set to the middle finger in the configuration file, you need to also apply the `adduction` status to the ring finger.
+Similarly, when setting the `complex` status, at least three adjacent finger must be set to `complex` in total.
+
+Base file XML structure:
+
+```xml
+  <g ...label="Front" mgrep-wrist-orientation="front" g>
+      <g ...label="Index" g>
+         <g ...label="IndexDown" mgrep-finger-poses="index,close" g>...</g>
+         <g ...label="IndexFlex" mgrep-finger-poses="index,flex" g>...</g>
+         <g ...label="IndexUp" mgrep-finger-poses="index,up" g>...</g>
+         <g ...label="IndexMiddleSimpleJoint" mgrep-finger-poses="index,adduction" g>...</g>
+         <g ...label="IndexMiddleComplexJoint" mgrep-finger-poses="index,complex" g>...</g>
+      </g>
+      <g ...label="Ring" g>...</g>
+      <g ...label="Pinky" g>...</g>
+      <g ...label="Middle" g>...</g>
+      <g ...label="Thumb" g>...</g>
+  </g>
+  ...
+```

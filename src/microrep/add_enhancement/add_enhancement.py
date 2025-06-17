@@ -63,7 +63,7 @@ class AddEnhancement(inkex.Effect):
         self.arg_parser.add_argument('-f', '--filetype', type=str, dest='filetype', default='svg', 
                                      help='Exported file type. One of [svg|png|jpg|pdf]')
         self.arg_parser.add_argument("--dpi", type=float, dest="dpi", default=90.0, help="DPI of exported image (if applicable)")
-        self.arg_parser.add_argument("--config", type=str, dest="config", default="~/", help="Configuration file used to export (Optional)")
+        self.arg_parser.add_argument("--config", type=str, dest="config", default="~/", help="Configuration file used to export")
         self.arg_parser.add_argument("--debug", type=inkex.Boolean, dest="debug", default=False, help="Debug mode (verbose logging)")
     
     def effect(self):

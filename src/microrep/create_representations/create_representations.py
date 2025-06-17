@@ -60,15 +60,15 @@ class CreateRepresentations(inkex.Effect):
     def __init__(self):
         super().__init__()
         self.arg_parser.add_argument("--path", type=str, dest="path", default="~/", help="The directory to export into")
-        self.arg_parser.add_argument("--prefix", type=str, dest="prefix", default="", help='Prefix to add to the exported file name (Optional)')
+        self.arg_parser.add_argument("--prefix", type=str, dest="prefix", default="", help='Prefix to add to the exported file name')
         self.arg_parser.add_argument('-f', '--filetype', type=str, dest='filetype', default='svg', 
                                      help='Exported file type. One of [svg|png|jpg|pdf]')
         self.arg_parser.add_argument("--dpi", type=float, dest="dpi", default=90.0, help="DPI of exported image (if applicable)")
-        self.arg_parser.add_argument("--config", type=str, dest="config", default="~/", help="Configuration file used to export (Optional)")
+        self.arg_parser.add_argument("--config", type=str, dest="config", default="~/", help="Configuration file used to export")
         self.arg_parser.add_argument("--family", type=str, dest="family", default="AandB", help="Selected family")
         self.arg_parser.add_argument("--traces", type=inkex.Boolean, dest="traces", default=False, help='Show traces')
         self.arg_parser.add_argument("--command", type=inkex.Boolean, dest="command", default=False, help='Show command placeholders')
-        self.arg_parser.add_argument("--radius", type=float, dest="radius", default=2.5, help="Command radius (temporary)")
+        self.arg_parser.add_argument("--radius", type=float, dest="radius", default=2.5, help="Command expected radius")
         self.arg_parser.add_argument("--one_trajectory_only", type=inkex.Boolean, dest="one_trajectory_only", default=True, help="Depicts one trajectory at max to avoid cluttering (default: True)")
         self.arg_parser.add_argument("--four", type=inkex.Boolean, dest="four", default=False, help='Stop after processing the four first representations of a family')
         self.arg_parser.add_argument("--one", type=inkex.Boolean, dest="one", default=False, help='Stop after processing one family')

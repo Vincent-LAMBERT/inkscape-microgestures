@@ -19,7 +19,7 @@
 ---
 
 <h3 align="center">
-    Inkscape installation steps
+    Inkscape installation steps &#127912;
 </h3>
 <p align="center">
     Go back to <a href="../README.md">Home Page</a>
@@ -27,7 +27,7 @@
 
 ---
 
-## From a python package to an Inkscape extension
+### From a python package to an Inkscape extension
 
 First of all, make sure you change your Inkscape python interpreter to your `python` or `python3` interpreter with the `microrep` package installed (or install it in your Inkscape python interpreter). You can do this by editing the `preferences.xml` file whose location is indicated in `Edit -> Preferences -> System: User Preferences`. Then add the following `python-interpreter="'path/to/your/python'"` after `<group id="extensions"`. 
 
@@ -43,7 +43,7 @@ Finally, restart Inkscape if it's already running.
 You can find all the configured paths in `Edit -> Preferences -> System`.
 
 
-## Running the extensions from Inkscape
+### Running the extensions from Inkscape
 You can use the extensions by running `Extensions > Microgestures > Extension Name...`. Once you have configured your settings, you hit `Apply` to generate the representations. 
 
-:warning: :warning: :warning: The extensions may not work if you have not previously applied the transformations. Please run `Extensions > Modify Path > Apply Transform...` to do so.
+:warning: :warning: :warning: The extensions may not work as expected if you have not previously applied the transformations. Please run `Extensions > Modify Path > Apply Transform...` to do so.

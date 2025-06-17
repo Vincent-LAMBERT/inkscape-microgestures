@@ -1,12 +1,42 @@
-# Experiment setup:
-### Designing a Help Interface for Hand Microgestures 
+<p align="center">
+<h1 align="center">Microrep</h1>
+<h3 align="center">A Python Package to Create Representation of Microgestures</h3>
+</p>
+<p align="center">
+  <p align="center">
+    <a href="https://vincent-lambert.eu/">Vincent Lambert</a><sup>1</sup>
+    ·
+    <a href="http://alixgoguey.fr/">Alix Goguey</a><sup>1</sup>
+    ·
+    <a href="https://malacria.com/">Sylvain Malacria</a><sup>2</sup>
+    ·
+    <a href="http://iihm.imag.fr/member/lnigay/">Laurence Nigay</a><sup>1</sup>
+    <br>
+    <sup>1</sup>Université Grenoble Alpes <sup>2</sup>Université Lille - INRIA
+  </p>
+</p>
 
-This folder contains the code and resources used to create the representations of the paper *Designing a Help Interface for Hand Microgestures* being submitted concomitantly with the evaluation of my thesis.
-This README file provides an overview of the experiment setup but does not explains the details of the experiment itself. I **strongly** recommend reading the paper for a complete understanding of the following lines.
+---
 
-# Installation
+<h3 align="center">
+    Experiment 2: Designing a Help Interface for Hand Microgestures
+</h3>
+<p align="center">
+    Go back to <a href="../README.md">Home Page</a>
+</p>
 
-To run this test, you need to install the `cairosvg` module requirements. You can do it by simply installing it with `pip install cairosvg`. We use a modified version of the `cairosvg` library which is contained in the `cairosvgmg` folder.
+---
+
+This project has been used to setup the representations used to create the representations of the paper *Designing a Help Interface for Hand Microgestures* being submitted concomitantly with the evaluation of the thesis written by Vincent Lambert.
+This documentation file provides an overview of the experiment setup but does not explains the details of the experiment itself. We **strongly** recommend reading the paper for a complete understanding of the following lines.
+
+### Installation
+
+To run this test, you need to install the `cairosvg` module requirements. You can do it by simply installing it with `pip install cairosvg`. We use a modified version of the `cairosvg` library which is contained in the `cairosvgmg` folder and called directly in the `setup_experiment.py` script.
+
+### Usage
+
+Simply run the `setup_experiment.py` script	to create the representations. They will appear in the `output/smartwatch-export` folder under the png format.
 
 ### Base file
 
@@ -39,5 +69,7 @@ This script is used to generate the Kotlin dictionaries for the smartwatch appli
 
 Finally, to make the smartwatch application usable, you need to import as drawables the PNG files in the `output/smartwatch-export` folder. 
 
-## License
-Except for the `cairosvgmg` folder, which is a copy of the `cairosvg` library, this project is licensed under the MIT License. The `cairosvgmg` folder contains the source code of the `cairosvg` library, which is licensed under the GNU Lesser General Public License v3.0 (LGPL-3.0). You can find the full license text in the `cairosvgmg/LICENSE` file.
+### License
+Except for the `cairosvgmg` folder, which is a copy of the `cairosvg` library, this project is licensed under the MIT License. The `cairosvgmg` folder contains the source code of the `cairosvg` library, which is licensed under the GNU Lesser General Public License v3.0 (LGPL-3.0). You can find its full license text in the `cairosvgmg/LICENSE` file.
+
+The MIT License of this project as a whole can be found at the root folder of the project.
