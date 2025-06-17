@@ -38,4 +38,4 @@ Issues = "https://github.com/Vincent-LAMBERT/inkscape-microgestures/issues"
 where = ["src"]
 
 [tool.setuptools.package-data]
-microrep = ["*.svg"]
+microrep = ["*.svg", "*.inx"]
