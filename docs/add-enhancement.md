@@ -31,7 +31,7 @@
 
 ---
 
-This subpackage allows you to add enhancements, i.e. a style, representations of microgestures given a base SVG and a config file. You can either create your own base file, copy our base file or use the result of a previously exported hand pose (see the `create_representations` :cyclone: subpackage).
+This subpackage allows you to add enhancements to representations of microgestures, i.e. change the color or size of its visual cues, given a base SVG and a configuration file. You can either create your own base file, copy our base file or use the result of a previously exported hand pose (see the `create_representations` :cyclone: subpackage).
 
 ### Usage
 
@@ -48,7 +48,7 @@ Make sure to read it with the base file openned to better understand the explana
 
 ### Specify the enhancement: the configuration file
 
-Each subpackage uses a different kind of configuration file. For the `add_enhancement` subpackage, the configuration file allows to style an existing representation using the following structure for each line : ``"[enhancement name] : ([microgesture], [characteristic], [value])--([microgesture], [characteristic], [value])--..."``
+Each subpackage uses a different kind of configuration file. For the `add_enhancement` subpackage, the configuration file allows to style an existing representation using the following structure for each line : ``"[enhancement name] : ([microgesture], [characteristic], [value])[--([microgesture], [characteristic], [value])]*"``
 
 `tests/test_add_enhancement/config.csv` file:
 

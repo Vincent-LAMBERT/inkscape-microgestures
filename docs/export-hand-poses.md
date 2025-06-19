@@ -31,7 +31,7 @@
 
 ---
 
-This subpackage allows you to export SVG files with different hand poses from a base SVG and a config file. You can either create your own base file, copy our base file or use the result of a previously exported hand pose (see the `export_hand_poses` :raised_hand: subpackage).
+This subpackage allows you to export SVG files with different hand poses from a base SVG and a configuration file. You can either create your own base file, copy our base file or use the result of a previously exported hand pose (see the `export_hand_poses` :raised_hand: subpackage).
 
 ### Usage 
 
@@ -71,7 +71,7 @@ You can draw inspiration from the `src/microrep/export_hand_poses/configuration_
 
 ### SVG file structure
 
-To export different hand poses from the base file, you simply need to understand the concept of layers in Inkscape. Basically, each layer is a group of elements that can be hidden or shown. If a layer is above another, the elements of the upper layer are drawn on top of the elements of the lower layer. We took advantage of this concept to pre-design the hand poses with finger states and wrist orientations. An hand performing the [sign of the horns](https://en.wikipedia.org/wiki/Sign_of_the_horns) can thus be displayed by hiding and showing the right layers. This is exactly what the `export_hand_poses` subpackage does, according to the configuration file.
+To export different hand poses from the base file, you simply need to understand the concept of layers in Inkscape. Basically, each layer is a group of elements that can be hidden or shown. If a layer is above another, the elements of the upper layer are drawn on top of the elements of the lower layer. We took advantage of this concept to pre-design the hand poses with finger states and wrist orientations. A hand performing the [sign of the horns](https://en.wikipedia.org/wiki/Sign_of_the_horns) can thus be displayed by hiding and showing the right layers. This is exactly what the `export_hand_poses` subpackage does, according to the configuration file.
 When you run the tool, it will generate various hand poses corresponding to your designs. Please make sure your layers overlap correctly as the final results depends on the order of the layers.
 
 #### Declaring the wrist orientation with the attribute `mgrep-wrist-orientation`
@@ -82,7 +82,7 @@ Base file XML structure:
 
 ```xml
   <g inkscape:groupmode="layer" ... inkscape:label="Front" 
-     mgrep-wrist-orientation="front" g>
+     mgrep-wrist-orientation="front" g>...</g>
    <g inkscape:groupmode="layer" ... inkscape:label="Back"
      mgrep-wrist-orientation="back" g>...</g>
    <g inkscape:groupmode="layer" ... inkscape:label="Right"   

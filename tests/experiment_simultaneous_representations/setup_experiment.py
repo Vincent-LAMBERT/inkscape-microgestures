@@ -319,9 +319,9 @@ def compute_mappings(condition_rep_folder, condition, num_fingers):
             if '@text' in file_name:
                 showMg = True
             
-                # Create the mapping for the given representation
-                map_commands(file_path, mappings_folder, config_file, icons_folder, prefix, showMg)
-                print(f"Mapped commands for {file_path} with prefix '{prefix}'")
+            # Create the mapping for the given representation
+            map_commands(file_path, mappings_folder, config_file, icons_folder, prefix, showMg)
+            print(f"Mapped commands for {file_path} with prefix '{prefix}'")
 
 def compute_representations(num_fingers):
     """

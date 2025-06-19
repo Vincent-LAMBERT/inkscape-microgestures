@@ -31,7 +31,7 @@
 
 ---
 
-This subpackage allows you to create simultaneous representations of microgestures given a base SVG and a config file. You can either create your own base file, copy our base file or use the result of a previously exported hand pose (see the `export_hand_poses` :raised_hand: subpackage).
+This subpackage allows you to create simultaneous representations of microgestures given a base SVG and a configuration file. You can either create your own base file, copy our base file or use the result of a previously exported hand pose (see the `export_hand_poses` :raised_hand: subpackage).
 
 ### Usage 
 
@@ -61,6 +61,7 @@ Each subpackage uses a different kind of configuration file. For the `create_rep
 `tests/test_create_simultaneous_representations/config.csv` file:
 
 ```csv
+  index+tap-tip,index+hold-tip
   index+tap-tip,index+tap-middle,index+tap-base,index+swipe-up,index+swipe-down
   index+tap-tip,index+tap-middle,index+tap-base,index+hold-tip,index+hold-middle,index+hold-base
   index+tap-tip,index+tap-middle,index+tap-base,index+swipe-up,index+swipe-down,middle+tap-tip,middle+tap-middle,middle+tap-base,middle+swipe-up,middle+swipe-down

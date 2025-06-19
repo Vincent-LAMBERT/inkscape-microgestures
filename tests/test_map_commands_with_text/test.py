@@ -11,7 +11,7 @@ base_file = os.path.join(script_path, 'initial.svg')
 config_file = os.path.join(script_path, 'config.csv')
 output_folder = os.path.join(script_path, 'output')
 icons_folder = os.path.join(script_path, 'icons')
-COMMAND_RADIUS = 2.5 # Default radius for commands
+COMMAND_RADIUS = 7
 
 def deleteFolderContent(folder):
     """

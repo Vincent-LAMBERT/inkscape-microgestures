@@ -633,7 +633,7 @@ class MapCommands(inkex.Effect):
             original_style = xml.get("style")
             style_dict = {style.split(":")[0]:style.split(":")[1] for style in original_style.split(";")}
             font_size = float(style_dict["font-size"][:-2])
-            new_font_size = np.round(font_size * factor * 0.90 * np.pow(0.95, int(placeholder_radius - command_radius)), 2)
+            new_font_size = np.round(font_size * factor * 0.9 * np.pow(0.95, int(placeholder_radius - command_radius)), 2)
             new_style_element = {"font-size":f"{new_font_size}px"}
             new_style = compute_new_style(original_style, new_style_element, logit)
             xml.set("style", new_style)

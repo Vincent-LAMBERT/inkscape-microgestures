@@ -31,7 +31,7 @@
 
 ---
 
-This subpackage allows you to create commands mappings for a given representation of microgestures and a config file. This subpackage has been designed to use the result of a representation previously created with the `create_representations` :cyclone: subpackage. You can still create you own base file if you want to but we recommend not to.
+This subpackage allows you to create commands mappings for a given representation of microgestures and a configuration file. This subpackage has been designed to use the result of a representation previously created with the `create_representations` :cyclone: subpackage. You can still create you own base file if you want to but we recommend not to.
 
 ### Usage 
 
@@ -86,8 +86,15 @@ Base file XML structure:
 
 #### Specify the command placeholder with `mgrep-path-element`
 
-The base file of `create_representations` allows your to create representations while defining the placeholder for each command. To do so, 
-you can associate set attribute `mgrep-path-element` of a **circle** to `command`. The `map_commands` subpackage then imports the `icon_placeholder.svg` file and the related icon files, places them onto the placeholders and determines where the text should be placed. Each command has 4 text anchors: *top*, *bottom*, *left* and *right*.
+The base file of `create_representations` allows you to create representations while defining the placeholder for each command. To do so, 
+you can associate set attribute `mgrep-path-element` of a **circle** to `command`. The `map_commands` subpackage then imports the `icon_placeholder.svg` file and the related icon files, places them onto the placeholders.
+
+### The hidden attributes
+
+To know exactly where the text should be placed, the `map_commands` subpackage uses two hidden attributes:
+
+1. The `mgrep-icon` is an attribute set to `template` in the `icon_placeholder.svg` file to quickly identify the template of the command icon when duplicated. In the SVG files for the icons, the `mgrep-icon` attribute can also be set to `command` for the layer containing the SVG paths and `centroid` to the path used to calculate the centroid of the command icon. 
+2. The `mgrep-command` is an attribute set to `template` to identify the whole duplicated template (icon+text) from the `icon_placeholder.svg` file. It can also be set to `text, above`, `text, below`, `text, left` or `text, right` to identify the text layer. Finally, it can also be set to `marker, above`, `marker, below`, `marker, left` or `marker, right` to identify the text markers. Using text markers makes it easier to deal with scaling. 
 
 ### Sources
 

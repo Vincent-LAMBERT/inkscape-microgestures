@@ -39,7 +39,7 @@ This package is based on a few main concepts:
   * *Single-picture representations of microgestures* describe illustrations that shows one microgesture per hand shape. Multiple single-picture representations are typically used to illustrate a set of microgestures.
   * *Simultaneous representations of microgestures* describe illustrations that shows multiple microgestures on the same hand shape.
 * **Families** describe the consistent set of visual cues used to shape the representations of each microgesture. You can use the `mgrep-family-layer` and the `mgrep-path-element` attributes to attribute your own visual cues to the available microgestures.
-* **Markers** define the key points of the representations. They are used to define the position of the visual cues defined by the families for the different microgestures. You can use the `mgrep-marker` attribute to define the markers.
+* **Markers** define the key points of the representations. They are used to define the position of the visual cues defined by the families for the different microgestures. You can use the `mgrep-marker` attribute to define the markers. It accepts a value with the shape `[finger],[microgesture],[characteristic],[markerType]`. `[finger]` can be one of `thumb`, `index`, `middle`, `ring` or `pinky`. `{microgesture]` can be one of `tap`, `swipe` or `hold`. `[characteristic]` can be one of `nail`, `tip` or `middle`, `base`, `up`, `down`, `left`, `right`. `[markerType]` can be one of `actuator`, `receiver`, `traj-start`, `traj-end`.
 
 The file `initial.svg` is an example of a base file that can be used as a starting point (with the `export_hand_poses` :raised_hand: subpackage). If you inspect it, you will find that it is structured and annotated according to these concepts.. For more details, please refer to the detailed documentation of each subpackage
 
@@ -85,7 +85,7 @@ In case you want to build the module locally, you can run `python3 -m build` in 
 
 ## Credits
 
-This `microrep` package was developed using Nikolai Shkurkin's plugin export-layers-combo (https://github.com/nshkurkin/inkscape-export-layer-combos) as a base. 
+This `microrep` package was developed using Nikolai Shkurkin's extension export-layers-combo (https://github.com/nshkurkin/inkscape-export-layer-combos) as a base. 
 
 ## License
 

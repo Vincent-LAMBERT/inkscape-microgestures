@@ -31,7 +31,7 @@
 
 ---
 
-This subpackage allows you to add legends to representations of microgestures given a base SVG and a config file. You can either create your own base file, copy our base file or use the result of a previously exported hand pose (see the `create_representations` :cyclone: subpackage).
+This subpackage allows you to add legends to representations of microgestures given a base SVG and a configuration file. You can either create your own base file, copy our base file or use the result of a previously exported hand pose (see the `create_representations` :cyclone: subpackage).
 
 ### Usage
 
@@ -48,7 +48,7 @@ With the `add_legend` subpackage, you can use various parameters to control the 
 The following sections will explain the structure of the configuration file and the structure of the specific base file, to make sure you can create your own from scratch if you need to.
 Make sure to read it with the base file openned to better understand the explanations.
 
-### Specify the enhancement: the configuration file
+### Specify the legend: the configuration file
 
 In case you want to add a legend, you need to specify how you want to regroup the commands. To do so, you can use a configuration file to define the groups. In the configuration file, each line defines a possible organization with groups respecting the following structure : ``finger+microgesture-characteristic[_finger+microgesture-characteristic]*``.
 
@@ -61,3 +61,6 @@ In case you want to add a legend, you need to specify how you want to regroup th
 
 In this example, all the microgestures are separated in two frames, one per line.
 
+### The hidden attribute
+
+To know exactly what kind of legend display onto the representation, we use a hidden attribute already set on pre-created legend frames: the `mgrep-legend`. It can be set to `legend` to identify the whole legend and move it or to a ordinal number between `first` and `sixth` to identify the markers where to place the commands.

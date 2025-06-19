@@ -805,20 +805,20 @@ if __name__ == "__main__":
     if not os.path.exists(mappings_experiment_folder):
         os.mkdir(mappings_experiment_folder)
     
-    # print(f"\n\n#############################################################")
-    # print(f"########   Creating SwipeOneByOne representations   #########")
-    # print(f"#############################################################")
-    # create_swipe_one_by_one_representations()
+    print(f"\n\n#############################################################")
+    print(f"########   Creating SwipeOneByOne representations   #########")
+    print(f"#############################################################")
+    create_swipe_one_by_one_representations()
     
     print(f"\n\n#############################################################")
     print(f"########   Creating SwipeMultiple representations   #########")
     print(f"#############################################################")
     create_swipe_multiple_representations()
     
-    # print(f"\n\n#############################################################")
-    # print(f"########   Creating MimicHandPose representations   #########")
-    # print(f"#############################################################")
-    # create_mimic_hand_pose_representations()
+    print(f"\n\n#############################################################")
+    print(f"########   Creating MimicHandPose representations   #########")
+    print(f"#############################################################")
+    create_mimic_hand_pose_representations()
     
     # Delete all the folders except the smartwatch experiment folder
     shutil.rmtree(hand_poses_folder)
