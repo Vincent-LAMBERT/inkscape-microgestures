@@ -1,5 +1,9 @@
 <p align="center">
-<h1 align="center">Microrep</h1>
+<div style="display: table; margin: 0 auto">
+    <h1 style="display: table-cell; vertical-align: middle;padding-right: 20px">microrep</h1>
+    <span style="display: table-cell; vertical-align: middle;padding-right: 5px"><img src="./images/microRep_Full.png" alt="Project Settings screenshot" height="75" width="75"/></span>
+    <span style="display: table-cell; vertical-align: middle;"><img src="./images/python_logo.png" alt="Project Settings screenshot" height="75" width="75"/></span>
+</div>
 <h3 align="center">A Python Package to Create Representation of Microgestures</h3>
 </p>
 <p align="center">
@@ -51,12 +55,12 @@ The configuration files in the `configurations` folder are meant to specify the 
 
 The script of this project is divided in 7 steps repeated for the representations involving 1 or 2 fingers, i.e. index finger or index and middle fingers.
 
-1. Computing Superimposition and Juxtaposition for the partial occlusion condition (TS condition)
-2. Computing Superimposition and Juxtaposition for the complete occlusion condition (TH condition)
+1. Computing Superimposition and Juxtaposition for the partial overlap condition (TS condition)
+2. Computing Superimposition and Juxtaposition for the complete overlap condition (TH condition)
 3. Duplicating the default representation to be the base for a text diversification (the text diversification does not modify the design of visual cues and thus the related files are not created by the `add_enhancement` subpackage)
 4. Adapt the default superimposition representations to be special (we have a `SpecialSuperimposition` file because in this experiment we want to change the design of the family only for the Default Superimposition representations in the TH condition)
 5. Adding the legend to the representations
-6. Compute the adaptations (the adapations allow to correctly map the commands for specific cases of complete occlusion)
+6. Compute the adaptations (the adapations allow to correctly map the commands for specific cases of complete overlap)
 7. Map the commands
 
 Every subpackage of the `microrep` package his used in this experiment except the `export_hand_poses` subpackage.

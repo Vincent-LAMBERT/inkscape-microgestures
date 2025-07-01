@@ -51,11 +51,11 @@ import microrep.core.mg_maths as mg
 import microrep.core.ref_and_specs as rf
 import microrep.core.scale_mg_rep as sc
 import microrep.core.utils as u
-from microrep.complete_occlusion_adaptation.configuration_file import *
+from microrep.add_overlap_adaptation.configuration_file import *
 
 #####################################################################
 
-class CompleteOcclusionAdaptation(inkex.Effect):
+class AddOverlapAdaptation(inkex.Effect):
     """
     The core logic of exporting combinations of layers as images.
     """
@@ -379,7 +379,7 @@ def modify_text_integration(tap_commands, hold_commands, logit=logging.info) :
 #####################################################################
 
 def _main():
-    effect = CompleteOcclusionAdaptation()
+    effect = AddOverlapAdaptation()
     effect.run()
     exit()
 

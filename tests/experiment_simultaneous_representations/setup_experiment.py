@@ -5,7 +5,7 @@ import sys
 import microrep.core.utils as u
 from microrep.add_enhancement import AddEnhancement
 from microrep.add_legend import AddLegend
-from microrep.complete_occlusion_adaptation import CompleteOcclusionAdaptation
+from microrep.add_overlap_adaptation import AddOverlapAdaptation
 from microrep.core.utils import FINGERS_WITH_THUMB
 from microrep.create_representations import CreateRepresentations
 from microrep.map_commands import MapCommands
@@ -31,8 +31,8 @@ command_icons_folder_en = os.path.join(script_path, 'icons', 'english-commands')
 icons_folder = command_icons_folder_en
 
 COMMAND_RADIUS = 2.5
-TS = 'TS'  # Partial occlusion condition
-TH = 'TH'  # Complete occlusion condition
+TS = 'TS'  # Partial overlap condition
+TH = 'TH'  # Complete overlap condition
 AANDB = 'AandB'  # A&B family
 MAS = 'MaS'  # MaS family
 
@@ -126,7 +126,7 @@ def add_legend(file, output_folder, config_file):
     # Restore stdout to default
     sys.stdout = sys.__stdout__
 
-def complete_occlusion_adaptation(file, output_folder, strategy, integration):
+def add_overlap_adaptation(file, output_folder, strategy, integration):
     """
     Create the representations for the given representation file.
     
@@ -141,7 +141,7 @@ def complete_occlusion_adaptation(file, output_folder, strategy, integration):
     # Redirect stdout to null to avoid printing exported files to console
     sys.stdout = open(os.devnull, 'w')
     
-    export_rep = CompleteOcclusionAdaptation()
+    export_rep = AddOverlapAdaptation()
     export_rep.run(args=[file, path_str, strategy_str, integration_str])
     
     # Close the redirected stdout
@@ -281,7 +281,7 @@ def compute_superimposition_adaptation(condition_rep_folder):
             file_path = os.path.join(condition_rep_folder, file_name)
             # Create the adaptation for the given representation
             strategy, integration = get_strat_integration(file_name)
-            complete_occlusion_adaptation(file_path, condition_rep_folder, strategy, integration)
+            add_overlap_adaptation(file_path, condition_rep_folder, strategy, integration)
             print(f"Adapted {file_path} with strategy {strategy} and integration {integration}")
 
 def get_strat_integration(file_name):
@@ -330,14 +330,14 @@ def compute_representations(num_fingers):
     """
     print(f"\n\n#############################################################")
     print(f"####### Computing Superimposition and Juxtaposition  ########")
-    print(f"#######     for the partial occlusion condition      ########")
+    print(f"#######     for the partial overlap condition      ########")
     print(f"#############################################################")
     compute_base_rep(superimposition_svg, TS, num_fingers)
     compute_base_rep(juxtaposition_svg, TS, num_fingers)
     
     print(f"\n\n#############################################################")
     print(f"####### Computing Superimposition and Juxtaposition  ########")
-    print(f"#######     for the complete occlusion condition     ########")
+    print(f"#######     for the complete overlap condition     ########")
     print(f"#############################################################")
     compute_base_rep(superimposition_svg, TH, num_fingers)
     compute_base_rep(juxtaposition_svg, TH, num_fingers)

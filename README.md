@@ -1,5 +1,9 @@
 <p align="center">
-<h1 align="center">Microrep</h1>
+<div style="display: table; margin: 0 auto">
+    <h1 style="display: table-cell; vertical-align: middle;padding-right: 20px">microrep</h1>
+    <span style="display: table-cell; vertical-align: middle;padding-right: 5px"><img src="./docs/images/microRep_Full.png" alt="Project Settings screenshot" height="75" width="75"/></span>
+    <span style="display: table-cell; vertical-align: middle;"><img src="./docs/images/python_logo.png" alt="Project Settings screenshot" height="75" width="75"/></span>
+</div>
 <h3 align="center">A Python Package to Create Representation of Microgestures</h3>
 </p>
 <p align="center">
@@ -68,7 +72,7 @@ This package also includes 3 optional subpackages that were developped for exper
 &emsp;&ensp; Add a legend to the copy of a given representation (optional step after the `create_representations` :cyclone: subpackage).
 
 
-:bookmark_tabs: [**Complete Occlusion Adaptation**](./docs/complete-occlusion-adaptation.md)
+:bookmark_tabs: [**Add Overlap Adaptation**](./docs/add-overlap-adaptation.md)
 &emsp;&ensp; Modifies the copy of a given representation to make sure the commands do not overlap when working on representations using both the tap and the hold microgestures (optional step after the `create_representations` :cyclone: subpackage).
 
 ## Installation
