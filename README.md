@@ -1,7 +1,7 @@
 <p align="center">
 <div style="display: table; margin: 0 auto">
     <h1 style="display: table-cell; vertical-align: middle;padding-right: 20px">microrep</h1>
-    <span style="display: table-cell; vertical-align: middle;padding-right: 5px"><img src="./docs/images/microRep_Full.png" alt="Project Settings screenshot" height="75" width="75"/></span>
+    <span style="display: table-cell; vertical-align: middle;padding-right: 5px"><img src="./docs/images/microRep_full.png" alt="Project Settings screenshot" height="75" width="75"/></span>
     <span style="display: table-cell; vertical-align: middle;"><img src="./docs/images/python_logo.png" alt="Project Settings screenshot" height="75" width="75"/></span>
 </div>
 <h3 align="center">A Python Package to Create Representation of Microgestures</h3>
