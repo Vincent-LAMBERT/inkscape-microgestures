@@ -6,7 +6,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "microrep"
-version = "1.0.10"
+# version = "1.0.20" # Version TestPyPi
+version = "1.0.0" # Version PyPi
 authors = [{ name="Vincent Lambert", email="vincent.lambert29@gmail.com" }]
 license-files = [ "LICENSE" ]
 classifiers = [
