@@ -32,8 +32,7 @@ dependencies = [
 test = ["cairosvg"]
 
 [project.urls]
-Homepage = "https://github.com/Vincent-LAMBERT/inkscape-microgestures"
-Issues = "https://github.com/Vincent-LAMBERT/inkscape-microgestures/issues"
+Homepage = "https://gricad-gitlab.univ-grenoble-alpes.fr/mic/microrep"
 
 [tool.setuptools.packages.find]
 where = ["src"]
