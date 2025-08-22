@@ -14,11 +14,6 @@
     </param>
     <param name="family" type="string" _gui-text="Selected family">AandB</param>
     <param name="radius" type="float" min="0.0" max="1000.0" _gui-text="Command expected radius">7.0</param>
-    <param name="swipe_behavior" type="optiongroup" gui-text="Behavior with the swipe representations" appearance="minimal">
-       <option selected="selected" value="stick_arrow_to_command">stick_arrow_to_command (made for AandB)</option>
-       <option value="stick_arrow_to_command">stick_arrow_to_command (made for AandB)</option>
-       <option value="grow_with_command_radius">grow_with_command_radius (made for MaS)</option>
-    </param>
     <param name="dpi" type="float" min="0.0" max="1000.0" _gui-text="Export DPI (if applicable)">300</param>
     <param name="config" type="string" _gui-text="Export Configuration File (Optional - Computed only if CSV file)">~/</param>
     <param name="traces" type="boolean" _gui-text="Show traces">false</param>

@@ -93,6 +93,6 @@ This `microrep` package was developed using Nikolai Shkurkin's extension export-
 
 ## License
 
-Except for the `cairosvgmg` folder (``tests/experiment_help_interface/cairosvgmg``), which is a copy of the `cairosvg` library, this project is licensed under the MIT License. The `cairosvgmg` folder contains the source code of the `cairosvg` library, which is licensed under the GNU Lesser General Public License v3.0 (LGPL-3.0). You can find its full license text in the `cairosvgmg/LICENSE` file.
+Except for the `cairosvgmg` folder (``tests/experiment_help_interface/cairosvgmg`` and ``tests/test_final_design/cairosvgmg``), which is a copy of the `cairosvg` library, this project is licensed under the MIT License. The `cairosvgmg` folder contains the source code of the `cairosvg` library, which is licensed under the GNU Lesser General Public License v3.0 (LGPL-3.0). You can find its full license text in the `cairosvgmg/LICENSE` file.
 
 The MIT License of this project as a whole can be found at the root folder of the project.
